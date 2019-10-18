@@ -1,8 +1,0 @@
-10/17/19
-
-Hello from all of us!
-
-This is the start of an adventure! Tonight, we met to finalize our sprint one objectives and plot a course for the next week. Our project is to create a portable braille printer! This sprint, our main objective is to get a machine that punches dimples in paper effectively. We are super excited to get started and will keep you in the loop as we continue!
-
-Love,
-The PoE Team
