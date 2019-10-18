@@ -11,6 +11,6 @@ def break_up_input(text):
 
     for char in text:
         # this is every char in the text sequence
-
+        print(char)
 
 read_text_file(file_path)
