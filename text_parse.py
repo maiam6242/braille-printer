@@ -1,6 +1,6 @@
-import numpy as np
-
 file_path = "/home/maia/Documents/School/19-20/PoE/braille-printer/test_story.txt"
+
+segments = []
 
 def read_text_file(path):
     '''
@@ -11,24 +11,26 @@ def read_text_file(path):
     open_file = open(path, 'r')
     text = open_file.read()
     print(text)
-    print("let's see what this does")
     return text
 
-def break_up_input(text):
+def break_up_text_input(text):
     '''
     Breaks the text into space based separations (title, paragraph etc)
     Args: string of text or other input
-    Returns: text in an array which is broken up and ready to pass to the translator class
+    Returns: text in an array which is broken up BY SECTION and 
+    ready to pass to the translator class
     '''
+    global segments
+    section = ''
     for char in text:
         # this is every char in the text sequence
-        last_char = ''
         if (char == '\n'):
-            print ('yep!')
-            print (last_char)
-        last_char = char
-    return 0
-        # print(char)
+            segments.append(section)
+            section = ''
+        else: 
+            section += char
+    print(segments)
+    return segments
 
 def set_segment_type(segment):
     '''
@@ -46,4 +48,4 @@ def get_segment_type():
 
     return 0
 
-break_up_input(read_text_file(file_path))
+break_up_text_input(read_text_file(file_path))
