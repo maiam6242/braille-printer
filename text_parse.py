@@ -2,6 +2,8 @@ import numpy as np
 
 file_path = "/home/maia/Documents/School/19-20/PoE/braille-printer/test_story.txt"
 
+characters = np.array([])
+
 def read_text_file(path):
     '''
     Opens and Reads in Text File
@@ -18,14 +20,17 @@ def break_up_input(text):
     '''
     Breaks the text into space based separations (title, paragraph etc)
     Args: string of text or other input
-    Returns: text in an array which is broken up and ready to pass to the translator class
+    Returns: text in an array which is broken up BY SECTION and ready to pass to the translator class
     '''
     for char in text:
         # this is every char in the text sequence
+        characters = np.append(characters,char)
         last_char = ''
         if (char == '\n'):
             print ('yep!')
             print (last_char)
+            characters = np.vstack(characters, char)
+            print(characters)
         last_char = char
     return 0
         # print(char)
