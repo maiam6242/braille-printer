@@ -1,6 +1,10 @@
 file_path = "/home/maia/Documents/School/19-20/PoE/braille-printer/test_story.txt"
 
+<<<<<<< HEAD
 segments = []
+=======
+characters = np.array([])
+>>>>>>> cd9416e2238f8db29548a49e3f3e1f84dfb9c2d7
 
 def read_text_file(path):
     '''
