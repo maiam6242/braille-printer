@@ -46,3 +46,6 @@ def get_segment_type():
     return 0
 
 break_up_text_input(read_text_file(file_path))
+# Some Pseudocode for my feelings on how this might look:
+# for segment in segments:
+#     translator.translate_baby!
