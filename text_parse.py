@@ -1,7 +1,5 @@
 file_path = "/home/maia/Documents/School/19-20/PoE/braille-printer/test_story.txt"
 
-segments = []
-
 def read_text_file(path):
     '''
     Opens and Reads in Text File
@@ -20,10 +18,9 @@ def break_up_text_input(text):
     Returns: text in an array which is broken up BY SECTION and 
     ready to pass to the translator class
     '''
-    global segments
+    segments = []
     section = ''
     for char in text:
-        # this is every char in the text sequence
         if (char == '\n'):
             segments.append(section)
             section = ''
