@@ -74,6 +74,7 @@ symbols = {'A' : np.array([[1,0],[0,0],[0,0]]),
            '$' : np.array([[0,1,0,1],[0,0,1,0],
            [0,0,1,0]])
            }
+num_lines = 0
 
 def convert_to_braille(segment):
     '''
@@ -81,10 +82,10 @@ def convert_to_braille(segment):
     Args: the whole segment in english
     Returns: the whole segment in braille
     '''
-    braille_text = []
+    braille_text = np.array([])
     for char in segment:
         translate_text(char)
-        braille_text.append(char)
+        np.hstack((braille_text, char))
     return braille_text
 
 def translate_text(char):
@@ -114,6 +115,12 @@ def split_into_lines(braille_segment):
     Args: Entire segment in braille
     Returns: An array that is broken up by line
     '''
+    print(braille_segment)
+    for row in braille_segment:
+        # this takes a whole row of values (as opposed to just one)
+        # TODO: Should this be a nested for loop? 
+        print(row)
+        print('next')
     return 0
 
 def set_num_lines(number_of_lines):
@@ -122,14 +129,14 @@ def set_num_lines(number_of_lines):
     Args: Length of the split into lines array 
     '''
     # FIXME: Should this take in something else?
-    return 0
+    num_lines = number_of_lines
 
 def get_num_lines():
     '''
     Gets the number of Braille lines in a given segment
     Returns: Number of lines in the document 
     '''
-    return 0
+    return num_lines
 
 def size_on_page(num_lines):
     '''
@@ -138,3 +145,5 @@ def size_on_page(num_lines):
     Returns: the dimensions in inches in the form of a list 
     '''
     return 0
+
+split_into_lines(np.hstack((np.array([[1,0,1,0],[0,0,0,1],[0,0,1,1]]), np.array([[1,0],[0,1],[0,1]]))))
