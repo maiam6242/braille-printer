@@ -324,7 +324,9 @@ def split_into_lines(braille_segment):
             lineArray = np.hstack((np.asarray(lineArray), np.zeros([3, charactersPerLine * 2 - lineLength])))
         lineArrays.append(lineArray)
         
-    return np.vstack(np.asarray(lineArrays))
+    outputArray =  np.vstack(np.asarray(lineArrays))
+    set_num_lines(np.size(outputArray, 1) / 3)
+    return outputArray
     
 def set_num_lines(number_of_lines):
     '''
