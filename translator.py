@@ -83,18 +83,29 @@ def convert_to_braille(segment):
     Returns: the whole segment in braille
     '''
     braille_text = np.array([])
+    find_caps(segment)
     for char in segment:
         translate_text(char)
         np.hstack((braille_text, char))
     return braille_text
 
+def getindices(s):
+    return [i for i, c in enumerate(s) if c.isupper()]
+
 def find_caps(segment):
-    '''
+    '''    
     Finds every capital letter or word and inserts the corresponding characters in braille
     Args: segment in English
     Returns: The segment in English with a weird symbol (non-english)characters interspersed to denote capitalization
     i.e. MAIA -> ||MAIA  or Maia -> | Maia
     '''
+    #TODO: Whatever you make this letter(s) associate it with the cap letter and cap word things in the dictionary, so that the translate_text function can recognize everything
+    capitals = getindices(segment)
+    for i in capitals:
+        
+        
+    
+    
 
 def translate_text(char):
     '''
@@ -102,20 +113,22 @@ def translate_text(char):
     Args: A single English character
     Returns: A single Braille character
     '''
-    # TODO: How should the quotes be tracked?! UGH! And all cap words? Maybe this isn't the right structure? It seems more modular though gahhhhh
-
-    # TODO: Handle cap letters and words, prob not here
+    
     open_quote = False
     
-    if char != '"':
-        print(symbols['%s' % char])
-    elif char == '"':
+    if char == '"':
         if open_quote != True:
             open_quote = True
             return symbols['opening "']
         else: 
+            open_quote = False
             return symbols['closing "']
-    return 0
+    else:
+        try: 
+            return(symbols['%s'] %char)
+        except:
+            print('character wasn\'t found')
+            return(symbols['?'])
 
 def split_into_lines(braille_segment):
     '''
