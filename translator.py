@@ -79,7 +79,7 @@ def convert_to_braille(segment):
     Returns: the whole segment in braille
     '''
     braille_text = []
-    if (is_new_line(segment) == False):
+    if not is_new_line(segment):
         segment = find_caps(segment)
         segment = find_nums(segment)
         segment = str.lower(segment)
@@ -90,6 +90,23 @@ def convert_to_braille(segment):
     else:
         braille_text = make_new_line()
     return braille_text
+
+def is_new_line(segment):
+    '''
+    Determines whether or not the segment is a new line character (ie paragraph break)
+    Args: The original english segment
+    Returns: True if the segment is a new line character, False if it is not
+    '''
+    
+    return 0
+    
+def make_new_line():
+    '''
+    Creates a new line of braille text (row of spaces)
+    Returns: A numpy array that is equal to a row of spaces (24/30 spaces) in braille
+    '''
+
+    return 0
 
 def find_caps(segment):
     '''    
@@ -108,7 +125,6 @@ def find_caps(segment):
     'ηHEy! ζThis is super ηCOOOL! ζCool cool ζCooζL! ηHOw do you feeηEEEEl?'
     '''
     #TODO: Whatever you make this letter(s) associate it with the cap letter and cap word things in the dictionary, so that the translate_text function can recognize everything 
-
     #TODO: Talk to real people about how capitals work so we can handle them better
     # Notes: 
         #  For some reason setting newListSegment = listSegment causes them both to be changed when one is so adding list() fixes this for reasons I don't understand
@@ -136,19 +152,6 @@ def find_caps(segment):
 
     outputString = ""
     return outputString.join(newListSegment)
-
-def is_new_line(segment):
-    '''
-    Determines whether or not the segment is a new line character (ie paragraph break)
-    Returns: True if the segment is a new line character, False if it is not
-    '''
-    return 0
-    
-def make_new_line():
-    '''
-    #TODO: WRITE THIS!
-    '''
-    return 0
 
 def find_nums(segment):
     '''    
@@ -204,13 +207,22 @@ def translate_text(char):
     Returns: A single Braille character
     
     >>> translate_text('"')
-    np.array([[0,0],[1,0],[1,1]])
+    array([[0,0],
+           [1,0],
+           [1,1]])
     >>> translate_text('"')
-    np.array([[0,0],[0,1],[1,1]])
+    array([[0,0],
+           [0,1],
+           [1,1]])
     >>> translate_text('>')
-    np.array([[0,0],[1,0],[1,1]])
+    "character wasn't found"
+    array([[0,0],
+           [1,0],
+           [1,1]])
     >>> translate_text('l')
-    np.array([[1,0],[1,0],[1,0]])
+    array([[1,0],
+           [1,0],
+           [1,0]])
     '''
     global open_quote
     # print(char)
@@ -239,8 +251,8 @@ def split_into_lines(braille_segment):
     >>> split_into_lines(test_array)
     np.array([[1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0],[1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0],[1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0]])
     # >>> test_array_2 = [np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array(np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),[[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]]),np.array([[1,0],[1,0],[1,0]])]
-    # >>> split_into_lines(test_array)
-    # []
+    >>> split_into_lines(test_array)
+    np.array([[1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0],[1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0],[1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0],[1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0],[1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0],[1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0]])
     '''
 
     charactersPerLine = 30
@@ -273,7 +285,9 @@ def split_into_lines(braille_segment):
         # print(charactersPerLine * 2 - lineLength)
 
         if charactersPerLine * 2 - lineLength != 0:
-            lineArray = np.hstack(np.asarray(lineArray), np.zeros(charactersPerLine * 2 - lineLength, 3))
+            print(np.size(np.asarray(lineArray)))
+            print(np.size(np.zeros([charactersPerLine * 2 - lineLength, 3])))
+            lineArray = np.hstack((np.asarray(lineArray), np.zeros([charactersPerLine * 2 - lineLength, 3])))
         lineArrays.append(lineArray)
         
     return np.vstack(np.asarray(lineArrays))
