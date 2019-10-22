@@ -4,7 +4,7 @@ Program to test viable punching frequency for one solenoid
 Created by Colin and Meg on 10/21
 */
 
-long Frequency = 1;
+long Frequency = 2;
 int SolenoidPin = 2;
 bool Solenoid = false;
 // int time = millis();
@@ -55,9 +55,9 @@ void runSolenoid(){
     int delayTime = int(1000./Frequency);
 
     digitalWrite(SolenoidPin, LOW);
-    delay(delayTime/2);
+    delay(delayTime*3/5);
     digitalWrite(SolenoidPin, HIGH);
-    delay(delayTime/2);
+    delay(delayTime*2/5);
 
 
     // if (millis() % delayTime == 0)
