@@ -84,8 +84,8 @@ def convert_to_braille(segment):
     for char in segment:
         char_trans = translate_text(char)
         braille_text.append(char_trans)
-    braille_tegitxt = np.asarray(braille_text)
-    print(braille_text)
+    braille_text = np.asarray(braille_text)
+    split_into_lines(braille_text)
     return braille_text
 
 def find_caps(segment):
@@ -210,12 +210,19 @@ def split_into_lines(braille_segment):
     Args: Entire segment in braille
     Returns: An array that is broken up by line
     '''
-    print(braille_segment)
-    for row in braille_segment:
-        # this takes a whole row of values (as opposed to just one)
-        # TODO: Should this be a nested for loop? 
-        print(row)
-        print(len(row))
+    # TODO: Should this be reshaped? What's up with this logic?
+    # @MAIA START HERE TOMORROW
+    by_lines = np.array([])
+    num_in_line = 0 
+    for character in braille_segment: 
+        print(character)
+        if(num_in_line + int(character.size/len(character)) <= 24):
+            num_in_line += int(character.size/len(character))
+        else:
+            print('yoooo')
+            print(braille_segment[num_in_line])
+            by_lines.horzcat(braille_segment())
+            num_in_line = 0
         print('next')
     return 0
 
