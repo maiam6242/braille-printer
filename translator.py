@@ -1,5 +1,7 @@
 import numpy as np
 
+#TODO: @MAIA Fix the numbers so they do not c
+
 symbols = {'A' : np.array([[1,0],[0,0],[0,0]]),
            'B' : np.array([[1,0],[1,0],[0,0]]),
            'C' : np.array([[1,1],[0,0],[0,0]]),
@@ -99,13 +101,18 @@ def find_caps(segment):
     Returns: The segment in English with a weird symbol (non-english)characters interspersed to denote capitalization
     i.e. MAIA -> ||MAIA  or Maia -> | Maia
     '''
-    #TODO: Whatever you make this letter(s) associate it with the cap letter and cap word things in the dictionary, so that the translate_text function can recognize everything
-    capitals = getindices(segment)
-    for i in capitals:
-        
-        
+    #TODO: Whatever you make this letter(s) associate it with the cap letter and cap word things in the dictionary, so that the translate_text function can recognize everything 
+
+    #TODO: Talk to real people about how 
     
-    
+    listSegment = segment.split()
+    newListSegment = listSegment
+    offset = 0
+    for i in listSegment:
+        if i.isupper():
+            newListSegment.insert(i+offset, "ζ")
+            offset+=1
+        
 
 def translate_text(char):
     '''
@@ -113,7 +120,6 @@ def translate_text(char):
     Args: A single English character
     Returns: A single Braille character
     '''
-    
     open_quote = False
     
     if char == '"':
@@ -141,6 +147,7 @@ def split_into_lines(braille_segment):
         # this takes a whole row of values (as opposed to just one)
         # TODO: Should this be a nested for loop? 
         print(row)
+        print(len(row))
         print('next')
     return 0
 
