@@ -91,27 +91,100 @@ def convert_to_braille(segment):
         np.hstack((braille_text, char))
     return braille_text
 
-def getindices(s):
-    return [i for i, c in enumerate(s) if c.isupper()]
-
 def find_caps(segment):
     '''    
     Finds every capital letter or word and inserts the corresponding characters in braille
     Args: segment in English
     Returns: The segment in English with a weird symbol (non-english)characters interspersed to denote capitalization
     i.e. MAIA -> ||MAIA  or Maia -> | Maia
+
+
+    >>> find_caps("HELLO")
+    'ηHELLO'
+    >>> find_caps("Hello")
+    'ζHello'
+    >>> find_caps("HI THERE I am wondering what You think About this wacky STRING")
+    'ηHI ηTHERE ζI am wondering what ζYou think ζAbout this wacky ηSTRING'
     '''
     #TODO: Whatever you make this letter(s) associate it with the cap letter and cap word things in the dictionary, so that the translate_text function can recognize everything 
 
-    #TODO: Talk to real people about how 
-    
-    listSegment = segment.split()
-    newListSegment = listSegment
+    #TODO: Talk to real people about how capitals work so we can handle them better
+    # Notes: 
+        #  For some reason setting newListSegment = listSegment causes them both to be changed when one is so adding list() fixes this for reasons I don't understand
+        # islower() and isupper() both return false if the string is a space so you need to use not isupper() which is super annoying but works
+
+
+    listSegment = list(segment)
+    newListSegment = list(listSegment)   
     offset = 0
-    for i in listSegment:
-        if i.isupper():
-            newListSegment.insert(i+offset, "ζ")
-            offset+=1
+    for i in range(len(listSegment)):
+        if i == 0:
+            lastupper = False # If there is no character before it tell it that the last character was not uppercase
+        else:
+            lastupper = listSegment[i-1].isupper()
+    
+        if listSegment[i].isupper():
+            if i< len(listSegment) -1 and listSegment[i+1].isupper() and not lastupper:
+                newListSegment.insert(i+offset, "η")
+                offset+=1
+            else:
+                if not lastupper:
+                    newListSegment.insert(i+offset, "ζ")
+                    offset+=1
+
+
+    outputString = ""
+
+    return outputString.join(newListSegment)
+
+def find_nums(segment):
+    '''    
+    Finds every number in the string and adds a 
+    Args: segment in English
+    Returns: The segment in English with a weird symbol (non-english)characters interspersed to denote capitalization
+    i.e. MAIA -> ||MAIA  or Maia -> | Maia
+
+    >>> find_nums("1 2 3")
+    'Ξ1 Ξ2 Ξ3'
+    >>> find_nums("123")
+    'Ξ123'
+    >>> find_nums("The numbers are 1 and 123 and 35,245")
+    'The numbers are Ξ1 and Ξ123 and Ξ35245'
+    
+    '''
+    # Notes: 
+        #  For some reason setting newListSegment = listSegment causes them both to be changed when one is so adding list() fixes this for reasons I don't understand
+        
+    listSegment = list(segment)
+    i=0
+    while i<len(listSegment):   # This is needed for numbers with a comma in them to prevent it from being two numbers
+        if listSegment[i] == ',':
+            if listSegment[i-1].isnumeric() and listSegment[i+1].isnumeric():
+                listSegment.pop(i)
+        i+=1
+
+    newListSegment = list(listSegment)   
+    offset = 0
+    for i in range(len(listSegment)):
+        if i == 0:
+            lastupper = False # If there is no character before it tell it that the last character was not uppercase
+        else:
+            lastupper = listSegment[i-1].isnumeric()
+    
+        if listSegment[i].isnumeric():
+            if i< len(listSegment) -1 and listSegment[i+1].isnumeric() and not lastupper:
+                newListSegment.insert(i+offset, "Ξ")
+                offset+=1
+            else:
+                if not lastupper:
+                    newListSegment.insert(i+offset, "Ξ")
+                    offset+=1
+
+    outputString = ""
+
+    return outputString.join(newListSegment)
+
+        
         
 
 def translate_text(char):
@@ -174,4 +247,9 @@ def size_on_page(num_lines):
     '''
     return 0
 
-split_into_lines(np.hstack((np.array([[1,0,1,0],[0,0,0,1],[0,0,1,1]]), np.array([[1,0],[0,1],[0,1]]))))
+# split_into_lines(np.hstack((np.array([[1,0,1,0],[0,0,0,1],[0,0,1,1]]), np.array([[1,0],[0,1],[0,1]]))))
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
+    # print(find_caps("HI THERE I am wondering what You think About this wacky STRING"))
