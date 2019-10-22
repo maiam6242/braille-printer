@@ -351,12 +351,10 @@ def get_size_on_page(num_lines):
     Args: #TODO: Should this be like this
     Returns: the dimensions in inches in the form of a list
     '''
-
+    
     return 0
 
 if __name__ == "__main__":
     import doctest
     # doctest.run_docstring_examples(split_into_lines, globals())
     doctest.testmod()
-    # print(convert_to_braille('Why in the world do you walk sideways like that? said a Mother Crab to her son. “You should always walk straight forward with your toes turned out.”'))
-    # print(find_caps("HI THERE I am wondering what You think About this wacky STRING"))
