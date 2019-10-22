@@ -69,6 +69,7 @@ symbols = {'a' : np.array([[1,0],[0,0],[0,0]]),
            [0,0,1,0]])
            }
 num_lines = 0
+open_quote = False
 
 def convert_to_braille(segment):
     '''
@@ -84,7 +85,7 @@ def convert_to_braille(segment):
     for char in segment:
         char_trans = translate_text(char)
         braille_text.append(char_trans)
-    braille_text = np.asarray(braille_text)
+    # braille_text = np.asarray(braille_text)
     split_into_lines(braille_text)
     return braille_text
 
@@ -186,8 +187,16 @@ def translate_text(char):
     Converts a single character into braille based on "symbols"; handles more of the syntactical things and other rules with Braille 
     Args: A single English character
     Returns: A single Braille character
+    >>> translate_text('"')
+    np.array([[0,0],[1,0],[1,1]])
+    >>> translate_text('"')
+    np.array([[0,0],[0,1],[1,1]])
+    >>> translate_text('>')
+    np.array([[0,0],[1,0],[1,1]])
+    >>> translate_text('l')
+    np.array([[1,0],[1,0],[1,0]])
     '''
-    open_quote = False
+    global open_quote
     print(char)
     if char == '"':
         if open_quote != True:
@@ -206,25 +215,48 @@ def translate_text(char):
 
 def split_into_lines(braille_segment):
     '''
-    Takes the segment and splits it into 24 character lines
-    Args: Entire segment in braille
-    Returns: An array that is broken up by line
+    Takes the segment and splits it into 24? 30? character lines
+    Args: Entire segment in braille (as a list of numpy arrays)
+    Returns: A numpy array that is a segment (size is twice the number of characters per line)
     '''
     # TODO: Should this be reshaped? What's up with this logic?
     # @MAIA START HERE TOMORROW
-    by_lines = np.array([])
-    num_in_line = 0 
-    for character in braille_segment: 
-        print(character)
-        if(num_in_line + int(character.size/len(character)) <= 24):
-            num_in_line += int(character.size/len(character))
+    # by_lines = np.array([])
+    # num_in_line = 0 
+    # for character in braille_segment: 
+    #     print(character)
+    #     if(num_in_line + int(character.size/len(character)) <= 24):
+    #         num_in_line += int(character.size/len(character))
+    #     else:
+    #         print('yoooo')
+    #         print(braille_segment[num_in_line])
+    #         by_lines.horzcat(braille_segment())
+    #         num_in_line = 0
+    #     print('next')
+    # return 0
+
+    charactersPerLine = 30
+    currentLine = []
+    lines = []
+    charactersInLine = 0
+    space = np.array([[0,0],[0,0],[0,0]])
+
+    for character in braille_segment:
+        if np.size(character, 0) == 4:
+            characterSize = 2
         else:
-            print('yoooo')
-            print(braille_segment[num_in_line])
-            by_lines.horzcat(braille_segment())
-            num_in_line = 0
-        print('next')
-    return 0
+            characterSize = 1
+        if characterSize + charactersInLine <= charactersPerLine:
+            currentLine.append(character)
+            charactersInLine += characterSize
+        else:
+            lines.append(currentLine)
+            currentLine = []
+
+    for line in lines:
+        lineArray = np.hstack(line)
+        lineLength = np.size(lineArray, 0)
+        lineArray.append(zeros())
 
 def set_num_lines(number_of_lines):
     '''
