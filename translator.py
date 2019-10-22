@@ -1,35 +1,32 @@
 import numpy as np
+#TODO: Add single opening and closing quotation marks
 
-#TODO: @MAIA Fix the numbers so they do not contain the start number symbol
-
-#TODO @MAIA Add the greek symbols from the capital and number functions to the dictionary
-
-symbols = {'A' : np.array([[1,0],[0,0],[0,0]]),
-           'B' : np.array([[1,0],[1,0],[0,0]]),
-           'C' : np.array([[1,1],[0,0],[0,0]]),
-           'D' : np.array([[1,1],[0,1],[0,0]]),
-           'E' : np.array([[1,0],[0,1],[0,0]]),
-           'F' : np.array([[1,1],[1,0],[0,0]]),
-           'G' : np.array([[1,1],[1,1],[0,0]]),
-           'H' : np.array([[1,0],[1,1],[0,0]]),
-           'I' : np.array([[0,1],[1,0],[0,0]]),
-           'J' : np.array([[0,1],[1,1],[0,0]]),
-           'K' : np.array([[1,0],[0,0],[1,0]]),
-           'L' : np.array([[1,0],[1,0],[1,0]]),
-           'M' : np.array([[1,1],[0,0],[1,0]]),
-           'N' : np.array([[1,1],[0,1],[1,0]]),
-           'O' : np.array([[1,0],[0,1],[1,0]]),
-           'P' : np.array([[1,1],[1,0],[1,0]]),
-           'Q' : np.array([[1,1],[1,1],[1,0]]),
-           'R' : np.array([[1,0],[1,1],[1,0]]),
-           'S' : np.array([[0,1],[1,0],[1,0]]),
-           'T' : np.array([[0,1],[1,1],[1,0]]),
-           'U' : np.array([[1,0],[0,0],[1,1]]),
-           'V' : np.array([[1,0],[1,0],[1,1]]),
-           'W' : np.array([[0,1],[1,1],[0,1]]),
-           'X' : np.array([[1,1],[0,0],[1,1]]),
-           'Y' : np.array([[1,1],[0,1],[1,1]]),
-           'Z' : np.array([[1,0],[0,1],[1,1]]),
+symbols = {'a' : np.array([[1,0],[0,0],[0,0]]),
+           'b' : np.array([[1,0],[1,0],[0,0]]),
+           'c' : np.array([[1,1],[0,0],[0,0]]),
+           'd' : np.array([[1,1],[0,1],[0,0]]),
+           'e' : np.array([[1,0],[0,1],[0,0]]),
+           'f' : np.array([[1,1],[1,0],[0,0]]),
+           'g' : np.array([[1,1],[1,1],[0,0]]),
+           'h' : np.array([[1,0],[1,1],[0,0]]),
+           'i' : np.array([[0,1],[1,0],[0,0]]),
+           'j' : np.array([[0,1],[1,1],[0,0]]),
+           'k' : np.array([[1,0],[0,0],[1,0]]),
+           'l' : np.array([[1,0],[1,0],[1,0]]),
+           'm' : np.array([[1,1],[0,0],[1,0]]),
+           'n' : np.array([[1,1],[0,1],[1,0]]),
+           'o' : np.array([[1,0],[0,1],[1,0]]),
+           'p' : np.array([[1,1],[1,0],[1,0]]),
+           'q' : np.array([[1,1],[1,1],[1,0]]),
+           'r' : np.array([[1,0],[1,1],[1,0]]),
+           's' : np.array([[0,1],[1,0],[1,0]]),
+           't' : np.array([[0,1],[1,1],[1,0]]),
+           'u' : np.array([[1,0],[0,0],[1,1]]),
+           'v' : np.array([[1,0],[1,0],[1,1]]),
+           'w' : np.array([[0,1],[1,1],[0,1]]),
+           'x' : np.array([[1,1],[0,0],[1,1]]),
+           'y' : np.array([[1,1],[0,1],[1,1]]),
+           'z' : np.array([[1,0],[0,1],[1,1]]),
            '1' : np.array([[1,0],[0,0],[0,0]]),
            '2' : np.array([[1,0],[1,0],[0,0]]),
            '3' : np.array([[1,1],[0,0],[0,0]]),
@@ -53,6 +50,8 @@ symbols = {'A' : np.array([[1,0],[0,0],[0,0]]),
            '(' : np.array([[0,0],[1,1],[1,1]]),
            ')' : np.array([[0,0],[1,1],[1,1]]),
            'Ξ' : np.array([[0,1],[0,1],[1,1]]),
+           '“' : np.array([[0,0],[1,0],[1,1]]),
+           '”' : np.array([[0,0],[0,1],[1,1]]),
            'opening "' : np.array([[0,0],[1,0],[1,1]]),
            'closing "' : np.array([[0,0],[0,1],[1,1]]),
            'ζ' : np.array([[0,0],[0,0],[0,1]]),
@@ -77,11 +76,16 @@ def convert_to_braille(segment):
     Args: the whole segment in english
     Returns: the whole segment in braille
     '''
-    braille_text = np.array([])
-    find_caps(segment)
+    # braille_text = np.array([])
+    braille_text = []
+    segment = find_caps(segment)
+    segment = find_nums(segment)
+    segment = str.lower(segment)
     for char in segment:
-        translate_text(char)
-        np.hstack((braille_text, char))
+        char_trans = translate_text(char)
+        braille_text.append(char_trans)
+    braille_tegitxt = np.asarray(braille_text)
+    print(braille_text)
     return braille_text
 
 def find_caps(segment):
@@ -90,7 +94,6 @@ def find_caps(segment):
     Args: segment in English
     Returns: The segment in English with a weird symbol (non-english)characters interspersed to denote capitalization
     i.e. MAIA -> ||MAIA  or Maia -> | Maia
-
 
     >>> find_caps("HELLO")
     'ηHELLO'
@@ -129,7 +132,6 @@ def find_caps(segment):
 
 
     outputString = ""
-
     return outputString.join(newListSegment)
 
 def find_nums(segment):
@@ -179,9 +181,6 @@ def find_nums(segment):
 
     return outputString.join(newListSegment)
 
-        
-        
-
 def translate_text(char):
     '''
     Converts a single character into braille based on "symbols"; handles more of the syntactical things and other rules with Braille 
@@ -189,7 +188,7 @@ def translate_text(char):
     Returns: A single Braille character
     '''
     open_quote = False
-    
+    print(char)
     if char == '"':
         if open_quote != True:
             open_quote = True
@@ -197,9 +196,10 @@ def translate_text(char):
         else: 
             open_quote = False
             return symbols['closing "']
-    else:
-        try: 
-            return(symbols['%s'] %char)
+    else: 
+        try:
+            print(symbols[char])
+            return(symbols[char])
         except:
             print('character wasn\'t found')
             return(symbols['?'])
@@ -242,9 +242,8 @@ def size_on_page(num_lines):
     '''
     return 0
 
-# split_into_lines(np.hstack((np.array([[1,0,1,0],[0,0,0,1],[0,0,1,1]]), np.array([[1,0],[0,1],[0,1]]))))
-
 if __name__ == "__main__":
     import doctest
     doctest.testmod()
+    convert_to_braille('Why in the world do you walk sideways like that? said a Mother Crab to her son. “You should always walk straight forward with your toes turned out.”')
     # print(find_caps("HI THERE I am wondering what You think About this wacky STRING"))

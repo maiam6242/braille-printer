@@ -17,17 +17,22 @@ def break_up_text_input(text):
     Args: string of text or other input
     Returns: text in an array which is broken up BY SECTION and 
     ready to pass to the translator class
+
+    >>> break_up_text_input('Hello hi there')
+    'Hello hi there'
     '''
     segments = []
-    section = ''
+    section = []
     for char in text:
         if (char == '\n'):
             segments.append(section)
             section = ''
         else: 
             section += char
-    print(segments)
-    return segments
+    segments.append(section)
+
+    output = ""
+    return output.join(segments[0])
 
 def set_segment_type(segment):
     '''
@@ -45,7 +50,11 @@ def get_segment_type():
 
     return 0
 
-break_up_text_input(read_text_file(file_path))
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
+# break_up_text_input(read_text_file(file_path))
 # Some Pseudocode for my feelings on how this might look:
 # for segment in segments:
 #     translator.translate_baby!
