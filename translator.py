@@ -88,6 +88,14 @@ def convert_to_braille(segment):
         np.hstack((braille_text, char))
     return braille_text
 
+def find_caps(segment):
+    '''
+    Finds every capital letter or word and inserts the corresponding characters in braille
+    Args: segment in English
+    Returns: The segment in English with a weird symbol (non-english)characters interspersed to denote capitalization
+    i.e. MAIA -> ||MAIA  or Maia -> | Maia
+    '''
+
 def translate_text(char):
     '''
     Converts a single character into braille based on "symbols"; handles more of the syntactical things and other rules with Braille 
