@@ -1,6 +1,8 @@
 import numpy as np
 
-#TODO: @MAIA Fix the numbers so they do not c
+#TODO: @MAIA Fix the numbers so they do not contain the start number symbol
+
+#TODO @MAIA Add the greek symbols from the capital and number functions to the dictionary
 
 symbols = {'A' : np.array([[1,0],[0,0],[0,0]]),
            'B' : np.array([[1,0],[1,0],[0,0]]),
