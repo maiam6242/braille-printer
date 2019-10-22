@@ -86,7 +86,6 @@ def convert_to_braille(segment):
         for char in segment:
             char_trans = translate_text(char)
             braille_text.append(char_trans)
-        
         split_into_lines(braille_text)
     else:
         braille_text = make_new_line()
@@ -140,12 +139,15 @@ def find_caps(segment):
 
 def is_new_line(segment):
     '''
-    #TODO: WRITE THIS!
+    Determines whether or not the segment is a new line character (ie paragraph break)
+    Returns: True if the segment is a new line character, False if it is not
     '''
     return 0
     
 def make_new_line():
-
+    '''
+    #TODO: WRITE THIS!
+    '''
     return 0
 
 def find_nums(segment):
