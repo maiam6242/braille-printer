@@ -308,19 +308,13 @@ def split_into_lines(braille_segment):
             currentLine = []
             charactersInLine = 0
     lines.append(currentLine)
-    # print(currentLine)
 
     lineArrays = []
     for line in lines:
         lineArray = np.hstack(line)
         lineLength = np.size(lineArray, 1)
-        # print(lineLength)
-        # print(lineArray)
-        # print(charactersPerLine * 2 - lineLength)
 
         if charactersPerLine * 2 - lineLength != 0:
-            # print(np.shape(np.asarray(lineArray)))
-            # print(np.shape(np.zeros([3,charactersPerLine * 2 - lineLength])))
             lineArray = np.hstack((np.asarray(lineArray), np.zeros([3, charactersPerLine * 2 - lineLength])))
         lineArrays.append(lineArray)
         
@@ -349,9 +343,10 @@ def set_size_on_page(num_lines):
 
     return 0
 
-def get_size_on_page():
+def get_size_on_page(num_lines):
     '''
     Gets the variable size which holds the dimensions in inches in the form of a list
+    Args: #TODO: Should this be like this
     Returns: the dimensions in inches in the form of a list
     '''
 
