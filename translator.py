@@ -71,6 +71,7 @@ symbols = {'a' : np.array([[1,0],[0,0],[0,0]]),
 num_lines = 0
 open_quote = False
 size = []
+page = page
 
 def convert_to_braille(segment):
     '''
@@ -342,19 +343,28 @@ def set_size_on_page(num_lines):
     Determines the amount of space on a page which the segment will take up and converts that to an amount of inches, sets the variable size to the dimensions in inches in the form of a list
     Args: number of lines in a segment
     '''
+    
+    # A braille line is .28 inches in height
+    # Braille lines are typically spaced .04 inches from top to top (not .04 apart)
 
-    return 0
+    # |____|  | is y_size and _ is x_size
 
-def get_size_on_page(num_lines):
+    # TODO: Check this
+    y_size = .28*num_lines + page.get_spacing()*num_lines
+    x_size = 0 # NEED TO ACTUALLY CALC AND FIND THIS
+    size = [x_size, y_size]
+
+def get_size_on_page():
     '''
     Gets the variable size which holds the dimensions in inches in the form of a list
-    Args: #TODO: Should this be like this
+    Args: #TODO: Should this also take in a num_lines???
     Returns: the dimensions in inches in the form of a list
     '''
     
-    return 0
+    return size
 
 if __name__ == "__main__":
     import doctest
     # doctest.run_docstring_examples(split_into_lines, globals())
     doctest.testmod()
+    convert_to_braille('“Yay Braille!”')
