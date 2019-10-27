@@ -14,15 +14,15 @@ class Stepper{
 
     public:
 
-        Stepper(int step_pin, int direction_pin, int enable_pin){
-            stepPin = step_pin;
-            directionPin = direction_pin;
-            enablePin = enable_pin;
-            pinMode(stepPin, OUTPUT);
-            pinMode(directionPin,OUTPUT);
-            pinMode(enablePin,OUTPUT);
+        // Stepper(int step_pin, int direction_pin, int enable_pin){
+        //     stepPin = step_pin;
+        //     directionPin = direction_pin;
+        //     enablePin = enable_pin;
+        //     pinMode(stepPin, OUTPUT);
+        //     pinMode(directionPin,OUTPUT);
+        //     pinMode(enablePin,OUTPUT);
 
-        }
+        // }
 
         int getPosition() {return position;}
         void setPosition(int value) {position = value;}
@@ -66,8 +66,64 @@ class Stepper{
 
 };
 
+// A stepper object which has added functionality for moving to one of eight positions
+class HorizontalStepper :  public Stepper {
 
-Stepper stepper(3, 2, 4);
+    protected:
+        int homePin;
+        int stepsPerCharacter = 20; // How many steps it needs to move to move one character over
+        int stepsToFirstCharacter = 30; // Steps needed to get to origin
+
+    public:
+
+        HorizontalStepper(int step_pin, int direction_pin, int enable_pin, int home_pin){
+            stepPin = step_pin;
+            directionPin = direction_pin;
+            enablePin = enable_pin;
+            homePin = home_pin;
+            pinMode(stepPin, OUTPUT);
+            pinMode(directionPin,OUTPUT);
+            pinMode(enablePin,OUTPUT);
+            pinMode(homePin,INPUT);
+        }
+
+        void home(){
+
+            activate();
+
+            digitalWrite(directionPin, LOW);
+
+            while (! digitalRead(homePin)){
+                stepOnce();
+                delay(1000/30);
+            }
+
+            step(30, 10);
+
+            digitalWrite(directionPin, LOW);
+
+            while (! digitalRead(homePin)){
+                stepOnce();
+                delay(1000/10);
+            }
+
+            step(stepsToFirstCharacter, 10);
+
+            position = 0;
+
+            deactivate();
+        }
+
+        void goToCharacter(int desiredCharacter, int stepsPerSecond){
+
+            int desiredPosition = desiredCharacter * stepsPerCharacter;
+
+            goTo(desiredPosition, stepsPerSecond);
+        }
+};
+
+
+HorizontalStepper stepper(3, 2, 4, 5);
 
 void setup(){
 
@@ -76,13 +132,16 @@ void setup(){
 
 void loop(){
 
-    stepper.activate();
-    stepper.goTo(100, 20);
-    delay(1000);
-    stepper.goTo(0, 20);
-    stepper.deactivate();
-    delay(1000);
+    // stepper.activate();
+    // stepper.goTo(100, 20);
+    // delay(1000);
+    // stepper.goTo(0, 20);
+    // stepper.deactivate();
+    // delay(1000);
 
+    stepper.home();
+
+    delay(100000000);
 }
 
 
