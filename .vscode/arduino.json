@@ -1,7 +1,6 @@
 {
     "programmer": "AVR ISP",
-    "board": "arduino:avr:mega",
-    "configuration": "cpu=atmega2560",
-    "sketch": "Arduino Tests/FrequencyTest/FrequencyTest.ino",
+    "board": "arduino:avr:uno",
+    "sketch": "ArduinoFirmware/ArduinoFirmware.ino",
     "port": "/dev/ttyACM0"
 }
