@@ -18,6 +18,9 @@ class Stepper{
             stepPin = step_pin;
             directionPin = direction_pin;
             enablePin = enable_pin;
+            pinMode(stepPin, OUTPUT);
+            pinMode(directionPin,OUTPUT);
+            pinMode(enablePin,OUTPUT);
 
         }
 
@@ -30,8 +33,8 @@ class Stepper{
         int getEnablePin() {return enablePin;}
         void setEnablePin(int value) {enablePin = value;}
 
-        void activate(){digitalWrite(enablePin, HIGH);}
-        void deactivate(){digitalWrite(enablePin, LOW);}
+        void activate(){digitalWrite(enablePin, LOW);}
+        void deactivate(){digitalWrite(enablePin, HIGH);}
 
 
         // Steps the stepper once
@@ -47,7 +50,7 @@ class Stepper{
             if (steps >= 0){digitalWrite(directionPin, HIGH);}
             if (steps < 0){digitalWrite(directionPin, LOW);}
 
-            for (int i = 1; i<steps; i++){
+            for (int i = 1; i<abs(steps); i++){
 
                 stepOnce();
                 delay(1000 / stepsPerSecond);
@@ -56,16 +59,15 @@ class Stepper{
         }
 
         void goTo(int targetPosition, int stepsPerSecond){
-            
-            int stepsToGo = targetPosition - position;
 
+            int stepsToGo = targetPosition - position;
             step(stepsToGo, stepsPerSecond);
         }
 
 };
 
 
-Stepper stepper(2, 3, 4);
+Stepper stepper(3, 2, 4);
 
 void setup(){
 
@@ -74,10 +76,11 @@ void setup(){
 
 void loop(){
 
-    // stepper.activate();
-    // stepper.step(100, 5);
-    // stepper.deactivate();
-
+    stepper.activate();
+    stepper.goTo(100, 20);
+    delay(1000);
+    stepper.goTo(0, 20);
+    stepper.deactivate();
     delay(1000);
 
 }
