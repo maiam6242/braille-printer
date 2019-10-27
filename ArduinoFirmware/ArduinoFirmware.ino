@@ -123,7 +123,43 @@ class HorizontalStepper :  public Stepper {
 };
 
 
-HorizontalStepper stepper(3, 2, 4, 5);
+class PaperStepper : Stepper{
+
+    protected:
+    int loadSteps = 50; // Number of steps needed to load in Paper
+    int unloadSteps = 100; // Number of steps needed to unload Paper
+    int stepsPerCharacter = 40; // Number of steps to move up one chaacter
+
+
+    public:
+        PaperStepper(int step_pin, int direction_pin, int enable_pin){
+            stepPin = step_pin;
+            directionPin = direction_pin;
+            enablePin = enable_pin;
+            pinMode(stepPin, OUTPUT);
+            pinMode(directionPin,OUTPUT);
+            pinMode(enablePin,OUTPUT);
+        }
+
+        load(int stepsPerSecond){
+            step(loadSteps, stepsPerSecond);
+            position = 0;
+        }
+
+        unload(int stepsPerSecond){
+            step(unloadSteps, stepsPerSecond);
+        }
+
+        void goToCharacter(int desiredCharacter, int stepsPerSecond){
+
+            int desiredPosition = desiredCharacter * stepsPerCharacter;
+
+            goTo(desiredPosition, stepsPerSecond);
+        }
+};
+
+
+PaperStepper stepper(3, 2, 4);
 
 void setup(){
 
@@ -139,7 +175,7 @@ void loop(){
     // stepper.deactivate();
     // delay(1000);
 
-    stepper.home();
+    stepper.load(40);
 
     delay(100000000);
 }
