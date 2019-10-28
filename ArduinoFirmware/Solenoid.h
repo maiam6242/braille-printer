@@ -14,7 +14,7 @@ class Solenoid {
 
             pins[i] = givenPins[i];
             // Serial.println(pins[i]);
-            // pinMode(pins[i], OUTPUT);
+            pinMode(pins[i], OUTPUT);
 
         }
     }
@@ -26,7 +26,7 @@ class Solenoid {
         for (int i=0; i < sizeof(givenPins); i++){
 
             if (givenPins[i] == 1){
-                // digitalWrite(pins[i], HIGH);
+                digitalWrite(pins[i], HIGH);
                 Serial.print("Solenoid fired:");
                 Serial.println(pins[i]);
 
@@ -37,7 +37,7 @@ class Solenoid {
         delay(time);
 
         for (int i=0; i < solenoidNumber; i++){
-            // digitalWrite(pins[i], LOW);
+            digitalWrite(pins[i], LOW);
             Serial.print("Solenoid retracted:");
             Serial.println(pins[i]);
         }
