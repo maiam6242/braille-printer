@@ -124,7 +124,7 @@ class HorizontalStepper :  public Stepper {
 };
 
 // A stepper object which handles paper controls such as going to character and loading
-class PaperStepper : Stepper{
+class PaperStepper : public Stepper{
 
     protected:
     int loadSteps = 50; // Number of steps needed to load in Paper
