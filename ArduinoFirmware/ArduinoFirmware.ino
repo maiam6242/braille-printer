@@ -33,48 +33,21 @@ void loop(){
     horizontalStepper.setPins(3,2,4,5);
     paperStepper.setPins(6,7,8);
 
-    
-
-
-    // interpreter.executeCommand(horizontalStepper, paperStepper, solenoid);
-
-    // // horizontalStepper.step(5, 30);
-    // interpreter.executeCommand(horizontalStepper, paperStepper, solenoid);
-
-
-    // delay(100);
-
     while (1){
         
-        // getString();
         interpreter.executeCommand(horizontalStepper, paperStepper, solenoid);
-
-
         delay(100);
-
-
-
-
     }
 
-
-
-
-    // bool solenoidsToFire[14] =  {1,1,0,0,0,0,0,0,0,0,0,0,0,0};
-
-    // solenoid.fire(solenoidsToFire, 20);
-
-
-    // delay(100000000);
 }
 
-void getString(){
-    if (Serial.available() > 0) {
-        // read the incoming byte:
-        String str = Serial.readString();
-        Serial.println(str);
-    }
-}
+// void getString(){
+//     if (Serial.available() > 0) {
+//         // read the incoming byte:
+//         String str = Serial.readString();
+//         Serial.println(str);
+//     }
+// }
 
 
 
