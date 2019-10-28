@@ -12,24 +12,37 @@
 // PaperStepper paperStepper(6,7,8);
 // GcodeInterpreter interpreter; 
 
+
+
 void setup(){
 
     Serial.begin(115200); 
+    
+
 
 }
 
 void loop(){
 
-    int selectedPins[] = {24,25,26,27,28,29,30,31,32,33,34,35,36,37};
-    Solenoid solenoid(selectedPins);
-    HorizontalStepper horizontalStepper(3,2,4,5);
-    PaperStepper paperStepper(6,7,8);
+    Solenoid solenoid;
+    HorizontalStepper horizontalStepper;
+    PaperStepper paperStepper;
     GcodeInterpreter interpreter;
+    int selectedPins[] = {24,25,26,27,28,29,30,31,32,33,34,35,36,37};
+    solenoid.setPins(selectedPins);
+    horizontalStepper.setPins(3,2,4,5);
+    paperStepper.setPins(6,7,8);
+
+    
 
 
     // interpreter.executeCommand(horizontalStepper, paperStepper, solenoid);
 
-    // horizontalStepper.step(5, 30);
+    // // horizontalStepper.step(5, 30);
+    // interpreter.executeCommand(horizontalStepper, paperStepper, solenoid);
+
+
+    // delay(100);
 
     while (1){
         

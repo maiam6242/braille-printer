@@ -73,7 +73,7 @@ class HorizontalStepper :  public Stepper {
 
     public:
 
-        HorizontalStepper(int step_pin, int direction_pin, int enable_pin, int home_pin){
+        void setPins(int step_pin, int direction_pin, int enable_pin, int home_pin){
             stepPin = step_pin;
             directionPin = direction_pin;
             enablePin = enable_pin;
@@ -133,7 +133,7 @@ class PaperStepper : public Stepper{
 
 
     public:
-        PaperStepper(int step_pin, int direction_pin, int enable_pin){
+        void setPins(int step_pin, int direction_pin, int enable_pin){
             stepPin = step_pin;
             directionPin = direction_pin;
             enablePin = enable_pin;
