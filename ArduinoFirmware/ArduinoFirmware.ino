@@ -26,8 +26,11 @@ class GcodeInterpreter{
 
             */
 
+            //    Serial.println("working");
+
 
             if (Serial.available() > 0) {
+                Serial.println("Available");
                 // read the incoming byte:
                 String str = Serial.readString();
                 Serial.println(str);
@@ -90,7 +93,7 @@ GcodeInterpreter interpreter;
 
 void setup(){
 
-    Serial.begin(9600);
+    Serial.begin(115200);  
 }
 
 void loop(){
@@ -98,8 +101,10 @@ void loop(){
 
     interpreter.executeCommand(horizontalStepper, paperStepper, solenoid);
 
+    // getString();
 
-    delay(10);
+
+    delay(100);
 
 
 
@@ -110,6 +115,15 @@ void loop(){
 
     // delay(100000000);
 }
+
+void getString(){
+    if (Serial.available() > 0) {
+        // read the incoming byte:
+        String str = Serial.readString();
+        Serial.println(str);
+    }
+}
+
 
 
 
