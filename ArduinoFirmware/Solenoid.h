@@ -13,6 +13,7 @@ class Solenoid {
         for (int i=0; i < solenoidNumber; i++){
 
             pins[i] = givenPins[i];
+            Serial.println(pins[i]);
             pinMode(pins[i], OUTPUT);
 
         }

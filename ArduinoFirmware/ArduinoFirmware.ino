@@ -9,6 +9,8 @@ class GcodeInterpreter{
     public:
 
         void executeCommand(HorizontalStepper horizontalStepper, PaperStepper paperStepper, Solenoid solenoid){
+
+            // Serial.println("here");
             /*
 
             Commands:
@@ -85,21 +87,26 @@ class GcodeInterpreter{
 
 };
 
-int pins[] = {9,10,11,12,13,14,15,16,17,18,19,20,21,22};
-Solenoid solenoid(pins);
+int selectedPins[] = {24,25,26,27,28,29,30,31,32,33,34,35,36,37};
+Solenoid solenoid(selectedPins);
 HorizontalStepper horizontalStepper(3,2,4,5);
 PaperStepper paperStepper(6,7,8);
-GcodeInterpreter interpreter;
+GcodeInterpreter interpreter; 
 
 void setup(){
 
-    Serial.begin(115200);  
+    Serial.begin(115200); 
+
 }
 
 void loop(){
 
 
-    interpreter.executeCommand(horizontalStepper, paperStepper, solenoid);
+    // interpreter.executeCommand(horizontalStepper, paperStepper, solenoid);
+
+    horizontalStepper.step(5, 30);
+
+
 
     // getString();
 
