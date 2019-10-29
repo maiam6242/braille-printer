@@ -1,4 +1,5 @@
 EESchema Schematic File Version 4
+LIBS:pcb_draft1-cache
 EELAYER 30 0
 EELAYER END
 $Descr A4 11693 8268
@@ -103,7 +104,7 @@ U 1 1 5DBA0557
 P 8750 800
 F 0 "Q14" H 8956 846 50  0000 L CNN
 F 1 "DMN6140L" H 8956 755 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-223" H 8950 725 50  0001 L CIN
+F 2 "custom_symbols:SOT-223-edited" H 8950 725 50  0001 L CIN
 F 3 "http://www.diodes.com/assets/Datasheets/DMN6140L.pdf" H 8750 800 50  0001 L CNN
 	1    8750 800 
 	1    0    0    -1  
@@ -140,7 +141,7 @@ U 1 1 5DC2ED7B
 P 8000 1150
 F 0 "Q7" H 8206 1196 50  0000 L CNN
 F 1 "DMN6140L" H 8206 1105 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-223" H 8200 1075 50  0001 L CIN
+F 2 "custom_symbols:SOT-223-edited" H 8200 1075 50  0001 L CIN
 F 3 "http://www.diodes.com/assets/Datasheets/DMN6140L.pdf" H 8000 1150 50  0001 L CNN
 	1    8000 1150
 	1    0    0    -1  
@@ -177,7 +178,7 @@ U 1 1 5DC3F64A
 P 8700 1650
 F 0 "Q11" H 8906 1696 50  0000 L CNN
 F 1 "DMN6140L" H 8906 1605 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-223" H 8900 1575 50  0001 L CIN
+F 2 "custom_symbols:SOT-223-edited" H 8900 1575 50  0001 L CIN
 F 3 "http://www.diodes.com/assets/Datasheets/DMN6140L.pdf" H 8700 1650 50  0001 L CNN
 	1    8700 1650
 	1    0    0    -1  
@@ -214,7 +215,7 @@ U 1 1 5DC3F65E
 P 7950 2000
 F 0 "Q4" H 8156 2046 50  0000 L CNN
 F 1 "DMN6140L" H 8156 1955 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-223" H 8150 1925 50  0001 L CIN
+F 2 "custom_symbols:SOT-223-edited" H 8150 1925 50  0001 L CIN
 F 3 "http://www.diodes.com/assets/Datasheets/DMN6140L.pdf" H 7950 2000 50  0001 L CNN
 	1    7950 2000
 	1    0    0    -1  
@@ -251,7 +252,7 @@ U 1 1 5DC43EDD
 P 8700 2500
 F 0 "Q12" H 8906 2546 50  0000 L CNN
 F 1 "DMN6140L" H 8906 2455 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-223" H 8900 2425 50  0001 L CIN
+F 2 "custom_symbols:SOT-223-edited" H 8900 2425 50  0001 L CIN
 F 3 "http://www.diodes.com/assets/Datasheets/DMN6140L.pdf" H 8700 2500 50  0001 L CNN
 	1    8700 2500
 	1    0    0    -1  
@@ -288,7 +289,7 @@ U 1 1 5DC43EF1
 P 7950 2850
 F 0 "Q5" H 8156 2896 50  0000 L CNN
 F 1 "DMN6140L" H 8156 2805 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-223" H 8150 2775 50  0001 L CIN
+F 2 "custom_symbols:SOT-223-edited" H 8150 2775 50  0001 L CIN
 F 3 "http://www.diodes.com/assets/Datasheets/DMN6140L.pdf" H 7950 2850 50  0001 L CNN
 	1    7950 2850
 	1    0    0    -1  
@@ -325,7 +326,7 @@ U 1 1 5DC486E8
 P 8700 3350
 F 0 "Q13" H 8906 3396 50  0000 L CNN
 F 1 "DMN6140L" H 8906 3305 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-223" H 8900 3275 50  0001 L CIN
+F 2 "custom_symbols:SOT-223-edited" H 8900 3275 50  0001 L CIN
 F 3 "http://www.diodes.com/assets/Datasheets/DMN6140L.pdf" H 8700 3350 50  0001 L CNN
 	1    8700 3350
 	1    0    0    -1  
@@ -362,7 +363,7 @@ U 1 1 5DC486FC
 P 7950 3700
 F 0 "Q6" H 8156 3746 50  0000 L CNN
 F 1 "DMN6140L" H 8156 3655 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-223" H 8150 3625 50  0001 L CIN
+F 2 "custom_symbols:SOT-223-edited" H 8150 3625 50  0001 L CIN
 F 3 "http://www.diodes.com/assets/Datasheets/DMN6140L.pdf" H 7950 3700 50  0001 L CNN
 	1    7950 3700
 	1    0    0    -1  
@@ -399,7 +400,7 @@ U 1 1 5DC67365
 P 8650 4200
 F 0 "Q10" H 8856 4246 50  0000 L CNN
 F 1 "DMN6140L" H 8856 4155 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-223" H 8850 4125 50  0001 L CIN
+F 2 "custom_symbols:SOT-223-edited" H 8850 4125 50  0001 L CIN
 F 3 "http://www.diodes.com/assets/Datasheets/DMN6140L.pdf" H 8650 4200 50  0001 L CNN
 	1    8650 4200
 	1    0    0    -1  
@@ -436,7 +437,7 @@ U 1 1 5DC67379
 P 7900 4550
 F 0 "Q3" H 8106 4596 50  0000 L CNN
 F 1 "DMN6140L" H 8106 4505 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-223" H 8100 4475 50  0001 L CIN
+F 2 "custom_symbols:SOT-223-edited" H 8100 4475 50  0001 L CIN
 F 3 "http://www.diodes.com/assets/Datasheets/DMN6140L.pdf" H 7900 4550 50  0001 L CNN
 	1    7900 4550
 	1    0    0    -1  
@@ -473,7 +474,7 @@ U 1 1 5DC6738D
 P 8600 5050
 F 0 "Q8" H 8806 5096 50  0000 L CNN
 F 1 "DMN6140L" H 8806 5005 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-223" H 8800 4975 50  0001 L CIN
+F 2 "custom_symbols:SOT-223-edited" H 8800 4975 50  0001 L CIN
 F 3 "http://www.diodes.com/assets/Datasheets/DMN6140L.pdf" H 8600 5050 50  0001 L CNN
 	1    8600 5050
 	1    0    0    -1  
@@ -510,7 +511,7 @@ U 1 1 5DC673A1
 P 7850 5400
 F 0 "Q1" H 8056 5446 50  0000 L CNN
 F 1 "DMN6140L" H 8056 5355 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-223" H 8050 5325 50  0001 L CIN
+F 2 "custom_symbols:SOT-223-edited" H 8050 5325 50  0001 L CIN
 F 3 "http://www.diodes.com/assets/Datasheets/DMN6140L.pdf" H 7850 5400 50  0001 L CNN
 	1    7850 5400
 	1    0    0    -1  
@@ -547,7 +548,7 @@ U 1 1 5DC673B5
 P 8600 5900
 F 0 "Q9" H 8806 5946 50  0000 L CNN
 F 1 "DMN6140L" H 8806 5855 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-223" H 8800 5825 50  0001 L CIN
+F 2 "custom_symbols:SOT-223-edited" H 8800 5825 50  0001 L CIN
 F 3 "http://www.diodes.com/assets/Datasheets/DMN6140L.pdf" H 8600 5900 50  0001 L CNN
 	1    8600 5900
 	1    0    0    -1  
@@ -584,7 +585,7 @@ U 1 1 5DC673C9
 P 7850 6250
 F 0 "Q2" H 8056 6296 50  0000 L CNN
 F 1 "DMN6140L" H 8056 6205 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-223" H 8050 6175 50  0001 L CIN
+F 2 "custom_symbols:SOT-223-edited" H 8050 6175 50  0001 L CIN
 F 3 "http://www.diodes.com/assets/Datasheets/DMN6140L.pdf" H 7850 6250 50  0001 L CNN
 	1    7850 6250
 	1    0    0    -1  
