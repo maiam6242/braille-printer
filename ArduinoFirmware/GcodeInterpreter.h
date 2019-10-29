@@ -1,5 +1,8 @@
 class GcodeInterpreter{
 
+    protected:
+        int numSolenoids = 14;
+
     public:
 
         void executeCommand(HorizontalStepper horizontalStepper, PaperStepper paperStepper, Solenoid solenoid){
@@ -95,7 +98,26 @@ class GcodeInterpreter{
                     }
                 }
 
+                if ( str.charAt(0) == 'F'){
+                    String commandList = str.substring(2);
+                    char solenoidFire[numSolenoids];
+                    commandList.toCharArray(solenoidFire, numSolenoids);
+                    int intFire[numSolenoids];
+                    for (int i=0; i<numSolenoids; i++){
+                        if (solenoidFire[i] == '1'){
 
+                            intFire[i] = 1;
+                        }
+                        else{
+
+                            intFire[i] = 0;
+                        }
+                        
+                    }
+                    solenoid.fire(intFire, 200);
+
+                    
+                }
             }
         }
 
