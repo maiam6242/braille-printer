@@ -14,136 +14,84 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L Connector_Generic:Conn_02x14_Odd_Even SolenoidOut
-U 1 1 5DB97E63
-P 10650 3350
-F 0 "SolenoidOut" H 10700 4167 50  0000 C CNN
-F 1 "Conn_02x14_Odd_Even" H 10700 4076 50  0000 C CNN
-F 2 "" H 10650 3350 50  0001 C CNN
-F 3 "~" H 10650 3350 50  0001 C CNN
-	1    10650 3350
-	1    0    0    -1  
-$EndComp
-$Comp
 L Connector:Conn_01x07_Male Arduino-StepperControl
 U 1 1 5DB9AA25
-P 3200 6200
-F 0 "Arduino-StepperControl" H 3308 6681 50  0000 C CNN
-F 1 "Conn_01x07_Male" H 3308 6590 50  0000 C CNN
-F 2 "" H 3200 6200 50  0001 C CNN
-F 3 "~" H 3200 6200 50  0001 C CNN
-	1    3200 6200
+P 2200 5700
+F 0 "Arduino-StepperControl" H 2308 6181 50  0000 C CNN
+F 1 "Conn_01x07_Male" H 2308 6090 50  0000 C CNN
+F 2 "" H 2200 5700 50  0001 C CNN
+F 3 "~" H 2200 5700 50  0001 C CNN
+	1    2200 5700
 	1    0    0    -1  
 $EndComp
 $Comp
 L Connector_Generic:Conn_02x04_Odd_Even StepperOut
 U 1 1 5DB9C5BF
-P 6200 6200
-F 0 "StepperOut" H 6250 6517 50  0000 C CNN
-F 1 "Conn_02x04_Odd_Even" H 6250 6426 50  0000 C CNN
-F 2 "" H 6200 6200 50  0001 C CNN
-F 3 "~" H 6200 6200 50  0001 C CNN
-	1    6200 6200
+P 4550 5750
+F 0 "StepperOut" H 4600 6067 50  0000 C CNN
+F 1 "Conn_02x04_Odd_Even" H 4600 5976 50  0000 C CNN
+F 2 "" H 4550 5750 50  0001 C CNN
+F 3 "~" H 4550 5750 50  0001 C CNN
+	1    4550 5750
 	1    0    0    -1  
 $EndComp
 $Comp
 L Connector:Conn_01x02_Male 12Vin
 U 1 1 5DB9E89A
-P 2100 6150
-F 0 "12Vin" H 2208 6331 50  0000 C CNN
-F 1 "Conn_01x02_Male" H 2208 6240 50  0000 C CNN
-F 2 "" H 2100 6150 50  0001 C CNN
-F 3 "~" H 2100 6150 50  0001 C CNN
-	1    2100 6150
+P 1100 5650
+F 0 "12Vin" H 1208 5831 50  0000 C CNN
+F 1 "Conn_01x02_Male" H 1208 5740 50  0000 C CNN
+F 2 "" H 1100 5650 50  0001 C CNN
+F 3 "~" H 1100 5650 50  0001 C CNN
+	1    1100 5650
 	1    0    0    -1  
 $EndComp
 $Comp
 L Connector:Conn_01x02_Male ArduinoPower
 U 1 1 5DB9F6C1
-P 1750 6700
-F 0 "ArduinoPower" H 1858 6881 50  0000 C CNN
-F 1 "Conn_01x02_Male" H 1858 6790 50  0000 C CNN
-F 2 "" H 1750 6700 50  0001 C CNN
-F 3 "~" H 1750 6700 50  0001 C CNN
-	1    1750 6700
+P 750 6200
+F 0 "ArduinoPower" H 858 6381 50  0000 C CNN
+F 1 "Conn_01x02_Male" H 858 6290 50  0000 C CNN
+F 2 "" H 750 6200 50  0001 C CNN
+F 3 "~" H 750 6200 50  0001 C CNN
+	1    750  6200
 	1    0    0    -1  
 $EndComp
 $Comp
 L CustomSymbols:STSPIN820 U?
 U 1 1 5DBB0CCE
-P 4750 6550
-F 0 "U?" H 4950 6665 50  0000 C CNN
-F 1 "STSPIN820" H 4950 6574 50  0000 C CNN
-F 2 "" H 4950 5600 50  0001 C CNN
-F 3 "" H 4950 5600 50  0001 C CNN
-	1    4750 6550
+P 3150 5950
+F 0 "U?" H 3350 6065 50  0000 C CNN
+F 1 "STSPIN820" H 3350 5974 50  0000 C CNN
+F 2 "" H 3350 5000 50  0001 C CNN
+F 3 "" H 3350 5000 50  0001 C CNN
+	1    3150 5950
 	1    0    0    -1  
 $EndComp
 $Comp
 L CustomSymbols:STSPIN820 U?
 U 1 1 5DBB213D
-P 4750 5000
-F 0 "U?" H 4950 5115 50  0000 C CNN
-F 1 "STSPIN820" H 4950 5024 50  0000 C CNN
-F 2 "" H 4950 4050 50  0001 C CNN
-F 3 "" H 4950 4050 50  0001 C CNN
-	1    4750 5000
+P 3150 4400
+F 0 "U?" H 3350 4515 50  0000 C CNN
+F 1 "STSPIN820" H 3350 4424 50  0000 C CNN
+F 2 "" H 3350 3450 50  0001 C CNN
+F 3 "" H 3350 3450 50  0001 C CNN
+	1    3150 4400
 	1    0    0    -1  
 $EndComp
-Text GLabel 5800 5250 2    50   Input ~ 0
+Text GLabel 3800 4650 2    50   Input ~ 0
 GND
-Wire Wire Line
-	5400 5250 5800 5250
 Text GLabel 11100 4050 2    50   Input ~ 0
 12V
 Wire Wire Line
-	10950 2750 10950 2850
-Connection ~ 10950 2850
-Wire Wire Line
-	10950 2850 10950 2950
-Connection ~ 10950 2950
-Wire Wire Line
-	10950 2950 10950 3050
-Connection ~ 10950 3050
-Wire Wire Line
-	10950 3050 10950 3150
-Connection ~ 10950 3150
-Wire Wire Line
-	10950 3150 10950 3250
-Connection ~ 10950 3250
-Wire Wire Line
-	10950 3250 10950 3350
-Connection ~ 10950 3350
-Wire Wire Line
-	10950 3350 10950 3450
-Connection ~ 10950 3450
-Wire Wire Line
-	10950 3450 10950 3550
-Connection ~ 10950 3550
-Wire Wire Line
-	10950 3550 10950 3650
-Connection ~ 10950 3650
-Wire Wire Line
-	10950 3650 10950 3750
-Connection ~ 10950 3750
-Wire Wire Line
-	10950 3750 10950 3850
-Connection ~ 10950 3850
-Wire Wire Line
-	10950 3850 10950 3950
-Connection ~ 10950 3950
-Wire Wire Line
-	10950 3950 10950 4050
-Wire Wire Line
 	10950 4050 11100 4050
-Connection ~ 10950 4050
-Text GLabel 2300 6150 2    50   Input ~ 0
+Text GLabel 1300 5650 2    50   Input ~ 0
 12V
-Text GLabel 2300 6250 2    50   Input ~ 0
+Text GLabel 1300 5750 2    50   Input ~ 0
 GND
-Text GLabel 1950 6700 2    50   Input ~ 0
+Text GLabel 950  6200 2    50   Input ~ 0
 12V
-Text GLabel 1950 6800 2    50   Input ~ 0
+Text GLabel 950  6300 2    50   Input ~ 0
 GND
 Text GLabel 8850 600  0    50   Input ~ 0
 GND
@@ -830,4 +778,64 @@ Wire Wire Line
 	7450 6250 6150 6250
 Wire Wire Line
 	6150 6250 6150 3750
+$Comp
+L Connector_Generic:Conn_02x14_Counter_Clockwise SolenoidOut
+U 1 1 5DD0BDBC
+P 10650 3350
+F 0 "SolenoidOut" H 10700 4167 50  0000 C CNN
+F 1 "Conn_02x14_Counter_Clockwise" H 10700 4076 50  0000 C CNN
+F 2 "" H 10650 3350 50  0001 C CNN
+F 3 "~" H 10650 3350 50  0001 C CNN
+	1    10650 3350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10950 2750 10950 2850
+Connection ~ 10950 4050
+Connection ~ 10950 2850
+Wire Wire Line
+	10950 2850 10950 2950
+Connection ~ 10950 2950
+Wire Wire Line
+	10950 2950 10950 3050
+Connection ~ 10950 3050
+Wire Wire Line
+	10950 3050 10950 3150
+Connection ~ 10950 3150
+Wire Wire Line
+	10950 3150 10950 3250
+Connection ~ 10950 3250
+Wire Wire Line
+	10950 3250 10950 3350
+Connection ~ 10950 3350
+Wire Wire Line
+	10950 3350 10950 3450
+Connection ~ 10950 3450
+Wire Wire Line
+	10950 3450 10950 3550
+Connection ~ 10950 3550
+Wire Wire Line
+	10950 3550 10950 3650
+Connection ~ 10950 3650
+Wire Wire Line
+	10950 3650 10950 3750
+Connection ~ 10950 3750
+Wire Wire Line
+	10950 3750 10950 3850
+Connection ~ 10950 3850
+Wire Wire Line
+	10950 3850 10950 3950
+Connection ~ 10950 3950
+Wire Wire Line
+	10950 3950 10950 4050
+Text GLabel 3800 6800 2    50   Input ~ 0
+GND
+Text GLabel 3800 6200 2    50   Input ~ 0
+GND
+Text GLabel 3800 5250 2    50   Input ~ 0
+GND
+Text GLabel 3800 5150 2    50   Input ~ 0
+5V
+Text GLabel 3800 6700 2    50   Input ~ 0
+5V
 $EndSCHEMATC
