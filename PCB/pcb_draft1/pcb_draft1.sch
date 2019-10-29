@@ -929,4 +929,16 @@ Wire Wire Line
 	2300 7000 2300 6050
 Text GLabel 1750 7100 2    50   Input ~ 0
 GND
+Text GLabel 2900 4650 0    50   Input ~ 0
+GND
+Text GLabel 2900 4750 0    50   Input ~ 0
+GND
+Text GLabel 2900 4850 0    50   Input ~ 0
+GND
+Text GLabel 2900 6200 0    50   Input ~ 0
+GND
+Text GLabel 2900 6300 0    50   Input ~ 0
+GND
+Text GLabel 2900 6400 0    50   Input ~ 0
+GND
 $EndSCHEMATC

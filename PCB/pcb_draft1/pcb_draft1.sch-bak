@@ -16,23 +16,12 @@ $EndDescr
 $Comp
 L Connector:Conn_01x07_Male Arduino-StepperControl
 U 1 1 5DB9AA25
-P 2200 5700
-F 0 "Arduino-StepperControl" H 2308 6181 50  0000 C CNN
-F 1 "Conn_01x07_Male" H 2308 6090 50  0000 C CNN
-F 2 "" H 2200 5700 50  0001 C CNN
-F 3 "~" H 2200 5700 50  0001 C CNN
-	1    2200 5700
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector_Generic:Conn_02x04_Odd_Even StepperOut
-U 1 1 5DB9C5BF
-P 4550 5750
-F 0 "StepperOut" H 4600 6067 50  0000 C CNN
-F 1 "Conn_02x04_Odd_Even" H 4600 5976 50  0000 C CNN
-F 2 "" H 4550 5750 50  0001 C CNN
-F 3 "~" H 4550 5750 50  0001 C CNN
-	1    4550 5750
+P 2100 5750
+F 0 "Arduino-StepperControl" H 2208 6231 50  0000 C CNN
+F 1 "Conn_01x07_Male" H 2208 6140 50  0000 C CNN
+F 2 "" H 2100 5750 50  0001 C CNN
+F 3 "~" H 2100 5750 50  0001 C CNN
+	1    2100 5750
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -44,17 +33,6 @@ F 1 "Conn_01x02_Male" H 1208 5740 50  0000 C CNN
 F 2 "" H 1100 5650 50  0001 C CNN
 F 3 "~" H 1100 5650 50  0001 C CNN
 	1    1100 5650
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector:Conn_01x02_Male ArduinoPower
-U 1 1 5DB9F6C1
-P 750 6200
-F 0 "ArduinoPower" H 858 6381 50  0000 C CNN
-F 1 "Conn_01x02_Male" H 858 6290 50  0000 C CNN
-F 2 "" H 750 6200 50  0001 C CNN
-F 3 "~" H 750 6200 50  0001 C CNN
-	1    750  6200
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -89,9 +67,9 @@ Text GLabel 1300 5650 2    50   Input ~ 0
 12V
 Text GLabel 1300 5750 2    50   Input ~ 0
 GND
-Text GLabel 950  6200 2    50   Input ~ 0
+Text GLabel 950  6500 2    50   Input ~ 0
 12V
-Text GLabel 950  6300 2    50   Input ~ 0
+Text GLabel 950  6600 2    50   Input ~ 0
 GND
 Text GLabel 8850 600  0    50   Input ~ 0
 GND
@@ -838,4 +816,117 @@ Text GLabel 3800 5150 2    50   Input ~ 0
 5V
 Text GLabel 3800 6700 2    50   Input ~ 0
 5V
+$Comp
+L Connector:Conn_01x03_Male ArduinoPower
+U 1 1 5DD3A23F
+P 750 6600
+F 0 "ArduinoPower" H 858 6881 50  0000 C CNN
+F 1 "Conn_01x03_Male" H 858 6790 50  0000 C CNN
+F 2 "" H 750 6600 50  0001 C CNN
+F 3 "~" H 750 6600 50  0001 C CNN
+	1    750  6600
+	1    0    0    -1  
+$EndComp
+Text GLabel 950  6700 2    50   Input ~ 0
+5V
+Text GLabel 3800 4550 2    50   Input ~ 0
+12V
+Text GLabel 3800 6100 2    50   Input ~ 0
+12V
+$Comp
+L Connector_Generic:Conn_02x04_Counter_Clockwise StepperOut
+U 1 1 5DD4CD3C
+P 4500 5650
+F 0 "StepperOut" H 4550 5967 50  0000 C CNN
+F 1 "Conn_02x04_Counter_Clockwise" H 4550 5876 50  0000 C CNN
+F 2 "" H 4500 5650 50  0001 C CNN
+F 3 "~" H 4500 5650 50  0001 C CNN
+	1    4500 5650
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	3800 4750 4600 4750
+Wire Wire Line
+	4600 4750 4600 5450
+Wire Wire Line
+	3800 4850 4500 4850
+Wire Wire Line
+	4500 4850 4500 5450
+Wire Wire Line
+	3800 4950 4400 4950
+Wire Wire Line
+	4400 4950 4400 5450
+Wire Wire Line
+	3800 5050 4300 5050
+Wire Wire Line
+	4300 5050 4300 5450
+Wire Wire Line
+	3800 6600 4300 6600
+Wire Wire Line
+	4300 6600 4300 5950
+Wire Wire Line
+	3800 6500 4400 6500
+Wire Wire Line
+	4400 6500 4400 5950
+Wire Wire Line
+	3800 6400 4500 6400
+Wire Wire Line
+	4500 6400 4500 5950
+Wire Wire Line
+	3800 6300 4600 6300
+Wire Wire Line
+	4600 6300 4600 5950
+Wire Wire Line
+	2300 5650 2900 5650
+Wire Wire Line
+	2900 5650 2900 5250
+Wire Wire Line
+	2300 5550 2850 5550
+Wire Wire Line
+	2850 5550 2850 5150
+Wire Wire Line
+	2850 5150 2900 5150
+Wire Wire Line
+	2300 5450 2450 5450
+Wire Wire Line
+	2450 5450 2450 4550
+Wire Wire Line
+	2450 4550 2900 4550
+NoConn ~ 2900 4950
+NoConn ~ 2900 5050
+NoConn ~ 2900 6500
+NoConn ~ 2900 6600
+Wire Wire Line
+	2300 5750 2900 5750
+Wire Wire Line
+	2900 5750 2900 6100
+Wire Wire Line
+	2300 5850 2450 5850
+Wire Wire Line
+	2450 5850 2450 6700
+Wire Wire Line
+	2450 6700 2900 6700
+Wire Wire Line
+	2300 5950 2400 5950
+Wire Wire Line
+	2400 5950 2400 6800
+Wire Wire Line
+	2400 6800 2900 6800
+$Comp
+L Connector:Conn_01x02_Male HomeSwitch
+U 1 1 5DDC4700
+P 1550 7000
+F 0 "HomeSwitch" H 1658 7181 50  0000 C CNN
+F 1 "Conn_01x02_Male" H 1658 7090 50  0000 C CNN
+F 2 "" H 1550 7000 50  0001 C CNN
+F 3 "~" H 1550 7000 50  0001 C CNN
+	1    1550 7000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1750 7000 2300 7000
+Wire Wire Line
+	2300 7000 2300 6050
+Text GLabel 1750 7100 2    50   Input ~ 0
+GND
 $EndSCHEMATC
