@@ -2,12 +2,15 @@ class GcodeInterpreter{
 
     protected:
         int numSolenoids = 14;
+        int solenoidTime = 200;
 
     public:
 
+        // Execute the command which is typed into the serial monitor
+        // @args horizontalStepper The horizontal stepper object
+        // @args paperStepper The paper stepper object
+        // @args solenoid The solenoid object
         void executeCommand(HorizontalStepper horizontalStepper, PaperStepper paperStepper, Solenoid solenoid){
-
-            // Serial.println("here");
             /*
 
             Commands:
@@ -21,14 +24,9 @@ class GcodeInterpreter{
             G0 y val                Fast move to character on y axis
             G1 x val                Controlled move to character on x axis
             G1 y val                Controlled move to character on y axis
+            F array(values(14))     Fire all solenoids with a 1 as their value
             
-
-
-
             */
-
-            //    Serial.println("working");
-
 
             if (Serial.available() > 0) {
                 Serial.println("Available");
@@ -64,7 +62,6 @@ class GcodeInterpreter{
                 }
 
                 if ( str.charAt(0) == 'G' && str.charAt(1) == '0'){
-                    Serial.println(str);
                     if (str.charAt(3) == 'x'){
                         str = str.substring(5);
                         int value = str.toDouble();
@@ -81,7 +78,6 @@ class GcodeInterpreter{
                     }
                 }
                 if ( str.charAt(0) == 'G' && str.charAt(1) == '1'){
-                    Serial.println(str);
                     if (str.charAt(3) == 'x'){
                         str = str.substring(5);
                         int value = str.toDouble();
@@ -101,7 +97,7 @@ class GcodeInterpreter{
                 if ( str.charAt(0) == 'F'){
                     String commandList = str.substring(2);
                     char solenoidFire[numSolenoids];
-                    commandList.toCharArray(solenoidFire, numSolenoids);
+                    commandList.toCharArray(solenoidFire, numSolenoids+1);  // Need to add one because char arrays have 0 as default last value
                     int intFire[numSolenoids];
                     for (int i=0; i<numSolenoids; i++){
                         if (solenoidFire[i] == '1'){
@@ -114,9 +110,7 @@ class GcodeInterpreter{
                         }
                         
                     }
-                    solenoid.fire(intFire, 200);
-
-                    
+                    solenoid.fire(intFire, solenoidTime);
                 }
             }
         }

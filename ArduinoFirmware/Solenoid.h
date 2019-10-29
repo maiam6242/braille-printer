@@ -16,13 +16,8 @@ class Solenoid {
         void setPins(int *givenPins){
 
             for (int i=0; i < solenoidNumber; i++){
-
                 pins[i] = givenPins[i];
-                Serial.print(pins[i]);
-                Serial.print(" , ");
-                Serial.println(givenPins[i]);
                 pinMode(pins[i], OUTPUT);
-
             }
         }
 
@@ -32,17 +27,11 @@ class Solenoid {
         void fire(int *triggeredPins, int time){
             for (int i=0; i < solenoidNumber; i++){
 
-                Serial.print(pins[i]);
-                Serial.print(" , ");
-                Serial.println(triggeredPins[i]);
-
                 if (triggeredPins[i] == 1){
                     digitalWrite(pins[i], HIGH);
                     Serial.print("Solenoid fired:");
-                
-
+                    Serial.println(pins[i]);
                 }
-
             }
 
             delay(time);
