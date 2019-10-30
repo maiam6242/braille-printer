@@ -28,15 +28,16 @@ void setup(){
 void loop(){
 
     Solenoid solenoid;
-    HorizontalStepper horizontalStepper(3, 2, 4, 5, 200, 100);
-    PaperStepper paperStepper(6,7,8, 200, 100);
+    HorizontalStepper horizontalStepper(3, 2, 4, 5, 2000, 2000);
+    // AccelStepper horizontalStepper(1,3,2);
+    PaperStepper paperStepper(6,7,8, 200, 2000);
     // PaperStepper paperStepper(1, 6, 7);
     // horizontalStepper.setEnablePin(4);
     // paperStepper.setEnablePin(8);
     // horizontalStepper.setPinsInverted(false,false,true);
     // paperStepper.setPinsInverted(false,false,true);
-    // horizontalStepper.setMaxSpeed(200.0);
-    // horizontalStepper.setAcceleration(100.0);
+    // horizontalStepper.setMaxSpeed(2000);
+    // horizontalStepper.setAcceleration(100);
     // paperStepper.setMaxSpeed(200.0);
     // paperStepper.setAcceleration(100.0);
 
@@ -51,7 +52,18 @@ void loop(){
     while (1){
         
         interpreter.executeCommand(horizontalStepper, paperStepper, solenoid);
-        delay(100);
+        // horizontalStepper.goToCharacter(20, 2000);
+        // // delay(5000);
+        // horizontalStepper.goToCharacter(0, 2000);
+        // delay(5000);
+        // delay(100);
+        // horizontalStepper.runToNewPosition(0);
+        // horizontalStepper.runToNewPosition(500);
+        // delay(5000);
+        // horizontalStepper.runToNewPosition(0);
+        // delay(5000);
+        
+
     }
 
 }

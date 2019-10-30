@@ -11,24 +11,27 @@ class HorizontalStepper :  public AccelStepper {
         int homePin;
         int stepsPerCharacter = 20; // How many steps it needs to move to move one character over
         int stepsToFirstCharacter = 30; // Steps needed to get to origin
+        int absolutePosition = 0 ;
 
     public:
 
-        HorizontalStepper (int step, int direction, int enable, int home_pin, int maxSpeed, int accel) : AccelStepper(step, direction){
+        HorizontalStepper (int step, int direction, int enable, int home_pin, int maxSpeed, int accel) : AccelStepper(1, step, direction){
             
             homePin = home_pin;
             setEnablePin(enable);
-            setPinsInverted(false,false,true);
-            setMaxSpeed(maxSpeed);
-            setAcceleration(accel);
+            // setPinsInverted(false,false,true);
+            setMaxSpeed(double(maxSpeed));
+            setAcceleration(double(accel));
         }
 
         // Moves the stepper to the specified character
         // @param desiredCharacter The character to go to
         // @param stepsPerSecond The speed of the motor in steps/second
         void goToCharacter(int desiredCharacter, int speed){
+
+            // _direction = -1;
             int desiredPosition = desiredCharacter * stepsPerCharacter;
-            setMaxSpeed(speed);
+            setMaxSpeed(double(speed));
             runToNewPosition(desiredPosition);
         }
 
@@ -78,9 +81,9 @@ class PaperStepper : public AccelStepper{
 
     public:
 
-        PaperStepper (int step, int direction, int enable, int maxSpeed, int accel) : AccelStepper(step, direction){
+        PaperStepper (int step, int direction, int enable, int maxSpeed, int accel) : AccelStepper(1, step, direction){
             setEnablePin(enable);
-            setPinsInverted(false,false,true);
+            // setPinsInverted(false,false,true);
             setMaxSpeed(maxSpeed);
             setAcceleration(accel);
         }

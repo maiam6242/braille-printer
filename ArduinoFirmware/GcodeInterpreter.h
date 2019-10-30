@@ -3,7 +3,7 @@ class GcodeInterpreter{
     protected:
         int numSolenoids = 14;
         int solenoidTime = 200;
-        int defaultSpeed = 200;
+        int defaultSpeed = 2000;
 
     public:
 
@@ -11,7 +11,7 @@ class GcodeInterpreter{
         // @args horizontalStepper The horizontal stepper object
         // @args paperStepper The paper stepper object
         // @args solenoid The solenoid object
-        void executeCommand(HorizontalStepper horizontalStepper, PaperStepper paperStepper, Solenoid solenoid){
+        void executeCommand(HorizontalStepper& horizontalStepper, PaperStepper& paperStepper, Solenoid& solenoid){
             /*
 
             Commands:
