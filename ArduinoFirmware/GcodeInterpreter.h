@@ -3,7 +3,7 @@ class GcodeInterpreter{
     protected:
         int numSolenoids = 14;
         int solenoidTime = 200;
-        int defaultSpeed = 2000;
+        int defaultSpeed = 4000;
 
     public:
 
@@ -34,24 +34,20 @@ class GcodeInterpreter{
                 // read the incoming byte:
                 String str = Serial.readString();
                 Serial.println(str);
-                // char input = str.toCharArray();
-
 
                 if ( str.charAt(0) == 'G' && str.charAt(1) == '2' && str.charAt(2) == '8'){
                     Serial.println("Homing Horizontal Axis");
                     horizontalStepper.home(defaultSpeed);
                 }
-
                 if ( str.charAt(0) == 'M' && str.charAt(1) == '1' && str.charAt(2) == '7'){
                     Serial.println("Enabling all steppers");
-                    horizontalStepper.enableOutputs();
-                    paperStepper.enableOutputs();
+                    horizontalStepper.enable();
+                    paperStepper.enable();
                 }
-
                 if ( str.charAt(0) == 'M' && str.charAt(1) == '1' && str.charAt(2) == '8'){
                     Serial.println("Disabling all steppers");
-                    horizontalStepper.disableOutputs();
-                    paperStepper.disableOutputs();
+                    horizontalStepper.disable();
+                    paperStepper.disable();
                 }
                 if ( str.charAt(0) == 'M' && str.charAt(1) == '7' && str.charAt(2) == '0' && str.charAt(2) == '1'){
                     Serial.println("Loading paper");
@@ -61,7 +57,6 @@ class GcodeInterpreter{
                     Serial.println("Unloading paper");
                     paperStepper.unload(defaultSpeed);
                 }
-
                 if ( str.charAt(0) == 'G' && str.charAt(1) == '0'){
                     if (str.charAt(3) == 'x'){
                         str = str.substring(5);
@@ -94,7 +89,6 @@ class GcodeInterpreter{
                         paperStepper.goToCharacter(value, defaultSpeed / 2);
                     }
                 }
-
                 if ( str.charAt(0) == 'F'){
                     String commandList = str.substring(2);
                     char solenoidFire[numSolenoids];
