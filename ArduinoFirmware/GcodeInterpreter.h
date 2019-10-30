@@ -102,21 +102,14 @@ class GcodeInterpreter{
                     int intFire[numSolenoids];
                     for (int i=0; i<numSolenoids; i++){
                         if (solenoidFire[i] == '1'){
-
                             intFire[i] = 1;
                         }
                         else{
-
                             intFire[i] = 0;
                         }
-                        
                     }
                     solenoid.fire(intFire, solenoidTime);
                 }
             }
         }
-
-
-
-
 };
