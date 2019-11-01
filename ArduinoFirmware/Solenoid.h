@@ -18,20 +18,24 @@ class Solenoid {
         // Fires specified solenoids for specified amount of time
         // @param givenPins An array of booleans which determines which solenoids to fire
         // @param time The amount of time to hold the pin down
-        void fire(int *triggeredPins, int time){
+        void fire(int *triggeredPins, int time, bool machineMode){
             for (int i=0; i < solenoidNumber; i++){
 
                 if (triggeredPins[i] == 1){
                     digitalWrite(pins[i], HIGH);
-                    Serial.print("Solenoid fired:");
-                    Serial.println(pins[i]);
+                    if (!machineMode){
+                        Serial.print("Solenoid fired:");
+                        Serial.println(pins[i]);
+                    }
                 }
             }
             delay(time);
             for (int i=0; i < solenoidNumber; i++){
                 digitalWrite(pins[i], LOW);
-                Serial.print("Solenoid retracted:");
-                Serial.println(pins[i]);
+                if (!machineMode){
+                        Serial.print("Solenoid retracted:");
+                        Serial.println(pins[i]);
+                    }
             }
         }
 };

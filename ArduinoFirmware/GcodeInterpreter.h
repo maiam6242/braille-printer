@@ -4,6 +4,7 @@ class GcodeInterpreter{
         int numSolenoids = 14;
         int solenoidTime = 200;
         int defaultSpeed = 4000;
+        bool machineMode = false; // Mode determines whether it is in human or machine interaction mode. Defaults to human
 
     public:
 
@@ -21,6 +22,7 @@ class GcodeInterpreter{
             M18                     Disable all steppers
             M701                    Load paper
             M702                    Unload paper
+            M21                     Toggle machine-read mode
             G0 x val                Fast move to character on x axis
             G0 y val                Fast move to character on y axis
             G1 x val                Controlled move to character on x axis
@@ -35,58 +37,109 @@ class GcodeInterpreter{
                 String str = Serial.readString();
                 Serial.println(str);
 
+                if ( str.charAt(0) == 'M' && str.charAt(1) == '2' && str.charAt(2) == '1'){
+                    machineMode = !machineMode;
+                    if (machineMode){
+                        Serial.println('0');
+                    }
+                }
                 if ( str.charAt(0) == 'G' && str.charAt(1) == '2' && str.charAt(2) == '8'){
-                    Serial.println("Homing Horizontal Axis");
+                    if (!machineMode){
+                        Serial.println("Homing Horizontal Axis");
+                    }
                     horizontalStepper.home(defaultSpeed);
+                    if (machineMode){
+                        Serial.println('0');
+                    }
                 }
                 if ( str.charAt(0) == 'M' && str.charAt(1) == '1' && str.charAt(2) == '7'){
-                    Serial.println("Enabling all steppers");
+                    if (!machineMode){
+                        Serial.println("Enabling all steppers");
+                    }
                     horizontalStepper.enable();
                     paperStepper.enable();
+                    if (machineMode){
+                        Serial.println('0');
+                    }
                 }
                 if ( str.charAt(0) == 'M' && str.charAt(1) == '1' && str.charAt(2) == '8'){
-                    Serial.println("Disabling all steppers");
+                    if (!machineMode){
+                        Serial.println("Disabling all steppers");
+                    }
                     horizontalStepper.disable();
                     paperStepper.disable();
+                    if (machineMode){
+                        Serial.println('0');
+                    }
                 }
                 if ( str.charAt(0) == 'M' && str.charAt(1) == '7' && str.charAt(2) == '0' && str.charAt(2) == '1'){
-                    Serial.println("Loading paper");
+                    if (!machineMode){
+                        Serial.println("Loading paper");
+                    }
                     paperStepper.load(defaultSpeed);
+                    if (machineMode){
+                        Serial.println('0');
+                    }
                 }
                 if ( str.charAt(0) == 'M' && str.charAt(1) == '7' && str.charAt(2) == '0' && str.charAt(2) == '2'){
-                    Serial.println("Unloading paper");
+                    if (!machineMode){
+                        Serial.println("Unloading paper");
+                    }
                     paperStepper.unload(defaultSpeed);
+                    if (machineMode){
+                        Serial.println('0');
+                    }
                 }
                 if ( str.charAt(0) == 'G' && str.charAt(1) == '0'){
                     if (str.charAt(3) == 'x'){
                         str = str.substring(5);
                         int value = str.toDouble();
-                        Serial.print("Going to x value: ");
-                        Serial.println(value);
+                        if (!machineMode){
+                            Serial.print("Going to x value: ");
+                            Serial.println(value);
+                        }
                         horizontalStepper.goToCharacter(value, defaultSpeed);
+                        if (machineMode){
+                        Serial.println('0');
+                        }
                     }
                     if (str.charAt(3) == 'y'){
                         str = str.substring(5);
                         int value = str.toDouble();
-                        Serial.print("Going to y value: ");
-                        Serial.println(value);
+                        if (!machineMode){
+                            Serial.print("Going to y value: ");
+                            Serial.println(value);
+                        }
                         paperStepper.goToCharacter(value, defaultSpeed);
+                        if (machineMode){
+                        Serial.println('0');
+                        }
                     }
                 }
                 if ( str.charAt(0) == 'G' && str.charAt(1) == '1'){
                     if (str.charAt(3) == 'x'){
                         str = str.substring(5);
                         int value = str.toDouble();
-                        Serial.print("Going to x value: ");
-                        Serial.println(value);
+                        if (!machineMode){
+                            Serial.print("Going to x value: ");
+                            Serial.println(value);
+                        }
                         horizontalStepper.goToCharacter(value, defaultSpeed / 2);
+                        if (machineMode){
+                            Serial.println('0');
+                        }
                     }
                     if (str.charAt(3) == 'y'){
                         str = str.substring(5);
                         int value = str.toDouble();
-                        Serial.print("Going to y value: ");
-                        Serial.println(value);
+                        if (!machineMode){
+                            Serial.print("Going to y value: ");
+                            Serial.println(value);
+                        }
                         paperStepper.goToCharacter(value, defaultSpeed / 2);
+                        if (machineMode){
+                            Serial.println('0');
+                        }
                     }
                 }
                 if ( str.charAt(0) == 'F'){
@@ -102,7 +155,10 @@ class GcodeInterpreter{
                             intFire[i] = 0;
                         }
                     }
-                    solenoid.fire(intFire, solenoidTime);
+                    solenoid.fire(intFire, solenoidTime, machineMode);
+                    if (machineMode){
+                        Serial.println('0');
+                    }
                 }
             }
         }
