@@ -38,5 +38,7 @@ def add_page_object(page):
     doc.append(page)
 
 def get_number_of_pages():
-
+    '''
+    Returns the length of the entire document (which is equal the number of pages (elements) in the document list)
+    '''
     return 0
