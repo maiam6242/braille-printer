@@ -36,3 +36,7 @@ def add_page_object(page):
     Args: A page object to be added to the document
     '''
     doc.append(page)
+
+def get_number_of_pages():
+
+    return 0
