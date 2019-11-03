@@ -32,6 +32,7 @@ def to_mm(val_in_inches):
 
 def add_page_object(page):
     '''
-    
+    Adds a page object to the entire document
+    Args: A page object to be added to the document
     '''
     doc.append(page)
