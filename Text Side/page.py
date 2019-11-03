@@ -4,8 +4,8 @@
 
 page_number = 0
 # TODO: Find right default value for the two vars below!!
-space_bw_lines = 0
-margins = 0
+space_bw_lines = 0 # 8.66 mm
+margins = 0 
 
 def set_page_number(page_num):
     '''
@@ -34,30 +34,30 @@ def current_amount_filled():
 
 def set_space_between_lines(spacing):
     '''
-    This should take in the amount of space which should be between lines in inches(?! CHECK THIS UNIT) and set the space_bw_lines variable accordingly
-    Args: desired space between lines (in inches)
+    This should take in the amount of space which should be between lines in millimeters(?! CHECK THIS UNIT) and set the space_bw_lines variable accordingly
+    Args: desired space between lines (in millimeters)
     '''
 
     return 0
 
 def get_space_between_lines():
     '''
-    This should return the amount of space which should be between lines in inches(?! CHECK THIS UNIT) 
-    Returns: desired space between lines (in inches)
+    This should return the amount of space which should be between lines in millimeters(?! CHECK THIS UNIT) 
+    Returns: desired space between lines (in millimeters)
     '''
 
     return 0
 
 def set_page_margins(margins):
     '''
-    This should take in the desired page margin width in inches(?! CHECK THIS UNIT) and set the margins variable accordingly
-    Args: desired margin widths (in inches)
+    This should take in the desired page margin width in millimeters(?! CHECK THIS UNIT) and set the margins variable accordingly
+    Args: desired margin widths (in millimeters)
     '''
     return 0
 
 def get_page_margins():
     '''
-    This should return the desired margin width in inches(?! CHECK THIS UNIT)
-    Returns: margin size (in inches)
+    This should return the desired margin width in millimeters(?! CHECK THIS UNIT)
+    Returns: margin size (in millimeters)
     '''
     return 0

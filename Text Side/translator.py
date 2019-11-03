@@ -72,6 +72,7 @@ num_lines = 0
 open_quote = False
 size = []
 page = page
+charactersPerLine = 28
 
 def convert_to_braille(segment):
     '''
@@ -289,8 +290,6 @@ def split_into_lines(braille_segment):
             1., 0., 1., 0., 1., 0., 1., 0., 1., 0., 1., 0., 1., 0., 1., 0.,
             1., 0., 1., 0., 1., 0., 1., 0., 1., 0., 0., 0.]])
     '''
-
-    charactersPerLine = 30
     currentLine = []
     lines = []
     charactersInLine = 0
@@ -340,7 +339,7 @@ def get_num_lines():
 
 def set_size_on_page(num_lines):
     '''
-    Determines the amount of space on a page which the segment will take up and converts that to an amount of inches, sets the variable size to the dimensions in inches in the form of a list
+    Determines the amount of space on a page which the segment will take up and converts that to an amount of millimeters, sets the variable size to the dimensions in millimeters in the form of a list
     Args: number of lines in a segment
     '''
     
@@ -350,15 +349,15 @@ def set_size_on_page(num_lines):
     # |____|  | is y_size and _ is x_size
 
     # TODO: Check this
-    y_size = .28*num_lines + page.get_spacing()*num_lines
-    x_size = 0 # NEED TO ACTUALLY CALC AND FIND THIS
+    y_size = 6.3*num_lines + page.get_spacing()*num_lines
+    x_size = charactersPerLine*3.9 # NEED TO ACTUALLY CALC AND FIND THIS
     size = [x_size, y_size]
 
 def get_size_on_page():
     '''
-    Gets the variable size which holds the dimensions in inches in the form of a list
+    Gets the variable size which holds the dimensions in millimeters in the form of a list
     Args: #TODO: Should this also take in a num_lines???
-    Returns: the dimensions in inches in the form of a list
+    Returns: the dimensions in millimeters in the form of a list
     '''
     
     return size

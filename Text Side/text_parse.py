@@ -1,4 +1,4 @@
-file_path = "/home/maia/Documents/School/19-20/PoE/braille-printer/test_story.txt"
+file_path = "/home/maia/Documents/School/19-20/PoE/braille-printer/Text Side/test_story.txt"
 
 def read_text_file(path):
     '''
@@ -18,8 +18,8 @@ def break_up_text_input(text):
     Returns: text in an array which is broken up BY SECTION and 
     ready to pass to the translator class
 
-    >>> break_up_text_input('Hello hi there')
-    'Hello hi there'
+    # >>> break_up_text_input('Hello hi there')
+    # 'Hello hi there'
     '''
     segments = []
     section = []
@@ -32,7 +32,10 @@ def break_up_text_input(text):
     segments.append(section)
 
     output = ""
-    return output.join(segments[0])
+    for segment in segments:
+        segment = output.join(segment)
+    
+    return segments
 
 def set_segment_type(segment):
     '''
@@ -47,14 +50,13 @@ def get_segment_type():
     Returns: Type (paragraph, title, image, table) etc
     '''
     # TODO: Figure out if this is what we want. Do we need this? Is it a later sprint? Does it make sense to do this? What is our application?
-
     return 0
 
 
 if __name__ == "__main__":
     import doctest
     doctest.testmod()
-# break_up_text_input(read_text_file(file_path))
+break_up_text_input(read_text_file(file_path))
 # Some Pseudocode for my feelings on how this might look:
 # for segment in segments:
 #     translator.translate_baby!
