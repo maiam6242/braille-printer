@@ -20,7 +20,7 @@ U 1 1 5DB9AA25
 P 2100 5750
 F 0 "Arduino-StepperControl1" H 2208 6231 50  0000 C CNN
 F 1 "Conn_01x07_Male" H 2208 6140 50  0000 C CNN
-F 2 "Connector_PinHeader_2.00mm:PinHeader_1x07_P2.00mm_Vertical" H 2100 5750 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x07_P2.54mm_Vertical" H 2100 5750 50  0001 C CNN
 F 3 "~" H 2100 5750 50  0001 C CNN
 	1    2100 5750
 	1    0    0    -1  
@@ -31,7 +31,7 @@ U 1 1 5DB9E89A
 P 1100 5650
 F 0 "12Vin1" H 1208 5831 50  0000 C CNN
 F 1 "Conn_01x02_Male" H 1208 5740 50  0000 C CNN
-F 2 "Connector_PinHeader_2.00mm:PinHeader_1x02_P2.00mm_Vertical" H 1100 5650 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 1100 5650 50  0001 C CNN
 F 3 "~" H 1100 5650 50  0001 C CNN
 	1    1100 5650
 	1    0    0    -1  
@@ -81,7 +81,7 @@ L Device:R_Small R14
 U 1 1 5DBA96E2
 P 8450 800
 F 0 "R14" H 8509 846 50  0000 L CNN
-F 1 "R_Small" H 8509 755 50  0000 L CNN
+F 1 "200_Ohm_R" H 8509 755 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 8450 800 50  0001 C CNN
 F 3 "~" H 8450 800 50  0001 C CNN
 	1    8450 800 
@@ -118,7 +118,7 @@ L Device:R_Small R7
 U 1 1 5DC2ED6F
 P 7700 1150
 F 0 "R7" H 7759 1196 50  0000 L CNN
-F 1 "R_Small" H 7759 1105 50  0000 L CNN
+F 1 "200_Ohm_R" H 7759 1105 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 7700 1150 50  0001 C CNN
 F 3 "~" H 7700 1150 50  0001 C CNN
 	1    7700 1150
@@ -155,7 +155,7 @@ L Device:R_Small R11
 U 1 1 5DC3F63E
 P 8400 1650
 F 0 "R11" H 8459 1696 50  0000 L CNN
-F 1 "R_Small" H 8459 1605 50  0000 L CNN
+F 1 "200_Ohm_R" H 8459 1605 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 8400 1650 50  0001 C CNN
 F 3 "~" H 8400 1650 50  0001 C CNN
 	1    8400 1650
@@ -192,7 +192,7 @@ L Device:R_Small R4
 U 1 1 5DC3F652
 P 7650 2000
 F 0 "R4" H 7709 2046 50  0000 L CNN
-F 1 "R_Small" H 7709 1955 50  0000 L CNN
+F 1 "200_Ohm_R" H 7709 1955 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 7650 2000 50  0001 C CNN
 F 3 "~" H 7650 2000 50  0001 C CNN
 	1    7650 2000
@@ -229,7 +229,7 @@ L Device:R_Small R12
 U 1 1 5DC43ED1
 P 8400 2500
 F 0 "R12" H 8459 2546 50  0000 L CNN
-F 1 "R_Small" H 8459 2455 50  0000 L CNN
+F 1 "200_Ohm_R" H 8459 2455 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 8400 2500 50  0001 C CNN
 F 3 "~" H 8400 2500 50  0001 C CNN
 	1    8400 2500
@@ -266,7 +266,7 @@ L Device:R_Small R5
 U 1 1 5DC43EE5
 P 7650 2850
 F 0 "R5" H 7709 2896 50  0000 L CNN
-F 1 "R_Small" H 7709 2805 50  0000 L CNN
+F 1 "200_Ohm_R" H 7709 2805 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 7650 2850 50  0001 C CNN
 F 3 "~" H 7650 2850 50  0001 C CNN
 	1    7650 2850
@@ -294,8 +294,6 @@ F 3 "http://www.diodes.com/assets/Datasheets/DMN6140L.pdf" H 7950 2850 50  0001 
 	1    7950 2850
 	1    0    0    -1  
 $EndComp
-Text GLabel 8800 3150 0    50   Input ~ 0
-GND
 Text GLabel 8500 3550 0    50   Input ~ 0
 12V
 $Comp
@@ -303,7 +301,7 @@ L Device:R_Small R13
 U 1 1 5DC486DC
 P 8400 3350
 F 0 "R13" H 8459 3396 50  0000 L CNN
-F 1 "R_Small" H 8459 3305 50  0000 L CNN
+F 1 "200_Ohm_R" H 8459 3305 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 8400 3350 50  0001 C CNN
 F 3 "~" H 8400 3350 50  0001 C CNN
 	1    8400 3350
@@ -320,17 +318,6 @@ F 3 "http://www.vishay.com/docs/88503/1n4001.pdf" H 8650 3550 50  0001 C CNN
 	1    8650 3550
 	1    0    0    -1  
 $EndComp
-$Comp
-L Transistor_FET:DMN6140L Q13
-U 1 1 5DC486E8
-P 8700 3350
-F 0 "Q13" H 8906 3396 50  0000 L CNN
-F 1 "DMN6140L" H 8906 3305 50  0000 L CNN
-F 2 "custom_symbols:SOT-223-edited" H 8900 3275 50  0001 L CIN
-F 3 "http://www.diodes.com/assets/Datasheets/DMN6140L.pdf" H 8700 3350 50  0001 L CNN
-	1    8700 3350
-	1    0    0    -1  
-$EndComp
 Text GLabel 8050 3500 0    50   Input ~ 0
 GND
 Text GLabel 7750 3900 0    50   Input ~ 0
@@ -340,7 +327,7 @@ L Device:R_Small R6
 U 1 1 5DC486F0
 P 7650 3700
 F 0 "R6" H 7709 3746 50  0000 L CNN
-F 1 "R_Small" H 7709 3655 50  0000 L CNN
+F 1 "200_Ohm_R" H 7709 3655 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 7650 3700 50  0001 C CNN
 F 3 "~" H 7650 3700 50  0001 C CNN
 	1    7650 3700
@@ -377,7 +364,7 @@ L Device:R_Small R10
 U 1 1 5DC67359
 P 8350 4200
 F 0 "R10" H 8409 4246 50  0000 L CNN
-F 1 "R_Small" H 8409 4155 50  0000 L CNN
+F 1 "200_Ohm_R" H 8409 4155 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 8350 4200 50  0001 C CNN
 F 3 "~" H 8350 4200 50  0001 C CNN
 	1    8350 4200
@@ -414,7 +401,7 @@ L Device:R_Small R3
 U 1 1 5DC6736D
 P 7600 4550
 F 0 "R3" H 7659 4596 50  0000 L CNN
-F 1 "R_Small" H 7659 4505 50  0000 L CNN
+F 1 "200_Ohm_R" H 7659 4505 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 7600 4550 50  0001 C CNN
 F 3 "~" H 7600 4550 50  0001 C CNN
 	1    7600 4550
@@ -451,7 +438,7 @@ L Device:R_Small R8
 U 1 1 5DC67381
 P 8300 5050
 F 0 "R8" H 8359 5096 50  0000 L CNN
-F 1 "R_Small" H 8359 5005 50  0000 L CNN
+F 1 "200_Ohm_R" H 8359 5005 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 8300 5050 50  0001 C CNN
 F 3 "~" H 8300 5050 50  0001 C CNN
 	1    8300 5050
@@ -488,7 +475,7 @@ L Device:R_Small R1
 U 1 1 5DC67395
 P 7550 5400
 F 0 "R1" H 7609 5446 50  0000 L CNN
-F 1 "R_Small" H 7609 5355 50  0000 L CNN
+F 1 "200_Ohm_R" H 7609 5355 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 7550 5400 50  0001 C CNN
 F 3 "~" H 7550 5400 50  0001 C CNN
 	1    7550 5400
@@ -525,7 +512,7 @@ L Device:R_Small R9
 U 1 1 5DC673A9
 P 8300 5900
 F 0 "R9" H 8359 5946 50  0000 L CNN
-F 1 "R_Small" H 8359 5855 50  0000 L CNN
+F 1 "200_Ohm_R" H 8359 5855 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 8300 5900 50  0001 C CNN
 F 3 "~" H 8300 5900 50  0001 C CNN
 	1    8300 5900
@@ -562,7 +549,7 @@ L Device:R_Small R2
 U 1 1 5DC673BD
 P 7550 6250
 F 0 "R2" H 7609 6296 50  0000 L CNN
-F 1 "R_Small" H 7609 6205 50  0000 L CNN
+F 1 "200_Ohm_R" H 7609 6205 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 7550 6250 50  0001 C CNN
 F 3 "~" H 7550 6250 50  0001 C CNN
 	1    7550 6250
@@ -685,7 +672,6 @@ Wire Wire Line
 	10100 3550 10100 3350
 Wire Wire Line
 	10100 3350 10450 3350
-Connection ~ 8800 3550
 Wire Wire Line
 	8350 800  6150 800 
 Wire Wire Line
@@ -762,7 +748,7 @@ U 1 1 5DD3A23F
 P 750 6600
 F 0 "ArduinoPower1" H 858 6881 50  0000 C CNN
 F 1 "Conn_01x03_Male" H 858 6790 50  0000 C CNN
-F 2 "Connector_PinHeader_2.00mm:PinHeader_1x03_P2.00mm_Vertical" H 750 6600 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 750 6600 50  0001 C CNN
 F 3 "~" H 750 6600 50  0001 C CNN
 	1    750  6600
 	1    0    0    -1  
@@ -847,7 +833,7 @@ U 1 1 5DDC4700
 P 1550 7000
 F 0 "HomeSwitch1" H 1658 7181 50  0000 C CNN
 F 1 "Conn_01x02_Male" H 1658 7090 50  0000 C CNN
-F 2 "Connector_PinHeader_2.00mm:PinHeader_1x02_P2.00mm_Vertical" H 1550 7000 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 1550 7000 50  0001 C CNN
 F 3 "~" H 1550 7000 50  0001 C CNN
 	1    1550 7000
 	1    0    0    -1  
@@ -859,15 +845,15 @@ Wire Wire Line
 Text GLabel 1750 7100 2    50   Input ~ 0
 GND
 Text GLabel 2900 4650 0    50   Input ~ 0
-GND
+5V
 Text GLabel 2900 4750 0    50   Input ~ 0
-GND
+5V
 Text GLabel 2900 4850 0    50   Input ~ 0
 GND
 Text GLabel 2900 6200 0    50   Input ~ 0
-GND
+5V
 Text GLabel 2900 6300 0    50   Input ~ 0
-GND
+5V
 Text GLabel 2900 6400 0    50   Input ~ 0
 GND
 $Comp
@@ -876,7 +862,7 @@ U 1 1 5DDF6ADB
 P 6450 3550
 F 0 "Arduino-SolenoidControl1" H 6500 4067 50  0000 C CNN
 F 1 "Conn_02x07_Odd_Even" H 6500 3976 50  0000 C CNN
-F 2 "Connector_PinHeader_2.00mm:PinHeader_2x07_P2.00mm_Vertical" H 6450 3550 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_2x07_P2.54mm_Vertical" H 6450 3550 50  0001 C CNN
 F 3 "~" H 6450 3550 50  0001 C CNN
 	1    6450 3550
 	0    -1   -1   0   
@@ -887,7 +873,7 @@ U 1 1 5DE02A66
 P 10650 3350
 F 0 "SolenoidOut1" H 10700 4167 50  0000 C CNN
 F 1 "Conn_02x14_Odd_Even" H 10700 4076 50  0000 C CNN
-F 2 "Connector_PinHeader_2.00mm:PinHeader_2x14_P2.00mm_Vertical" H 10650 3350 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_2x14_P2.54mm_Vertical" H 10650 3350 50  0001 C CNN
 F 3 "~" H 10650 3350 50  0001 C CNN
 	1    10650 3350
 	1    0    0    -1  
@@ -937,7 +923,7 @@ U 1 1 5DE15327
 P 4400 5750
 F 0 "StepperOut1" H 4450 6067 50  0000 C CNN
 F 1 "Conn_02x04_Odd_Even" H 4450 5976 50  0000 C CNN
-F 2 "Connector_PinHeader_2.00mm:PinHeader_2x04_P2.00mm_Vertical" H 4400 5750 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_2x04_P2.54mm_Vertical" H 4400 5750 50  0001 C CNN
 F 3 "~" H 4400 5750 50  0001 C CNN
 	1    4400 5750
 	0    -1   -1   0   
@@ -968,4 +954,171 @@ Text GLabel 3800 4250 2    50   Input ~ 0
 GND
 Text GLabel 3800 5800 2    50   Input ~ 0
 GND
+Text GLabel 1900 1650 0    50   Input ~ 0
+12V
+$Comp
+L Diode:1N4003 D15
+U 1 1 5DC47CF1
+P 2050 1650
+F 0 "D15" H 2050 1866 50  0000 C CNN
+F 1 "1N4003" H 2050 1775 50  0000 C CNN
+F 2 "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal" H 2050 1475 50  0001 C CNN
+F 3 "http://www.vishay.com/docs/88503/1n4001.pdf" H 2050 1650 50  0001 C CNN
+	1    2050 1650
+	1    0    0    -1  
+$EndComp
+Connection ~ 8800 3550
+$Comp
+L Transistor_FET:DMN6140L Q13
+U 1 1 5DC486E8
+P 8700 3350
+F 0 "Q13" H 8906 3396 50  0000 L CNN
+F 1 "DMN6140L" H 8906 3305 50  0000 L CNN
+F 2 "custom_symbols:SOT-223-edited" H 8900 3275 50  0001 L CIN
+F 3 "http://www.diodes.com/assets/Datasheets/DMN6140L.pdf" H 8700 3350 50  0001 L CNN
+	1    8700 3350
+	1    0    0    -1  
+$EndComp
+Text GLabel 8800 3150 0    50   Input ~ 0
+GND
+$Comp
+L Transistor_FET:DMN6140L Q15
+U 1 1 5DC63D6F
+P 2100 1450
+F 0 "Q15" H 2306 1496 50  0000 L CNN
+F 1 "DMN6140L" H 2306 1405 50  0000 L CNN
+F 2 "custom_symbols:SOT-223-edited" H 2300 1375 50  0001 L CIN
+F 3 "http://www.diodes.com/assets/Datasheets/DMN6140L.pdf" H 2100 1450 50  0001 L CNN
+	1    2100 1450
+	1    0    0    -1  
+$EndComp
+Text GLabel 2200 1250 0    50   Input ~ 0
+GND
+$Comp
+L Device:R_Small R15
+U 1 1 5DC831F8
+P 1800 1450
+F 0 "R15" H 1859 1496 50  0000 L CNN
+F 1 "200_Ohm_R" H 1859 1405 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 1800 1450 50  0001 C CNN
+F 3 "~" H 1800 1450 50  0001 C CNN
+	1    1800 1450
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	2200 1650 2750 1650
+Connection ~ 2200 1650
+$Comp
+L Connector:Conn_01x01_Male Arduino_FanControl1
+U 1 1 5DCC8E75
+P 1150 1450
+F 0 "Arduino_FanControl1" H 1258 1631 50  0000 C CNN
+F 1 "Conn_01x01_Male" H 1258 1540 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 1150 1450 50  0001 C CNN
+F 3 "~" H 1150 1450 50  0001 C CNN
+	1    1150 1450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1350 1450 1700 1450
+$Comp
+L Connector:Screw_Terminal_01x02 Fan_Out1
+U 1 1 5DCDDB16
+P 2950 1650
+F 0 "Fan_Out1" H 3030 1642 50  0000 L CNN
+F 1 "Screw_Terminal_01x02" H 3030 1551 50  0000 L CNN
+F 2 "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2_1x02_P5.00mm_Horizontal" H 2950 1650 50  0001 C CNN
+F 3 "~" H 2950 1650 50  0001 C CNN
+	1    2950 1650
+	1    0    0    -1  
+$EndComp
+Text GLabel 2750 1750 0    50   Input ~ 0
+GND
+Wire Wire Line
+	2650 2200 2650 2300
+Wire Wire Line
+	2650 2500 2650 2550
+Text GLabel 2650 3000 0    50   Input ~ 0
+GND
+Text GLabel 2650 2200 2    50   Input ~ 0
+5V
+$Comp
+L Device:Thermistor TH1
+U 1 1 5DD0E524
+P 2650 2800
+F 0 "TH1" H 2545 2754 50  0000 R CNN
+F 1 "100K Thermistor" H 2545 2845 50  0000 R CNN
+F 2 "" H 2650 2800 50  0001 C CNN
+F 3 "~" H 2650 2800 50  0001 C CNN
+	1    2650 2800
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R_Small R16
+U 1 1 5DD0CCEA
+P 2650 2400
+F 0 "R16" H 2709 2446 50  0000 L CNN
+F 1 "100K_Ohm_R" H 2709 2355 50  0000 L CNN
+F 2 "" H 2650 2400 50  0001 C CNN
+F 3 "~" H 2650 2400 50  0001 C CNN
+	1    2650 2400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2800 3000 2800 3100
+Wire Wire Line
+	2800 3300 2800 3400
+Text GLabel 2800 3800 0    50   Input ~ 0
+GND
+Text GLabel 2800 3000 2    50   Input ~ 0
+5V
+$Comp
+L Device:Thermistor TH2
+U 1 1 5DD55F2D
+P 2800 3600
+F 0 "TH2" H 2695 3554 50  0000 R CNN
+F 1 "100K Thermistor" H 2695 3645 50  0000 R CNN
+F 2 "" H 2800 3600 50  0001 C CNN
+F 3 "~" H 2800 3600 50  0001 C CNN
+	1    2800 3600
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R_Small R17
+U 1 1 5DD55F33
+P 2800 3200
+F 0 "R17" H 2859 3246 50  0000 L CNN
+F 1 "100K_Ohm_R" H 2859 3155 50  0000 L CNN
+F 2 "" H 2800 3200 50  0001 C CNN
+F 3 "~" H 2800 3200 50  0001 C CNN
+	1    2800 3200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x02_Male Arduino_ThermistorMeasure1
+U 1 1 5DD5ADA7
+P 1350 2900
+F 0 "Arduino_ThermistorMeasure1" H 1458 3081 50  0000 C CNN
+F 1 "Conn_01x02_Male" H 1458 2990 50  0000 C CNN
+F 2 "" H 1350 2900 50  0001 C CNN
+F 3 "~" H 1350 2900 50  0001 C CNN
+	1    1350 2900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1550 3000 2250 3000
+Wire Wire Line
+	2250 3400 2800 3400
+Connection ~ 2800 3400
+Wire Wire Line
+	1550 2900 2100 2900
+Wire Wire Line
+	2100 2900 2100 2550
+Wire Wire Line
+	2100 2550 2650 2550
+Connection ~ 2650 2550
+Wire Wire Line
+	2650 2550 2650 2600
+Wire Wire Line
+	2250 3000 2250 3400
 $EndSCHEMATC
