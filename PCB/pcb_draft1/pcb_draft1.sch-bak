@@ -1043,10 +1043,10 @@ GND
 Text GLabel 2650 2200 2    50   Input ~ 0
 5V
 $Comp
-L Device:Thermistor TH?
+L Device:Thermistor TH1
 U 1 1 5DD0E524
 P 2650 2800
-F 0 "TH?" H 2545 2754 50  0000 R CNN
+F 0 "TH1" H 2545 2754 50  0000 R CNN
 F 1 "100K Thermistor" H 2545 2845 50  0000 R CNN
 F 2 "" H 2650 2800 50  0001 C CNN
 F 3 "~" H 2650 2800 50  0001 C CNN
@@ -1054,10 +1054,10 @@ F 3 "~" H 2650 2800 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L Device:R_Small R?
+L Device:R_Small R16
 U 1 1 5DD0CCEA
 P 2650 2400
-F 0 "R?" H 2709 2446 50  0000 L CNN
+F 0 "R16" H 2709 2446 50  0000 L CNN
 F 1 "100K_Ohm_R" H 2709 2355 50  0000 L CNN
 F 2 "" H 2650 2400 50  0001 C CNN
 F 3 "~" H 2650 2400 50  0001 C CNN
@@ -1073,10 +1073,10 @@ GND
 Text GLabel 2800 3000 2    50   Input ~ 0
 5V
 $Comp
-L Device:Thermistor TH?
+L Device:Thermistor TH2
 U 1 1 5DD55F2D
 P 2800 3600
-F 0 "TH?" H 2695 3554 50  0000 R CNN
+F 0 "TH2" H 2695 3554 50  0000 R CNN
 F 1 "100K Thermistor" H 2695 3645 50  0000 R CNN
 F 2 "" H 2800 3600 50  0001 C CNN
 F 3 "~" H 2800 3600 50  0001 C CNN
@@ -1084,10 +1084,10 @@ F 3 "~" H 2800 3600 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L Device:R_Small R?
+L Device:R_Small R17
 U 1 1 5DD55F33
 P 2800 3200
-F 0 "R?" H 2859 3246 50  0000 L CNN
+F 0 "R17" H 2859 3246 50  0000 L CNN
 F 1 "100K_Ohm_R" H 2859 3155 50  0000 L CNN
 F 2 "" H 2800 3200 50  0001 C CNN
 F 3 "~" H 2800 3200 50  0001 C CNN
@@ -1095,10 +1095,10 @@ F 3 "~" H 2800 3200 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector:Conn_01x02_Male Arduino_ThermistorMeasure
+L Connector:Conn_01x02_Male Arduino_ThermistorMeasure1
 U 1 1 5DD5ADA7
 P 1350 2900
-F 0 "Arduino_ThermistorMeasure" H 1458 3081 50  0000 C CNN
+F 0 "Arduino_ThermistorMeasure1" H 1458 3081 50  0000 C CNN
 F 1 "Conn_01x02_Male" H 1458 2990 50  0000 C CNN
 F 2 "" H 1350 2900 50  0001 C CNN
 F 3 "~" H 1350 2900 50  0001 C CNN
