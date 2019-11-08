@@ -17,7 +17,9 @@ class physical:
                 return int(x), int(y)
 
     def write_row(self, segment, x, y):
-        
+
+
+    
 
 
     

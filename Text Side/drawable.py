@@ -4,8 +4,6 @@ from physical import physical
 
 class drawable:
 
-    lines = []
-    position_on_page = []
     physical = physical('/dev/ttyACM0')
     page_length = 279.4
     y_margin_size = 25.4
@@ -36,11 +34,14 @@ class drawable:
         else:
             return False
 
-    def split_line(self, segment, size):
+    def split_line(self, segment, num_lines, size):
         '''
         If the string should be split, determines what line the matrix/segment should be split at and stores that in variable line in the form of a list of dot matrices, with the first entry being the portion which should be written on the first page and the second entry being the portion to be written on the next page
         Args: size of the segment, how many lines the segment is (from translator)
         Returns: the value of line: a list of dot matrices, with the first entry being the portion which should be written on the first page and the second entry being the portion to be written on the next page
         '''
+
+        
+
 
         return 0
