@@ -7,7 +7,7 @@ class physical:
         self.ser.write('M21')
     
     def current_position(self):
-        self.ser.write('current_position_placeholder')
+        self.ser.write('M114')
         while (True):
             ser_in = self.ser.readline()
             # in the form of Position: x,y
@@ -16,7 +16,8 @@ class physical:
                 x, y = ser_in.split(',')
                 return int(x), int(y)
 
-            
+    def write_row(self, segment, x, y):
+        
 
 
     

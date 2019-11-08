@@ -339,12 +339,12 @@ class translator:
 
         return outputArray, num_lines
         
-    def get_num_lines(self):
-        '''
-        Gets the number of Braille lines in a given segment
-        Returns: Number of lines in the document 
-        '''
-        return num_lines
+    # def get_num_lines(self):
+    #     '''
+    #     Gets the number of Braille lines in a given segment
+    #     Returns: Number of lines in the document 
+    #     '''
+    #     return self.num_lines
 
     def size_on_page(self, num_lines):
         '''
