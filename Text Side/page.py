@@ -8,24 +8,14 @@ page_number = 0
 # margins = 0 
 
 class page:
+    page_num = 0
 
-    def __init__(self):
+    def __init__(self, page_number):
         '''
         '''
-
-    def set_page_number(self, page_num):
-        '''
-        Sets the page number of the page object
-        Args: Integer which is the page number of the given page
-        '''
-
-        return 0
-
-    def get_page_number(self):
-        '''
-        Returns the page number of the current page
-        Returns: Integer which is the page number of the given page
-        '''
+        self.page_num = page_number
+       
+    def add_content(self, content):
 
         return 0
 
