@@ -1,8 +1,7 @@
 import numpy as np
 #TODO: Add single opening and closing quotation marks
 
-open_quote = False
-size = []
+
 # page = page
 charactersPerLine = 28
 symbols = {'a' : np.array([[1,0],[0,0],[0,0]]),
@@ -75,6 +74,9 @@ symbols = {'a' : np.array([[1,0],[0,0],[0,0]]),
 
 class translator:
     
+    open_quote = False
+    size = []
+
     def convert_to_braille(self, segment):
         '''
         Converts the entirety of the segment into a dot matrix based on the "symbols" dictionary in this class
@@ -328,7 +330,7 @@ class translator:
                 for count in range(0,(charactersPerLine * 2 - lineLength)):
                     spaces.append(space)
 
-                if(np.size(line)!= 0):
+                if (np.size(line)!= 0):
                     lineArray = np.concatenate((np.asarray(line), np.asarray(spaces)), axis = 0)
                 else:
                     lineArray = np.asarray(spaces)
@@ -346,27 +348,6 @@ class translator:
     #     '''
     #     return self.num_lines
 
-    def size_on_page(self, num_lines):
-        '''
-        Determines the amount of space on a page which the segment will take up and converts that to an amount of millimeters, sets the variable size to the dimensions in millimeters in the form of a list
-        Args: number of lines in a segment
-        Returns: the dimensions in millimeters in the form of a list
-        '''
-        
-        # A braille line is .28 inches in height
-        # Braille lines are typically spaced .04 inches from top to top (not .04 apart)
-
-        # |____|  | is y_size and _ is x_size
-
-        # TODO: Check this
-        line_height = 6.3
-        line_spacing = 8.66 #FIXME!!!
-        character_width = 3.9
-
-        y_size = line_height*num_lines + line_spacing*num_lines
-        x_size = charactersPerLine*character_width # NEED TO ACTUALLY CALC AND FIND THIS
-        size = [round(x_size,2), round(y_size,2)]
-        return size
 
 if __name__ == "__main__":
     import doctest

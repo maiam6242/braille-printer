@@ -1,13 +1,19 @@
 #This should figure out the position on the page and determine if the content needs to be split over multiple pages
 import serial
 from physical import physical
+import translator
 
 class drawable:
 
     physical = physical('/dev/ttyACM0')
+    page_left = 0
     page_length = 279.4
     y_margin_size = 25.4
     x_margin_size = 25.4
+    line_height = 6.3
+    line_spacing = 8.66 #FIXME!!!
+    character_width = 3.9
+    chars_per_line = translator.charactersPerLine
 
     def get_end_position_on_page(self, size):
         '''
@@ -34,14 +40,54 @@ class drawable:
         else:
             return False
 
-    def split_line(self, segment, num_lines, size):
+    def split_line(self, segment, num_lines, size, lines_written, lines_per_page):
         '''
         If the string should be split, determines what line the matrix/segment should be split at and stores that in variable line in the form of a list of dot matrices, with the first entry being the portion which should be written on the first page and the second entry being the portion to be written on the next page
         Args: size of the segment, how many lines the segment is (from translator)
         Returns: the value of line: a list of dot matrices, with the first entry being the portion which should be written on the first page and the second entry being the portion to be written on the next page
         '''
 
+        #TODO: Write me, dude!! SHould probably put in tolerancing of some kind?
+        #FIXME: STOP PLAYING FAST AND LOOSE WITH LINES VS MMS
+
+        lines_on_first = lines_per_page - lines_written
+        lines_on_second = num_lines - lines_on_first
+
+        #FIXME: Figure this one out!
+        first = []
+        second = []
+        for row in range (0,lines_on_first*3):
+            first.append(segment[row]) #TODO: make this work
+        for row in range(lines_on_first*3, lines_on_second*3):
+            second.append(segment[row])
+
+        # np.shape(segment)
+
+        return [first, second]
+
+    def is_full(self):
+        if page_length - physical.current_position()[1] >= y_margin_size:
+            return False
+        else:
+            return True 
+
+    def size_on_page(self, number_lines):
+        '''
+        Determines the amount of space on a page which the segment will take up and converts that to an amount of millimeters, sets the variable size to the dimensions in millimeters in the form of a list
+        Args: number of lines in a segment
+        Returns: the dimensions in millimeters in the form of a list
+        '''
+    
+        # A braille line is .28 inches in height
+        # Braille lines are typically spaced .04 inches from top to top (not .04 apart)
+
+        # |____|  | is y_size and _ is x_size
+
+        # TODO: Check this
         
 
+        y_size = self.line_height * number_lines + self.line_spacing * number_lines
+        x_size = self.chars_per_line * self.character_width # NEED TO ACTUALLY CALC AND FIND THIS
+        size = [round(x_size,2), round(y_size,2)]
+        return size
 
-        return 0
