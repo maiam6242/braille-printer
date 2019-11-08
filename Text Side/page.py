@@ -9,24 +9,35 @@ page_number = 0
 
 class page:
     page_num = 0
+    lines_written = 0
+    lines_per_page = 25
+    content = []
 
     def __init__(self, page_number):
         '''
         '''
         self.page_num = page_number
        
-    def add_content(self, content):
+    def add_content(self, content_to_add, num_lines):
 
-        return 0
+        content.append(content_to_add)
+        lines_written += num_lines
 
-    def current_amount_filled(self):
-        '''
-        This should calculate the amount of the page which is currently filled up and return that amount (in lines)
-        NOTE: To get the current position of the puncher, use get_position_on_page in the drawable class. This class is specifically to handle attributes of a page
-        Returns: the amount of lines which are written on the page
-        '''
+    # def current_amount_filled(self):
+    #     '''
+    #     This should calculate the amount of the page which is currently filled up and return that amount (in lines)
+    #     NOTE: To get the current position of the puncher, use get_position_on_page in the drawable class. This class is specifically to handle attributes of a page
+    #     Returns: the amount of lines which are written on the page
+    #     '''
 
-        return 0
+    #     return lines_written
+
+    def is_full(self):
+
+        if lines_written == lines_per_page:
+            return True
+        else:
+            return False
 
     # def set_space_between_lines(self, spacing):
     #     '''

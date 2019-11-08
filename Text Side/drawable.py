@@ -1,15 +1,21 @@
 #This should figure out the position on the page and determine if the content needs to be split over multiple pages
+import serial
+from physical import physical
 
 class drawable:
 
     lines = []
     position_on_page = []
+    physical = physical('/dev/ttyACM0')
+
     def get_position_on_page(self):
         '''
         Gets the x, y position that the new braille segment should be on the page (based on the size of the matrix and how much of the page is taken up from the page object)
         Returns: an x and y starting position for the new segment to be written
         '''
         
+        physical.current_position()
+
         return 0
 
     def set_position_on_page(self):

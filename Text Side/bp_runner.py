@@ -4,6 +4,7 @@ import drawable
 from translator import translator
 import document
 from page import page
+from physical import physical
 
 file_path = "/home/maia/Documents/School/19-20/PoE/braille-printer/Text Side/test_story.txt"
 
@@ -15,6 +16,9 @@ translator = translator()
 formatted = []
 total_num_lines = 0
 
+drawable = drawable()
+physical = physical()
+
 for segment in segmented:
     count = 1
     braille_tx, num_lines = translator.convert_to_braille(segment)
@@ -24,6 +28,9 @@ for segment in segmented:
     n = 'page_'+ str(count)
     print(count)
     print(locals().get(n).page_num)
+
+    if not locals().get(n).is_full():
+
     
 
     formatted.append(braille_tx)
