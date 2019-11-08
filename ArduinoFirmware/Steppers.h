@@ -1,5 +1,6 @@
 // Stepper control module
 // Created by Colin Snow on 10/27/19
+// Depreciated
 
 // Base class for controlling stepper motors
 class Stepper{

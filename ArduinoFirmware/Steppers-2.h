@@ -8,8 +8,8 @@ class HorizontalStepper :  public AccelStepper {
 
     protected:
         int homePin;
-        int stepsPerCharacter = 300; // How many steps it needs to move to move one character over
-        int stepsToFirstCharacter = 600; // Steps needed to get to origin
+        int stepsPermm = 30; // How many steps it needs to move to move one character over
+        int stepsToFirstCharacter = 60; // Steps needed to get to origin
         int absolutePosition = 0 ;
         int enablePin;
 
@@ -27,8 +27,8 @@ class HorizontalStepper :  public AccelStepper {
         // Moves the stepper to the specified character
         // @param desiredCharacter The character to go to
         // @param stepsPerSecond The speed of the motor in steps/second
-        void goToCharacter(int desiredCharacter, int speed){
-            int desiredPosition = desiredCharacter * stepsPerCharacter;
+        void goTomm(int desiredCharacter, int speed){
+            int desiredPosition = desiredCharacter * stepsPermm;
             setMaxSpeed(double(speed));
             runToNewPosition(desiredPosition);
         }
@@ -58,6 +58,9 @@ class HorizontalStepper :  public AccelStepper {
         void disable(){
             digitalWrite(enablePin, HIGH);
         }
+        double currentmm(){
+            return currentPosition() / stepsPermm;
+        }
 };
 
 // A stepper object which handles paper controls such as going to character and loading
@@ -66,7 +69,7 @@ class PaperStepper : public AccelStepper{
     protected:
     int loadSteps = 50; // Number of steps needed to load in Paper
     int unloadSteps = 100; // Number of steps needed to unload Paper
-    int stepsPerCharacter = 40; // Number of steps to move up one chaacter
+    int stepsPermm = 30; // Number of steps to move up one chaacter
     int enablePin;
 
     public:
@@ -99,8 +102,8 @@ class PaperStepper : public AccelStepper{
         // Moves the stepper to the specified character
         // @param desiredCharacter The character to go to
         // @param stepsPerSecond The speed of the motor in steps/second
-        void goToCharacter(int desiredCharacter, int speed){
-            int desiredPosition = desiredCharacter * stepsPerCharacter;
+        void goTomm(int desiredCharacter, int speed){
+            int desiredPosition = desiredCharacter * stepsPermm;
             setMaxSpeed(speed);
             runToNewPosition(desiredPosition);
         }
@@ -109,5 +112,8 @@ class PaperStepper : public AccelStepper{
         }
         void disable(){
             digitalWrite(enablePin, HIGH);
+        }
+        double currentmm(){
+            return currentPosition() / stepsPermm;
         }
 };
