@@ -25,6 +25,8 @@ for segment in segmented:
     size_in_mm = translator.size_on_page(num_lines) #[x,y]
 
     end_x, end_y = drawable.get_end_position_on_page(size_in_mm)
+    if(drawable.should_split(end_y)):
+        drawable.split_line(braille_tx, num_lines, size_in_mm)
 
     locals()['page_'+ str(count)] = page(count)
     n = 'page_'+ str(count)
