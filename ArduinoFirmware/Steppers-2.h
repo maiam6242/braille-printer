@@ -8,7 +8,7 @@ class HorizontalStepper :  public AccelStepper {
 
     protected:
         int homePin;
-        int stepsPermm = 30; // How many steps it needs to move to move one character over
+        int stepsPermm = 42; // How many steps it needs to move to move one mm  2000 * 8 / Pi * d (12 mm)
         int stepsToFirstCharacter = 60; // Steps needed to get to origin
         int absolutePosition = 0 ;
         int enablePin;
@@ -39,11 +39,11 @@ class HorizontalStepper :  public AccelStepper {
             setMaxSpeed(speed);
             while (digitalRead(homePin)){
                 int position = currentPosition();
-                runToNewPosition(position -1);
+                runToNewPosition(position -20);
             }
             setMaxSpeed(speed / 2);
             int position = currentPosition();
-            runToNewPosition(position + 300);
+            runToNewPosition(position + 40);
             while (digitalRead(homePin)){
                 int position = currentPosition();
                 runToNewPosition(position -1);
@@ -67,9 +67,9 @@ class HorizontalStepper :  public AccelStepper {
 class PaperStepper : public AccelStepper{
 
     protected:
-    int loadSteps = 50; // Number of steps needed to load in Paper
-    int unloadSteps = 100; // Number of steps needed to unload Paper
-    int stepsPermm = 30; // Number of steps to move up one chaacter
+    int loadSteps = 1000; // Number of steps needed to load in Paper
+    int unloadSteps = 3000; // Number of steps needed to unload Paper
+    int stepsPermm = 40; // Number of steps to move up one mm 2000 * 8 / Pi * d (12.7 mm)
     int enablePin;
 
     public:

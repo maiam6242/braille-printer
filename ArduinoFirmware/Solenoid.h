@@ -23,10 +23,10 @@ class Solenoid {
 
                 if (triggeredPins[i] == 1){
                     digitalWrite(pins[i], HIGH);
-                    if (!machineMode){
-                        Serial.print("Solenoid fired:");
-                        Serial.println(pins[i]);
-                    }
+                //     if (!machineMode){
+                //         Serial.print("Solenoid fired:");
+                //         Serial.println(pins[i]);
+                //     }
                 }
             }
             delay(time);

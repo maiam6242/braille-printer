@@ -3,7 +3,7 @@ class GcodeInterpreter{
     protected:
         int numSolenoids = 14;
         int solenoidTime = 200;
-        int defaultSpeed = 4000;
+        int defaultSpeed = 8000;
         bool machineMode = false; // Mode determines whether it is in human or machine interaction mode. Defaults to human
 
     public:
@@ -149,7 +149,7 @@ class GcodeInterpreter{
                 }
                 if ( str.charAt(0) == 'F'){
                     String commandList = str.substring(2);
-                    char solenoidFire[numSolenoids];
+                    char solenoidFire[numSolenoids+1];
                     commandList.toCharArray(solenoidFire, numSolenoids+1);  // Need to add one because char arrays have 0 as default last value
                     int intFire[numSolenoids];
                     for (int i=0; i<numSolenoids; i++){
