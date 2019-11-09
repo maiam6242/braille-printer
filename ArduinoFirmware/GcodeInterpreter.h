@@ -129,7 +129,7 @@ class GcodeInterpreter{
                             Serial.print("Going to x value: ");
                             Serial.println(value);
                         }
-                        horizontalStepper.goTomm(value, defaultSpeed / 2);
+                        horizontalStepper.goTomm(value, (defaultSpeed / 8));
                         if (machineMode){
                             Serial.println('0');
                         }
@@ -141,7 +141,7 @@ class GcodeInterpreter{
                             Serial.print("Going to y value: ");
                             Serial.println(value);
                         }
-                        paperStepper.goTomm(value, defaultSpeed / 2);
+                        paperStepper.goTomm(value, (defaultSpeed / 8));
                         if (machineMode){
                             Serial.println('0');
                         }
