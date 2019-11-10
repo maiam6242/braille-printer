@@ -71,12 +71,15 @@ class PaperStepper : public AccelStepper{
     int unloadSteps = 3000; // Number of steps needed to unload Paper
     int stepsPermm = 40; // Number of steps to move up one mm 2000 * 8 / Pi * d (12.7 mm)
     int enablePin;
+    int homePin;
 
     public:
 
-        PaperStepper (int step, int direction, int enable, int maxSpeed, int accel) : AccelStepper(1, step, direction){
+        PaperStepper (int step, int direction, int enable, int home,  int maxSpeed, int accel) : AccelStepper(1, step, direction){
             // setEnablePin(enable);
             enablePin = enable;
+            homePin = home;
+            pinMode(homePin, INPUT);
             // setPinsInverted(false,false,true);
             setMaxSpeed(maxSpeed);
             setAcceleration(accel);
@@ -84,9 +87,26 @@ class PaperStepper : public AccelStepper{
 
         // Loads paper into the machine
         // @params stepsPerSecond The motor speed in steps/second
+        // void load(int speed){
+        //     setCurrentPosition(0);
+        //     setMaxSpeed(speed);
+        //     runToNewPosition(loadSteps);
+        //     setCurrentPosition(0);
+        // }
         void load(int speed){
-            setCurrentPosition(0);
+            enable();
             setMaxSpeed(speed);
+            while (!digitalRead(homePin)){
+                int position = currentPosition();
+                runToNewPosition(position +20);
+            }
+            setMaxSpeed(speed / 2);
+            int position = currentPosition();
+            runToNewPosition(position - 40);
+            while (!digitalRead(homePin)){
+                int position = currentPosition();
+                runToNewPosition(position +1);
+            }
             runToNewPosition(loadSteps);
             setCurrentPosition(0);
         }

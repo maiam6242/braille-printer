@@ -16,10 +16,11 @@ void loop(){
     Solenoid solenoid;
     solenoid.setPins(selectedPins);
     HorizontalStepper horizontalStepper(3, 2, 4, 5, 2000, 8000);
-    PaperStepper paperStepper(6,7,8, 200, 8000);
+    PaperStepper paperStepper(6,7,8,9, 200, 8000);
     GcodeInterpreter interpreter;
 
     while (1){
         interpreter.executeCommand(horizontalStepper, paperStepper, solenoid);
+
     }
 }
