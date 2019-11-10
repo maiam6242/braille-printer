@@ -725,10 +725,10 @@ Text GLabel 2900 6300 0    50   Input ~ 0
 Text GLabel 2900 6400 0    50   Input ~ 0
 GND
 $Comp
-L Connector_Generic:Conn_02x14_Odd_Even Z
+L Connector_Generic:Conn_02x14_Odd_Even Z1
 U 1 1 5DE02A66
 P 10650 3350
-F 0 "Z" H 10700 4167 50  0000 C CNN
+F 0 "Z1" H 10700 4167 50  0000 C CNN
 F 1 "SolenoidOut" H 10700 4076 50  0000 C CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_2x14_P2.54mm_Vertical" H 10650 3350 50  0001 C CNN
 F 3 "~" H 10650 3350 50  0001 C CNN
@@ -900,10 +900,10 @@ F 3 "~" H 2650 2300 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_02x18_Odd_Even Y
+L Connector_Generic:Conn_02x18_Odd_Even Y1
 U 1 1 5DC92377
 P 5450 3550
-F 0 "Y" H 5500 4567 50  0000 C CNN
+F 0 "Y1" H 5500 4567 50  0000 C CNN
 F 1 "Arduino_Mega_Bottom_Pins1" H 5500 4476 50  0000 C CNN
 F 2 "" H 5450 3550 50  0001 C CNN
 F 3 "~" H 5450 3550 50  0001 C CNN
@@ -1050,10 +1050,10 @@ Wire Wire Line
 Wire Wire Line
 	6450 1150 6650 1150
 $Comp
-L Device:R_Small R?
+L Device:R_Small R21
 U 1 1 5DF601F7
 P 6800 700
-F 0 "R?" H 6859 746 50  0000 L CNN
+F 0 "R21" H 6859 746 50  0000 L CNN
 F 1 "10K_Ohm_R" H 6859 655 50  0000 L CNN
 F 2 "" H 6800 700 50  0001 C CNN
 F 3 "~" H 6800 700 50  0001 C CNN
@@ -1063,10 +1063,10 @@ $EndComp
 Text GLabel 6650 950  2    50   Input ~ 0
 GND
 $Comp
-L Device:R_Small R?
+L Device:R_Small R18
 U 1 1 5DF835D5
 P 6650 1050
-F 0 "R?" H 6709 1096 50  0000 L CNN
+F 0 "R18" H 6709 1096 50  0000 L CNN
 F 1 "10K_Ohm_R" H 6709 1005 50  0000 L CNN
 F 2 "" H 6650 1050 50  0001 C CNN
 F 3 "~" H 6650 1050 50  0001 C CNN
@@ -1078,10 +1078,10 @@ Wire Wire Line
 Text GLabel 6800 1450 2    50   Input ~ 0
 GND
 $Comp
-L Device:R_Small R?
+L Device:R_Small R22
 U 1 1 5DF8D93D
 P 6800 1550
-F 0 "R?" H 6859 1596 50  0000 L CNN
+F 0 "R22" H 6859 1596 50  0000 L CNN
 F 1 "10K_Ohm_R" H 6859 1505 50  0000 L CNN
 F 2 "" H 6800 1550 50  0001 C CNN
 F 3 "~" H 6800 1550 50  0001 C CNN
@@ -1099,10 +1099,10 @@ Wire Wire Line
 Text GLabel 6950 1800 2    50   Input ~ 0
 GND
 $Comp
-L Device:R_Small R?
+L Device:R_Small R25
 U 1 1 5DF994C1
 P 6950 1900
-F 0 "R?" H 7009 1946 50  0000 L CNN
+F 0 "R25" H 7009 1946 50  0000 L CNN
 F 1 "10K_Ohm_R" H 7009 1855 50  0000 L CNN
 F 2 "" H 6950 1900 50  0001 C CNN
 F 3 "~" H 6950 1900 50  0001 C CNN
@@ -1117,10 +1117,10 @@ Wire Wire Line
 Text GLabel 7100 2300 2    50   Input ~ 0
 GND
 $Comp
-L Device:R_Small R?
+L Device:R_Small R27
 U 1 1 5DFA4085
 P 7100 2400
-F 0 "R?" H 7159 2446 50  0000 L CNN
+F 0 "R27" H 7159 2446 50  0000 L CNN
 F 1 "10K_Ohm_R" H 7159 2355 50  0000 L CNN
 F 2 "" H 7100 2400 50  0001 C CNN
 F 3 "~" H 7100 2400 50  0001 C CNN
@@ -1135,10 +1135,10 @@ Wire Wire Line
 Text GLabel 7050 2650 2    50   Input ~ 0
 GND
 $Comp
-L Device:R_Small R?
+L Device:R_Small R26
 U 1 1 5DFAF044
 P 7050 2750
-F 0 "R?" H 7109 2796 50  0000 L CNN
+F 0 "R26" H 7109 2796 50  0000 L CNN
 F 1 "10K_Ohm_R" H 7109 2705 50  0000 L CNN
 F 2 "" H 7050 2750 50  0001 C CNN
 F 3 "~" H 7050 2750 50  0001 C CNN
@@ -1153,10 +1153,10 @@ Wire Wire Line
 Text GLabel 7200 3150 2    50   Input ~ 0
 GND
 $Comp
-L Device:R_Small R?
+L Device:R_Small R30
 U 1 1 5DFBB4AE
 P 7200 3250
-F 0 "R?" H 7259 3296 50  0000 L CNN
+F 0 "R30" H 7259 3296 50  0000 L CNN
 F 1 "10K_Ohm_R" H 7259 3205 50  0000 L CNN
 F 2 "" H 7200 3250 50  0001 C CNN
 F 3 "~" H 7200 3250 50  0001 C CNN
@@ -1169,10 +1169,10 @@ Wire Wire Line
 Text GLabel 7350 3500 2    50   Input ~ 0
 GND
 $Comp
-L Device:R_Small R?
+L Device:R_Small R31
 U 1 1 5DFC291D
 P 7350 3600
-F 0 "R?" H 7409 3646 50  0000 L CNN
+F 0 "R31" H 7409 3646 50  0000 L CNN
 F 1 "10K_Ohm_R" H 7409 3555 50  0000 L CNN
 F 2 "" H 7350 3600 50  0001 C CNN
 F 3 "~" H 7350 3600 50  0001 C CNN
@@ -1187,10 +1187,10 @@ Wire Wire Line
 Text GLabel 7100 4000 2    50   Input ~ 0
 GND
 $Comp
-L Device:R_Small R?
+L Device:R_Small R28
 U 1 1 5DFD5CE2
 P 7100 4100
-F 0 "R?" H 7159 4146 50  0000 L CNN
+F 0 "R28" H 7159 4146 50  0000 L CNN
 F 1 "10K_Ohm_R" H 7159 4055 50  0000 L CNN
 F 2 "" H 7100 4100 50  0001 C CNN
 F 3 "~" H 7100 4100 50  0001 C CNN
@@ -1205,10 +1205,10 @@ Wire Wire Line
 Text GLabel 7100 4350 2    50   Input ~ 0
 GND
 $Comp
-L Device:R_Small R?
+L Device:R_Small R29
 U 1 1 5DFE1F17
 P 7100 4450
-F 0 "R?" H 7159 4496 50  0000 L CNN
+F 0 "R29" H 7159 4496 50  0000 L CNN
 F 1 "10K_Ohm_R" H 7159 4405 50  0000 L CNN
 F 2 "" H 7100 4450 50  0001 C CNN
 F 3 "~" H 7100 4450 50  0001 C CNN
@@ -1223,10 +1223,10 @@ Wire Wire Line
 Text GLabel 6900 4850 2    50   Input ~ 0
 GND
 $Comp
-L Device:R_Small R?
+L Device:R_Small R23
 U 1 1 5DFEE488
 P 6900 4950
-F 0 "R?" H 6959 4996 50  0000 L CNN
+F 0 "R23" H 6959 4996 50  0000 L CNN
 F 1 "10K_Ohm_R" H 6959 4905 50  0000 L CNN
 F 2 "" H 6900 4950 50  0001 C CNN
 F 3 "~" H 6900 4950 50  0001 C CNN
@@ -1241,10 +1241,10 @@ Wire Wire Line
 Text GLabel 6750 5200 2    50   Input ~ 0
 GND
 $Comp
-L Device:R_Small R?
+L Device:R_Small R19
 U 1 1 5DFFB192
 P 6750 5300
-F 0 "R?" H 6809 5346 50  0000 L CNN
+F 0 "R19" H 6809 5346 50  0000 L CNN
 F 1 "10K_Ohm_R" H 6809 5255 50  0000 L CNN
 F 2 "" H 6750 5300 50  0001 C CNN
 F 3 "~" H 6750 5300 50  0001 C CNN
@@ -1259,10 +1259,10 @@ Wire Wire Line
 Text GLabel 6900 5700 2    50   Input ~ 0
 GND
 $Comp
-L Device:R_Small R?
+L Device:R_Small R24
 U 1 1 5E008535
 P 6900 5800
-F 0 "R?" H 6959 5846 50  0000 L CNN
+F 0 "R24" H 6959 5846 50  0000 L CNN
 F 1 "10K_Ohm_R" H 6959 5755 50  0000 L CNN
 F 2 "" H 6900 5800 50  0001 C CNN
 F 3 "~" H 6900 5800 50  0001 C CNN
@@ -1277,10 +1277,10 @@ Wire Wire Line
 Text GLabel 6750 6050 2    50   Input ~ 0
 GND
 $Comp
-L Device:R_Small R?
+L Device:R_Small R20
 U 1 1 5E015A54
 P 6750 6150
-F 0 "R?" H 6809 6196 50  0000 L CNN
+F 0 "R20" H 6809 6196 50  0000 L CNN
 F 1 "10K_Ohm_R" H 6809 6105 50  0000 L CNN
 F 2 "" H 6750 6150 50  0001 C CNN
 F 3 "~" H 6750 6150 50  0001 C CNN
@@ -1293,10 +1293,10 @@ Connection ~ 6750 6250
 Wire Wire Line
 	6750 6250 7650 6250
 $Comp
-L Connector_Generic:Conn_01x02 J?
+L Connector_Generic:Conn_01x02 J5
 U 1 1 5E032CCA
 P 2350 2700
-F 0 "J?" H 2268 2917 50  0000 C CNN
+F 0 "J5" H 2268 2917 50  0000 C CNN
 F 1 "ArdAnalogTherm" H 2268 2826 50  0000 C CNN
 F 2 "" H 2350 2700 50  0001 C CNN
 F 3 "~" H 2350 2700 50  0001 C CNN
@@ -1306,10 +1306,10 @@ $EndComp
 Wire Wire Line
 	2100 2400 2100 2500
 $Comp
-L Connector_Generic:Conn_01x02 J?
+L Connector_Generic:Conn_01x02 J4
 U 1 1 5E0A79D3
 P 1900 2500
-F 0 "J?" H 1818 2717 50  0000 C CNN
+F 0 "J4" H 1818 2717 50  0000 C CNN
 F 1 "Therm1" H 1818 2626 50  0000 C CNN
 F 2 "" H 1900 2500 50  0001 C CNN
 F 3 "~" H 1900 2500 50  0001 C CNN
@@ -1317,10 +1317,10 @@ F 3 "~" H 1900 2500 50  0001 C CNN
 	-1   0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_01x02 J?
+L Connector_Generic:Conn_01x02 J6
 U 1 1 5E0F6803
 P 2850 2500
-F 0 "J?" H 2930 2492 50  0000 L CNN
+F 0 "J6" H 2930 2492 50  0000 L CNN
 F 1 "Therm2" H 2930 2401 50  0000 L CNN
 F 2 "" H 2850 2500 50  0001 C CNN
 F 3 "~" H 2850 2500 50  0001 C CNN
@@ -1338,10 +1338,10 @@ GND
 Text GLabel 2100 2600 3    50   Input ~ 0
 GND
 $Comp
-L Connector_Generic:Conn_01x02 J?
+L Connector_Generic:Conn_01x02 J3
 U 1 1 5E141524
 P 1550 7000
-F 0 "J?" H 1468 7217 50  0000 C CNN
+F 0 "J3" H 1468 7217 50  0000 C CNN
 F 1 "HomeSwitch" H 1468 7126 50  0000 C CNN
 F 2 "" H 1550 7000 50  0001 C CNN
 F 3 "~" H 1550 7000 50  0001 C CNN
@@ -1349,10 +1349,10 @@ F 3 "~" H 1550 7000 50  0001 C CNN
 	-1   0    0    -1  
 $EndComp
 $Comp
-L Connector:Screw_Terminal_01x03 J?
+L Connector:Screw_Terminal_01x03 J1
 U 1 1 5E155D7D
 P 900 6450
-F 0 "J?" H 818 6767 50  0000 C CNN
+F 0 "J1" H 818 6767 50  0000 C CNN
 F 1 "Screw_Terminal_01x03" H 818 6676 50  0000 C CNN
 F 2 "" H 900 6450 50  0001 C CNN
 F 3 "~" H 900 6450 50  0001 C CNN
@@ -1360,10 +1360,10 @@ F 3 "~" H 900 6450 50  0001 C CNN
 	-1   0    0    -1  
 $EndComp
 $Comp
-L Connector:Screw_Terminal_01x02 J?
+L Connector:Screw_Terminal_01x02 J2
 U 1 1 5E15FADE
 P 1100 5650
-F 0 "J?" H 1018 5867 50  0000 C CNN
+F 0 "J2" H 1018 5867 50  0000 C CNN
 F 1 "12V_Power A97996-ND " H 1018 5776 50  0000 C CNN
 F 2 "" H 1100 5650 50  0001 C CNN
 F 3 "~" H 1100 5650 50  0001 C CNN
