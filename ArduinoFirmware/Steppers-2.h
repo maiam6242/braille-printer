@@ -48,6 +48,7 @@ class HorizontalStepper :  public AccelStepper {
                 int position = currentPosition();
                 runToNewPosition(position -1);
             }
+            setCurrentPosition(0);
             runToNewPosition(stepsToFirstCharacter);
             setCurrentPosition(0);
         }
@@ -67,7 +68,7 @@ class HorizontalStepper :  public AccelStepper {
 class PaperStepper : public AccelStepper{
 
     protected:
-    int loadSteps = 1000; // Number of steps needed to load in Paper
+    int loadSteps = 225; // Number of steps needed to load in Paper
     int unloadSteps = 3000; // Number of steps needed to unload Paper
     int stepsPermm = 40; // Number of steps to move up one mm 2000 * 8 / Pi * d (12.7 mm)
     int enablePin;
@@ -107,6 +108,7 @@ class PaperStepper : public AccelStepper{
                 int position = currentPosition();
                 runToNewPosition(position +1);
             }
+            setCurrentPosition(0);
             runToNewPosition(loadSteps);
             setCurrentPosition(0);
         }

@@ -21,6 +21,5 @@ void loop(){
 
     while (1){
         interpreter.executeCommand(horizontalStepper, paperStepper, solenoid);
-
     }
 }
