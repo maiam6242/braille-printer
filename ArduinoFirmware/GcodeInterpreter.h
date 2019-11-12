@@ -98,7 +98,7 @@ class GcodeInterpreter{
                 if ( str.charAt(0) == 'G' && str.charAt(1) == '0'){
                     if (str.charAt(3) == 'x'){
                         str = str.substring(5);
-                        int value = str.toDouble();
+                        double value = str.toDouble();
                         if (!machineMode){
                             Serial.print("Going to x value: ");
                             Serial.println(value);
@@ -110,7 +110,7 @@ class GcodeInterpreter{
                     }
                     if (str.charAt(3) == 'y'){
                         str = str.substring(5);
-                        int value = str.toDouble();
+                        double value = str.toDouble();
                         if (!machineMode){
                             Serial.print("Going to y value: ");
                             Serial.println(value);
@@ -124,7 +124,7 @@ class GcodeInterpreter{
                 if ( str.charAt(0) == 'G' && str.charAt(1) == '1'){
                     if (str.charAt(3) == 'x'){
                         str = str.substring(5);
-                        int value = str.toDouble();
+                        double value = str.toDouble();
                         if (!machineMode){
                             Serial.print("Going to x value: ");
                             Serial.println(value);
@@ -136,7 +136,7 @@ class GcodeInterpreter{
                     }
                     if (str.charAt(3) == 'y'){
                         str = str.substring(5);
-                        int value = str.toDouble();
+                        double value = str.toDouble();
                         if (!machineMode){
                             Serial.print("Going to y value: ");
                             Serial.println(value);
