@@ -8,7 +8,7 @@ class HorizontalStepper :  public AccelStepper {
 
     protected:
         int homePin;
-        double stepsPermm = 42.; // How many steps it needs to move to move one mm  2000 * 8 / Pi * d (12 mm)
+        double stepsPermm = 42. * 100. / 104.25 * 100. / 100.84; // How many steps it needs to move to move one mm  2000 * 8 / Pi * d (12 mm)
         int stepsToFirstCharacter = 60; // Steps needed to get to origin
         int absolutePosition = 0 ;
         int enablePin;
