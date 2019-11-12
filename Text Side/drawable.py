@@ -22,7 +22,7 @@ class drawable:
         '''
       
         y_size = size[1]
-        y = physical.current_position()[1]
+        y = self.physical.current_position()[1]
         x = x_margin_size
         end_y = y + y_size
         
