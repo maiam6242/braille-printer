@@ -46,10 +46,6 @@ Text GLabel 1300 5650 2    50   Input ~ 0
 12V
 Text GLabel 1300 5750 2    50   Input ~ 0
 GND
-Text GLabel 1100 6350 2    50   Input ~ 0
-12V
-Text GLabel 1100 6450 2    50   Input ~ 0
-GND
 Text GLabel 8850 600  0    50   Input ~ 0
 GND
 Text GLabel 8550 1000 0    50   Input ~ 0
@@ -664,8 +660,6 @@ Text GLabel 3800 5150 2    50   Input ~ 0
 5V
 Text GLabel 3800 6700 2    50   Input ~ 0
 5V
-Text GLabel 1100 6550 2    50   Input ~ 0
-5V
 Text GLabel 3800 4550 2    50   Input ~ 0
 12V
 Text GLabel 3800 6100 2    50   Input ~ 0
@@ -780,7 +774,7 @@ U 1 1 5DE61B2B
 P 3800 5950
 F 0 "C2" H 3915 5996 50  0000 L CNN
 F 1 "C" H 3915 5905 50  0000 L CNN
-F 2 "Capacitor_SMD:C_1206_3216Metric" H 3838 5800 50  0001 C CNN
+F 2 "Capacitor_THT:CP_Radial_D8.0mm_P3.50mm" H 3838 5800 50  0001 C CNN
 F 3 "~" H 3800 5950 50  0001 C CNN
 	1    3800 5950
 	1    0    0    -1  
@@ -791,7 +785,7 @@ U 1 1 5DE64DAB
 P 3800 4400
 F 0 "C1" H 3915 4446 50  0000 L CNN
 F 1 "C" H 3915 4355 50  0000 L CNN
-F 2 "Capacitor_SMD:C_1206_3216Metric" H 3838 4250 50  0001 C CNN
+F 2 "Capacitor_THT:CP_Radial_D8.0mm_P3.50mm" H 3838 4250 50  0001 C CNN
 F 3 "~" H 3800 4400 50  0001 C CNN
 	1    3800 4400
 	1    0    0    -1  
@@ -876,8 +870,8 @@ L Device:R_Small R16
 U 1 1 5DD0CCEA
 P 2100 2300
 F 0 "R16" H 2159 2346 50  0000 L CNN
-F 1 "R" H 2159 2255 50  0000 L CNN
-F 2 "" H 2100 2300 50  0001 C CNN
+F 1 "ThermistorR" H 2159 2255 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 2100 2300 50  0001 C CNN
 F 3 "~" H 2100 2300 50  0001 C CNN
 	1    2100 2300
 	1    0    0    -1  
@@ -893,8 +887,8 @@ L Device:R_Small R17
 U 1 1 5DD55F33
 P 2650 2300
 F 0 "R17" H 2709 2346 50  0000 L CNN
-F 1 "R" H 2709 2255 50  0000 L CNN
-F 2 "" H 2650 2300 50  0001 C CNN
+F 1 "ThermistorR" H 2709 2255 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 2650 2300 50  0001 C CNN
 F 3 "~" H 2650 2300 50  0001 C CNN
 	1    2650 2300
 	1    0    0    -1  
@@ -905,7 +899,7 @@ U 1 1 5DC92377
 P 5450 3550
 F 0 "Y1" H 5500 4567 50  0000 C CNN
 F 1 "Arduino_Mega_Bottom_Pins1" H 5500 4476 50  0000 C CNN
-F 2 "" H 5450 3550 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_2x18_P2.54mm_Vertical" H 5450 3550 50  0001 C CNN
 F 3 "~" H 5450 3550 50  0001 C CNN
 	1    5450 3550
 	1    0    0    -1  
@@ -980,7 +974,7 @@ U 1 1 5DDCB599
 P 4250 6400
 F 0 "S2" H 4330 6392 50  0000 L CNN
 F 1 "StepperMotor2" H 4330 6301 50  0000 L CNN
-F 2 "" H 4250 6400 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 4250 6400 50  0001 C CNN
 F 3 "~" H 4250 6400 50  0001 C CNN
 	1    4250 6400
 	1    0    0    -1  
@@ -991,7 +985,7 @@ U 1 1 5DDCF9CA
 P 4250 4850
 F 0 "S1" H 4330 4842 50  0000 L CNN
 F 1 "StepperMotor1" H 4330 4751 50  0000 L CNN
-F 2 "" H 4250 4850 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 4250 4850 50  0001 C CNN
 F 3 "~" H 4250 4850 50  0001 C CNN
 	1    4250 4850
 	1    0    0    -1  
@@ -1298,7 +1292,7 @@ U 1 1 5E032CCA
 P 2350 2700
 F 0 "J5" H 2268 2917 50  0000 C CNN
 F 1 "ArdAnalogTherm" H 2268 2826 50  0000 C CNN
-F 2 "" H 2350 2700 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 2350 2700 50  0001 C CNN
 F 3 "~" H 2350 2700 50  0001 C CNN
 	1    2350 2700
 	0    -1   1    0   
@@ -1311,7 +1305,7 @@ U 1 1 5E0A79D3
 P 1900 2500
 F 0 "J4" H 1818 2717 50  0000 C CNN
 F 1 "Therm1" H 1818 2626 50  0000 C CNN
-F 2 "" H 1900 2500 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 1900 2500 50  0001 C CNN
 F 3 "~" H 1900 2500 50  0001 C CNN
 	1    1900 2500
 	-1   0    0    -1  
@@ -1322,7 +1316,7 @@ U 1 1 5E0F6803
 P 2850 2500
 F 0 "J6" H 2930 2492 50  0000 L CNN
 F 1 "Therm2" H 2930 2401 50  0000 L CNN
-F 2 "" H 2850 2500 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 2850 2500 50  0001 C CNN
 F 3 "~" H 2850 2500 50  0001 C CNN
 	1    2850 2500
 	1    0    0    -1  
@@ -1343,20 +1337,9 @@ U 1 1 5E141524
 P 1550 7000
 F 0 "J3" H 1468 7217 50  0000 C CNN
 F 1 "HomeSwitch" H 1468 7126 50  0000 C CNN
-F 2 "" H 1550 7000 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 1550 7000 50  0001 C CNN
 F 3 "~" H 1550 7000 50  0001 C CNN
 	1    1550 7000
-	-1   0    0    -1  
-$EndComp
-$Comp
-L Connector:Screw_Terminal_01x03 J1
-U 1 1 5E155D7D
-P 900 6450
-F 0 "J1" H 818 6767 50  0000 C CNN
-F 1 "Screw_Terminal_01x03" H 818 6676 50  0000 C CNN
-F 2 "" H 900 6450 50  0001 C CNN
-F 3 "~" H 900 6450 50  0001 C CNN
-	1    900  6450
 	-1   0    0    -1  
 $EndComp
 $Comp
@@ -1365,9 +1348,85 @@ U 1 1 5E15FADE
 P 1100 5650
 F 0 "J2" H 1018 5867 50  0000 C CNN
 F 1 "12V_Power A97996-ND " H 1018 5776 50  0000 C CNN
-F 2 "" H 1100 5650 50  0001 C CNN
+F 2 "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2_1x02_P5.00mm_Horizontal" H 1100 5650 50  0001 C CNN
 F 3 "~" H 1100 5650 50  0001 C CNN
 	1    1100 5650
 	-1   0    0    -1  
+$EndComp
+Text GLabel 3300 3550 0    50   Input ~ 0
+GND
+Text GLabel 3800 3550 2    50   Input ~ 0
+GND
+Text GLabel 3800 3650 2    50   Input ~ 0
+Servo5V
+Text GLabel 3300 3650 0    50   Input ~ 0
+Servo5V
+Text GLabel 3300 3750 0    50   Input ~ 0
+Servo1
+Text GLabel 5250 3750 0    50   Input ~ 0
+Servo2
+Text GLabel 3800 3750 2    50   Input ~ 0
+Servo2
+Text GLabel 5250 3650 0    50   Input ~ 0
+Servo1
+$Comp
+L Regulator_Linear:AMS1117-5.0 U4
+U 1 1 5DD0B91E
+P 1700 3550
+F 0 "U4" H 1700 3792 50  0000 C CNN
+F 1 "AMS1117-5.0 Servo" H 1700 3701 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-223-3_TabPin2" H 1700 3750 50  0001 C CNN
+F 3 "http://www.advanced-monolithic.com/pdf/ds1117.pdf" H 1800 3300 50  0001 C CNN
+	1    1700 3550
+	1    0    0    -1  
+$EndComp
+Text GLabel 1400 3550 0    50   Input ~ 0
+12V
+Text GLabel 2000 3550 2    50   Input ~ 0
+Servo5V
+Text GLabel 1700 3850 3    50   Input ~ 0
+GND
+$Comp
+L Regulator_Linear:AMS1117-5.0 U3
+U 1 1 5DD2CA4F
+P 1200 4550
+F 0 "U3" H 1200 4792 50  0000 C CNN
+F 1 "AMS1117-5.0 RasPi" H 1200 4701 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-223-3_TabPin2" H 1200 4750 50  0001 C CNN
+F 3 "http://www.advanced-monolithic.com/pdf/ds1117.pdf" H 1300 4300 50  0001 C CNN
+	1    1200 4550
+	1    0    0    -1  
+$EndComp
+Text GLabel 900  4550 0    50   Input ~ 0
+12V
+Text GLabel 1500 4550 2    50   Input ~ 0
+5V
+Text GLabel 1200 4850 3    50   Input ~ 0
+GND
+$Comp
+L Connector_Generic:Conn_01x02 J7
+U 1 1 5DD35823
+P 5200 1300
+F 0 "J7" H 5280 1292 50  0000 L CNN
+F 1 "RasPi" H 5280 1201 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 5200 1300 50  0001 C CNN
+F 3 "~" H 5200 1300 50  0001 C CNN
+	1    5200 1300
+	1    0    0    -1  
+$EndComp
+Text GLabel 5000 1400 0    50   Input ~ 0
+GND
+Text GLabel 5000 1300 0    50   Input ~ 0
+5V
+$Comp
+L Connector_Generic:Conn_02x03_Odd_Even J1
+U 1 1 5DD6D984
+P 3500 3650
+F 0 "J1" H 3550 3967 50  0000 C CNN
+F 1 "RollerServos" H 3550 3876 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_2x03_P2.54mm_Vertical" H 3500 3650 50  0001 C CNN
+F 3 "~" H 3500 3650 50  0001 C CNN
+	1    3500 3650
+	1    0    0    -1  
 $EndComp
 $EndSCHEMATC
