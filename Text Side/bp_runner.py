@@ -9,7 +9,7 @@ from page import page
 from physical import physical
 import numpy as np
 
-file_path = "/home/maia/Documents/School/19-20/PoE/braille-printer/Text Side/test_story.txt"
+file_path = "test_story.txt"
 
 parser = text_parse()
 segmented = parser.break_up_text_input(parser.read_text_file(file_path))
