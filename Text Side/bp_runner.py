@@ -1,4 +1,4 @@
-#coding=utf-8
+
 
 #This will become the "main" runner class
 from text_parse import text_parse
