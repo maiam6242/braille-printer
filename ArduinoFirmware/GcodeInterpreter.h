@@ -167,9 +167,9 @@ class GcodeInterpreter{
                 }
                 if ( str.charAt(0) == 'M' && str.charAt(1) == '1' && str.charAt(2) == '1' && str.charAt(3) == '4'){
                     if (!machineMode){
-                        Serial.print("positions are: ");
+                        Serial.print("Position:");
                         Serial.print(horizontalStepper.currentmm());
-                        Serial.print(", ");
+                        Serial.print(",");
                         Serial.println(paperStepper.currentmm());
                     }
                     if (machineMode){

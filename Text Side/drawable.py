@@ -89,5 +89,6 @@ class drawable:
         y_size = self.line_height * number_lines + self.line_spacing * number_lines
         x_size = self.chars_per_line * self.character_width # NEED TO ACTUALLY CALC AND FIND THIS
         size = [round(x_size,2), round(y_size,2)]
+        print(size)
         return size
 

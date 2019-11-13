@@ -35,9 +35,11 @@ for segment in segmented:
     print(locals().get(n).page_num)
     
     end_x, end_y = drawable.get_end_position_on_page(size_in_mm)
+    print(end_x)
+    print(end_y)
     if(drawable.should_split(end_y)):
         splits = drawable.split_line(braille_tx, num_lines, size_in_mm, locals().get(n).lines_written, locals().get(n).lines_per_page)
-
+        print(splits)
         locals().get(n).add_content(splits[0], num_lines)
         count += 1
         doc.add_page_object(locals().get(n))
@@ -47,6 +49,7 @@ for segment in segmented:
         locals().get(n).add_content(splits[1], num_lines)
     else:
         locals().get(n).add_content(braille_tx, num_lines)
+        print('yooo added, baby!')
     
     #FIXME: PUT THIS IS TERMS OF MM NOT LINES, SHOULD PROBABLY BE IN THE DRAWABLE CLASS?
     if drawable.is_full():

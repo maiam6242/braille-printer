@@ -4,12 +4,14 @@ class physical:
     ser = 0
     def __init__(self, port):
         self.ser = serial.Serial(port, 115200)
-        # self.ser.write('M21')
+        self.ser.write('M21'.encode())
     
     def current_position(self):
         self.ser.write('M114'.encode())
+        print('written, baby!')
         while (True):
             ser_in = self.ser.readline()
+            print('Yooo am I here?')
             # in the form of Position: x,y
             print(ser_in)
             if('Position' in ser_in):
