@@ -173,7 +173,7 @@ class GcodeInterpreter{
                         Serial.println(paperStepper.currentmm());
                     }
                     if (machineMode){
-                        Serial.print("Position: ");
+                        Serial.print("Position:");
                         Serial.print(horizontalStepper.currentmm());
                         Serial.print(",");
                         Serial.println(paperStepper.currentmm());
