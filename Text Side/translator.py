@@ -1,3 +1,5 @@
+#coding=utf-8
+
 import numpy as np
 #TODO: Add single opening and closing quotation marks
 
