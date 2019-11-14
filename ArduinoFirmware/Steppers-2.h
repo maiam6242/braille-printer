@@ -8,7 +8,7 @@ class HorizontalStepper :  public AccelStepper {
 
     protected:
         int homePin;
-        int stepsPermm = 42; // How many steps it needs to move to move one mm  2000 * 8 / Pi * d (12 mm)
+        double stepsPermm = 42. * 100. / 104.25 * 100. / 100.84; // How many steps it needs to move to move one mm  2000 * 8 / Pi * d (12 mm)
         int stepsToFirstCharacter = 60; // Steps needed to get to origin
         int absolutePosition = 0 ;
         int enablePin;
@@ -27,10 +27,10 @@ class HorizontalStepper :  public AccelStepper {
         // Moves the stepper to the specified character
         // @param desiredCharacter The character to go to
         // @param stepsPerSecond The speed of the motor in steps/second
-        void goTomm(int desiredCharacter, int speed){
-            int desiredPosition = desiredCharacter * stepsPermm;
+        void goTomm(double desiredCharacter, int speed){
+            double desiredPosition = double(desiredCharacter) * stepsPermm;
             setMaxSpeed(double(speed));
-            runToNewPosition(desiredPosition);
+            runToNewPosition(int(desiredPosition));
         }
 
         // Homes the horizontal axis
@@ -124,8 +124,8 @@ class PaperStepper : public AccelStepper{
         // Moves the stepper to the specified character
         // @param desiredCharacter The character to go to
         // @param stepsPerSecond The speed of the motor in steps/second
-        void goTomm(int desiredCharacter, int speed){
-            int desiredPosition = desiredCharacter * stepsPermm;
+        void goTomm(double desiredCharacter, int speed){
+            double desiredPosition = desiredCharacter * stepsPermm;
             setMaxSpeed(speed);
             runToNewPosition(desiredPosition);
         }
