@@ -340,6 +340,7 @@ class translator:
 
         outputArray =  np.vstack(np.asarray(lineArrays)) 
         num_lines = len(lines)
+        print(type(outputArray))
 
         return outputArray, num_lines
         

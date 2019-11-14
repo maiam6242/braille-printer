@@ -20,8 +20,8 @@ class page:
        
     def add_content(self, content_to_add, num_lines):
 
-        content.append(content_to_add)
-        lines_written += num_lines
+        self.content.append(content_to_add)
+        self.lines_written += num_lines
 
     # def current_amount_filled(self):
     #     '''
