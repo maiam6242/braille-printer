@@ -23,7 +23,7 @@ class drawable:
       
         y_size = size[1]
         y = self.physical.current_position()[1]
-        x = x_margin_size
+        x = self.x_margin_size
         end_y = y + y_size
         
         return x, end_y
@@ -35,7 +35,7 @@ class drawable:
         Returns: Boolean which is True if the segment should be split over multiple pages and False if not
         '''
 
-        if page_length - end_y_position >= y_margin_size:
+        if self.page_length - end_y_position >= self.y_margin_size:
             return True
         else:
             return False
@@ -56,17 +56,18 @@ class drawable:
         #FIXME: Figure this one out!
         first = []
         second = []
-        for row in range (0,lines_on_first*3):
-            first.append(segment[row]) #TODO: make this work
-        for row in range(lines_on_first*3, lines_on_second*3):
-            second.append(segment[row])
+        print(segment[0])
+        for row1 in range(0,lines_on_first*3):
+            first.append(segment[row1]) #TODO: make this work
+        for row2 in range(lines_on_first*3, lines_on_second*3):
+            second.append(segment[row2])
 
         # np.shape(segment)
 
         return [first, second]
 
     def is_full(self):
-        if page_length - physical.current_position()[1] >= y_margin_size:
+        if self.page_length - physical.current_position()[1] >= self.y_margin_size:
             return False
         else:
             return True 
