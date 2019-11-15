@@ -107,3 +107,5 @@ venv.bak/
 
 *.pickle
 *.h5
+.vscode
+*.vscode
