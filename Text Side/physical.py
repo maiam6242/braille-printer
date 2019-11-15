@@ -1,21 +1,47 @@
 import serial
+import time
+from decimal import Decimal
 
 class physical:
     ser = 0
     def __init__(self, port):
-        self.ser = serial.Serial(port, 115200)
-        # self.ser.write('M21')
+        self.ser = serial.Serial(port, baudrate = 115200, timeout = 5)
+        self.ser.write('M701\r\n'.encode())
+        time.sleep(3)
+        self.ser.write('M21\r\n'.encode())
+        time.sleep(3)
+        self.ser.write('M17\r\n'.encode())
+        time.sleep(3)
+        self.ser.reset_input_buffer()
     
     def current_position(self):
-        self.ser.write('M114'.encode())
+        
+        # print(self.ser.write(b'M114\r\n'))
+        
+        self.ser.write('M114\r\n'.encode())
+        time.sleep(3)
+        
+        self.ser.write('M18\r\n'.encode())
+        time.sleep(3)
+        
+        # self.ser.flushInput() # does this actually work?
+        time.sleep(3)
+        # print(self.ser.in_waiting)
+        print('ahhhh!')
+        # # print(self.ser.read())
         while (True):
+            # print(self.ser.in_waiting)
             ser_in = self.ser.readline()
+            print('Yooo am I here?')
             # in the form of Position: x,y
             print(ser_in)
-            if('Position' in ser_in):
-                ser_in = ser_in.replace("Position: ", "")
+            if('Position' in str(ser_in)):
+                ser_in = str(ser_in).replace("b'Position:", "")
+                ser_in = ser_in.replace(r"\r\n'", "")
                 x, y = ser_in.split(',')
-                return double(x), double(y)
+                print(int(Decimal(x)))
+                print(int(Decimal(y)))
+                return int(Decimal(x)), int(Decimal(y))
 
 
     def write_row(self, segment1, segment2, x, y):

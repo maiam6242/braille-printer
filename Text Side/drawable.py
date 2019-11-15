@@ -23,9 +23,10 @@ class drawable:
       
         y_size = size[1]
         y = self.physical.current_position()[1]
-        x = x_margin_size
+        x = self.x_margin_size
         end_y = y + y_size
-        
+        print('end y')
+        print(end_y)
         return x, end_y
 
     def should_split(self, end_y_position):
@@ -34,8 +35,10 @@ class drawable:
         Args: size of segment and position on page
         Returns: Boolean which is True if the segment should be split over multiple pages and False if not
         '''
+        print('should split')
+        print(self.page_length - end_y_position)
 
-        if page_length - end_y_position >= y_margin_size:
+        if self.page_length - end_y_position <= self.y_margin_size:
             return True
         else:
             return False
@@ -50,23 +53,31 @@ class drawable:
         #TODO: Write me, dude!! SHould probably put in tolerancing of some kind?
         #FIXME: STOP PLAYING FAST AND LOOSE WITH LINES VS MMS
 
+        print(num_lines)
         lines_on_first = lines_per_page - lines_written
+        print(lines_on_first)
         lines_on_second = num_lines - lines_on_first
+        print(lines_on_second)
 
         #FIXME: Figure this one out!
         first = []
         second = []
-        for row in range (0,lines_on_first*3):
-            first.append(segment[row]) #TODO: make this work
-        for row in range(lines_on_first*3, lines_on_second*3):
-            second.append(segment[row])
+        print(type(segment))
+        print(segment[:,0])
+        for row1 in range(0,(lines_on_first*3)-1):
+            print(row1)
+            first.append(segment[:,row1]) #TODO: make this work
+        for row2 in range(lines_on_first*3, lines_on_second*3):
+            second.append(segment[:,row2])
 
         # np.shape(segment)
 
         return [first, second]
 
     def is_full(self):
-        if page_length - physical.current_position()[1] >= y_margin_size:
+        print('is full')
+        print(self.page_length - self.physical.current_position()[1])
+        if self.page_length - self.physical.current_position()[1] >= self.y_margin_size:
             return False
         else:
             return True 
@@ -89,5 +100,6 @@ class drawable:
         y_size = self.line_height * number_lines + self.line_spacing * number_lines
         x_size = self.chars_per_line * self.character_width # NEED TO ACTUALLY CALC AND FIND THIS
         size = [round(x_size,2), round(y_size,2)]
+        print(size)
         return size
 

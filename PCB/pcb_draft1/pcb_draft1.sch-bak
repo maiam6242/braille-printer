@@ -46,15 +46,15 @@ Text GLabel 1300 5650 2    50   Input ~ 0
 12V
 Text GLabel 1300 5750 2    50   Input ~ 0
 GND
-Text GLabel 8850 600  0    50   Input ~ 0
+Text GLabel 8700 750  0    50   Input ~ 0
 GND
 Text GLabel 8550 1000 0    50   Input ~ 0
 12V
 $Comp
-L Device:R_Small R14
+L Device:R_Small R15
 U 1 1 5DBA96E2
 P 6250 800
-F 0 "R14" H 6309 846 50  0000 L CNN
+F 0 "R15" H 6309 846 50  0000 L CNN
 F 1 "200_Ohm_R" H 6309 755 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 6250 800 50  0001 C CNN
 F 3 "~" H 6250 800 50  0001 C CNN
@@ -62,10 +62,10 @@ F 3 "~" H 6250 800 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L Diode:1N4003 D14
+L Diode:1N4003 D1
 U 1 1 5DBA8538
 P 8700 1000
-F 0 "D14" H 8700 1216 50  0000 C CNN
+F 0 "D1" H 8700 1216 50  0000 C CNN
 F 1 "1N4003" H 8700 1125 50  0000 C CNN
 F 2 "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal" H 8700 825 50  0001 C CNN
 F 3 "http://www.vishay.com/docs/88503/1n4001.pdf" H 8700 1000 50  0001 C CNN
@@ -73,10 +73,10 @@ F 3 "http://www.vishay.com/docs/88503/1n4001.pdf" H 8700 1000 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Transistor_FET:DMN6140L Q14
+L Transistor_FET:DMN6140L Q1
 U 1 1 5DBA0557
 P 8750 800
-F 0 "Q14" H 8956 846 50  0000 L CNN
+F 0 "Q1" H 8956 846 50  0000 L CNN
 F 1 "DMN6140L" H 8956 755 50  0000 L CNN
 F 2 "custom_symbols:SOT-223-edited" H 8950 725 50  0001 L CIN
 F 3 "http://www.diodes.com/assets/Datasheets/DMN6140L.pdf" H 8750 800 50  0001 L CNN
@@ -88,10 +88,10 @@ GND
 Text GLabel 7800 1350 0    50   Input ~ 0
 12V
 $Comp
-L Device:R_Small R7
+L Device:R_Small R16
 U 1 1 5DC2ED6F
 P 6350 1150
-F 0 "R7" H 6409 1196 50  0000 L CNN
+F 0 "R16" H 6409 1196 50  0000 L CNN
 F 1 "200_Ohm_R" H 6409 1105 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 6350 1150 50  0001 C CNN
 F 3 "~" H 6350 1150 50  0001 C CNN
@@ -99,10 +99,10 @@ F 3 "~" H 6350 1150 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L Diode:1N4003 D7
+L Diode:1N4003 D2
 U 1 1 5DC2ED75
 P 7950 1350
-F 0 "D7" H 7950 1566 50  0000 C CNN
+F 0 "D2" H 7950 1566 50  0000 C CNN
 F 1 "1N4003" H 7950 1475 50  0000 C CNN
 F 2 "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal" H 7950 1175 50  0001 C CNN
 F 3 "http://www.vishay.com/docs/88503/1n4001.pdf" H 7950 1350 50  0001 C CNN
@@ -110,10 +110,10 @@ F 3 "http://www.vishay.com/docs/88503/1n4001.pdf" H 7950 1350 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Transistor_FET:DMN6140L Q7
+L Transistor_FET:DMN6140L Q2
 U 1 1 5DC2ED7B
 P 8000 1150
-F 0 "Q7" H 8206 1196 50  0000 L CNN
+F 0 "Q2" H 8206 1196 50  0000 L CNN
 F 1 "DMN6140L" H 8206 1105 50  0000 L CNN
 F 2 "custom_symbols:SOT-223-edited" H 8200 1075 50  0001 L CIN
 F 3 "http://www.diodes.com/assets/Datasheets/DMN6140L.pdf" H 8000 1150 50  0001 L CNN
@@ -125,10 +125,10 @@ GND
 Text GLabel 8500 1850 0    50   Input ~ 0
 12V
 $Comp
-L Device:R_Small R11
+L Device:R_Small R17
 U 1 1 5DC3F63E
 P 6450 1650
-F 0 "R11" H 6509 1696 50  0000 L CNN
+F 0 "R17" H 6509 1696 50  0000 L CNN
 F 1 "200_Ohm_R" H 6509 1605 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 6450 1650 50  0001 C CNN
 F 3 "~" H 6450 1650 50  0001 C CNN
@@ -136,10 +136,10 @@ F 3 "~" H 6450 1650 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L Diode:1N4003 D11
+L Diode:1N4003 D3
 U 1 1 5DC3F644
 P 8650 1850
-F 0 "D11" H 8650 2066 50  0000 C CNN
+F 0 "D3" H 8650 2066 50  0000 C CNN
 F 1 "1N4003" H 8650 1975 50  0000 C CNN
 F 2 "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal" H 8650 1675 50  0001 C CNN
 F 3 "http://www.vishay.com/docs/88503/1n4001.pdf" H 8650 1850 50  0001 C CNN
@@ -147,10 +147,10 @@ F 3 "http://www.vishay.com/docs/88503/1n4001.pdf" H 8650 1850 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Transistor_FET:DMN6140L Q11
+L Transistor_FET:DMN6140L Q3
 U 1 1 5DC3F64A
 P 8700 1650
-F 0 "Q11" H 8906 1696 50  0000 L CNN
+F 0 "Q3" H 8906 1696 50  0000 L CNN
 F 1 "DMN6140L" H 8906 1605 50  0000 L CNN
 F 2 "custom_symbols:SOT-223-edited" H 8900 1575 50  0001 L CIN
 F 3 "http://www.diodes.com/assets/Datasheets/DMN6140L.pdf" H 8700 1650 50  0001 L CNN
@@ -162,10 +162,10 @@ GND
 Text GLabel 7750 2200 0    50   Input ~ 0
 12V
 $Comp
-L Device:R_Small R4
+L Device:R_Small R18
 U 1 1 5DC3F652
 P 6550 2000
-F 0 "R4" H 6609 2046 50  0000 L CNN
+F 0 "R18" H 6609 2046 50  0000 L CNN
 F 1 "200_Ohm_R" H 6609 1955 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 6550 2000 50  0001 C CNN
 F 3 "~" H 6550 2000 50  0001 C CNN
@@ -199,10 +199,10 @@ GND
 Text GLabel 8500 2700 0    50   Input ~ 0
 12V
 $Comp
-L Device:R_Small R12
+L Device:R_Small R19
 U 1 1 5DC43ED1
 P 6650 2500
-F 0 "R12" H 6709 2546 50  0000 L CNN
+F 0 "R19" H 6709 2546 50  0000 L CNN
 F 1 "200_Ohm_R" H 6709 2455 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 6650 2500 50  0001 C CNN
 F 3 "~" H 6650 2500 50  0001 C CNN
@@ -210,10 +210,10 @@ F 3 "~" H 6650 2500 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L Diode:1N4003 D12
+L Diode:1N4003 D5
 U 1 1 5DC43ED7
 P 8650 2700
-F 0 "D12" H 8650 2916 50  0000 C CNN
+F 0 "D5" H 8650 2916 50  0000 C CNN
 F 1 "1N4003" H 8650 2825 50  0000 C CNN
 F 2 "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal" H 8650 2525 50  0001 C CNN
 F 3 "http://www.vishay.com/docs/88503/1n4001.pdf" H 8650 2700 50  0001 C CNN
@@ -221,10 +221,10 @@ F 3 "http://www.vishay.com/docs/88503/1n4001.pdf" H 8650 2700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Transistor_FET:DMN6140L Q12
+L Transistor_FET:DMN6140L Q5
 U 1 1 5DC43EDD
 P 8700 2500
-F 0 "Q12" H 8906 2546 50  0000 L CNN
+F 0 "Q5" H 8906 2546 50  0000 L CNN
 F 1 "DMN6140L" H 8906 2455 50  0000 L CNN
 F 2 "custom_symbols:SOT-223-edited" H 8900 2425 50  0001 L CIN
 F 3 "http://www.diodes.com/assets/Datasheets/DMN6140L.pdf" H 8700 2500 50  0001 L CNN
@@ -236,10 +236,10 @@ GND
 Text GLabel 7750 3050 0    50   Input ~ 0
 12V
 $Comp
-L Device:R_Small R5
+L Device:R_Small R20
 U 1 1 5DC43EE5
 P 6750 2850
-F 0 "R5" H 6809 2896 50  0000 L CNN
+F 0 "R20" H 6809 2896 50  0000 L CNN
 F 1 "200_Ohm_R" H 6809 2805 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 6750 2850 50  0001 C CNN
 F 3 "~" H 6750 2850 50  0001 C CNN
@@ -247,10 +247,10 @@ F 3 "~" H 6750 2850 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L Diode:1N4003 D5
+L Diode:1N4003 D6
 U 1 1 5DC43EEB
 P 7900 3050
-F 0 "D5" H 7900 3266 50  0000 C CNN
+F 0 "D6" H 7900 3266 50  0000 C CNN
 F 1 "1N4003" H 7900 3175 50  0000 C CNN
 F 2 "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal" H 7900 2875 50  0001 C CNN
 F 3 "http://www.vishay.com/docs/88503/1n4001.pdf" H 7900 3050 50  0001 C CNN
@@ -258,10 +258,10 @@ F 3 "http://www.vishay.com/docs/88503/1n4001.pdf" H 7900 3050 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Transistor_FET:DMN6140L Q5
+L Transistor_FET:DMN6140L Q6
 U 1 1 5DC43EF1
 P 7950 2850
-F 0 "Q5" H 8156 2896 50  0000 L CNN
+F 0 "Q6" H 8156 2896 50  0000 L CNN
 F 1 "DMN6140L" H 8156 2805 50  0000 L CNN
 F 2 "custom_symbols:SOT-223-edited" H 8150 2775 50  0001 L CIN
 F 3 "http://www.diodes.com/assets/Datasheets/DMN6140L.pdf" H 7950 2850 50  0001 L CNN
@@ -271,10 +271,10 @@ $EndComp
 Text GLabel 8500 3550 0    50   Input ~ 0
 12V
 $Comp
-L Device:R_Small R13
+L Device:R_Small R21
 U 1 1 5DC486DC
 P 6850 3350
-F 0 "R13" H 6909 3396 50  0000 L CNN
+F 0 "R21" H 6909 3396 50  0000 L CNN
 F 1 "200_Ohm_R" H 6909 3305 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 6850 3350 50  0001 C CNN
 F 3 "~" H 6850 3350 50  0001 C CNN
@@ -282,10 +282,10 @@ F 3 "~" H 6850 3350 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L Diode:1N4003 D13
+L Diode:1N4003 D7
 U 1 1 5DC486E2
 P 8650 3550
-F 0 "D13" H 8650 3766 50  0000 C CNN
+F 0 "D7" H 8650 3766 50  0000 C CNN
 F 1 "1N4003" H 8650 3675 50  0000 C CNN
 F 2 "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal" H 8650 3375 50  0001 C CNN
 F 3 "http://www.vishay.com/docs/88503/1n4001.pdf" H 8650 3550 50  0001 C CNN
@@ -297,10 +297,10 @@ GND
 Text GLabel 7750 3900 0    50   Input ~ 0
 12V
 $Comp
-L Device:R_Small R6
+L Device:R_Small R22
 U 1 1 5DC486F0
 P 6950 3700
-F 0 "R6" H 7009 3746 50  0000 L CNN
+F 0 "R22" H 7009 3746 50  0000 L CNN
 F 1 "200_Ohm_R" H 7009 3655 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 6950 3700 50  0001 C CNN
 F 3 "~" H 6950 3700 50  0001 C CNN
@@ -308,10 +308,10 @@ F 3 "~" H 6950 3700 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L Diode:1N4003 D6
+L Diode:1N4003 D8
 U 1 1 5DC486F6
 P 7900 3900
-F 0 "D6" H 7900 4116 50  0000 C CNN
+F 0 "D8" H 7900 4116 50  0000 C CNN
 F 1 "1N4003" H 7900 4025 50  0000 C CNN
 F 2 "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal" H 7900 3725 50  0001 C CNN
 F 3 "http://www.vishay.com/docs/88503/1n4001.pdf" H 7900 3900 50  0001 C CNN
@@ -319,10 +319,10 @@ F 3 "http://www.vishay.com/docs/88503/1n4001.pdf" H 7900 3900 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Transistor_FET:DMN6140L Q6
+L Transistor_FET:DMN6140L Q8
 U 1 1 5DC486FC
 P 7950 3700
-F 0 "Q6" H 8156 3746 50  0000 L CNN
+F 0 "Q8" H 8156 3746 50  0000 L CNN
 F 1 "DMN6140L" H 8156 3655 50  0000 L CNN
 F 2 "custom_symbols:SOT-223-edited" H 8150 3625 50  0001 L CIN
 F 3 "http://www.diodes.com/assets/Datasheets/DMN6140L.pdf" H 7950 3700 50  0001 L CNN
@@ -334,10 +334,10 @@ GND
 Text GLabel 8450 4400 0    50   Input ~ 0
 12V
 $Comp
-L Device:R_Small R10
+L Device:R_Small R23
 U 1 1 5DC67359
 P 6750 4200
-F 0 "R10" H 6809 4246 50  0000 L CNN
+F 0 "R23" H 6809 4246 50  0000 L CNN
 F 1 "200_Ohm_R" H 6809 4155 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 6750 4200 50  0001 C CNN
 F 3 "~" H 6750 4200 50  0001 C CNN
@@ -345,10 +345,10 @@ F 3 "~" H 6750 4200 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L Diode:1N4003 D10
+L Diode:1N4003 D9
 U 1 1 5DC6735F
 P 8600 4400
-F 0 "D10" H 8600 4616 50  0000 C CNN
+F 0 "D9" H 8600 4616 50  0000 C CNN
 F 1 "1N4003" H 8600 4525 50  0000 C CNN
 F 2 "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal" H 8600 4225 50  0001 C CNN
 F 3 "http://www.vishay.com/docs/88503/1n4001.pdf" H 8600 4400 50  0001 C CNN
@@ -356,10 +356,10 @@ F 3 "http://www.vishay.com/docs/88503/1n4001.pdf" H 8600 4400 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Transistor_FET:DMN6140L Q10
+L Transistor_FET:DMN6140L Q9
 U 1 1 5DC67365
 P 8650 4200
-F 0 "Q10" H 8856 4246 50  0000 L CNN
+F 0 "Q9" H 8856 4246 50  0000 L CNN
 F 1 "DMN6140L" H 8856 4155 50  0000 L CNN
 F 2 "custom_symbols:SOT-223-edited" H 8850 4125 50  0001 L CIN
 F 3 "http://www.diodes.com/assets/Datasheets/DMN6140L.pdf" H 8650 4200 50  0001 L CNN
@@ -371,10 +371,10 @@ GND
 Text GLabel 7700 4750 0    50   Input ~ 0
 12V
 $Comp
-L Device:R_Small R3
+L Device:R_Small R24
 U 1 1 5DC6736D
 P 6650 4550
-F 0 "R3" H 6709 4596 50  0000 L CNN
+F 0 "R24" H 6709 4596 50  0000 L CNN
 F 1 "200_Ohm_R" H 6709 4505 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 6650 4550 50  0001 C CNN
 F 3 "~" H 6650 4550 50  0001 C CNN
@@ -382,10 +382,10 @@ F 3 "~" H 6650 4550 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L Diode:1N4003 D3
+L Diode:1N4003 D10
 U 1 1 5DC67373
 P 7850 4750
-F 0 "D3" H 7850 4966 50  0000 C CNN
+F 0 "D10" H 7850 4966 50  0000 C CNN
 F 1 "1N4003" H 7850 4875 50  0000 C CNN
 F 2 "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal" H 7850 4575 50  0001 C CNN
 F 3 "http://www.vishay.com/docs/88503/1n4001.pdf" H 7850 4750 50  0001 C CNN
@@ -393,10 +393,10 @@ F 3 "http://www.vishay.com/docs/88503/1n4001.pdf" H 7850 4750 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Transistor_FET:DMN6140L Q3
+L Transistor_FET:DMN6140L Q10
 U 1 1 5DC67379
 P 7900 4550
-F 0 "Q3" H 8106 4596 50  0000 L CNN
+F 0 "Q10" H 8106 4596 50  0000 L CNN
 F 1 "DMN6140L" H 8106 4505 50  0000 L CNN
 F 2 "custom_symbols:SOT-223-edited" H 8100 4475 50  0001 L CIN
 F 3 "http://www.diodes.com/assets/Datasheets/DMN6140L.pdf" H 7900 4550 50  0001 L CNN
@@ -408,10 +408,10 @@ GND
 Text GLabel 8400 5250 0    50   Input ~ 0
 12V
 $Comp
-L Device:R_Small R8
+L Device:R_Small R25
 U 1 1 5DC67381
 P 6550 5050
-F 0 "R8" H 6609 5096 50  0000 L CNN
+F 0 "R25" H 6609 5096 50  0000 L CNN
 F 1 "200_Ohm_R" H 6609 5005 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 6550 5050 50  0001 C CNN
 F 3 "~" H 6550 5050 50  0001 C CNN
@@ -419,10 +419,10 @@ F 3 "~" H 6550 5050 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L Diode:1N4003 D8
+L Diode:1N4003 D11
 U 1 1 5DC67387
 P 8550 5250
-F 0 "D8" H 8550 5466 50  0000 C CNN
+F 0 "D11" H 8550 5466 50  0000 C CNN
 F 1 "1N4003" H 8550 5375 50  0000 C CNN
 F 2 "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal" H 8550 5075 50  0001 C CNN
 F 3 "http://www.vishay.com/docs/88503/1n4001.pdf" H 8550 5250 50  0001 C CNN
@@ -430,10 +430,10 @@ F 3 "http://www.vishay.com/docs/88503/1n4001.pdf" H 8550 5250 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Transistor_FET:DMN6140L Q8
+L Transistor_FET:DMN6140L Q11
 U 1 1 5DC6738D
 P 8600 5050
-F 0 "Q8" H 8806 5096 50  0000 L CNN
+F 0 "Q11" H 8806 5096 50  0000 L CNN
 F 1 "DMN6140L" H 8806 5005 50  0000 L CNN
 F 2 "custom_symbols:SOT-223-edited" H 8800 4975 50  0001 L CIN
 F 3 "http://www.diodes.com/assets/Datasheets/DMN6140L.pdf" H 8600 5050 50  0001 L CNN
@@ -445,10 +445,10 @@ GND
 Text GLabel 7650 5600 0    50   Input ~ 0
 12V
 $Comp
-L Device:R_Small R1
+L Device:R_Small R26
 U 1 1 5DC67395
 P 6450 5400
-F 0 "R1" H 6509 5446 50  0000 L CNN
+F 0 "R26" H 6509 5446 50  0000 L CNN
 F 1 "200_Ohm_R" H 6509 5355 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 6450 5400 50  0001 C CNN
 F 3 "~" H 6450 5400 50  0001 C CNN
@@ -456,10 +456,10 @@ F 3 "~" H 6450 5400 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L Diode:1N4003 D1
+L Diode:1N4003 D12
 U 1 1 5DC6739B
 P 7800 5600
-F 0 "D1" H 7800 5816 50  0000 C CNN
+F 0 "D12" H 7800 5816 50  0000 C CNN
 F 1 "1N4003" H 7800 5725 50  0000 C CNN
 F 2 "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal" H 7800 5425 50  0001 C CNN
 F 3 "http://www.vishay.com/docs/88503/1n4001.pdf" H 7800 5600 50  0001 C CNN
@@ -467,10 +467,10 @@ F 3 "http://www.vishay.com/docs/88503/1n4001.pdf" H 7800 5600 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Transistor_FET:DMN6140L Q1
+L Transistor_FET:DMN6140L Q12
 U 1 1 5DC673A1
 P 7850 5400
-F 0 "Q1" H 8056 5446 50  0000 L CNN
+F 0 "Q12" H 8056 5446 50  0000 L CNN
 F 1 "DMN6140L" H 8056 5355 50  0000 L CNN
 F 2 "custom_symbols:SOT-223-edited" H 8050 5325 50  0001 L CIN
 F 3 "http://www.diodes.com/assets/Datasheets/DMN6140L.pdf" H 7850 5400 50  0001 L CNN
@@ -482,10 +482,10 @@ GND
 Text GLabel 8400 6100 0    50   Input ~ 0
 12V
 $Comp
-L Device:R_Small R9
+L Device:R_Small R27
 U 1 1 5DC673A9
 P 6350 5900
-F 0 "R9" H 6409 5946 50  0000 L CNN
+F 0 "R27" H 6409 5946 50  0000 L CNN
 F 1 "200_Ohm_R" H 6409 5855 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 6350 5900 50  0001 C CNN
 F 3 "~" H 6350 5900 50  0001 C CNN
@@ -493,10 +493,10 @@ F 3 "~" H 6350 5900 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L Diode:1N4003 D9
+L Diode:1N4003 D13
 U 1 1 5DC673AF
 P 8550 6100
-F 0 "D9" H 8550 6316 50  0000 C CNN
+F 0 "D13" H 8550 6316 50  0000 C CNN
 F 1 "1N4003" H 8550 6225 50  0000 C CNN
 F 2 "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal" H 8550 5925 50  0001 C CNN
 F 3 "http://www.vishay.com/docs/88503/1n4001.pdf" H 8550 6100 50  0001 C CNN
@@ -504,10 +504,10 @@ F 3 "http://www.vishay.com/docs/88503/1n4001.pdf" H 8550 6100 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Transistor_FET:DMN6140L Q9
+L Transistor_FET:DMN6140L Q13
 U 1 1 5DC673B5
 P 8600 5900
-F 0 "Q9" H 8806 5946 50  0000 L CNN
+F 0 "Q13" H 8806 5946 50  0000 L CNN
 F 1 "DMN6140L" H 8806 5855 50  0000 L CNN
 F 2 "custom_symbols:SOT-223-edited" H 8800 5825 50  0001 L CIN
 F 3 "http://www.diodes.com/assets/Datasheets/DMN6140L.pdf" H 8600 5900 50  0001 L CNN
@@ -519,10 +519,10 @@ GND
 Text GLabel 7650 6450 0    50   Input ~ 0
 12V
 $Comp
-L Device:R_Small R2
+L Device:R_Small R28
 U 1 1 5DC673BD
 P 6250 6250
-F 0 "R2" H 6309 6296 50  0000 L CNN
+F 0 "R28" H 6309 6296 50  0000 L CNN
 F 1 "200_Ohm_R" H 6309 6205 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric" H 6250 6250 50  0001 C CNN
 F 3 "~" H 6250 6250 50  0001 C CNN
@@ -530,10 +530,10 @@ F 3 "~" H 6250 6250 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L Diode:1N4003 D2
+L Diode:1N4003 D14
 U 1 1 5DC673C3
 P 7800 6450
-F 0 "D2" H 7800 6666 50  0000 C CNN
+F 0 "D14" H 7800 6666 50  0000 C CNN
 F 1 "1N4003" H 7800 6575 50  0000 C CNN
 F 2 "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal" H 7800 6275 50  0001 C CNN
 F 3 "http://www.vishay.com/docs/88503/1n4001.pdf" H 7800 6450 50  0001 C CNN
@@ -541,37 +541,28 @@ F 3 "http://www.vishay.com/docs/88503/1n4001.pdf" H 7800 6450 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Transistor_FET:DMN6140L Q2
+L Transistor_FET:DMN6140L Q14
 U 1 1 5DC673C9
 P 7850 6250
-F 0 "Q2" H 8056 6296 50  0000 L CNN
+F 0 "Q14" H 8056 6296 50  0000 L CNN
 F 1 "DMN6140L" H 8056 6205 50  0000 L CNN
 F 2 "custom_symbols:SOT-223-edited" H 8050 6175 50  0001 L CIN
 F 3 "http://www.diodes.com/assets/Datasheets/DMN6140L.pdf" H 7850 6250 50  0001 L CNN
 	1    7850 6250
 	1    0    0    -1  
 $EndComp
-Text GLabel 7550 7500 0    50   Input ~ 0
-12V
 Wire Wire Line
 	8850 1000 10450 1000
 Wire Wire Line
 	10450 1000 10450 2750
-Connection ~ 8850 1000
-Wire Wire Line
-	8100 1350 10400 1350
 Wire Wire Line
 	10400 1350 10400 2850
 Wire Wire Line
 	10400 2850 10450 2850
-Connection ~ 8100 1350
-Wire Wire Line
-	8800 1850 10350 1850
 Wire Wire Line
 	10350 1850 10350 2950
 Wire Wire Line
 	10350 2950 10450 2950
-Connection ~ 8800 1850
 Wire Wire Line
 	8050 2200 10300 2200
 Wire Wire Line
@@ -700,10 +691,6 @@ Wire Wire Line
 	2400 5950 2400 6800
 Wire Wire Line
 	2400 6800 2900 6800
-Wire Wire Line
-	1750 7000 2300 7000
-Wire Wire Line
-	2300 7000 2300 6050
 Text GLabel 1750 7100 2    50   Input ~ 0
 GND
 Text GLabel 2900 4650 0    50   Input ~ 0
@@ -809,10 +796,10 @@ F 3 "http://www.vishay.com/docs/88503/1n4001.pdf" H 2050 1650 50  0001 C CNN
 $EndComp
 Connection ~ 8800 3550
 $Comp
-L Transistor_FET:DMN6140L Q13
+L Transistor_FET:DMN6140L Q7
 U 1 1 5DC486E8
 P 8700 3350
-F 0 "Q13" H 8906 3396 50  0000 L CNN
+F 0 "Q7" H 8906 3396 50  0000 L CNN
 F 1 "DMN6140L" H 8906 3305 50  0000 L CNN
 F 2 "custom_symbols:SOT-223-edited" H 8900 3275 50  0001 L CIN
 F 3 "http://www.diodes.com/assets/Datasheets/DMN6140L.pdf" H 8700 3350 50  0001 L CNN
@@ -821,33 +808,21 @@ F 3 "http://www.diodes.com/assets/Datasheets/DMN6140L.pdf" H 8700 3350 50  0001 
 $EndComp
 Text GLabel 8800 3150 0    50   Input ~ 0
 GND
-$Comp
-L Transistor_FET:DMN6140L Q15
-U 1 1 5DC63D6F
-P 2100 1450
-F 0 "Q15" H 2306 1496 50  0000 L CNN
-F 1 "DMN6140L" H 2306 1405 50  0000 L CNN
-F 2 "custom_symbols:SOT-223-edited" H 2300 1375 50  0001 L CIN
-F 3 "http://www.diodes.com/assets/Datasheets/DMN6140L.pdf" H 2100 1450 50  0001 L CNN
-	1    2100 1450
-	1    0    0    -1  
-$EndComp
 Text GLabel 2200 1250 0    50   Input ~ 0
 GND
 $Comp
-L Device:R_Small R15
+L Device:R_Small R30
 U 1 1 5DC831F8
-P 1800 1450
-F 0 "R15" H 1859 1496 50  0000 L CNN
-F 1 "200_Ohm_R" H 1859 1405 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" H 1800 1450 50  0001 C CNN
-F 3 "~" H 1800 1450 50  0001 C CNN
-	1    1800 1450
+P 1500 1450
+F 0 "R30" H 1559 1496 50  0000 L CNN
+F 1 "200_Ohm_R" H 1559 1405 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 1500 1450 50  0001 C CNN
+F 3 "~" H 1500 1450 50  0001 C CNN
+	1    1500 1450
 	0    -1   -1   0   
 $EndComp
 Wire Wire Line
 	2200 1650 2750 1650
-Connection ~ 2200 1650
 $Comp
 L Connector:Screw_Terminal_01x02 F1
 U 1 1 5DCDDB16
@@ -860,16 +835,16 @@ F 3 "~" H 2950 1650 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Text GLabel 2750 1750 0    50   Input ~ 0
-GND
+12V
 Wire Wire Line
 	2100 2100 2100 2200
 Text GLabel 2100 2100 2    50   Input ~ 0
 5V
 $Comp
-L Device:R_Small R16
+L Device:R_Small R31
 U 1 1 5DD0CCEA
 P 2100 2300
-F 0 "R16" H 2159 2346 50  0000 L CNN
+F 0 "R31" H 2159 2346 50  0000 L CNN
 F 1 "ThermistorR" H 2159 2255 50  0000 L CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 2100 2300 50  0001 C CNN
 F 3 "~" H 2100 2300 50  0001 C CNN
@@ -883,10 +858,10 @@ Wire Wire Line
 Text GLabel 2650 2100 2    50   Input ~ 0
 5V
 $Comp
-L Device:R_Small R17
+L Device:R_Small R32
 U 1 1 5DD55F33
 P 2650 2300
-F 0 "R17" H 2709 2346 50  0000 L CNN
+F 0 "R32" H 2709 2346 50  0000 L CNN
 F 1 "ThermistorR" H 2709 2255 50  0000 L CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 2650 2300 50  0001 C CNN
 F 3 "~" H 2650 2300 50  0001 C CNN
@@ -964,7 +939,7 @@ Wire Wire Line
 	6150 6250 6150 4150
 Wire Wire Line
 	6150 4150 5750 4150
-Text GLabel 1700 1450 0    50   Input ~ 0
+Text GLabel 1400 1450 0    50   Input ~ 0
 Fan
 Text GLabel 5250 2850 0    50   Input ~ 0
 Fan
@@ -974,7 +949,7 @@ U 1 1 5DDCB599
 P 4250 6400
 F 0 "S2" H 4330 6392 50  0000 L CNN
 F 1 "StepperMotor2" H 4330 6301 50  0000 L CNN
-F 2 "" H 4250 6400 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 4250 6400 50  0001 C CNN
 F 3 "~" H 4250 6400 50  0001 C CNN
 	1    4250 6400
 	1    0    0    -1  
@@ -985,7 +960,7 @@ U 1 1 5DDCF9CA
 P 4250 4850
 F 0 "S1" H 4330 4842 50  0000 L CNN
 F 1 "StepperMotor1" H 4330 4751 50  0000 L CNN
-F 2 "" H 4250 4850 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 4250 4850 50  0001 C CNN
 F 3 "~" H 4250 4850 50  0001 C CNN
 	1    4250 4850
 	1    0    0    -1  
@@ -1044,12 +1019,12 @@ Wire Wire Line
 Wire Wire Line
 	6450 1150 6650 1150
 $Comp
-L Device:R_Small R21
+L Device:R_Small R1
 U 1 1 5DF601F7
 P 6800 700
-F 0 "R21" H 6859 746 50  0000 L CNN
+F 0 "R1" H 6859 746 50  0000 L CNN
 F 1 "10K_Ohm_R" H 6859 655 50  0000 L CNN
-F 2 "" H 6800 700 50  0001 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" H 6800 700 50  0001 C CNN
 F 3 "~" H 6800 700 50  0001 C CNN
 	1    6800 700 
 	1    0    0    -1  
@@ -1057,12 +1032,12 @@ $EndComp
 Text GLabel 6650 950  2    50   Input ~ 0
 GND
 $Comp
-L Device:R_Small R18
+L Device:R_Small R2
 U 1 1 5DF835D5
 P 6650 1050
-F 0 "R18" H 6709 1096 50  0000 L CNN
+F 0 "R2" H 6709 1096 50  0000 L CNN
 F 1 "10K_Ohm_R" H 6709 1005 50  0000 L CNN
-F 2 "" H 6650 1050 50  0001 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" H 6650 1050 50  0001 C CNN
 F 3 "~" H 6650 1050 50  0001 C CNN
 	1    6650 1050
 	1    0    0    -1  
@@ -1072,12 +1047,12 @@ Wire Wire Line
 Text GLabel 6800 1450 2    50   Input ~ 0
 GND
 $Comp
-L Device:R_Small R22
+L Device:R_Small R3
 U 1 1 5DF8D93D
 P 6800 1550
-F 0 "R22" H 6859 1596 50  0000 L CNN
+F 0 "R3" H 6859 1596 50  0000 L CNN
 F 1 "10K_Ohm_R" H 6859 1505 50  0000 L CNN
-F 2 "" H 6800 1550 50  0001 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" H 6800 1550 50  0001 C CNN
 F 3 "~" H 6800 1550 50  0001 C CNN
 	1    6800 1550
 	1    0    0    -1  
@@ -1093,12 +1068,12 @@ Wire Wire Line
 Text GLabel 6950 1800 2    50   Input ~ 0
 GND
 $Comp
-L Device:R_Small R25
+L Device:R_Small R4
 U 1 1 5DF994C1
 P 6950 1900
-F 0 "R25" H 7009 1946 50  0000 L CNN
+F 0 "R4" H 7009 1946 50  0000 L CNN
 F 1 "10K_Ohm_R" H 7009 1855 50  0000 L CNN
-F 2 "" H 6950 1900 50  0001 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" H 6950 1900 50  0001 C CNN
 F 3 "~" H 6950 1900 50  0001 C CNN
 	1    6950 1900
 	1    0    0    -1  
@@ -1111,12 +1086,12 @@ Wire Wire Line
 Text GLabel 7100 2300 2    50   Input ~ 0
 GND
 $Comp
-L Device:R_Small R27
+L Device:R_Small R5
 U 1 1 5DFA4085
 P 7100 2400
-F 0 "R27" H 7159 2446 50  0000 L CNN
+F 0 "R5" H 7159 2446 50  0000 L CNN
 F 1 "10K_Ohm_R" H 7159 2355 50  0000 L CNN
-F 2 "" H 7100 2400 50  0001 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" H 7100 2400 50  0001 C CNN
 F 3 "~" H 7100 2400 50  0001 C CNN
 	1    7100 2400
 	1    0    0    -1  
@@ -1129,12 +1104,12 @@ Wire Wire Line
 Text GLabel 7050 2650 2    50   Input ~ 0
 GND
 $Comp
-L Device:R_Small R26
+L Device:R_Small R6
 U 1 1 5DFAF044
 P 7050 2750
-F 0 "R26" H 7109 2796 50  0000 L CNN
+F 0 "R6" H 7109 2796 50  0000 L CNN
 F 1 "10K_Ohm_R" H 7109 2705 50  0000 L CNN
-F 2 "" H 7050 2750 50  0001 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" H 7050 2750 50  0001 C CNN
 F 3 "~" H 7050 2750 50  0001 C CNN
 	1    7050 2750
 	1    0    0    -1  
@@ -1147,12 +1122,12 @@ Wire Wire Line
 Text GLabel 7200 3150 2    50   Input ~ 0
 GND
 $Comp
-L Device:R_Small R30
+L Device:R_Small R7
 U 1 1 5DFBB4AE
 P 7200 3250
-F 0 "R30" H 7259 3296 50  0000 L CNN
+F 0 "R7" H 7259 3296 50  0000 L CNN
 F 1 "10K_Ohm_R" H 7259 3205 50  0000 L CNN
-F 2 "" H 7200 3250 50  0001 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" H 7200 3250 50  0001 C CNN
 F 3 "~" H 7200 3250 50  0001 C CNN
 	1    7200 3250
 	1    0    0    -1  
@@ -1163,12 +1138,12 @@ Wire Wire Line
 Text GLabel 7350 3500 2    50   Input ~ 0
 GND
 $Comp
-L Device:R_Small R31
+L Device:R_Small R8
 U 1 1 5DFC291D
 P 7350 3600
-F 0 "R31" H 7409 3646 50  0000 L CNN
+F 0 "R8" H 7409 3646 50  0000 L CNN
 F 1 "10K_Ohm_R" H 7409 3555 50  0000 L CNN
-F 2 "" H 7350 3600 50  0001 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" H 7350 3600 50  0001 C CNN
 F 3 "~" H 7350 3600 50  0001 C CNN
 	1    7350 3600
 	1    0    0    -1  
@@ -1181,12 +1156,12 @@ Wire Wire Line
 Text GLabel 7100 4000 2    50   Input ~ 0
 GND
 $Comp
-L Device:R_Small R28
+L Device:R_Small R9
 U 1 1 5DFD5CE2
 P 7100 4100
-F 0 "R28" H 7159 4146 50  0000 L CNN
+F 0 "R9" H 7159 4146 50  0000 L CNN
 F 1 "10K_Ohm_R" H 7159 4055 50  0000 L CNN
-F 2 "" H 7100 4100 50  0001 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" H 7100 4100 50  0001 C CNN
 F 3 "~" H 7100 4100 50  0001 C CNN
 	1    7100 4100
 	1    0    0    -1  
@@ -1199,12 +1174,12 @@ Wire Wire Line
 Text GLabel 7100 4350 2    50   Input ~ 0
 GND
 $Comp
-L Device:R_Small R29
+L Device:R_Small R10
 U 1 1 5DFE1F17
 P 7100 4450
-F 0 "R29" H 7159 4496 50  0000 L CNN
+F 0 "R10" H 7159 4496 50  0000 L CNN
 F 1 "10K_Ohm_R" H 7159 4405 50  0000 L CNN
-F 2 "" H 7100 4450 50  0001 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" H 7100 4450 50  0001 C CNN
 F 3 "~" H 7100 4450 50  0001 C CNN
 	1    7100 4450
 	1    0    0    -1  
@@ -1217,12 +1192,12 @@ Wire Wire Line
 Text GLabel 6900 4850 2    50   Input ~ 0
 GND
 $Comp
-L Device:R_Small R23
+L Device:R_Small R11
 U 1 1 5DFEE488
 P 6900 4950
-F 0 "R23" H 6959 4996 50  0000 L CNN
+F 0 "R11" H 6959 4996 50  0000 L CNN
 F 1 "10K_Ohm_R" H 6959 4905 50  0000 L CNN
-F 2 "" H 6900 4950 50  0001 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" H 6900 4950 50  0001 C CNN
 F 3 "~" H 6900 4950 50  0001 C CNN
 	1    6900 4950
 	1    0    0    -1  
@@ -1235,12 +1210,12 @@ Wire Wire Line
 Text GLabel 6750 5200 2    50   Input ~ 0
 GND
 $Comp
-L Device:R_Small R19
+L Device:R_Small R12
 U 1 1 5DFFB192
 P 6750 5300
-F 0 "R19" H 6809 5346 50  0000 L CNN
+F 0 "R12" H 6809 5346 50  0000 L CNN
 F 1 "10K_Ohm_R" H 6809 5255 50  0000 L CNN
-F 2 "" H 6750 5300 50  0001 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" H 6750 5300 50  0001 C CNN
 F 3 "~" H 6750 5300 50  0001 C CNN
 	1    6750 5300
 	1    0    0    -1  
@@ -1253,12 +1228,12 @@ Wire Wire Line
 Text GLabel 6900 5700 2    50   Input ~ 0
 GND
 $Comp
-L Device:R_Small R24
+L Device:R_Small R13
 U 1 1 5E008535
 P 6900 5800
-F 0 "R24" H 6959 5846 50  0000 L CNN
+F 0 "R13" H 6959 5846 50  0000 L CNN
 F 1 "10K_Ohm_R" H 6959 5755 50  0000 L CNN
-F 2 "" H 6900 5800 50  0001 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" H 6900 5800 50  0001 C CNN
 F 3 "~" H 6900 5800 50  0001 C CNN
 	1    6900 5800
 	1    0    0    -1  
@@ -1271,12 +1246,12 @@ Wire Wire Line
 Text GLabel 6750 6050 2    50   Input ~ 0
 GND
 $Comp
-L Device:R_Small R20
+L Device:R_Small R14
 U 1 1 5E015A54
 P 6750 6150
-F 0 "R20" H 6809 6196 50  0000 L CNN
+F 0 "R14" H 6809 6196 50  0000 L CNN
 F 1 "10K_Ohm_R" H 6809 6105 50  0000 L CNN
-F 2 "" H 6750 6150 50  0001 C CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" H 6750 6150 50  0001 C CNN
 F 3 "~" H 6750 6150 50  0001 C CNN
 	1    6750 6150
 	1    0    0    -1  
@@ -1403,17 +1378,6 @@ Text GLabel 1500 4550 2    50   Input ~ 0
 5V
 Text GLabel 1200 4850 3    50   Input ~ 0
 GND
-$Comp
-L Connector_Generic:Conn_01x02 J7
-U 1 1 5DD35823
-P 5200 1300
-F 0 "J7" H 5280 1292 50  0000 L CNN
-F 1 "RasPi" H 5280 1201 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 5200 1300 50  0001 C CNN
-F 3 "~" H 5200 1300 50  0001 C CNN
-	1    5200 1300
-	1    0    0    -1  
-$EndComp
 Text GLabel 5000 1400 0    50   Input ~ 0
 GND
 Text GLabel 5000 1300 0    50   Input ~ 0
@@ -1429,4 +1393,121 @@ F 3 "~" H 3500 3650 50  0001 C CNN
 	1    3500 3650
 	1    0    0    -1  
 $EndComp
+Text GLabel 5250 3850 0    50   Input ~ 0
+PaperHome
+NoConn ~ 5250 3950
+NoConn ~ 5250 4050
+NoConn ~ 5250 4150
+NoConn ~ 5250 4250
+NoConn ~ 5250 4350
+NoConn ~ 5750 4350
+NoConn ~ 5750 4250
+Text GLabel 2300 6150 0    50   Input ~ 0
+PaperHome
+Wire Wire Line
+	2300 6050 2350 6050
+Wire Wire Line
+	2350 6050 2350 7000
+Wire Wire Line
+	1750 7000 2350 7000
+$Comp
+L Connector_Generic:Conn_01x04 S3
+U 1 1 5DD32497
+P 1200 6450
+F 0 "S3" H 1280 6442 50  0000 L CNN
+F 1 "PaperHome" H 1280 6351 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 1200 6450 50  0001 C CNN
+F 3 "~" H 1200 6450 50  0001 C CNN
+	1    1200 6450
+	-1   0    0    1   
+$EndComp
+Text GLabel 1400 6550 2    50   Input ~ 0
+GND
+Text GLabel 1400 6450 2    50   Input ~ 0
+GND
+Text GLabel 1600 6350 2    50   Input ~ 0
+5V
+Wire Wire Line
+	2300 6150 2300 6250
+Wire Wire Line
+	2300 6250 1950 6250
+$Comp
+L Device:R_Small R34
+U 1 1 5DD4B703
+P 1500 6350
+F 0 "R34" V 1304 6350 50  0000 C CNN
+F 1 "250_Ohm_Resistor" V 1395 6350 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" H 1500 6350 50  0001 C CNN
+F 3 "~" H 1500 6350 50  0001 C CNN
+	1    1500 6350
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R_Small R33
+U 1 1 5DD61E98
+P 1950 6350
+F 0 "R33" H 2009 6396 50  0000 L CNN
+F 1 "2.7k_Ohm_Res" H 2009 6305 50  0000 L CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" H 1950 6350 50  0001 C CNN
+F 3 "~" H 1950 6350 50  0001 C CNN
+	1    1950 6350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1950 6250 1400 6250
+Text GLabel 1950 6450 3    50   Input ~ 0
+5V
+Connection ~ 1950 6250
+Connection ~ 2200 1650
+$Comp
+L Transistor_FET:DMN6140L Q15
+U 1 1 5DC63D6F
+P 2100 1450
+F 0 "Q15" H 2306 1496 50  0000 L CNN
+F 1 "DMN6140L" H 2306 1405 50  0000 L CNN
+F 2 "custom_symbols:SOT-223-edited" H 2300 1375 50  0001 L CIN
+F 3 "http://www.diodes.com/assets/Datasheets/DMN6140L.pdf" H 2100 1450 50  0001 L CNN
+	1    2100 1450
+	1    0    0    -1  
+$EndComp
+Text GLabel 1800 1250 0    50   Input ~ 0
+GND
+$Comp
+L Device:R_Small R29
+U 1 1 5DD8D481
+P 1800 1350
+F 0 "R29" H 1859 1396 50  0000 L CNN
+F 1 "10K_Ohm_R" H 1859 1305 50  0000 L CNN
+F 2 "Resistor_SMD:R_0402_1005Metric" H 1800 1350 50  0001 C CNN
+F 3 "~" H 1800 1350 50  0001 C CNN
+	1    1800 1350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1600 1450 1800 1450
+Connection ~ 1800 1450
+Wire Wire Line
+	1800 1450 1900 1450
+$Comp
+L Connector_Generic:Conn_02x02_Odd_Even J7
+U 1 1 5DDB4E39
+P 5200 1300
+F 0 "J7" H 5250 1517 50  0000 C CNN
+F 1 "Conn_02x02_Odd_Even" H 5250 1426 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_2x02_P2.54mm_Vertical" H 5200 1300 50  0001 C CNN
+F 3 "~" H 5200 1300 50  0001 C CNN
+	1    5200 1300
+	1    0    0    -1  
+$EndComp
+Text GLabel 5500 1300 2    50   Input ~ 0
+5V
+Text GLabel 5500 1400 2    50   Input ~ 0
+GND
+Connection ~ 8850 1000
+Wire Wire Line
+	8100 1350 10400 1350
+Connection ~ 8100 1350
+Wire Wire Line
+	8800 1850 10350 1850
+Connection ~ 8800 1850
 $EndSCHEMATC
