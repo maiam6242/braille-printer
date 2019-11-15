@@ -1,3 +1,5 @@
+#include <SoftwareSerial.h>
+
 // Stepper control module v2
 // Created by Colin Snow on 10/29/19
 

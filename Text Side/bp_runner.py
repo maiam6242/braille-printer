@@ -65,16 +65,16 @@ for segment in segmented:
 # size = translator.size_on_page(total_num_lines)
 # print(size)
 
-# drawable.physical.enable()
-# for page in doc:
-#     drawable.physical.load_paper()
-#     drawable.physical.home()
-#     curr_x, curr_y = drawable.physical.current_position()
-#     content_matrix = page.content
+drawable.physical.enable()
+for page in doc:
+    drawable.physical.load_paper()
+    drawable.physical.home()
+    curr_x, curr_y = drawable.physical.current_position()
+    content_matrix = page.content
     
-#     count = 0
+    count = 0
 
-#     drawable.physical.write_row(content_matrix[count], content_matrix[count+3], curr_x, curr_y)
+    drawable.physical.write_row(content_matrix[count], content_matrix[count+3], curr_x, curr_y)
 
         
         
