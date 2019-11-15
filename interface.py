@@ -23,6 +23,23 @@ class Interface:
         self.ready.off()
     def wait_for_play(self):
         self.play.wait_for_press()
+    def wait_for_print(self):
+        self.startPrint.wait_for_press()
+    def is_sound(self):
+        if self.sound.is_pressed:
+            return True
+        else:
+            return False
+    def is_cancel(self):
+        if self.cancel.is_pressed:
+            return True
+        else:
+            return False
+    def is_play_pause(self):
+        if self.play.is_pressed:
+            return True
+        else:
+            return False
 
 
 
