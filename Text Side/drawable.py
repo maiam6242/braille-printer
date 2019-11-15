@@ -1,32 +1,36 @@
 #This should figure out the position on the page and determine if the content needs to be split over multiple pages
 import serial
-from physical import physical
+from physical import Physical
 import translator
+import numpy as np
 
-class drawable:
-
-    physical = physical('/dev/ttyACM0')
-    page_left = 0
-    page_length = 279.4
-    y_margin_size = 25.4
-    x_margin_size = 25.4
-    line_height = 6.3
-    line_spacing = 8.66 #FIXME!!!
-    character_width = 3.9
-    chars_per_line = translator.charactersPerLine
+class Drawable:
+    def __init__(self, port):
+        self.physical = Physical(port)
+        self.page_left = 0
+        self.page_length = 279.4
+        self.y_margin_size = 25.4
+        self.x_margin_size = 25.4
+        self.line_height = 6.3
+        self.line_spacing = 8.66 #FIXME!!!
+        self.character_width = 3.9
+        self.chars_per_line = translator.charactersPerLine
+        self.position_on_page = self.physical.current_position()[1]
 
     def get_end_position_on_page(self, size):
         '''
         Gets the x, y position that the new braille segment should be on the page (based on the size of the matrix and how much of the page is taken up from the page object)
         Returns: an x and y starting position for the new segment to be written
         '''
-      
+        print('starting position_on_page: %s' %self.position_on_page)
         y_size = size[1]
-        y = self.physical.current_position()[1]
         x = self.x_margin_size
-        end_y = y + y_size
-        print('end y')
-        print(end_y)
+        end_y = self.position_on_page + y_size
+        self.position_on_page += y_size
+        print('end y: %s' %end_y)
+        # print(end_y)
+       
+        print('new position_on_page: %s' %self.position_on_page)
         return x, end_y
 
     def should_split(self, end_y_position):
@@ -36,11 +40,15 @@ class drawable:
         Returns: Boolean which is True if the segment should be split over multiple pages and False if not
         '''
         print('should split')
-        print(self.page_length - end_y_position)
-
-        if self.page_length - end_y_position <= self.y_margin_size:
+        print('type of page_length: %s and value:' % type(self.page_length))
+        print('type of end_y_position: %s and value:' %type(end_y_position))
+        print('page_length - end_y_position: ' + str(float(self.page_length) - float(end_y_position)))
+        print('page length : %f' %self.page_length)
+        if self.page_length - self.position_on_page <= self.y_margin_size:
+            print('should really split')
             return True
         else:
+            print('shouldn\'t split')
             return False
 
     def split_line(self, segment, num_lines, size, lines_written, lines_per_page):
@@ -53,19 +61,33 @@ class drawable:
         #TODO: Write me, dude!! SHould probably put in tolerancing of some kind?
         #FIXME: STOP PLAYING FAST AND LOOSE WITH LINES VS MMS
 
-        print(num_lines)
-        lines_on_first = lines_per_page - lines_written
-        print(lines_on_first)
-        lines_on_second = num_lines - lines_on_first
-        print(lines_on_second)
+        print('how much usable space there is: %s' % str(self.page_left - self.y_margin_size))
+        print('That means there are ___ lines left on this page (see below :\'( )')
+        print(str(round((self.page_left-self.y_margin_size)/(self.line_height+self.line_spacing),0)))
+        print(self.line_height+self.line_spacing)
+        # print('how many lines is that (w/o) rounding to integer: ' % str((self.page_left-self.y_margin_size)/(self.line_height+self.line_spacing)))
+        # print('let\'s round this thing, baby! %s' % str(round((self.page_left-self.y_margin_size)/(self.line_height+self.line_spacing),0)))
+
+        print('number of lines in segment: %s'%num_lines)
+
+        print('THIS NO LONGER APPLIES')
+        
+        lines_on_first = int(round((self.page_left-self.y_margin_size)/(self.line_height+self.line_spacing),0))
+        print('number of lines in segment that should be in first section: %s'%str(lines_on_first))
+        lines_on_second = int(num_lines - lines_on_first)
+        print('lines that should be written on second page: %s' %str(lines_on_second))
+        # print('lines on first plus lines on second, should equal number of lines in segment %s'%str(lines_on_first + lines_on_second))
 
         #FIXME: Figure this one out!
         first = []
         second = []
         print(type(segment))
-        print(segment[:,0])
-        for row1 in range(0,(lines_on_first*3)-1):
+        print(np.shape(segment))
+
+        print(int((lines_on_first*3)-1))
+        for row1 in range(0,int((lines_on_first*3)-1)):
             print(row1)
+            # print(segment[:,row1])
             first.append(segment[:,row1]) #TODO: make this work
         for row2 in range(lines_on_first*3, lines_on_second*3):
             second.append(segment[:,row2])
@@ -76,10 +98,14 @@ class drawable:
 
     def is_full(self):
         print('is full')
-        print(self.page_length - self.physical.current_position()[1])
-        if self.page_length - self.physical.current_position()[1] >= self.y_margin_size:
+        print('is left %s' %str(self.page_length - self.position_on_page))
+        print('position_on_page: '+str(self.position_on_page))
+        self.page_left = self.page_length - self.position_on_page
+        if self.page_length - self.position_on_page >= self.y_margin_size:
+            print('is not full')
             return False
         else:
+            print('is actually full')
             return True 
 
     def size_on_page(self, number_lines):

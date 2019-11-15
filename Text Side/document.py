@@ -1,6 +1,6 @@
 # This is a collection of page objects, it tracks how much of the document is written and maybe does some analysis or controls. 
 #prob track page size?
-class document:
+class Document:
     page_size = [8.5,11] 
     doc = []
     num_pages = len(doc)
@@ -37,7 +37,7 @@ class document:
         Adds a page object to the entire document
         Args: A page object to be added to the document
         '''
-        doc.append(page)
+        self.doc.append(page)
 
     # def get_number_of_pages():
     #     '''

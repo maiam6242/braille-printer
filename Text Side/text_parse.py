@@ -1,5 +1,5 @@
 
-class text_parse:
+class Text_Parse:
 
     def read_text_file(self, path):
         '''

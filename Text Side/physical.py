@@ -1,15 +1,16 @@
-import serial
+import serial 
 import time
 from decimal import Decimal
 
-class physical:
+class Physical:
     ser = 0
     def __init__(self, port):
         self.ser = serial.Serial(port, baudrate = 115200, timeout = 5)
         self.ser.write('M21\r\n'.encode())  # Moved this first so it knows machine mode is active
         time.sleep(3)
-        self.ser.write('M701\r\n'.encode())  #TODO: Make this check for completion because it could take more than 3 seconds
+        self.ser.write('M701\r\n'.encode())  # TODO: Make this check for completion because it could take more than 3 seconds
         time.sleep(3)
+        self.wait_for_completion()
         self.ser.write('M17\r\n'.encode())
         time.sleep(3)
         self.ser.reset_input_buffer()
@@ -41,12 +42,16 @@ class physical:
                 x, y = ser_in.split(',')
                 print((Decimal(x)))
                 print((Decimal(y)))
-                return Decimal(x), Decimal(y)    # Removed int conversion ans these have double precision
+                return round(float(Decimal(x)),2), round(float(Decimal(y)),2)    # Removed int conversion ans these have double precision
 
 
     def write_row(self, segment1, segment2, x, y):
         self.ser.write('G1 x %f' % x)  #TODO: Need to wait for one of these to complete before sending the other
+        time.sleep(3) 
+        self.wait_for_completion()
         self.ser.write('G1 y %f' % y)
+        time.sleep(3) 
+        self.wait_for_completion()
 
         line_one = []
         line_two = []
@@ -65,21 +70,26 @@ class physical:
     def wait_for_completion(self):
         while True:
             ser_in = self.ser.readline()
-            if ser_in == '0':
+            print(ser_in)
+            if ('0'.encode() in ser_in):
+                return 0
+            elif 'Position' in str(ser_in):
+                return 0
+            elif 'paper' in str(ser_in):
                 return 0
 
     def load_paper(self):
-        self.ser.write('M701')
+        self.ser.write('M701\r\n'.encode())
         self.wait_for_completion()
     def unload_paper(self):
-        self.ser.write('M702')
+        self.ser.write('M702\r\n'.encode())
         self.wait_for_completion()
     def enable(self):
-        self.ser.write('M17')
+        self.ser.write('M17\r\n'.encode())
         self.wait_for_completion()
     def disable(self):
-        self.ser.write('M18')
+        self.ser.write('M18\r\n'.encode())
         self.wait_for_completion()
     def home(self):
-        self.ser.write('G28')
+        self.ser.write('G28\r\n'.encode())
         self.wait_for_completion()

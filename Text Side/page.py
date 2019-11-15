@@ -7,7 +7,7 @@ page_number = 0
 # space_bw_lines = 0 # 8.66 mm
 # margins = 0 
 
-class page:
+class Page:
     page_num = 0
     lines_written = 0
     lines_per_page = 25
