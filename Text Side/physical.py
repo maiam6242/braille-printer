@@ -6,9 +6,9 @@ class physical:
     ser = 0
     def __init__(self, port):
         self.ser = serial.Serial(port, baudrate = 115200, timeout = 5)
-        self.ser.write('M701\r\n'.encode())
+        self.ser.write('M21\r\n'.encode())  # Moved this first so it knows machine mode is active
         time.sleep(3)
-        self.ser.write('M21\r\n'.encode())
+        self.ser.write('M701\r\n'.encode())  #TODO: Make this check for completion because it could take more than 3 seconds
         time.sleep(3)
         self.ser.write('M17\r\n'.encode())
         time.sleep(3)
@@ -39,13 +39,13 @@ class physical:
                 ser_in = str(ser_in).replace("b'Position:", "")
                 ser_in = ser_in.replace(r"\r\n'", "")
                 x, y = ser_in.split(',')
-                print(int(Decimal(x)))
-                print(int(Decimal(y)))
-                return int(Decimal(x)), int(Decimal(y))
+                print((Decimal(x)))
+                print((Decimal(y)))
+                return Decimal(x), Decimal(y)    # Removed int conversion ans these have double precision
 
 
     def write_row(self, segment1, segment2, x, y):
-        self.ser.write('G1 x %f' % x)
+        self.ser.write('G1 x %f' % x)  #TODO: Need to wait for one of these to complete before sending the other
         self.ser.write('G1 y %f' % y)
 
         line_one = []
@@ -57,10 +57,10 @@ class physical:
             if i%4 == 0:
                 line_two.append(punch)
 
-        self.ser.write('F %' % (''.join(line_one)))
-        wait_for_completion()
+        self.ser.write('F %' % (''.join(line_one)))   #TODO: Make these into one fire statement the firmware fires all 14 at once
+        self.wait_for_completion()
         self.ser.write('F %' % (''.join(line_two)))
-        wait_for_completion()
+        self.wait_for_completion()
 
     def wait_for_completion(self):
         while True:
@@ -70,16 +70,16 @@ class physical:
 
     def load_paper(self):
         self.ser.write('M701')
-        wait_for_completion()
+        self.wait_for_completion()
     def unload_paper(self):
         self.ser.write('M702')
-        wait_for_completion()
+        self.wait_for_completion()
     def enable(self):
         self.ser.write('M17')
-        wait_for_completion()
+        self.wait_for_completion()
     def disable(self):
         self.ser.write('M18')
-        wait_for_completion()
+        self.wait_for_completion()
     def home(self):
         self.ser.write('G28')
-        wait_for_completion()
+        self.wait_for_completion()
