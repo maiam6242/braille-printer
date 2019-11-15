@@ -15,7 +15,7 @@ class physical:
             if('Position' in ser_in):
                 ser_in = ser_in.replace("Position: ", "")
                 x, y = ser_in.split(',')
-                return int(x), int(y)
+                return double(x), double(y)
 
 
     def write_row(self, segment1, segment2, x, y):
