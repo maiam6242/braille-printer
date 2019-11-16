@@ -58,38 +58,51 @@ class Physical:
         time.sleep(3) 
         self.wait_for_completion()
 
-        line_one = []
-        line_two = []
+        line_one = ""
+        line_two = ""
+        # sol_punches_one = [] 
+        # sol_punches_two = []
+     
+        sol_commands = []
         print(np.shape(row1))
         print(np.shape(row2))
+        
         # segment(major row_num, column (pod)_num, row of pod, col w/in pod)
         # row1(pod (column) num, row of pod, col w/in pod)
 
-        start_num = 0
-        num_chars = np.shape(row1)[0]
+        num_chars = np.shape(row1)[1]
         for pod_row in range(3):
-            for pod_col in range(2):
-                # while pod_num < num_chars+1:
-                #FIXME: WTAF Python?! No one likes you!! AHHHHHHH
-                for pod_num in range(start_num, num_chars+1):
-                    print('Pod Num %s' %pod_num)
-                    print('Pod Col %s' %pod_col)
-                    print('Pod Row %s' %pod_row)
-                    print(row1[0, pod_num, pod_row, pod_col])
-                    line_one.append(row1[pod_num,pod_row,pod_col])
-                    print('Start Num %s' %start_num)
-                    pod_num +=4
-            start_num += 1    
-
-        # for i, punch in enumerate(row2):
-        #     if i%4 == 0:
-        #         line_two.append(punch)
-
-        # self.ser.write('F %' % (''.join(line_one)))   #TODO: Make these into one fire statement the firmware fires all 14 at once
-        # self.wait_for_completion()
-        self.ser.write('F %' % (''.join(line_two)))
-        self.wait_for_completion()
-
+            for sol_chars in range(4):
+                for pod_col in range(2):
+                    pod_num = sol_chars
+                    while pod_num >= 0 and pod_num < num_chars:
+                        # print('Pod Num %s' %pod_num)
+                        # print('Pod Row %s' %pod_row)
+                        # print('Pod Col %s' %pod_col)
+                        print(row1[0, pod_num, pod_row, pod_col])
+                        
+                        if pod_num < np.shape(row1)[1]:
+                            line_one += str(row1[0, pod_num, pod_row, pod_col])
+                        if pod_num < np.shape(row2)[1]:
+                            line_two += str(row2[0, pod_num, pod_row, pod_col])
+                        pod_num +=4 
+                    # sol_punches_one.append(line_one)
+                    # sol_punches_two.append(line_two)
+                  
+                    sol_commands.append(line_one+line_two)
+                  
+                    line_one = ""
+                    line_two = ""
+                    
+        # print(np.shape(sol_punches_one)[0])
+        # print(sol_punches_one)
+        print(np.shape(sol_commands))
+        print(sol_commands)
+        print(str)
+        for command in sol_commands:
+            self.ser.write(('F x %s \r\n' % str(command).encode()).encode())   #TODO: Make these into one fire statement the firmware fires all 14 at once
+            self.wait_for_completion()
+        
     def wait_for_completion(self):
         while True:
             ser_in = self.ser.readline()
