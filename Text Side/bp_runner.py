@@ -19,7 +19,7 @@ translator = Translator()
 formatted = []
 total_num_lines = 0
 
-drawable = Drawable('/dev/ttyACM1')
+drawable = Drawable('/dev/ttyACM0')
 # physical = physical('/dev/ttyACM0')
 doc = Document()
 
@@ -42,41 +42,39 @@ for segment in segmented:
     print(end_x)
     print(end_y)
     if(drawable.should_split(end_y)):
-        splits = drawable.split_line(braille_tx, num_lines, size_in_mm, locals().get(n).lines_written, locals().get(n).lines_per_page)
+        splits = drawable.split_line(braille_tx, num_lines)
         print(splits)
-        locals().get(n).add_content(splits[0], num_lines)
+        locals().get(n).add_content(splits[0], splits[1])
         count += 1
         doc.add_page_object(locals().get(n))
        
         drawable.position_on_page = 0
         locals()['page_'+ str(count)] = Page(count)
         n = 'page_'+ str(count)
-        locals().get(n).add_content(splits[1], num_lines)
+        locals().get(n).add_content(splits[2], splits[3])
     else:
         locals().get(n).add_content(braille_tx, num_lines)
         print('yooo added, baby!')
-    
-    #FIXME: PUT THIS IS TERMS OF MM NOT LINES, SHOULD PROBABLY BE IN THE DRAWABLE CLASS?
-    if drawable.is_full():
+        
+        if drawable.is_full():
             count += 1
             drawable.position_on_page = 0
             doc.add_page_object(locals().get(n))
 
 
+# FIXME: Enable instead of disable when ready to use
+drawable.physical.disable()
+print(doc.num_pages)
+# print(doc.doc[0].content)
 
-# print(total_num_lines)
-# size = translator.size_on_page(total_num_lines)
-# print(size)
-
-drawable.physical.enable()
-for page in doc:
+for page in doc.doc_list:
     drawable.physical.load_paper()
-    drawable.physical.home()
+    # drawable.physical.home() #TODO: Comment me back in (please!)
     curr_x, curr_y = drawable.physical.current_position()
     content_matrix = page.content
-    
+    # print(content_matrix)
     count = 0
-
+    #FIXME: this line is wrong!
     drawable.physical.write_row(content_matrix[count], content_matrix[count+3], curr_x, curr_y)
 
         

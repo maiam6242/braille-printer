@@ -51,7 +51,7 @@ class Drawable:
             print('shouldn\'t split')
             return False
 
-    def split_line(self, segment, num_lines, size, lines_written, lines_per_page):
+    def split_line(self, segment, num_lines):
         '''
         If the string should be split, determines what line the matrix/segment should be split at and stores that in variable line in the form of a list of dot matrices, with the first entry being the portion which should be written on the first page and the second entry being the portion to be written on the next page
         Args: size of the segment, how many lines the segment is (from translator)
@@ -82,19 +82,23 @@ class Drawable:
         first = []
         second = []
         print(type(segment))
-        print(np.shape(segment))
+        print('this is the shape of the segment: %s' %str(np.shape(segment)))
+        # print(np.shape(segment))
 
-        print(int((lines_on_first*3)-1))
-        for row1 in range(0,int((lines_on_first*3)-1)):
+        print(int(lines_on_first))
+        
+        for row1 in range(0,lines_on_first):
             print(row1)
-            # print(segment[:,row1])
-            first.append(segment[:,row1]) #TODO: make this work
-        for row2 in range(lines_on_first*3, lines_on_second*3):
-            second.append(segment[:,row2])
+            # print(segment[row1, :])
+            first.append(segment[row1,:])
+        # print(lines_on_second)
+        # print(lines_on_first + 1)
+        # print(range(lines_on_first+1, num_lines))
+        for row2 in range(lines_on_first+1, num_lines):
+            print(row2)
+            second.append(segment[row2,:])
 
-        # np.shape(segment)
-
-        return [first, second]
+        return [first, lines_on_first, second, lines_on_second]
 
     def is_full(self):
         print('is full')
