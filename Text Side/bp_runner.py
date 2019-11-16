@@ -70,7 +70,7 @@ print(doc.num_pages)
 
 for page in doc.doc_list:
     drawable.physical.load_paper()
-    # drawable.physical.home() #TODO: Comment me back in (please!)
+    drawable.physical.home() #TODO: Comment me back in (please!)
     curr_x, curr_y = drawable.physical.current_position()
     content_matrix = page.content
     # print(content_matrix)
