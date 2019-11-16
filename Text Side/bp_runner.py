@@ -10,6 +10,7 @@ from physical import Physical
 import numpy as np
 
 file_path = "/home/maia/Documents/School/19-20/PoE/braille-printer/Text Side/test_story.txt"
+port = '/dev/ttyACM0'
 
 parser = Text_Parse()
 segmented = parser.break_up_text_input(parser.read_text_file(file_path))
@@ -19,7 +20,7 @@ translator = Translator()
 formatted = []
 total_num_lines = 0
 
-drawable = Drawable('/dev/ttyACM0')
+drawable = Drawable(port)
 # physical = physical('/dev/ttyACM0')
 doc = Document()
 
