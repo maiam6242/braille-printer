@@ -41,10 +41,3 @@ class Document:
         self.num_pages += 1
         # print(self.doc[0])
         print('page number: %s' %str(page.page_num))
-
-    # def get_number_of_pages():
-    #     '''
-    #     Returns the length of the entire document (which is equal the number of pages (elements) in the document list)
-    #     Returns: the length of the document object
-    #     '''
-    #     return len(doc)

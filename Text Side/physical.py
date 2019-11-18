@@ -11,14 +11,17 @@ class Physical:
         time.sleep(3)
         self.ser.write('M701\r\n'.encode())  # TODO: Make this check for completion because it could take more than 3 seconds
         time.sleep(3)
-        # self.wait_for_completion()
+        self.wait_for_completion()
         self.ser.write('M17\r\n'.encode())
         time.sleep(3)
         # self.wait_for_completion()
         self.ser.reset_input_buffer()
     
     def current_position(self):
-        
+        '''
+        Finds the current postion of the steppers in terms of x and y
+        Returns: the values associated with the current position in the form x, y
+        '''
         # print(self.ser.write(b'M114\r\n'))
         
         self.ser.write('M114\r\n'.encode())
@@ -51,6 +54,10 @@ class Physical:
 
 
     def write_row(self, row1, row2, x, y):
+        '''
+        Writes two entire consecutive rows of braille text (punches the solenoids)
+        Args: The rows to write and the inital x and y positions where to begin the writing
+        '''
         self.ser.write(('G1 x %s \r\n' % str(x).encode()).encode())  #TODO: Need to wait for one of these to complete before sending the other
         time.sleep(3) 
         self.wait_for_completion()
@@ -60,8 +67,6 @@ class Physical:
 
         line_one = ""
         line_two = ""
-        # sol_punches_one = [] 
-        # sol_punches_two = []
      
         sol_commands = []
         print(np.shape(row1))
@@ -86,9 +91,7 @@ class Physical:
                         if pod_num < np.shape(row2)[1]:
                             line_two += str(row2[0, pod_num, pod_row, pod_col])
                         pod_num +=4 
-                    # sol_punches_one.append(line_one)
-                    # sol_punches_two.append(line_two)
-                  
+                                      
                     sol_commands.append(line_one+line_two)
                   
                     line_one = ""
@@ -100,7 +103,7 @@ class Physical:
         print(sol_commands)
         print(str)
         for command in sol_commands:
-            self.ser.write(('F x %s \r\n' % str(command).encode()).encode())   #TODO: Make these into one fire statement the firmware fires all 14 at once
+            self.ser.write(('F x %s \r\n' % str(command).encode()).encode())  
             self.wait_for_completion()
         
     def wait_for_completion(self):

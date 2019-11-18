@@ -1,6 +1,4 @@
-
-
-#This will become the "main" runner class
+# This will become the "main" runner class
 from text_parse import Text_Parse
 from drawable import Drawable
 from translator import Translator
@@ -9,8 +7,8 @@ from page import Page
 from physical import Physical
 import numpy as np
 
-file_path = "/home/maia/Documents/School/19-20/PoE/braille-printer/Text Side/test_story.txt"
-port = '/dev/ttyACM0'
+file_path = '/home/maia/Documents/School/19-20/PoE/braille-printer/Text Side/test_story.txt'
+port = '/dev/ttyACM1'
 
 parser = Text_Parse()
 segmented = parser.break_up_text_input(parser.read_text_file(file_path))
@@ -21,14 +19,10 @@ formatted = []
 total_num_lines = 0
 
 drawable = Drawable(port)
-# physical = physical('/dev/ttyACM0')
+
 doc = Document()
 
-# drawable.physical.current_position()
-
-# braille_tx, num_lines = translator.convert_to_braille(segmented[-1])
-# print(np.shape(segmented[-1][0][0]))
-# print(np.size(segmented[-1][0][0]))
+print(np.shape(segmented))
 for segment in segmented:
     count = 1
     braille_tx, num_lines = translator.convert_to_braille(segment)
@@ -42,6 +36,7 @@ for segment in segmented:
     end_x, end_y = drawable.get_end_position_on_page(size_in_mm)
     print(end_x)
     print(end_y)
+
     if(drawable.should_split(end_y)):
         splits = drawable.split_line(braille_tx, num_lines)
         print(splits)
@@ -57,26 +52,30 @@ for segment in segmented:
         locals().get(n).add_content(braille_tx, num_lines)
         print('yooo added, baby!')
         
+        #TODO: Check these measurements! This should be 25 lines, right now, with measurements. it is only 20...
         if drawable.is_full():
             count += 1
             drawable.position_on_page = 0
             doc.add_page_object(locals().get(n))
+    #TODO: Make it so that the last page is also added, if all the other pages are full and this loop is done, add the last page basically
+    # if(doc.num_pages != count && ):
+        # doc.add_page_object(locals().get(n))
+
+
 
 
 # FIXME: Enable instead of disable when ready to use
-drawable.physical.disable()
+# drawable.physical.disable()
 print(doc.num_pages)
-# print(doc.doc[0].content)
 
 for page in doc.doc_list:
     drawable.physical.load_paper()
     drawable.physical.home() #TODO: Comment me back in (please!)
     curr_x, curr_y = drawable.physical.current_position()
     content_matrix = page.content
-    # print(content_matrix)
-    count = 0
-    #FIXME: this line is wrong!
-    drawable.physical.write_row(content_matrix[count], content_matrix[count+3], curr_x, curr_y)
+    
+    for row in range(0,len(content_matrix)):
+        drawable.physical.write_row(content_matrix[row], content_matrix[row+1], curr_x, curr_y)
 
         
         
