@@ -7,11 +7,11 @@ lsusb
 cd ..
 cd /media/pi/
 
-cd $(lf 1)
+ls
 
 find -type f -iname "*.txt" -printf "%f\n"
 
 for file in find -type f -iname "*.txt":
 do
-print $file 
+print "$file" 
 done
