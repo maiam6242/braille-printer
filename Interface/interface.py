@@ -36,7 +36,7 @@ if __name__ == "__main__":
     interface = Interface()
     while 1:
         # print(interface.is_sound())
-        if interface.is_sound():
+        if interface.is_cancel():
 
             interface.signal_ready()
             time.sleep(.5)
