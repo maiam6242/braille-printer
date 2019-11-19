@@ -1,14 +1,14 @@
 #!/bin/bash
 
 # print all of the usbs connections
-lsusb
+# lsusb
 
 # get into media folder and into the directory
 cd 
 cd /media/pi/
-print "$(/media/pi/ |head -n1)"
+# print "$(/media/pi/ |head -n1)"
 
-ls
+# ls
 
 # print all of the text files
 find -type f -iname "*.txt" -printf "%f\n"
