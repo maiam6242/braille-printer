@@ -1,5 +1,8 @@
 import subprocess
 import sys
+import os
+from playsound import playsound
+from gtts import gTTS
 
 class GetUSB:
 
@@ -21,6 +24,16 @@ class GetUSB:
         lines = self.output_reader(self.proc)
         return lines
 
+    def read_out(self, lines):
+        language = 'en'
+        for line in lines:
+            lets_convert = gTTS(text=line, lang=language, slow=False)
+            lets_convert.save('line_to_read.wav')
+            playsound('line_to_read.wav', blocking=False)
+            os.system('rm line_to_read.wav')
+            
+
+
 if __name__ == "__main__":
     usb = GetUSB()
-    print(usb.get())
+    print(usb.read_out(usb.get()))
