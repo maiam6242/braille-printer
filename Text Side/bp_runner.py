@@ -58,8 +58,9 @@ for segment in segmented:
             drawable.position_on_page = 0
             doc.add_page_object(locals().get(n))
     #TODO: Make it so that the last page is also added, if all the other pages are full and this loop is done, add the last page basically
-    # if(doc.num_pages != count && ):
-        # doc.add_page_object(locals().get(n))
+    # TODO: Test me!
+        if(doc.num_pages != count and segment is segmented[-1]):
+            doc.add_page_object(locals().get(n))
 
 
 
