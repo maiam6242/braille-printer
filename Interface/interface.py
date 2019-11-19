@@ -33,5 +33,4 @@ class Interface:
 
 if __name__ == "__main__":
     interface = Interface()
-    interface.signal_error()
-    interface.resolve_error()
+    print(interface.is_sound())
