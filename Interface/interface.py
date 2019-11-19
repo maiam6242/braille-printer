@@ -29,6 +29,8 @@ class Interface:
         return bool(self.cancel.is_pressed)
     def is_play_pause(self):
         return bool(self.play.is_pressed)
+    def is_start_print(self):
+        return bool(self.start_print.is_pressed)
 
 
 if __name__ == "__main__":
@@ -36,7 +38,7 @@ if __name__ == "__main__":
     interface = Interface()
     while 1:
         # print(interface.is_sound())
-        if interface.is_cancel():
+        if interface.is_cancel() or interface.is_play_pause() or interface.is_start_print():
 
             interface.signal_ready()
             time.sleep(.5)
