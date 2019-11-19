@@ -32,6 +32,12 @@ class Interface:
 
 
 if __name__ == "__main__":
+    import time
     interface = Interface()
     while 1:
-        print(interface.is_sound())
+        # print(interface.is_sound())
+        interface.signal_error()
+        time.sleep(1)
+        interface.resolve_error()
+        time.sleep(1)
+
