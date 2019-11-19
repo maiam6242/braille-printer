@@ -38,8 +38,8 @@ if __name__ == "__main__":
         # print(interface.is_sound())
         if interface.is_sound():
 
-            interface.signal_error()
+            interface.signal_ready()
             time.sleep(.5)
-            interface.resolve_error()
+            interface.resolve_ready()
             time.sleep(.5)
 
