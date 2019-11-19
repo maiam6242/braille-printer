@@ -28,7 +28,6 @@ class Drawable:
         end_y = self.position_on_page + y_size
         self.position_on_page += y_size
         print('end y: %s' %end_y)
-        # print(end_y)
        
         print('new position_on_page: %s' %self.position_on_page)
         return x, end_y
@@ -51,7 +50,7 @@ class Drawable:
             print('shouldn\'t split')
             return False
 
-    def split_line(self, segment, num_lines, size, lines_written, lines_per_page):
+    def split_line(self, segment, num_lines):
         '''
         If the string should be split, determines what line the matrix/segment should be split at and stores that in variable line in the form of a list of dot matrices, with the first entry being the portion which should be written on the first page and the second entry being the portion to be written on the next page
         Args: size of the segment, how many lines the segment is (from translator)
@@ -59,44 +58,40 @@ class Drawable:
         '''
 
         #TODO: Write me, dude!! SHould probably put in tolerancing of some kind?
-        #FIXME: STOP PLAYING FAST AND LOOSE WITH LINES VS MMS
-
+        
         print('how much usable space there is: %s' % str(self.page_left - self.y_margin_size))
         print('That means there are ___ lines left on this page (see below :\'( )')
         print(str(round((self.page_left-self.y_margin_size)/(self.line_height+self.line_spacing),0)))
         print(self.line_height+self.line_spacing)
-        # print('how many lines is that (w/o) rounding to integer: ' % str((self.page_left-self.y_margin_size)/(self.line_height+self.line_spacing)))
-        # print('let\'s round this thing, baby! %s' % str(round((self.page_left-self.y_margin_size)/(self.line_height+self.line_spacing),0)))
-
+    
         print('number of lines in segment: %s'%num_lines)
 
-        print('THIS NO LONGER APPLIES')
-        
         lines_on_first = int(round((self.page_left-self.y_margin_size)/(self.line_height+self.line_spacing),0))
         print('number of lines in segment that should be in first section: %s'%str(lines_on_first))
         lines_on_second = int(num_lines - lines_on_first)
         print('lines that should be written on second page: %s' %str(lines_on_second))
-        # print('lines on first plus lines on second, should equal number of lines in segment %s'%str(lines_on_first + lines_on_second))
 
-        #FIXME: Figure this one out!
         first = []
         second = []
         print(type(segment))
-        print(np.shape(segment))
+        print('this is the shape of the segment: %s' %str(np.shape(segment)))
 
-        print(int((lines_on_first*3)-1))
-        for row1 in range(0,int((lines_on_first*3)-1)):
+        print(int(lines_on_first))
+        
+        for row1 in range(0,lines_on_first):
             print(row1)
-            # print(segment[:,row1])
-            first.append(segment[:,row1]) #TODO: make this work
-        for row2 in range(lines_on_first*3, lines_on_second*3):
-            second.append(segment[:,row2])
+            first.append(segment[row1,:])
+        for row2 in range(lines_on_first+1, num_lines):
+            print(row2)
+            second.append(segment[row2,:])
 
-        # np.shape(segment)
-
-        return [first, second]
+        return [first, lines_on_first, second, lines_on_second]
 
     def is_full(self):
+        '''
+        Determines whether or not a page is full based on the position on the page (as opposed to the number of lines that have been written)
+        Returns: True if the page is full and False if the page is not filled yet
+        '''
         print('is full')
         print('is left %s' %str(self.page_length - self.position_on_page))
         print('position_on_page: '+str(self.position_on_page))

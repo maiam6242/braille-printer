@@ -2,8 +2,8 @@
 #prob track page size?
 class Document:
     page_size = [8.5,11] 
-    doc = []
-    num_pages = len(doc)
+    doc_list = []
+    num_pages = len(doc_list)
 
     def set_page_size(self, page_size_input):
         '''
@@ -37,11 +37,7 @@ class Document:
         Adds a page object to the entire document
         Args: A page object to be added to the document
         '''
-        self.doc.append(page)
-
-    # def get_number_of_pages():
-    #     '''
-    #     Returns the length of the entire document (which is equal the number of pages (elements) in the document list)
-    #     Returns: the length of the document object
-    #     '''
-    #     return len(doc)
+        self.doc_list.append(page)
+        self.num_pages += 1
+        # print(self.doc[0])
+        print('page number: %s' %str(page.page_num))

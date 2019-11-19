@@ -325,18 +325,21 @@ class Translator:
            
             lineLength = np.shape(line)[0]
             print(lineLength)
-
-            if charactersPerLine * 2 - lineLength != 0:
+            lineArray = []
+            if charactersPerLine - lineLength != 0:
                 spaces = []
 
-                for count in range(0,(charactersPerLine * 2 - lineLength)):
+                for count in range(0,(charactersPerLine - lineLength)):
                     spaces.append(space)
 
                 if (np.size(line)!= 0):
                     lineArray = np.concatenate((np.asarray(line), np.asarray(spaces)), axis = 0)
                 else:
                     lineArray = np.asarray(spaces)
-            lineArrays.append(lineArray)        
+            if len(lineArray) == 0:
+                lineArrays.append([line])
+            else:
+                lineArrays.append([lineArray])        
 
         outputArray =  np.vstack(np.asarray(lineArrays)) 
         num_lines = len(lines)
