@@ -3,6 +3,9 @@ import sys
 
 class GetUSB:
 
+    def __int__(self) :
+        pass
+
     def output_reader(self, proc):
             self.result = []
             while 1:
@@ -17,3 +20,7 @@ class GetUSB:
         self.proc = subprocess.Popen(['./finding-usb.bash'], stdout=subprocess.PIPE)
         lines = self.output_reader(self.proc)
         return lines
+
+if __name__ == "__main__":
+    usb = GetUSB()
+    print(usb.get())
