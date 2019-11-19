@@ -7,7 +7,7 @@ from page import Page
 from physical import Physical
 import numpy as np
 
-file_path = 'test_story.txt'
+file_path = '/home/maia/Documents/School/19-20/PoE/braille-printer/Text Side/test_story.txt'
 port = '/dev/ttyACM0'
 
 parser = Text_Parse()
@@ -81,5 +81,6 @@ for page in doc.doc_list:
         drawable.physical.write_row(content_matrix[row], content_matrix[row+1], curr_x, curr_y)
         curr_y += 2 * drawable.line_spacing + 2 * drawable.line_height
         print(curr_y)
+        #FIXME: should this be different to feed the method call?
         
 
