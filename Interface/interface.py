@@ -29,3 +29,9 @@ class Interface:
         return bool(self.cancel.is_pressed)
     def is_play_pause(self):
         return bool(self.play.is_pressed)
+
+
+if __name__ == "__main__":
+    interface = Interface()
+    interface.signal_error()
+    interface.resolve_error()
