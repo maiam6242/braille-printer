@@ -21,8 +21,9 @@ class GetUSB:
 
     def get(self):
         self.proc = subprocess.Popen(['./finding-usb.bash'], stdout=subprocess.PIPE)
-        lines = self.output_reader(self.proc)
-        return lines
+        self.lines = self.output_reader(self.proc)
+        self.lines = [s.strip('\n') for s in self.lines]
+        return self.lines
 
     def read_out(self, lines):
         language = 'en'
