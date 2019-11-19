@@ -14,7 +14,7 @@ class Physical:
         self.wait_for_completion()
         self.ser.write('M17\r\n'.encode())
         time.sleep(3)
-        # self.wait_for_completion()
+        self.wait_for_completion()
         self.ser.reset_input_buffer()
     
     def current_position(self):
@@ -75,21 +75,23 @@ class Physical:
         # segment(major row_num, column (pod)_num, row of pod, col w/in pod)
         # row1(pod (column) num, row of pod, col w/in pod)
 
-        num_chars = np.shape(row1)[1]
+        num_chars = np.shape(row1)[0]
+        print("the size of the first line is:")
+        print(np.shape(row1))
         for pod_row in range(3):
             for sol_chars in range(4):
                 for pod_col in range(2):
                     pod_num = sol_chars
                     while pod_num >= 0 and pod_num < num_chars:
-                        # print('Pod Num %s' %pod_num)
-                        # print('Pod Row %s' %pod_row)
-                        # print('Pod Col %s' %pod_col)
-                        print(row1[0, pod_num, pod_row, pod_col])
+                        print('Pod Num %s' %pod_num)
+                        print('Pod Row %s' %pod_row)
+                        print('Pod Col %s' %pod_col)
+                        print(row1[pod_num, pod_row, pod_col])
                         
-                        if pod_num < np.shape(row1)[1]:
-                            line_one += str(row1[0, pod_num, pod_row, pod_col])
-                        if pod_num < np.shape(row2)[1]:
-                            line_two += str(row2[0, pod_num, pod_row, pod_col])
+                        if pod_num < np.shape(row1)[0]:
+                            line_one += str(row1[pod_num, pod_row, pod_col])
+                        if pod_num < np.shape(row2)[0]:
+                            line_two += str(row2[pod_num, pod_row, pod_col])
                         pod_num +=4 
                                       
                     sol_commands.append(line_one+line_two)
@@ -101,7 +103,7 @@ class Physical:
         # print(sol_punches_one)
         print(np.shape(sol_commands))
         print(sol_commands)
-        print(str)
+        print(sol_commands[0])
         for command in sol_commands:
             self.ser.write(('F x %s \r\n' % str(command).encode()).encode())  
             self.wait_for_completion()

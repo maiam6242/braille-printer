@@ -8,7 +8,7 @@ from physical import Physical
 import numpy as np
 
 file_path = '/home/maia/Documents/School/19-20/PoE/braille-printer/Text Side/test_story.txt'
-port = '/dev/ttyACM1'
+port = '/dev/ttyACM0'
 
 parser = Text_Parse()
 segmented = parser.break_up_text_input(parser.read_text_file(file_path))
@@ -74,10 +74,12 @@ for page in doc.doc_list:
     drawable.physical.home() #TODO: Comment me back in (please!)
     curr_x, curr_y = drawable.physical.current_position()
     content_matrix = page.content
+    print(page.page_num)
     
-    for row in range(0,len(content_matrix)):
+    for row in range(0,len(content_matrix),2):
+        print('the top row is: ' + str(row))
         drawable.physical.write_row(content_matrix[row], content_matrix[row+1], curr_x, curr_y)
-
-        
+        curr_y += 2 * drawable.line_spacing + 2 * drawable.line_height
+        print(curr_y)
         
 
