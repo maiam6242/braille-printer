@@ -1,5 +1,10 @@
 import subprocess
 import sys
+import time
+import os
+import playsound
+from gtts import gTTS
+import pyttsx
 
 class GetUSB:
 
@@ -22,6 +27,20 @@ class GetUSB:
         self.lines = [s.strip('\n') for s in self.lines]
         return self.lines
 
+    def read_out(self, lines):
+        language = 'en'
+        engine = pyttsx.init()
+        for line in lines:
+            engine.say(line)
+            # lets_convert = gTTS(text=line, lang=language, slow=True)
+            # lets_convert.save('line_to_read.wav')
+            # playsound('line_to_read.wav')
+            # os.system()
+            time.sleep(2)
+            
+            
+
+
 if __name__ == "__main__":
     usb = GetUSB()
-    print(usb.get())
+    print(usb.read_out(usb.get()))
