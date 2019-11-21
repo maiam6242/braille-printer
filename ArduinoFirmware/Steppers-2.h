@@ -86,6 +86,7 @@ class PaperStepper : public AccelStepper{
             // setPinsInverted(false,false,true);
             setMaxSpeed(maxSpeed);
             setAcceleration(accel);
+            setPinsInverted(true,false,false);
         }
 
         // Loads paper into the machine
