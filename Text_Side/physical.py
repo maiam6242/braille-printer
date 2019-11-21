@@ -9,9 +9,6 @@ class Physical:
         self.ser = serial.Serial(port, baudrate = 115200, timeout = 5)
         self.ser.write('M21\r\n'.encode())  # Moved this first so it knows machine mode is active
         time.sleep(3)
-        self.ser.write('M701\r\n'.encode())  # TODO: Make this check for completion because it could take more than 3 seconds
-        time.sleep(3)
-        self.wait_for_completion()
         self.ser.write('M17\r\n'.encode())
         time.sleep(3)
         self.wait_for_completion()
@@ -28,7 +25,7 @@ class Physical:
         time.sleep(3)
         # self.wait_for_completion()
 
-        self.ser.write('M18\r\n'.encode())
+        self.ser.write('M17\r\n'.encode())
         time.sleep(3)
         # self.wait_for_completion()
 
@@ -58,10 +55,14 @@ class Physical:
         Writes two entire consecutive rows of braille text (punches the solenoids)
         Args: The rows to write and the inital x and y positions where to begin the writing
         '''
-        self.ser.write(('G1 x %s \r\n' % str(x).encode()).encode())  #TODO: Need to wait for one of these to complete before sending the other
+        print('write row position: %s' %y)
+        print(str(y).encode())
+        print(('G1 y %s \r\n' % str(y)).encode())
+        self.ser.write(('G1 x %s \r\n' % str(x)).encode())  #TODO: Need to wait for one of these to complete before sending the other
         time.sleep(3) 
         self.wait_for_completion()
-        self.ser.write(('G1 y %s \r\n' % str(y).encode()).encode())
+        
+        self.ser.write(('G1 y %s \r\n' % str(y)).encode())
         time.sleep(3) 
         self.wait_for_completion()
 
@@ -105,8 +106,9 @@ class Physical:
         print(sol_commands)
         print(sol_commands[0])
         for command in sol_commands:
-            self.ser.write(('F x %s \r\n' % str(command).encode()).encode())  
             self.wait_for_completion()
+            self.ser.write(('F x %s \r\n' % str(command).encode()).encode())  
+            
         
     def wait_for_completion(self):
         while True:
@@ -121,6 +123,8 @@ class Physical:
             elif 'steppers' in str(ser_in):
                 return 0
             elif 'Axis' in str(ser_in):
+                return 0
+            elif 'Going' in str(ser_in):
                 return 0
 
 
