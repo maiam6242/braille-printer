@@ -5,6 +5,7 @@ from translator import Translator
 from document import Document
 from page import Page
 from physical import Physical
+from Interface.interface import Interface
 import numpy as np
 
 file_path = 'test_story.txt'
