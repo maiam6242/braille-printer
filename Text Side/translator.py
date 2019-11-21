@@ -74,7 +74,7 @@ symbols = {'a' : np.array([[1,0],[0,0],[0,0]]),
             [0,0,1,0]])
             }
 
-class translator:
+class Translator:
     
     open_quote = False
     size = []
@@ -98,7 +98,7 @@ class translator:
         else:
             braille_text = self.make_new_line()
             num_lines = 1
-        print(braille_text)
+        # print(braille_text)
 
         return braille_text, num_lines
 
@@ -325,23 +325,26 @@ class translator:
            
             lineLength = np.shape(line)[0]
             print(lineLength)
-
-            if charactersPerLine * 2 - lineLength != 0:
+            lineArray = []
+            if charactersPerLine - lineLength != 0:
                 spaces = []
 
-                for count in range(0,(charactersPerLine * 2 - lineLength)):
+                for count in range(0,(charactersPerLine - lineLength)):
                     spaces.append(space)
 
                 if (np.size(line)!= 0):
                     lineArray = np.concatenate((np.asarray(line), np.asarray(spaces)), axis = 0)
                 else:
                     lineArray = np.asarray(spaces)
-            lineArrays.append(lineArray)        
+            if len(lineArray) == 0:
+                lineArrays.append([line])
+            else:
+                lineArrays.append([lineArray])        
 
         outputArray =  np.vstack(np.asarray(lineArrays)) 
         num_lines = len(lines)
         print(type(outputArray))
-
+       
         return outputArray, num_lines
         
     # def get_num_lines(self):

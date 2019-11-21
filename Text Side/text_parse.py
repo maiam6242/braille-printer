@@ -1,5 +1,5 @@
 
-class text_parse:
+class Text_Parse:
 
     def read_text_file(self, path):
         '''
@@ -16,7 +16,7 @@ class text_parse:
         '''
         Breaks the text into space based separations (title, paragraph etc)
         Args: string of text or other input
-        Returns: text in an array which is broken up BY SECTION and 
+        Returns: text in a list which is broken up BY SECTION and 
         ready to pass to the translator class
 
         # >>> break_up_text_input('Hello hi there')
