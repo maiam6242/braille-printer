@@ -49,6 +49,6 @@ if __name__ == "__main__":
     files = usb.get()
     print((usb.get()))
     print(type(usb.get()))
-    read_out(files)
+    usb.read_out(files)
 
 

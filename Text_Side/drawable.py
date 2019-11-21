@@ -1,7 +1,7 @@
 #This should figure out the position on the page and determine if the content needs to be split over multiple pages
 import serial
-from physical import Physical
-import translator
+from Text_Side.physical import Physical
+import Text_Side.translator as translator
 import numpy as np
 
 class Drawable:

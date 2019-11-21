@@ -1,16 +1,20 @@
 # This will become the "main" runner class
-from text_parse import Text_Parse
-from drawable import Drawable
-from translator import Translator
-from document import Document
-from page import Page
-from physical import Physical
-from Interface.interface import Interface
+
+from Text_Side.text_parse import Text_Parse
+from Text_Side.drawable import Drawable
+from Text_Side.translator import Translator
+from Text_Side.document import Document
+from Text_Side.page import Page
+from Interface.interface import Interface 
+from Text_Side.physical import Physical
+# importlib.import_module('./braille-printer/Interface', package=None)
 import numpy as np
 
-file_path = 'test_story.txt'
+
+file_path = 'Text_Side/test_story.txt'
 port = '/dev/ttyACM0'
 
+interface = Interface()
 parser = Text_Parse()
 segmented = parser.break_up_text_input(parser.read_text_file(file_path))
 
@@ -70,6 +74,10 @@ for segment in segmented:
 # drawable.physical.disable()
 print(doc.num_pages)
 
+#TODO: Test with interface!
+#interface.wait_for_print()
+#if(is_start_print()):
+#    while(interface.is_play_pause() and not is_cancel()):
 for page in doc.doc_list:
     drawable.physical.load_paper()
     drawable.physical.home() #TODO: Comment me back in (please!)
