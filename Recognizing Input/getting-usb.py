@@ -1,9 +1,6 @@
 import subprocess
 import sys
 import time
-import os
-import playsound
-from gtts import gTTS
 import pyttsx3
 
 
@@ -29,7 +26,6 @@ class GetUSB:
         return self.lines
 
     def read_out(self, lines):
-       
         engine = pyttsx3.init()
         voices = engine.getProperty('voices')
         engine.setProperty('rate', 130)
@@ -37,6 +33,9 @@ class GetUSB:
         
         for count, line in enumerate(lines):
             engine.say(line)
+	    # print('hey, let's read some shit')
+            print(count)
+            print(line)
             time.sleep(2)
         engine.runAndWait
 
@@ -47,4 +46,9 @@ class GetUSB:
 
 if __name__ == "__main__":
     usb = GetUSB()
-    print(usb.read_out(usb.get()))
+    files = usb.get()
+    print((usb.get()))
+    print(type(usb.get()))
+    read_out(files)
+
+
