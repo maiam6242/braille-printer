@@ -35,10 +35,12 @@ class GetUSB:
         engine.setProperty('rate', 130)
         engine.setProperty('voice', voices[11].id)
         
-        for line in lines:
+        for count, line in enumerate(lines):
             engine.say(line)
             time.sleep(2)
         engine.runAndWait
+
+    
             
             
 
