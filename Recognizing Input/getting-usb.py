@@ -37,7 +37,7 @@ class GetUSB:
             print(count)
             print(line)
             time.sleep(2)
-        engine.runAndWait
+        engine.runAndWait()
 
     
             
