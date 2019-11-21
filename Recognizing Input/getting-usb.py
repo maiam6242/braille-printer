@@ -4,8 +4,8 @@ import time
 import os
 import playsound
 from gtts import gTTS
-import pyttsx3 as pyttsx
-import engineio
+import pyttsx3
+
 
 class GetUSB:
 
@@ -29,18 +29,16 @@ class GetUSB:
         return self.lines
 
     def read_out(self, lines):
-        language = 'en'
-        engineio = pyttsx.init()
-        voices = engineio.getProperty('voices')
-        engineio.setProperty('rate', 110)
-        engineio.setProperty('voice', voices[0].id)
+       
+        engine = pyttsx3.init()
+        voices = engine.getProperty('voices')
+        engine.setProperty('rate', 130)
+        engine.setProperty('voice', voices[11].id)
+        
         for line in lines:
-            engineio.say(line)
-            # lets_convert = gTTS(text=line, lang=language, slow=True)
-            # lets_convert.save('line_to_read.wav')
-            # playsound('line_to_read.wav')
-            # os.system()
+            engine.say(line)
             time.sleep(2)
+        engine.runAndWait
             
             
 
