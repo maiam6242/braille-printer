@@ -119,7 +119,7 @@ class Physical:
             if(i % 8 == 0 and not i == 0):
                 x = 0
                 print('x %s' %x)
-                y = row_in_pod * self.char_height
+                y = row_in_pod * (self.char_height/3)
                 self.ser.write(('G1 y %s \r\n' % str(y)).encode())
                 time.sleep(3) 
                 self.wait_for_completion()
@@ -133,8 +133,6 @@ class Physical:
                 self.ser.write(('G1 x %s \r\n' % str(x)).encode())
                 time.sleep(3) 
                 self.wait_for_completion()      
-            # TODO: Figure out how to do the pod row stuff 
-            # self.wait_for_completion()
         
     def wait_for_completion(self):
         while True:
