@@ -12,11 +12,11 @@ void setup(){
 
 void loop(){
 
-    int selectedPins[] = {24,25,26,27,28,29,30,31,32,33,34,35,36,37};
+    int selectedPins[] = {23,25,27,29,31,33,35,37,39,41,43,45,47,49};
     Solenoid solenoid;
     solenoid.setPins(selectedPins);
-    HorizontalStepper horizontalStepper(3, 2, 4, 5, 2000, 8000);
-    PaperStepper paperStepper(6,7,8,9, 200, 8000);
+    HorizontalStepper horizontalStepper(26, 28, 24, 36, 2000, 8000);
+    PaperStepper paperStepper(32,34,30,42, 200, 8000);
     GcodeInterpreter interpreter;
 
     while (1){
