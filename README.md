@@ -33,27 +33,39 @@ This repository contains the vast majority of the files which we created over th
 The software that runs on the Portabraille Printer has a variety of dependencies. The [startup bash script](https://github.com/maiam6242/braille-printer/blob/master/startup.bash "Startup Bash Script") automatically installs all of the dependencies from all components of our firmware and software. Instructions and code samples for installing these dependencies individually are below. 
 
 #### Python Text to Speech
-The following command installs pyttsx3, a text to speech library for Python.
+The following bash command installs pyttsx3, a text to speech library for Python. 
 ``` bash
 pip3 install pyttsx3
 ```
 
-#### Numpy
-The following command installs NumPy, a package for computing with Python.
+#### NumPy
+The following bash command installs NumPy, a package for computing with Python. 
 ``` bash
 pip3 install numpy
 ```
 
 #### GPIO Zero
-The following command installs GPIO Zero, a library for interfacing GPIO devices with Raspberry Pi.
+The following bash command installs GPIO Zero, a library for interfacing GPIO devices with Raspberry Pi.
 ``` bash
 pip3 install gpiozero
 ```
 
 #### PySerial
-The following command installs pySerial, a module for accessing the serial port.
+The following bash command installs pySerial, a module for accessing the serial port.
 ``` bash
 pip3 install pyserial
+```
+
+#### eSpeak
+The following bash command installs eSpeak, an open source speech synthesizer for Linux and Windows.
+```bash
+sudo apt-get install espeak
+```
+
+#### Flask
+The following bash command installs Flask, a microweb framework.
+```bash
+pip3 install Flask
 ```
 
 ## Deployment
