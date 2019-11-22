@@ -28,8 +28,8 @@ class Physical:
         time.sleep(3)
         # self.wait_for_completion()
 
-        self.ser.write('M17\r\n'.encode())
-        time.sleep(3)
+        # self.ser.write('M17\r\n'.encode())
+        # time.sleep(3)
         # self.wait_for_completion()
 
         
@@ -108,22 +108,33 @@ class Physical:
         print(np.shape(sol_commands))
         print(sol_commands)
         print(sol_commands[0])
-        iteration = 1
-        row_to_print = 0
+        
+        row_in_pod = 1 #starts at index 1 because will never reach 3
         for i, command_string in enumerate(sol_commands):
-            self.ser.write(('F x %s \r\n' % str(command_string)).encode())  
-            if(i % 2 != 0):
-                x = (self.char_width/2)*iteration
+            self.ser.write(('F x %s \r\n' % str(command_string)).encode()) 
+            time.sleep(3)          
+            # self.wait_for_completion() 
+            print(command_string)
+            print(i)              
+            if(i % 8 == 0 and not i == 0):
+                x = 0
+                print('x %s' %x)
+                y = row_in_pod * self.char_height
+                self.ser.write(('G1 y %s \r\n' % str(y)).encode())
+                time.sleep(3) 
+                self.wait_for_completion()
                 self.ser.write(('G1 x %s \r\n' % str(x)).encode())
                 time.sleep(3) 
                 self.wait_for_completion()
+                row_in_pod += 1
             else:
-                iteration += 1
-                y = iteration*self.char_width
-                self.ser.write(('G1 y %s \r\n' % str(y)).encode())
-                time.sleep(3)
-           #TODO: Figure out how to do the pod row stuff 
-            self.wait_for_completion()
+                x += self.char_width/2
+                print('x %s' %x)
+                self.ser.write(('G1 x %s \r\n' % str(x)).encode())
+                time.sleep(3) 
+                self.wait_for_completion()      
+            # TODO: Figure out how to do the pod row stuff 
+            # self.wait_for_completion()
         
     def wait_for_completion(self):
         while True:
@@ -141,7 +152,8 @@ class Physical:
                 return 0
             elif 'Going' in str(ser_in):
                 return 0
-
+            elif 'retracted' in str(ser_in):
+                return 0
 
     def load_paper(self):
         self.ser.write('M701\r\n'.encode())

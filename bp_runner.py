@@ -79,6 +79,7 @@ print(doc.num_pages)
 #if(is_start_print()):
 #    while(interface.is_play_pause() and not is_cancel()):
 for page in doc.doc_list:
+    drawable.physical.enable()
     drawable.physical.load_paper()
     drawable.physical.home() #TODO: Comment me back in (please!)
     drawable.physical.wait_for_completion()
