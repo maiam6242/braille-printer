@@ -3,9 +3,12 @@ import time
 from decimal import Decimal
 import numpy as np
 
+
 class Physical:
     ser = 0
-    def __init__(self, port):
+    def __init__(self, port, character_width, character_height):
+        self.char_height = character_height
+        self.char_width = character_width
         self.ser = serial.Serial(port, baudrate = 115200, timeout = 5)
         self.ser.write('M21\r\n'.encode())  # Moved this first so it knows machine mode is active
         time.sleep(3)
@@ -105,10 +108,22 @@ class Physical:
         print(np.shape(sol_commands))
         print(sol_commands)
         print(sol_commands[0])
-        for command in sol_commands:
+        iteration = 1
+        row_to_print = 0
+        for i, command_string in enumerate(sol_commands):
+            self.ser.write(('F x %s \r\n' % str(command_string)).encode())  
+            if(i % 2 != 0):
+                x = (self.char_width/2)*iteration
+                self.ser.write(('G1 x %s \r\n' % str(x)).encode())
+                time.sleep(3) 
+                self.wait_for_completion()
+            else:
+                iteration += 1
+                y = iteration*self.char_width
+                self.ser.write(('G1 y %s \r\n' % str(y)).encode())
+                time.sleep(3)
+           #TODO: Figure out how to do the pod row stuff 
             self.wait_for_completion()
-            self.ser.write(('F x %s \r\n' % str(command).encode()).encode())  
-            
         
     def wait_for_completion(self):
         while True:
