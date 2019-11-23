@@ -13,5 +13,6 @@ apt-get install espeak
 apt-get install flask
 
 #github
-cd Desktop/
+cd Desktop
 git clone https://github.com/maiam6242/braille-printer.git
+

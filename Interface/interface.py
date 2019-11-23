@@ -4,12 +4,12 @@ class Interface:
     """Creates interface to the raspi GPIO pins to control the buttons and leds of the UI"""
     def __init__(self):
         from gpiozero import LED, Button
-        self.error = LED(2)
-        self.ready = LED(3)
-        self.start_print = Button(4)
-        self.play = Button(14)
-        self.cancel = Button(15)
-        self.sound = Button(18)
+        self.error = LED(20) #checked
+        self.ready = LED(16) #checked
+        self.start_print = Button(6) #checked
+        self.play = Button(13) #checked
+        self.cancel = Button(26) #checked
+        self.sound = Button(19) #checked
 
     def signal_error(self):
         self.error.on()
@@ -37,11 +37,23 @@ if __name__ == "__main__":
     import time
     interface = Interface()
     while 1:
-        # print(interface.is_sound())
+        if(interface.is_start_print()):
+            print('Is start print %s' %interface.is_start_print())
+        if(interface.is_sound()):
+            print('Is sound %s' %interface.is_sound())
+        if(interface.is_play_pause()):
+            print('Is play pause %s' %interface.is_play_pause())
+        if(interface.is_cancel()):
+            print('Is cancel %s' %interface.is_cancel())
         if interface.is_cancel() or interface.is_play_pause() or interface.is_start_print():
 
             interface.signal_ready()
             time.sleep(.5)
             interface.resolve_ready()
+            time.sleep(.5)
+            
+            interface.signal_error()
+            time.sleep(.5)
+            interface.resolve_error()
             time.sleep(.5)
 

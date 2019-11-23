@@ -112,7 +112,7 @@ class Physical:
         row_in_pod = 1 #starts at index 1 because will never reach 3
         for i, command_string in enumerate(sol_commands):
             self.ser.write(('F x %s \r\n' % str(command_string)).encode()) 
-            time.sleep(3)          
+            time.sleep(2)          
             # self.wait_for_completion() 
             print(command_string)
             print(i)              
