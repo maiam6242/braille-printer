@@ -37,7 +37,7 @@ class GcodeInterpreter{
 
             if (Serial.available() > 0) {
                 // read the incoming byte:
-                Serial.setTimeout(250);
+                Serial.setTimeout(150);
                 String str = Serial.readString();
                 // if (machineMode){
                 //     Serial.println(str);
