@@ -2,6 +2,9 @@ import serial
 import time
 from decimal import Decimal
 import numpy as np
+import sys
+sys.path.append(".")
+from Interface import interface
 
 
 class Physical:
@@ -10,11 +13,11 @@ class Physical:
         self.char_height = character_height
         self.char_width = character_width
         self.ser = serial.Serial(port, baudrate = 115200, timeout = 5)
-        self.ser.write('M21\r\n'.encode())  # Moved this first so it knows machine mode is active
-        time.sleep(3)
+        # self.ser.write('M21\r\n'.encode())  # Moved this first so it knows machine mode is active
+        # time.sleep(1)
         self.ser.write('M17\r\n'.encode())
-        time.sleep(3)
-        self.wait_for_completion()
+        time.sleep(1)
+        # self.wait_for_completion()
         self.ser.reset_input_buffer()
     
     def current_position(self):
@@ -25,7 +28,7 @@ class Physical:
         # print(self.ser.write(b'M114\r\n'))
         
         self.ser.write('M114\r\n'.encode())
-        time.sleep(3)
+        time.sleep(1)
         # self.wait_for_completion()
 
         # self.ser.write('M17\r\n'.encode())
@@ -34,7 +37,7 @@ class Physical:
 
         
         # self.ser.flushInput() # does this actually work?
-        time.sleep(3)
+        # time.sleep(3)
         # print(self.ser.in_waiting)
         print('ahhhh!')
         # # print(self.ser.read())
@@ -62,11 +65,11 @@ class Physical:
         print(str(y).encode())
         print(('G1 y %s \r\n' % str(y)).encode())
         self.ser.write(('G1 x %s \r\n' % str(x)).encode())  #TODO: Need to wait for one of these to complete before sending the other
-        time.sleep(3) 
+        time.sleep(1) 
         self.wait_for_completion()
         
         self.ser.write(('G1 y %s \r\n' % str(y)).encode())
-        time.sleep(3) 
+        time.sleep(1) 
         self.wait_for_completion()
 
         line_one = ""
@@ -96,7 +99,7 @@ class Physical:
                             line_one += str(row1[pod_num, pod_row, pod_col])
                         if pod_num < np.shape(row2)[0]:
                             line_two += str(row2[pod_num, pod_row, pod_col])
-                        pod_num +=4 
+                        pod_num += 4 
                                       
                     sol_commands.append(line_one+line_two)
                   
@@ -111,11 +114,15 @@ class Physical:
         
         row_in_pod = 1 #starts at index 1 because will never reach 3
         for i, command_string in enumerate(sol_commands):
-            self.ser.write(('F x %s \r\n' % str(command_string)).encode()) 
-            time.sleep(1)          
-            # self.wait_for_completion() 
+            is_command_blank = command_string == '00000000000000'
             print(command_string)
-            print(i)              
+            print(is_command_blank)
+            print(i) 
+            if not is_command_blank:
+                self.ser.write(('F x %s \r\n' % str(command_string)).encode()) 
+                time.sleep(1)          
+                # self.wait_for_completion() 
+                         
             if(i % 8 == 0 and not i == 0):
                 x = 0
                 print('x %s' %x)
@@ -129,10 +136,11 @@ class Physical:
                 row_in_pod += 1
             else:
                 x += self.char_width/2
-                print('x %s' %x)
-                self.ser.write(('G1 x %s \r\n' % str(x)).encode())
-                time.sleep(1) 
-                self.wait_for_completion()      
+                if not is_command_blank:
+                    print('x %s' %x)
+                    self.ser.write(('G1 x %s \r\n' % str(x)).encode())
+                    time.sleep(1) 
+                    self.wait_for_completion()      
         
     def wait_for_completion(self):
         while True:
@@ -155,21 +163,21 @@ class Physical:
 
     def load_paper(self):
         self.ser.write('M701\r\n'.encode())
-        time.sleep(3)
+        time.sleep(1)
         self.wait_for_completion()
     def unload_paper(self):
         self.ser.write('M702\r\n'.encode())
-        time.sleep(3)
+        time.sleep(1)
         self.wait_for_completion()
     def enable(self):
         self.ser.write('M17\r\n'.encode())
-        time.sleep(3)
+        time.sleep(1)
         self.wait_for_completion()
     def disable(self):
         self.ser.write('M18\r\n'.encode())
-        time.sleep(3)        
+        time.sleep(1)        
         self.wait_for_completion()
     def home(self):
         self.ser.write('G28\r\n'.encode())
-        time.sleep(3)        
+        time.sleep(1)        
         self.wait_for_completion()
