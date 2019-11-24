@@ -9,11 +9,11 @@ from Interface import interface
 
 class Physical:
     ser = 0
-    def __init__(self, port, character_width, character_height, interface):
+    def __init__(self, serial, character_width, character_height, interface):
         self.char_height = character_height
         self.char_width = character_width
-        self.ser = serial.Serial(port, baudrate = 115200, timeout = 5)
-        self.physical_interface = interface(ser)  
+        self.ser = serial
+        self.physical_interface = interface 
         # self.ser.write('M21\r\n'.encode())  # Moved this first so it knows machine mode is active
         # time.sleep(1)
         self.ser.write('M17\r\n'.encode())
@@ -26,10 +26,10 @@ class Physical:
         Finds the current postion of the steppers in terms of x and y
         Returns: the values associated with the current position in the form x, y
         '''
-        if(not physical_interface.is_play_pause()):
-             physical_interface.wait_for_play()
+        # if(not self.physical_interface.is_play_pause()):
+             # self.physical_interface.wait_for_play()
         # print(self.ser.write(b'M114\r\n'))
-        if(not physical_interface.is_cancel() and physical_interface.is_play_pause()):
+        if(not self.physical_interface.is_cancel() and self.physical_interface.is_play_pause()):
             self.ser.write('M114\r\n'.encode())
             time.sleep(1)
             # self.wait_for_completion()
@@ -43,9 +43,9 @@ class Physical:
             # time.sleep(3)
             # print(self.ser.in_waiting)
             # # print(self.ser.read())
-            if(not physical_interface.is_play_pause()):
-                physical_interface.wait_for_play()
-            while (not physical_interface.is_cancel() and physical_interface.is_play_pause()):
+            if(not self.physical_interface.is_play_pause()):
+                self.physical_interface.wait_for_play()
+            while (not self.physical_interface.is_cancel() and self.physical_interface.is_play_pause()):
                     # print(self.ser.in_waiting)
                 ser_in = self.ser.readline()
                 print('Yooo am I here?')
@@ -65,9 +65,9 @@ class Physical:
         Writes two entire consecutive rows of braille text (punches the solenoids)
         Args: The rows to write and the inital x and y positions where to begin the writing
         '''
-        if(not physical_interface.is_play_pause()):
-            physical_interface.wait_for_play()
-        while (not physical_interface.is_cancel() and physical_interface.is_play_pause()):
+        if(not self.physical_interface.is_play_pause()):
+            self.physical_interface.wait_for_play()
+        while (not self.physical_interface.is_cancel() and self.physical_interface.is_play_pause()):
             print('write row position: %s' %y)
             print(str(y).encode())
             print(('G1 y %s \r\n' % str(y)).encode())
@@ -75,9 +75,9 @@ class Physical:
             time.sleep(1) 
             self.wait_for_completion()
 
-        if(not physical_interface.is_play_pause()):
-            physical_interface.wait_for_play()
-        while (not physical_interface.is_cancel() and physical_interface.is_play_pause()):
+        if(not self.physical_interface.is_play_pause()):
+            self.physical_interface.wait_for_play()
+        while (not self.physical_interface.is_cancel() and self.physical_interface.is_play_pause()):
             self.ser.write(('G1 y %s \r\n' % str(y)).encode())
             time.sleep(1) 
             self.wait_for_completion()
@@ -91,9 +91,9 @@ class Physical:
         
         # segment(major row_num, column (pod)_num, row of pod, col w/in pod)
         # row1(pod (column) num, row of pod, col w/in pod)
-        if(not physical_interface.is_play_pause()):
-             physical_interface.wait_for_play()
-        while (not physical_interface.is_cancel() and physical_interface.is_play_pause()):
+        if(not self.physical_interface.is_play_pause()):
+             self.physical_interface.wait_for_play()
+        while (not self.physical_interface.is_cancel() and self.physical_interface.is_play_pause()):
             num_chars = np.shape(row1)[0]
             print("the size of the first line is:")
             print(np.shape(row1))
@@ -126,9 +126,9 @@ class Physical:
         
                 row_in_pod = 1 #starts at index 1 because will never reach 3
         for i, command_string in enumerate(sol_commands):
-            if(not physical_interface.is_play_pause()):
-             physical_interface.wait_for_play()
-            while (not physical_interface.is_cancel() and physical_interface.is_play_pause()):
+            if(not self.physical_interface.is_play_pause()):
+             self.physical_interface.wait_for_play()
+            while (not self.physical_interface.is_cancel() and self.hysical_interface.is_play_pause()):
                     is_command_blank = command_string == '00000000000000'
                     print(command_string)
                     print(is_command_blank)
@@ -181,37 +181,37 @@ class Physical:
                 # return 0
 
     def load_paper(self):
-        if(not physical_interface.is_play_pause()):
-            physical_interface.wait_for_play()
-        while (not physical_interface.is_cancel() and physical_interface.is_play_pause()):
+        if(not self.physical_interface.is_play_pause()):
+            self.physical_interface.wait_for_play()
+        while (not self.physical_interface.is_cancel() and self.physical_interface.is_play_pause()):
             self.ser.write('M701\r\n'.encode())
             time.sleep(1)
             self.wait_for_completion()
     def unload_paper(self):
-        if(not physical_interface.is_play_pause()):
-            physical_interface.wait_for_play()
-        while (not physical_interface.is_cancel() and physical_interface.is_play_pause()):
+        if(not self.physical_interface.is_play_pause()):
+            self.physical_interface.wait_for_play()
+        while (not self.physical_interface.is_cancel() and self.physical_interface.is_play_pause()):
             self.ser.write('M702\r\n'.encode())
             time.sleep(1)
             self.wait_for_completion()
     def enable(self):
-        if(not physical_interface.is_play_pause()):
-            physical_interface.wait_for_play()
-        while (not physical_interface.is_cancel() and physical_interface.is_play_pause()):
+        if(not self.physical_interface.is_play_pause()):
+            self.physical_interface.wait_for_play()
+        while (not self.physical_interface.is_cancel() and self.physical_interface.is_play_pause()):
             self.ser.write('M17\r\n'.encode())
             time.sleep(1)
             self.wait_for_completion()
     def disable(self):
-        if(not physical_interface.is_play_pause()):
-            physical_interface.wait_for_play()
-        while (not physical_interface.is_cancel() and physical_interface.is_play_pause()):
+        if(not self.physical_interface.is_play_pause()):
+            self.physical_interface.wait_for_play()
+        while (not self.physical_interface.is_cancel() and self.physical_interface.is_play_pause()):
             self.ser.write('M18\r\n'.encode())
             time.sleep(1)        
             self.wait_for_completion()
     def home(self):
-        if(not physical_interface.is_play_pause()):
-            physical_interface.wait_for_play()
-        while (not physical_interface.is_cancel() and physical_interface.is_play_pause()):
+        if(not self.physical_interface.is_play_pause()):
+            self.physical_interface.wait_for_play()
+        while (not self.physical_interface.is_cancel() and self.physical_interface.is_play_pause()):
             self.ser.write('G28\r\n'.encode())
             time.sleep(1)        
             self.wait_for_completion()
