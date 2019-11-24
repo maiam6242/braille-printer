@@ -23,7 +23,7 @@ translator = Translator()
 formatted = []
 total_num_lines = 0
 
-drawable = Drawable(port)
+drawable = Drawable(port, interface)
 
 doc = Document()
 
@@ -77,22 +77,25 @@ print(doc.num_pages)
 #TODO: Test with interface!
 interface.wait_for_print()
 if(interface.is_start_print()):
-    while(interface.is_play_pause() and not interface.is_cancel()):
-        for page in doc.doc_list:
-            drawable.physical.enable()
-            drawable.physical.load_paper()
-            drawable.physical.home() #TODO: Comment me back in (please!)
-            curr_x, curr_y = drawable.physical.current_position()
-            content_matrix = page.content
-            print(page.page_num)
+    while(not interface.is_cancel()):
+        if(interface.is_play_pause()):
+            for page in doc.doc_list:
+                 drawable.physical.enable()
+                 drawable.physical.load_paper()
+                 drawable.physical.home() #TODO: Comment me back in (please!)
+                 curr_x, curr_y = drawable.physical.current_position()
+                 content_matrix = page.content
+                 print(page.page_num)
 
-            for row in range(0,len(content_matrix),2):
-                print('the top row is: ' + str(row))
-                drawable.physical.write_row(content_matrix[row], content_matrix[row+1], curr_x, curr_y)
-                curr_y += 2 * drawable.line_spacing + 2 * drawable.line_height
-                print(curr_y)
+                 for row in range(0,len(content_matrix),2):
+                     print('the top row is: ' + str(row))
+                     drawable.physical.write_row(content_matrix[row], content_matrix[row+1], curr_x, curr_y)
+                     curr_y += 2 * drawable.line_spacing + 2 * drawable.line_height
+                     print(curr_y)
             #FIXME: should this be different to feed the method call?
-    # if (interface.is_cancel())
+        else:
+            interface.wait_for_play()
+                  
 #within while loop
 #if not interface.is_play_pause():
     #code to make things pause

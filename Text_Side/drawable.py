@@ -5,7 +5,7 @@ import Text_Side.translator as translator
 import numpy as np
 
 class Drawable:
-    def __init__(self, port):
+    def __init__(self, port, interface):
         self.page_left = 0
         self.page_length = 279.4
         self.y_margin_size = 25.4
@@ -13,7 +13,7 @@ class Drawable:
         self.line_height = 6.3
         self.line_spacing = 8.66 #FIXME!!!
         self.character_width = 3.9
-        self.physical = Physical(port, self.character_width, self.line_height)
+        self.physical = Physical(port, self.character_width, self.line_height, interface)
         self.chars_per_line = translator.charactersPerLine
         self.position_on_page = self.physical.current_position()[1]
 
