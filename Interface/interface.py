@@ -15,27 +15,36 @@ class Interface:
 
     def signal_error(self):
         self.error.on()
+
     def resolve_error(self):
         self.error.off()
+
     def signal_ready(self):
         self.ready.on()
+
     def resolve_ready(self):
         self.ready.off()
+
     def wait_for_play(self):
         self.play.wait_for_press()
+
     def wait_for_print(self):
         self.start_print.wait_for_press()
+
     def is_sound(self):
         return bool(self.sound.is_pressed)
+
     def is_cancel(self):
         print('Cancel is Pressed!')
         self.ser.write('G1 x 0 \r\n'.encode())
         self.ser.write('M18'.encode())
         self.ser.write('M702'.encode())
         return bool(self.cancel.is_pressed)
+
     def is_play_pause(self):
         print('Play Pause is Pressed!')
         return bool(self.play.is_pressed)
+
     def is_start_print(self):
         print('Start Print is Pressed!')
         return bool(self.start_print.is_pressed)
@@ -43,7 +52,7 @@ class Interface:
 
 if __name__ == "__main__":
     import time
-    interface = Interface()
+    interface = Interface(1)
     while 1:
         if(interface.is_start_print()):
             print('Is start print %s' %interface.is_start_print())

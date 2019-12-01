@@ -8,13 +8,18 @@ from Text_Side.page import Page
 from Interface.interface import Interface
 from Text_Side.physical import Physical
 import numpy as np
-
+import serial
 
 file_path = 'Text_Side/test_story.txt'
 port = '/dev/ttyACM0'
 
+<<<<<<< HEAD
 # create all of the necessary objects
 interface = Interface()
+=======
+ser = serial.Serial(port, baudrate = 115200, timeout = 5)
+interface = Interface(ser)
+>>>>>>> a496b8f80a0ded6bb9f145b291c7d37662b8f953
 parser = Text_Parse()
 segmented = parser.break_up_text_input(parser.read_text_file(file_path))
 
@@ -23,7 +28,7 @@ translator = Translator()
 formatted = []
 total_num_lines = 0
 
-drawable = Drawable(port, interface)
+drawable = Drawable(ser, interface)
 
 doc = Document()
 
@@ -81,7 +86,9 @@ if(not interface.is_start_print()):
     interface.wait_for_print()
 else:
     while(not interface.is_cancel()):
+        print('did we get here')
         if(interface.is_play_pause()):
+            print('how about here')
             for page in doc.doc_list:
                  drawable.physical.enable()
                  drawable.physical.load_paper()
@@ -98,7 +105,12 @@ else:
             #FIXME: should this be different to feed the method call?
         else:
             interface.wait_for_play()
+<<<<<<< HEAD
              
+=======
+            print('why did we get here')
+                  
+>>>>>>> a496b8f80a0ded6bb9f145b291c7d37662b8f953
 #within while loop
 #if not interface.is_play_pause():
     #code to make things pause
