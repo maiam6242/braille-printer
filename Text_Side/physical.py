@@ -6,19 +6,21 @@ import sys
 sys.path.append(".")
 from Interface import interface
 
+#TODO: Take all of the interface logic and make one method that handles it to limit the code repetition
 
 class Physical:
     ser = 0
     def __init__(self, port, character_width, character_height, interface):
+        '''
+        Initializes all major values, and enables the stepper motors
+        '''
         self.char_height = character_height
         self.char_width = character_width
         self.ser = serial.Serial(port, baudrate = 115200, timeout = 5)
         self.physical_interface = interface(ser)  
         # self.ser.write('M21\r\n'.encode())  # Moved this first so it knows machine mode is active
         # time.sleep(1)
-        self.ser.write('M17\r\n'.encode())
-        time.sleep(1)
-        # self.wait_for_completion()
+        self.enable()
         self.ser.reset_input_buffer()
     
     def current_position(self):
@@ -27,18 +29,12 @@ class Physical:
         Returns: the values associated with the current position in the form x, y
         '''
         if(not physical_interface.is_play_pause()):
-             physical_interface.wait_for_play()
-        # print(self.ser.write(b'M114\r\n'))
+            physical_interface.wait_for_play()
         if(not physical_interface.is_cancel() and physical_interface.is_play_pause()):
             self.ser.write('M114\r\n'.encode())
             time.sleep(1)
             # self.wait_for_completion()
 
-            # self.ser.write('M17\r\n'.encode())
-            # time.sleep(3)
-            # self.wait_for_completion()
-
-        
             # self.ser.flushInput() # does this actually work?
             # time.sleep(3)
             # print(self.ser.in_waiting)
@@ -59,7 +55,7 @@ class Physical:
                     print((Decimal(y)))
                     return round(float(Decimal(x)),2), round(float(Decimal(y)),2)    # Removed int conversion ans these have double precision
 
-
+    #TODO: Please comment me :) 
     def write_row(self, row1, row2, x, y):
         '''
         Writes two entire consecutive rows of braille text (punches the solenoids)
@@ -70,8 +66,9 @@ class Physical:
         while (not physical_interface.is_cancel() and physical_interface.is_play_pause()):
             print('write row position: %s' %y)
             print(str(y).encode())
+            # TODO: Should this be G1 or G0?
             print(('G1 y %s \r\n' % str(y)).encode())
-            self.ser.write(('G1 x %s \r\n' % str(x)).encode())  #TODO: Need to wait for one of these to complete before sending the other
+            self.ser.write(('G1 x %s \r\n' % str(x)).encode())  #TODO: Need to wait for one of these to complete before sending the other?
             time.sleep(1) 
             self.wait_for_completion()
 
@@ -160,6 +157,10 @@ class Physical:
                             self.wait_for_completion()      
         
     def wait_for_completion(self):
+        '''
+        If the serial reads something back, we know that the command worked, so this allows the program to continue. This should be run after each write command.
+        Returns: 0
+        '''
         while True:
             ser_in = self.ser.readline()
             print(ser_in)
@@ -180,7 +181,18 @@ class Physical:
             # elif 'retracted' in str(ser_in):
                 # return 0
 
+    #TODO: Test me!
+    def interface_waiting(self):
+        '''
+        '''
+        if(not physical_interface.is_play_pause()):
+            physical_interface.wait_for_play()
+        return (not physical_interface.is_cancel() and physical_interface.is_play_pause())
+
     def load_paper(self):
+        '''
+        Checks for interface feedback, then loads paper by writing the load paper command to the serial
+        '''
         if(not physical_interface.is_play_pause()):
             physical_interface.wait_for_play()
         while (not physical_interface.is_cancel() and physical_interface.is_play_pause()):
@@ -188,6 +200,9 @@ class Physical:
             time.sleep(1)
             self.wait_for_completion()
     def unload_paper(self):
+        '''
+        Checks for interface feedback, then unloads paper by writing the unload paper command to the serial
+        '''
         if(not physical_interface.is_play_pause()):
             physical_interface.wait_for_play()
         while (not physical_interface.is_cancel() and physical_interface.is_play_pause()):
@@ -195,6 +210,9 @@ class Physical:
             time.sleep(1)
             self.wait_for_completion()
     def enable(self):
+        '''
+        Checks for interface feedback, then enables the steppers by writing the enable command to the serial
+        '''
         if(not physical_interface.is_play_pause()):
             physical_interface.wait_for_play()
         while (not physical_interface.is_cancel() and physical_interface.is_play_pause()):
@@ -202,6 +220,9 @@ class Physical:
             time.sleep(1)
             self.wait_for_completion()
     def disable(self):
+        '''
+        Checks for interface feedback, then disables the steppers by writing the enable command to the serial
+        '''
         if(not physical_interface.is_play_pause()):
             physical_interface.wait_for_play()
         while (not physical_interface.is_cancel() and physical_interface.is_play_pause()):
@@ -209,6 +230,9 @@ class Physical:
             time.sleep(1)        
             self.wait_for_completion()
     def home(self):
+        '''
+        Checks for interface feedback, then homes the steppers by writing the home command to the serial
+        '''
         if(not physical_interface.is_play_pause()):
             physical_interface.wait_for_play()
         while (not physical_interface.is_cancel() and physical_interface.is_play_pause()):

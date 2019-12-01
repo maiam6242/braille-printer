@@ -29,7 +29,7 @@ class Interface:
         return bool(self.sound.is_pressed)
     def is_cancel(self):
         print('Cancel is Pressed!')
-        self.ser.write(('G1 x 0 \r\n'.encode())
+        self.ser.write('G1 x 0 \r\n'.encode())
         self.ser.write('M18'.encode())
         self.ser.write('M702'.encode())
         return bool(self.cancel.is_pressed)

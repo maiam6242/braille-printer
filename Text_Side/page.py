@@ -25,14 +25,3 @@ class Page:
         self.content.extend(content_to_add)
         self.lines_written += num_lines
         print(self.lines_written)
-
-    def is_full(self):
-        '''
-        Checks by number of lines written whether or not the page is full
-        Returns: True if the page is filled and False if not
-        '''
-
-        if self.lines_written == self.lines_per_page:
-            return True
-        else:
-            return False

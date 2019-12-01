@@ -7,13 +7,13 @@ from Text_Side.document import Document
 from Text_Side.page import Page
 from Interface.interface import Interface
 from Text_Side.physical import Physical
-# importlib.import_module('./braille-printer/Interface', package=None)
 import numpy as np
 
 
 file_path = 'Text_Side/test_story.txt'
 port = '/dev/ttyACM0'
 
+# create all of the necessary objects
 interface = Interface()
 parser = Text_Parse()
 segmented = parser.break_up_text_input(parser.read_text_file(file_path))
@@ -27,7 +27,9 @@ drawable = Drawable(port, interface)
 
 doc = Document()
 
-print(np.shape(segmented))
+# print(np.shape(segmented))
+
+# This loop analyzes the texts as well as places it on various pages (and splits text lines accordingly). It places all from one page in a page object with that page number associated with it. Once a page is full or if the last segment in the entire array of text is processed, these pages are added to a document object
 for segment in segmented:
     count = 1
     braille_tx, num_lines = translator.convert_to_braille(segment)
@@ -62,21 +64,22 @@ for segment in segmented:
             count += 1
             drawable.position_on_page = 0
             doc.add_page_object(locals().get(n))
-    #TODO: Make it so that the last page is also added, if all the other pages are full and this loop is done, add the last page basically
+    
     # TODO: Test me!
         if(doc.num_pages != count and segment is segmented[-1]):
             doc.add_page_object(locals().get(n))
 
 
-
-
-# FIXME: Enable instead of disable when ready to use
 # drawable.physical.disable()
 print(doc.num_pages)
 
-#TODO: Test with interface!
-interface.wait_for_print()
-if(interface.is_start_print()):
+# This loop handles the actual punching of the characters. It waits for interface feedback at each step in the process (most of this logic is contained in the actual methods of the physical class)
+
+#FIXME: Get this working with the interface!
+#TODO: Test this logic, wrapped the if and else differently
+if(not interface.is_start_print()):
+    interface.wait_for_print()
+else:
     while(not interface.is_cancel()):
         if(interface.is_play_pause()):
             for page in doc.doc_list:
@@ -95,7 +98,7 @@ if(interface.is_start_print()):
             #FIXME: should this be different to feed the method call?
         else:
             interface.wait_for_play()
-                  
+             
 #within while loop
 #if not interface.is_play_pause():
     #code to make things pause
