@@ -7,9 +7,9 @@ class Interface:
         from gpiozero import LED, Button
         self.error = LED(20) #checked
         self.ready = LED(16) #checked
-        self.start_print = Button(6) #checked
+        self.start_print = Button(26) #checked
         self.play = Button(13) #checked
-        self.cancel = Button(26) #checked
+        self.cancel = Button(6) #checked
         self.sound = Button(19) #checked
         self.ser = serial
 
@@ -31,22 +31,29 @@ class Interface:
     def wait_for_print(self):
         self.start_print.wait_for_press()
 
+   #Checks to see if buttons are pressed/sound switch is on
+
     def is_sound(self):
+        #if(self.sound.is_pressed):
+            #print('Sound is pressed!')
         return bool(self.sound.is_pressed)
 
     def is_cancel(self):
-        print('Cancel is Pressed!')
-        self.ser.write('G1 x 0 \r\n'.encode())
-        self.ser.write('M18'.encode())
-        self.ser.write('M702'.encode())
+        #if(self.cancel.is_pressed):
+        #    print('Cancel is Pressed!')
+        # self.ser.write('G1 x 0 \r\n'.encode())
+        # self.ser.write('M18'.encode())
+        # self.ser.write('M702'.encode())
         return bool(self.cancel.is_pressed)
 
     def is_play_pause(self):
-        print('Play Pause is Pressed!')
+        #if(self.play.is_pressed):
+            #print('Play Pause is Pressed!')
         return bool(self.play.is_pressed)
 
     def is_start_print(self):
-        print('Start Print is Pressed!')
+        #if(self.start_print.is_pressed):
+            #print('Start Print is Pressed!')
         return bool(self.start_print.is_pressed)
 
 
