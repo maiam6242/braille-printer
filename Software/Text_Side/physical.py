@@ -6,7 +6,7 @@ import sys
 import serial
 import numpy as np
 sys.path.append(".")
-from Interface.interface import Interface
+from Physical_Interface.interface import Interface
 
 class Physical:
     """Handles physical attribtes of the machine"""

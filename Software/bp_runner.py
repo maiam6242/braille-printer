@@ -6,7 +6,7 @@ from Text_Side.drawable import Drawable
 from Text_Side.translator import Translator
 from Text_Side.document import Document
 from Text_Side.page import Page
-from Interface.interface import Interface
+from Physical_Interface.interface import Interface
 from Text_Side.physical import Physical
 
 FILE_PATH = 'Text_Side/test_story.txt'
