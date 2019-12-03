@@ -27,8 +27,8 @@ This repository contains the vast majority of the files which we created over th
 
 ## Requirements
 
-- Python 3.6 **CHECK THESE**
-- Raspberry Pi ?? (running raspbian blah blah blah)
+- Python 3 
+- Raspberry Pi ?? (running raspbian blah blah blah) //TODO: We need to see what the network thing we are using requires and update accordingly
 
 ## Installation
 The software that runs on the Portabraille Printer has a variety of dependencies. The [startup bash script](https://github.com/maiam6242/braille-printer/blob/master/startup.bash "Startup Bash Script") automatically installs all of the dependencies from all components of our firmware and software. Instructions and code samples for installing these dependencies individually are below. 
@@ -84,4 +84,4 @@ Megan Ku [@megku4u](https://github.com/megku4u "Megan's GitHub")
 Nathan Weil [@NWeil](https://github.com/NWeil "Nathan's GitHub")  
 
 ## Acknowledgments
-Thanks to the Fall 2019 Principles of Engineering Teaching Team, Professors Aaron Hoover, Amon Millner, Siddhartan Govindasamy and Stan Reifel for their support and assistance throughout this process. Additional thanks to Frank Ventura, Jerry Berrier, David Kingsbury, John Smith, and Jeanette **LASTNAME** and for their INDISPENSABLE help during this adventure. The insights they provided about our design helped us craft a product that is actually usable. Lastly, thank you to the MIT Visually Impaired and Blind User Group for hosting us and letting us pick their brains regarding our printer and braille in general.
+Thanks to the Fall 2019 Principles of Engineering Teaching Team, Professors Aaron Hoover, Amon Millner, Siddhartan Govindasamy and Stan Reifel for their support and assistance throughout this process. Additional thanks to Frank Ventura, Jerry Berrier, David Kingsbury, John Smith, and Jeanette Kutash and for their INDISPENSABLE help during this adventure. The insights they provided about our design helped us craft a product that is actually usable. Lastly, thank you to the MIT Visually Impaired and Blind User Group for hosting us and letting us pick their brains regarding our printer and braille in general.
