@@ -1,10 +1,17 @@
 """Interface class for GPIO """
 import serial
+import pyttsx3
+from gpiozero import LED, Button
 
 class Interface:
     """Creates interface to the raspi GPIO pins to control the buttons and leds of the UI"""
+    
     def __init__(self, serial):
-        from gpiozero import LED, Button
+        self.engine = pyttsx3.init()
+        self.voices = engine.getProperty('voices')
+        self.engine.setProperty('rate', 130)
+        self.engine.setProperty('voice', voices[11].id)
+
         self.error = LED(20) #checked
         self.ready = LED(16) #checked
         self.start_print = Button(26) #checked
@@ -14,12 +21,18 @@ class Interface:
         self.ser = serial
 
     def signal_error(self):
+        if(bool(self.sound.is_pressed)):
+            self.engine.say("There has been an error")
         self.error.on()
 
     def resolve_error(self):
+        if(bool(self.sound.is_pressed)):
+            self.engine.say("The error has been resolved")
         self.error.off()
 
     def signal_ready(self):
+        if(bool(self.sound.is_pressed)):
+            self.engine.say("The printer is ready to print")
         self.ready.on()
 
     def resolve_ready(self):
@@ -34,6 +47,8 @@ class Interface:
    #Checks to see if buttons are pressed/sound switch is on
 
     def is_sound(self):
+        if(bool(self.sound.is_pressed)):
+            engine.say("Sound is on")
         #if(self.sound.is_pressed):
             #print('Sound is pressed!')
         return bool(self.sound.is_pressed)
@@ -44,14 +59,23 @@ class Interface:
         # self.ser.write('G1 x 0 \r\n'.encode())
         # self.ser.write('M18'.encode())
         # self.ser.write('M702'.encode())
+        if(bool(self.sound.is_pressed) and self.cancel.is_pressed):
+            engine.say("Process Canceled")
         return bool(self.cancel.is_pressed)
 
+    #TODO: This should probably be different!! How?!
     def is_play_pause(self):
+        if(bool(self.sound.is_pressed) and self.play.is_pressed):
+            engine.say("Process Continuing")
+        elif(bool(self.sound.is_pressed) and not self.play.is_pressed):
+            engine.say("Process is Paused")
         #if(self.play.is_pressed):
             #print('Play Pause is Pressed!')
         return bool(self.play.is_pressed)
 
     def is_start_print(self):
+        if(bool(self.sound.is_pressed) and self.start_print.is_pressed):
+            engine.say("Printing")
         #if(self.start_print.is_pressed):
             #print('Start Print is Pressed!')
         return bool(self.start_print.is_pressed)
