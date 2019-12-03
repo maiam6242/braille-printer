@@ -13,13 +13,9 @@ import serial
 file_path = 'Text_Side/test_story.txt'
 port = '/dev/ttyACM0'
 
-<<<<<<< HEAD
-# create all of the necessary objects
-interface = Interface()
-=======
+#setting up all of the things
 ser = serial.Serial(port, baudrate = 115200, timeout = 5)
 interface = Interface(ser)
->>>>>>> a496b8f80a0ded6bb9f145b291c7d37662b8f953
 parser = Text_Parse()
 segmented = parser.break_up_text_input(parser.read_text_file(file_path))
 
