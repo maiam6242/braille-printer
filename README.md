@@ -1,6 +1,6 @@
 # Portabraille Printer by Team Dot Dot Dot
 
-<img src="https://github.com/maiam6242/braille-printer/blob/master/README%20Resources/smileLogo2.JPG" alt="Team dot dot dot logo" width="250"/>
+<img src="https://github.com/maiam6242/braille-printer/blob/master/Software/README%20Resources/smileLogo2.JPG" alt="Team dot dot dot logo" width="250"/>
 
 ### The Portabraille Printer is a portable and accessible braille printer which enables users who are visually impaired to quickly and easily produce accurate, high quality braille.
 
@@ -20,8 +20,11 @@ The Portabraille Printer is a device that takes in an English text input, transl
 
 ## This Repository
 **#TODO: Add to this**
-This repository contains the vast majority of the files which we created over the course of this project. The [Text Side Folder](https://github.com/maiam6242/braille-printer/tree/master/Text%20Side "Text Side Folder") has software that takes a text input, converts it to a braille output and sends it to the firmware. All of this is written in Python. The firmware that controls the way paper is loaded and how solenoids act is in the [Arduino Firmware Folder](https://github.com/maiam6242/braille-printer/tree/master/ArduinoFirmware "Arduino Firmware Folder"). All of our firmware is written in C++. The [Interface Folder](https://github.com/maiam6242/braille-printer/tree/master/Interface "Interface Folder") contains software written in Python and designs created in Illustrator which relate to the user interface on our printer. The [PCB Folder](https://github.com/maiam6242/braille-printer/tree/master/PCB "PCB Folder") contains all of the artifacts from our PCB design and the [README Resources Folder](https://github.com/maiam6242/braille-printer/tree/master/README%20Resources "README Resources Folder") contains all of the files referenced in this document.
+This repository contains the vast majority of the files which we created over the course of this project. It is split into two main folders: [Software](https://github.com/maiam6242/braille-printer/tree/master/Software "Software Forlder") and [Firmware](https://github.com/maiam6242/braille-printer/tree/master/Firmware "Firmware Folder"), each of which houses artifacts for the respective subsystems. These folders are also split into multiple subfolders. 
 
+On the software side, the [Text Side Folder](https://github.com/maiam6242/braille-printer/tree/master/Software/Text%20Side "Text Side Folder") has software that takes a text input, converts it to a braille output and sends it to the firmware. All of this is written in Python. The [Physical Interface Folder](https://github.com/maiam6242/braille-printer/tree/master/Software/Physical%20Interface "Physical Interface Folder") contains software written in Python and designs created in Illustrator which relate to the user interface on our printer. The web interface written in html and designed in Illustrator is in the [Web Interface Folder](https://github.com/maiam6242/braille-printer/tree/master/Software/Web%20Interface "Web Interface Folder"). The [Recognizing Input Folder](https://github.com/maiam6242/braille-printer/tree/master/Software/Recognizing%20Input) includes all of the scripts in bash and Python that allow us to take in USB input and the [README Resources Folder](https://github.com/maiam6242/braille-printer/tree/master/Software/README%20Resources "README Resources Folder") contains all of the files referenced in this document.
+
+In the firmware folder, the firmware that controls the way paper is loaded and how solenoids act is in the [Arduino Firmware Folder](https://github.com/maiam6242/braille-printer/tree/master/Firmware/Arduino%20Firmware "Arduino Firmware Folder"). All of our firmware is written in C++. The [PCB Folder](https://github.com/maiam6242/braille-printer/tree/master/Firmware/PCB "PCB Folder") contains all of the artifacts from our PCB design.
 ## Features 
 
 
