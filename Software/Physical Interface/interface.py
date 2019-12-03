@@ -32,16 +32,19 @@ class Interface:
     def signal_error(self):
         if(bool(self.sound.is_pressed)):
             self.engine.say("There has been an error")
+            self.engine.runAndWait()
         self.error.on()
 
     def resolve_error(self):
         if(bool(self.sound.is_pressed)):
             self.engine.say("The error has been resolved")
+            self.engine.runAndWait()
         self.error.off()
 
     def signal_ready(self):
         if(bool(self.sound.is_pressed)):
             self.engine.say("The printer is ready to print")
+            self.engine.runAndWait()
         self.ready.on()
 
     def resolve_ready(self):
@@ -56,54 +59,70 @@ class Interface:
     #Checks to see if buttons are pressed/sound switch is on
 
     def is_sound(self):
-
+	# Checks to see if sound has been changed from OFF to ON
         if(bool(self.sound.is_pressed)):
             if(self.sound_triggered):
                 self.engine.say("Sound is on")
+                self.engine.runAndWait()
                 self.sound_triggered = False
-                #print('Sound switched on')
+                print('Sound switched on')
         else:
             self.sound_triggered = True
-
+	
+	#True if ON, False if OFF
         return bool(self.sound.is_pressed)
 
-    def is_cancel(self):
 
+    def is_cancel(self):
+        #Checks to see if cancel button is pressed
         if(bool(self.cancel.is_pressed)):
+            # If sound is on, speak
             if(self.cancel_triggered):
                 if(bool(self.sound.is_pressed)):
                     self.engine.say("Process Canceled")
+                    self.engine.runAndWait()
                 self.cancel_triggered = False
+                print('Cancel button pressed')
         else:
-            self.sound_triggered = True
+            self.cancel_triggered = True
 
         return bool(self.cancel.is_pressed)
 
-    #TODO: This should probably be different!! How?!
 
     def is_play_pause(self):
-
+        # Checks to see if play/pause button has been pressed
+        # Keeps track of whether the state is to play or to pause 
+        #TODO: Need a method (elsewhere probably) that defaults to pause when print starts
         if(bool(self.play.is_pressed)):
             if(self.play_triggered):
+                # If sound is on, speak
                 if(bool(self.sound.is_pressed)):
                     if(self.is_play):
                         self.engine.say("Process Continuing")
+                        self.engine.runAndWait()
                         self.is_play = False
                     else:
                         self.engine.say("Process is Paused")
+                        self.engine.runAndWait()
                         self.is_play = True
                 self.play_triggered = False
+                print('play/pause button pressed')
         else:
             self.play_triggered = True
 
         return bool(self.play.is_pressed)
 
+
     def is_start_print(self):
+        #Checks to see if start print button is pressed
         if(bool(self.start_print.is_pressed)):
             if(self.print_triggered):
+                # If sound is on, speak
                 if(bool(self.sound.is_pressed)):
                     self.engine.say("Printing")
+                    self.engine.runAndWait()
                 self.print_triggered = False
+                print('print button pressed')
         else:
             self.print_triggered = True
         return bool(self.start_print.is_pressed)
@@ -112,6 +131,8 @@ class Interface:
 if __name__ == "__main__":
     import time
     interface = Interface(1)
+    #TODO: Right now, the code is taking too long to respond to the below operators. Need to call
+    #methods within the methods to make sure that they are called.
     while 1:
         if(interface.is_start_print() and interface.print_triggered):
             print('Is start print %s' %interface.is_start_print())
