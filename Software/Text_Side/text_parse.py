@@ -1,5 +1,6 @@
-
+"""Reads in a file and breaks it into sections"""
 class Text_Parse:
+    """Reads in a file and breaks it into sections"""
 
     def read_text_file(self, path):
         '''
@@ -16,7 +17,7 @@ class Text_Parse:
         '''
         Breaks the text into space based separations (title, paragraph etc)
         Args: string of text or other input
-        Returns: text in a list which is broken up BY SECTION and 
+        Returns: text in a list which is broken up BY SECTION and
         ready to pass to the translator class
 
         # >>> break_up_text_input('Hello hi there')
@@ -25,17 +26,17 @@ class Text_Parse:
         segments = []
         section = []
         for char in text:
-            if (char == '\n'):
+            if char == '\n':
                 segments.append(section)
                 section = ''
-            else: 
+            else:
                 section += char
         segments.append(section)
 
         output = ""
         for segment in segments:
             segment = output.join(segment)
-        
+
         return segments
 
     def set_segment_type(self, segment):
@@ -57,8 +58,9 @@ class Text_Parse:
 if __name__ == "__main__":
     import doctest
     doctest.testmod()
-    open_file = read_text_file(file_path)
-    break_up_text_input(open_file)
+    parser = Text_Parse()
+    open_file = parser.read_text_file(file_path)
+    parser.break_up_text_input(open_file)
 # Some Pseudocode for my feelings on how this might look:
 # for segment in segments:
 #     translator.translate_baby!
