@@ -101,7 +101,6 @@ else:
             #FIXME: should this be different to feed the method call?
         else:
             interface.wait_for_play()
-             
 #within while loop
 #if not interface.is_play_pause():
     #code to make things pause
