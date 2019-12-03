@@ -4,7 +4,7 @@ class GcodeInterpreter{
         int numSolenoids = 14;
         int solenoidTime = 200;
         int defaultSpeed = 8000;
-        bool machineMode = false; // Mode determines whether it is in human or machine interaction mode. Defaults to human
+        bool machineMode = true; // Mode determines whether it is in human or machine interaction mode. Defaults to human
 
     public:
 

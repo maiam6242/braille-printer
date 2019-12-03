@@ -1,7 +1,7 @@
 #coding=utf-8
 
 import numpy as np
-#TODO: Add single opening and closing quotation marks
+#TODO: Add single opening and closing quotation marks... also figure out if this is already done, oof
 
 
 # page = page
@@ -346,13 +346,6 @@ class Translator:
         print(type(outputArray))
        
         return outputArray, num_lines
-        
-    # def get_num_lines(self):
-    #     '''
-    #     Gets the number of Braille lines in a given segment
-    #     Returns: Number of lines in the document 
-    #     '''
-    #     return self.num_lines
 
 
 if __name__ == "__main__":
