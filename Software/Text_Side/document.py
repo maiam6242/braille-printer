@@ -1,25 +1,21 @@
-# This is a collection of page objects, it tracks how much of the document is written and maybe does some analysis or controls. 
-#prob track page size?
+""" Wrapper for the Document class """
 class Document:
-    page_size = [8.5,11] 
-    doc_list = []
-    num_pages = len(doc_list)
+    """ This is a collection of page objects, it tracks how much of the document is
+    written and maybe does some analysis or controls. """
+    def __init__(self):
+        self.page_size = [8.5, 11]
+        self.doc_list = []
+        self.num_pages = len(self.doc_list)
 
-    def set_page_size(self, page_size_input):
-        '''
-        Sets the size of paper of each page in the document
-        Args: Array which is the x page dimension and the y page dimension IN INCHES [x_dim, y_dim] ie [8.5, 11]    
-        '''
-        page_size = page_size_input
-        
     def get_page_size_in_mm(self):
         '''
         Returns the size of the paper in the document (in millimeters)
-        Returns: Array which is the x page dimension and the y page dimension IN MILLIMETERS [x_dim, y_dim] ie [215.9, 279.4]
+        Returns: Array which is the x page dimension and the y
+        page dimension IN MILLIMETERS [x_dim, y_dim] ie [215.9, 279.4]
         '''
-        for count, dimension in enumerate(page_size):
-            page_size[count] = to_mm(dimension)
-        return page_size
+        for count, dimension in enumerate(self.page_size):
+            self.page_size[count] = self.to_mm(dimension)
+        return self.page_size
 
     def to_mm(self, val_in_inches):
         '''
