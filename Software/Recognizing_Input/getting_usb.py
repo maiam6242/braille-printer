@@ -20,7 +20,7 @@ class GetUSB:
                     return self.result
 
     def get(self):
-        self.proc = subprocess.Popen(['./finding-web.sh'], stdout=subprocess.PIPE)
+        self.proc = subprocess.Popen(['bash', 'finding-usb.sh'], stdout=subprocess.PIPE)
         self.lines = self.output_reader(self.proc)
         self.lines = [s.strip('\n') for s in self.lines]
         return self.lines

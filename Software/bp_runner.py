@@ -8,17 +8,29 @@ from Text_Side.document import Document
 from Text_Side.page import Page
 from Physical_Interface.interface import Interface
 from Text_Side.physical import Physical
+from Recognizing_Input.select_file import SelectFile
+
+FILE_SELECTOR = SelectFile()
+
+FILE = FILE_SELECTOR.select()
 
 
 
-FILE_PATH = 'Text_Side/test_story.txt'
+
 PORT = '/dev/ttyACM0'
 
 #setting up all of the things
 SER = serial.Serial(PORT, baudrate=115200, timeout=5)
 INTERFACE = Interface(SER)
+
+# FILE_PATH = 'Text_Side/test_story.txt'
+FILE_PATH = SelectFile.select_file()
 PARSER = Text_Parse()
 SEGMENTED = PARSER.break_up_text_input(PARSER.read_text_file(FILE_PATH))
+
+SelectFile.clear(FILE_PATH)
+
+
 
 TRANSLATOR = Translator()
 
