@@ -18,7 +18,7 @@ def select_file():
         usb_files = []
 
         if len(web_files):
-            path = '/WebInterface/uploads/' + str(web_files[0])
+            path = 'WebInterface/uploads/' + str(web_files[0])
             break
 
         if len(usb_files):
