@@ -36,7 +36,7 @@ class GetWEB:
         engine.setProperty('voice', voices[11].id)
 
         for count, line in enumerate(lines):
-            engine.say(line)
+            engine.say(line)len(web_files)
 	    # print('hey, let's read some shit')
             print(count)
             print(line)
