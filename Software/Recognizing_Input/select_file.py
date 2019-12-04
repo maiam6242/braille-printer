@@ -15,8 +15,8 @@ def select_file():
     usb_files = []
     while 1:
         web_files = web_getter.get()
-        # usb_files = usb_getter.get()
-        usb_files = []
+        usb_files = usb_getter.get()
+        # usb_files = []
 
         if not web_files == []:
             print('web files:' + str(web_files))
