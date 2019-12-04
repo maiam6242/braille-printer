@@ -23,7 +23,7 @@ def select_file():
             path = 'WebInterface/uploads/' + str(web_files[0])
             break
 
-        if len(usb_files):
+        if not usb_files == []:
             usb_getter.read_out(usb_files)
             #TODO: Add selection interface code here
             selected_file = usb_files[0]
