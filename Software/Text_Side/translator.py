@@ -1,5 +1,5 @@
 #coding=utf-8
-"""Traanslates text into braille"""
+"""Translates text into braille"""
 
 import numpy as np
 #TODO: Add single opening and closing quotation marks...
@@ -155,7 +155,7 @@ class Translator:
         list_segment = list(segment)
         newlist_segment = list(list_segment)
         offset = 0
-        for i in enumerate(list_segment):
+        for i, _ in enumerate(list_segment):
             if i == 0:
                 lastupper = False # If there is no character
                             #before it tell it that the last character was not uppercase
@@ -207,7 +207,7 @@ class Translator:
 
         newlist_segment = list(list_segment)
         offset = 0
-        for i in enumerate(list_segment):
+        for i, _ in enumerate(list_segment):
             if i == 0:
                 lastupper = False # If there is no character
                                 #before it tell it that the last character was not uppercase
@@ -380,7 +380,7 @@ class Translator:
                     line_array = np.concatenate((np.asarray(line), np.asarray(spaces)), axis=0)
                 else:
                     line_array = np.asarray(spaces)
-            if not line_array:
+            if not len(line_array):
                 line_arrays.append([line])
             else:
                 line_arrays.append([line_array])

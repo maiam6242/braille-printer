@@ -17,7 +17,7 @@ class Drawable:
         self.line_spacing = 8.66 #FIXME!!!
         self.character_width = 3.9
         self.physical = Physical(serial, self.character_width, self.line_height, interface)
-        self.chars_per_line = translator.charactersPerLine
+        self.chars_per_line = translator.CHARACTERS_PER_LINE
         self.position_on_page = 0 #TODO: HOW TF SHOULD THIS BE HANDLED WHILE STILL BEING ABLE TO CHECK FOR BUTTONS #self.physical.current_position()[1]
 
     def get_end_position_on_page(self, size):

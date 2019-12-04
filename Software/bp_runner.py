@@ -9,6 +9,8 @@ from Text_Side.page import Page
 from Physical_Interface.interface import Interface
 from Text_Side.physical import Physical
 
+
+
 FILE_PATH = 'Text_Side/test_story.txt'
 PORT = '/dev/ttyACM0'
 
@@ -26,8 +28,6 @@ TOTAL_NUM_LINES = 0
 DRAWABLE = Drawable(SER, INTERFACE)
 
 DOC = Document()
-
-# print(np.shape(SEGMENTED))
 
 # This loop analyzes the texts as well as places it on various pages
 # (and splits text lines accordingly). It places all from one page in a
