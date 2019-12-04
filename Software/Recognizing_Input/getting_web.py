@@ -23,7 +23,7 @@ class GetWEB:
 
     def get(self):
         """Get the list of files"""
-        self.proc = subprocess.Popen(['bash', 'finding-web.sh'], stdout=subprocess.PIPE)
+        self.proc = subprocess.Popen(['bash', 'Recognizing_Input/finding-web.sh'], stdout=subprocess.PIPE)
         self.lines = self.output_reader(self.proc)
         self.lines = [s.strip('\n') for s in self.lines]
         return self.lines
