@@ -24,7 +24,8 @@ def select_file():
             break
 
         if not usb_files == []:
-            usb_getter.read_out(usb_files)
+            print('usb files:' + str(usb_files))
+            # usb_getter.read_out(usb_files)
             #TODO: Add selection interface code here
             selected_file = usb_files[0]
             path = str(selected_file)
