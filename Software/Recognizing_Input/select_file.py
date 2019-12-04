@@ -29,7 +29,7 @@ def select_file():
             #TODO: Add selection interface code here
             selected_file = usb_files[0]
             path = str(selected_file)
-            return
+            break
 
     return path
 
