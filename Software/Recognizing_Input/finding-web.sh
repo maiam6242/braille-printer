@@ -6,7 +6,7 @@
 # get into media folder and into the directory
 # cd /
 # cd /media/pi/
-cd ..
+# cd ..
 cd WebInterface/uploads
 # cd "$(/media/pi/ |head -n1)"
 # print "$(/media/pi/ |head -n1)"
