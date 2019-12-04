@@ -8,11 +8,9 @@ from Text_Side.document import Document
 from Text_Side.page import Page
 from Physical_Interface.interface import Interface
 from Text_Side.physical import Physical
-from Recognizing_Input.select_file import SelectFile
+from Recognizing_Input import select_file
 
-FILE_SELECTOR = SelectFile()
-
-FILE = FILE_SELECTOR.select()
+# FILE = select_file.select_file()
 
 
 
@@ -24,11 +22,11 @@ SER = serial.Serial(PORT, baudrate=115200, timeout=5)
 INTERFACE = Interface(SER)
 
 # FILE_PATH = 'Text_Side/test_story.txt'
-FILE_PATH = SelectFile.select_file()
+FILE_PATH = select_file.select_file()
 PARSER = Text_Parse()
 SEGMENTED = PARSER.break_up_text_input(PARSER.read_text_file(FILE_PATH))
 
-SelectFile.clear(FILE_PATH)
+select_file.clear(FILE_PATH)
 
 
 
