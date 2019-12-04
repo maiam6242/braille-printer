@@ -14,7 +14,7 @@ cd WebInterface/uploads > /dev/null 2>&1
 # ls
 
 # print all of the text files
-find -type f -iname "*.txt" -printf "%f\n"
+find ~+ -type f -iname "*.txt"
 ./ > /dev/null 2>&1
 # for file in find -type f -iname "*.txt":
 # do

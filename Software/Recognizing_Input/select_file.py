@@ -27,7 +27,7 @@ def select_file():
             usb_getter.read_out(usb_files)
             #TODO: Add selection interface code here
             selected_file = usb_files[0]
-            path = '/media/pi/' + str(selected_file)
+            path = str(selected_file)
 
     return path
 
