@@ -11,13 +11,15 @@ def select_file():
     usb_getter = GetUSB()
     web_getter = GetWEB()
 
-
+    web_files = []
+    usb_files = []
     while 1:
         web_files = web_getter.get()
         # usb_files = usb_getter.get()
         usb_files = []
 
-        if len(web_files):
+        if not web_files == []:
+            print('web files:' + str(web_files))
             path = 'WebInterface/uploads/' + str(web_files[0])
             break
 
