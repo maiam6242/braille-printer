@@ -1,7 +1,7 @@
 import os
 import sys
-from getting_usb import GetUSB
-from getting_web import GetWEB
+from Recognizing_Input.getting_usb import GetUSB
+from Recognizing_Input.getting_web import GetWEB
 import pyttsx3
 
 
@@ -38,7 +38,7 @@ def clear_web():
     os.system('bash clear-web.sh')
 
 def clear(path):
-    os.system('rm ' + '..' +path)
+    os.system('rm ' + path)
 
 
 
