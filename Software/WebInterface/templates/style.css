@@ -1,0 +1,54 @@
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local('Source Sans Pro Regular'), local('SourceSansPro-Regular'), url(https://fonts.gstatic.com/s/sourcesanspro/v13/6xK3dSBYKcSV-LCoeQqfX1RYOo3qNa7lqDY.woff2) format('woff2');
+    unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+  }
+.container {
+    margin: 0 auto;
+    position: relative;
+  }
+  
+@media screen and (min-width: 1024px) {
+    .container {
+      max-width: 960px;
+      width: 960px;
+    }
+    .container.is-fluid {
+      margin-left: 32px;
+      margin-right: 32px;
+      max-width: none;
+      width: auto;
+    }
+  }
+
+#title {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Source Sans Pro Regular'), local('SourceSansPro-Regular'), url(https://fonts.gstatic.com/s/sourcesanspro/v13/6xK3dSBYKcSV-LCoeQqfX1RYOo3qNa7lqDY.woff2) format('woff2');
+    font-size: large;
+    color: black;
+    background-color: #91c2f2;
+    background-size: 10%;
+    background-position: top;
+}
+
+#subtitle {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Source Sans Pro Regular'), local('SourceSansPro-Regular'), url(https://fonts.gstatic.com/s/sourcesanspro/v13/6xK3dSBYKcSV-LCoeQqfX1RYOo3qNa7lqDY.woff2) format('woff2');
+    font-size: medium;
+    color: black;
+}
+#text {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 200;
+    src: local('Source Sans Pro Regular'), local('SourceSansPro-Regular'), url(https://fonts.gstatic.com/s/sourcesanspro/v13/6xK3dSBYKcSV-LCoeQqfX1RYOo3qNa7lqDY.woff2) format('woff2');
+    font-size: small;
+    color: black;
+}
