@@ -108,6 +108,8 @@ class Physical:
                                 line_one += str(row1[pod_num, pod_row, pod_col])
                             if pod_num < np.shape(row2)[0]:
                                 line_two += str(row2[pod_num, pod_row, pod_col])
+                            else: 
+                                line_two = '00000000000000'
                             pod_num += 4
                             sol_commands.append(line_one+line_two)
                             line_one = ""

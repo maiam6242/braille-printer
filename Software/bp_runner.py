@@ -75,13 +75,12 @@ for segment in SEGMENTED:
         locals().get(n).add_content(braille_tx, num_lines)
         print('yooo added, baby!')
 
-        #TODO: Check these measurements! This should be 25 lines, right now, with measurements. it is only 20...
+        #TODO: Check these measurements! This should be 25 lines, right now, with measurements. it is only 17...
     if DRAWABLE.is_full():
         count += 1
         DRAWABLE.position_on_page = 0
         DOC.add_page_object(locals().get(n))
 
-    
     if(DOC.num_pages != count and segment is SEGMENTED[-1]):
         DOC.add_page_object(locals().get(n))
         print('added page to the end of the document')
@@ -100,7 +99,7 @@ print(DOC.num_pages)
 while not INTERFACE.is_start_print():
     INTERFACE.wait_for_print()
     
-while not INTERFACE.is_cancel():
+if not INTERFACE.is_cancel():
     print('did we get here')
     if INTERFACE.is_play:
         print('how about here')
@@ -119,10 +118,14 @@ while not INTERFACE.is_cancel():
 
             for row in range(0,len(content_matrix),2):
                 print('the top row is: ' + str(row))
-                DRAWABLE.physical.write_row(content_matrix[row], \
-                    content_matrix[row+1], curr_x, curr_y)
-                curr_y += 2 * DRAWABLE.line_spacing + 2 * DRAWABLE.line_height
-                print(curr_y)
+                if len(content_matrix) != row+1:
+                    DRAWABLE.physical.write_row(content_matrix[row], \
+                        content_matrix[row+1], curr_x, curr_y)
+                    curr_y += 2 * DRAWABLE.line_spacing + 2 * DRAWABLE.line_height
+                    print(curr_y)
+                else:
+                    DRAWABLE.physical.write_row(content_matrix[row], \
+                        None, curr_x, curr_y)
             #FIXME: should this be different to feed the method call?
     else:
         INTERFACE.wait_for_play()
