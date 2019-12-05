@@ -65,7 +65,7 @@ class Interface:
                 self.engine.say("Sound is on")
                 self.engine.runAndWait()
                 self.sound_triggered = False
-                print('Sound switched on')
+                print('[interface.py] ','Sound switched on')
                 return True
         else:
             self.sound_triggered = True
@@ -83,7 +83,7 @@ class Interface:
                     self.engine.say("Process Canceled")
                     self.engine.runAndWait()
                 self.cancel_triggered = False
-                print('Cancel button pressed')
+                print('[interface.py] ','Cancel button pressed')
                 return True
         else:
             self.cancel_triggered = True
@@ -108,7 +108,7 @@ class Interface:
                         self.engine.runAndWait()
                         self.is_play = True
                 self.play_triggered = False
-                print('play/pause button pressed')
+                print('[interface.py] ','play/pause button pressed')
                 return True
         else:
             self.play_triggered = True
@@ -126,7 +126,7 @@ class Interface:
                     self.engine.say("Printing")
                     self.engine.runAndWait()
                 self.print_triggered = False
-                print('print button pressed')
+                print('[interface.py] ','print button pressed')
                 return True
         else:
             self.print_triggered = True
@@ -142,13 +142,13 @@ if __name__ == "__main__":
     #methods within the methods to make sure that they are called.
     while 1:
         if(interface.is_start_print() and interface.print_triggered):
-            print('Is start print %s' %interface.is_start_print())
+            print('[interface.py] ','Is start print %s' %interface.is_start_print())
         if(interface.is_sound() and interface.sound_triggered):
-            print('Is sound %s' %interface.is_sound())
+            print('[interface.py] ','Is sound %s' %interface.is_sound())
         if(interface.is_play_pause() and interface.play_triggered):
-            print('Is play pause %s' %interface.is_play_pause())
+            print('[interface.py] ','Is play pause %s' %interface.is_play_pause())
         if(interface.is_cancel() and interface.cancel_triggered):
-            print('Is cancel %s' %interface.is_cancel())
+            print('[interface.py] ','Is cancel %s' %interface.is_cancel())
         #if interface.is_cancel() or interface.is_play_pause() or interface.is_start_print():
 
             #interface.signal_ready()
