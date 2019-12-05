@@ -10,9 +10,10 @@ cd WebInterface
 python3 main.py &
 pid[1]=$!
 
+# End all child scripts at exit
 trap "kill ${pid[0]} ${pid[1]}; exit 1" INT
 
-
+# Check if scripts are running and restart if they are not
 while true; do 
 
     if ! kill -0 ${pid[0]};
@@ -29,10 +30,7 @@ while true; do
         pid[1]=$!
     fi
 
-    # Kill the subprocesses at exit
-
 done
-
 
 wait
 
