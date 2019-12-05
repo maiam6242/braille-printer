@@ -42,16 +42,16 @@ DOC = Document()
 # page object with that page number associated with it. Once a page is
 # full or if the last segment in the entire array of text is processed,
 # these pages are added to a document object
+count = 1
+locals()['page_'+ str(count)] = Page(count)
+n = 'page_'+ str(count)
+print(count)
+print(locals().get(n).page_num)
+
 for segment in SEGMENTED:
     count = 1
     braille_tx, num_lines = TRANSLATOR.convert_to_braille(segment)
     size_in_mm = DRAWABLE.size_on_page(num_lines) #[x,y]
-
-    locals()['page_'+ str(count)] = Page(count)
-    n = 'page_'+ str(count)
-    print(count)
-    print(locals().get(n))
-    print(locals().get(n).page_num)
 
     end_x, end_y = DRAWABLE.get_end_position_on_page(size_in_mm)
     print(end_x)
@@ -67,7 +67,8 @@ for segment in SEGMENTED:
         DRAWABLE.position_on_page = 0
         locals()['page_'+ str(count)] = Page(count)
         n = 'page_'+ str(count)
-        print('next page ' + str(n))
+        print('next page: ' + str(n))
+        print(locals().get(n))
         locals().get(n).add_content(splits[2], splits[3])
     else:
         print(locals().get(n))
