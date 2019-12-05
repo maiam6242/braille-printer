@@ -61,9 +61,11 @@ class Physical:
         Args: The rows to write and the inital x and y positions where to begin the writing
         '''
         sol_commands = []
+        
         if not self.physical_interface.is_play_pause() and not self.physical_interface.is_play:
             self.physical_interface.wait_for_play()
-        while not self.physical_interface.is_cancel() and self.physical_interface.is_play_pause():
+            print('am I here?')
+        while not self.physical_interface.is_cancel() and not self.physical_interface.is_play_pause:
             print('write row position: %s' %y)
             print(str(y).encode())
             print(('G1 y %s \r\n' % str(y)).encode())

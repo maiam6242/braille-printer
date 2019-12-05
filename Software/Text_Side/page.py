@@ -11,13 +11,13 @@ class Page:
     the page number should be and handle spacing on a page"""
     # lines_written = 0
     # content = []
+    lines_written = 0
+    content = []
 
     def __init__(self, page_number):
         '''
         Set up the page object by setting the page number of the page
         '''
-        self.lines_written = 0
-        self.content = []
         self.page_num = page_number
 
     def add_content(self, content_to_add, num_lines):
@@ -25,8 +25,7 @@ class Page:
         Adds content in the form of a numpy array to a page
         Args: The array of content to add to the page and the number of lines that content takes up
         '''
-        print('Is lines written even changing? ' + str(self.lines_written))
-        print(len(self.content))
+        #FIXME: Lines written isn't actually working with l_w += num_lines
         self.content.extend(content_to_add)
-        self.lines_written += num_lines
+        self.lines_written = len(self.content)
         print('Lines written on the page '+ str(self.lines_written))

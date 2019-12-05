@@ -83,6 +83,7 @@ for segment in SEGMENTED:
     
     if(DOC.num_pages != count and segment is SEGMENTED[-1]):
         DOC.add_page_object(locals().get(n))
+        print('added page to the end of the document')
         
 
 
@@ -102,6 +103,9 @@ while not INTERFACE.is_cancel():
     print('did we get here')
     if INTERFACE.is_play:
         print('how about here')
+        print(DOC.doc_list)
+        print(len(DOC.doc_list))
+        
         for page in DOC.doc_list:
             DRAWABLE.physical.enable()
             DRAWABLE.physical.load_paper()
