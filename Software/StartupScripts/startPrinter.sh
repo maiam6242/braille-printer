@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sleep 10
+
 # Start braille printer script
 cd /home/pi/Desktop/braille-printer/Software/
 python3 bp_runner.py &
