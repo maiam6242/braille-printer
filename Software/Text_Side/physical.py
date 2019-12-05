@@ -41,15 +41,15 @@ class Physical:
         and not self.physical_interface.is_play_pause():
             # print(self.ser.in_waiting)
             ser_in = self.ser.readline()
-            print('Yooo am I here?')
+            print('[physical.py]','Yooo am I here?')
             # in the form of Position: x,y
             print(ser_in)
             if 'Position' in str(ser_in):
                 ser_in = str(ser_in).replace("b'Position:", "")
                 ser_in = ser_in.replace(r"\r\n'", "")
                 x, y = ser_in.split(',')
-                print((Decimal(x)))
-                print((Decimal(y)))
+                print("[physical.py] ", (Decimal(x)))
+                print("[physical.py] ",(Decimal(y)))
                 return round(float(Decimal(x)), 2), \
                    round(float(Decimal(y)), 2)
                         # Removed int conversion ans these have double precision
@@ -64,11 +64,11 @@ class Physical:
         
         if not self.physical_interface.is_play_pause() and not self.physical_interface.is_play:
             self.physical_interface.wait_for_play()
-            print('am I here?')
+            print('[physical.py] ','am I here?')
         if not self.physical_interface.is_cancel() and not self.physical_interface.is_play_pause():
-            print('write row position: %s' %y)
-            print(str(y).encode())
-            print(('G1 y %s \r\n' % str(y)).encode())
+            print('[physical.py] ','write row position: %s' %y)
+            print('[physical.py] ', str(y).encode())
+            print(('[physical.py] G1 y %s \r\n' % str(y)).encode())
             self.ser.write(('G1 x %s \r\n' % str(x)).encode())  #TODO: Need to wait for one of these to complete before sending the other
             time.sleep(1)
             self.wait_for_completion()
@@ -83,8 +83,8 @@ class Physical:
             line_one = ""
             line_two = ""
 
-            print(np.shape(row1))
-            print(np.shape(row2))
+            print('[physical.py] ', np.shape(row1))
+            print('[physical.py] ', np.shape(row2))
 
         # segment(major row_num, column (pod)_num, row of pod, col w/in pod)
         # row1(pod (column) num, row of pod, col w/in pod)
@@ -92,16 +92,16 @@ class Physical:
             self.physical_interface.wait_for_play()
         if not self.physical_interface.is_cancel() and not self.physical_interface.is_play_pause():
             num_chars = np.shape(row1)[0]
-            print("the size of the first line is:")
-            print(np.shape(row1))
+            print('[physical.py] ',"the size of the first line is:")
+            print('[physical.py] ', np.shape(row1))
             for pod_row in range(3):
                 for sol_chars in range(4):
                     for pod_col in range(2):
                         pod_num = sol_chars
                         while pod_num >= 0 and pod_num < num_chars:
-                            print('Pod Num %s' %pod_num)
-                            print('Pod Row %s' %pod_row)
-                            print('Pod Col %s' %pod_col)
+                            print('[physical.py] ','Pod Num %s' %pod_num)
+                            print('[physical.py] ','Pod Row %s' %pod_row)
+                            print('[physical.py] ','Pod Col %s' %pod_col)
                             print(row1[pod_num, pod_row, pod_col])
 
                             if pod_num < np.shape(row1)[0]:
@@ -118,9 +118,9 @@ class Physical:
 
         # print(np.shape(sol_punches_one)[0])
         # print(sol_punches_one)
-                print(np.shape(sol_commands))
-                print(sol_commands)
-                print(sol_commands[0])
+                print('[physical.py] ',np.shape(sol_commands))
+                print('[physical.py] ',sol_commands)
+                print('[physical.py] ',sol_commands[0])
 
         row_in_pod = 1 #starts at index 1 because will never reach 3
 
@@ -131,9 +131,9 @@ class Physical:
             if not self.physical_interface.is_cancel() \
                     and not self.physical_interface.is_play_pause():
                 is_command_blank = command_string == '00000000000000'
-                print(command_string)
-                print(is_command_blank)
-                print(i)
+                print('[physical.py] ',command_string)
+                print('[physical.py] ',is_command_blank)
+                print('[physical.py] ',i)
 
                 if not is_command_blank:
                     self.ser.write(('F x %s \r\n' % str(command_string)).encode())
@@ -146,7 +146,7 @@ class Physical:
                     and not self.physical_interface.is_play_pause():
                 if(i % 8 == 0 and not i == 0):
                     x = 0
-                    print('x %s' %x)
+                    print('[physical.py]', 'x %s' %x)
                     y = row_in_pod * (self.char_height/3)
                     self.ser.write(('G1 y %s \r\n' % str(y)).encode())
                     time.sleep(1)
@@ -159,7 +159,7 @@ class Physical:
                 else:
                     x += self.char_width/2
                     if not is_command_blank:
-                        print('x %s' %x)
+                        print('[physical.py]','x %s' %x)
                         self.ser.write(('G1 x %s \r\n' % str(x)).encode())
                         time.sleep(1)
                         self.wait_for_completion()
