@@ -32,5 +32,3 @@ while true; do
 
 done
 
-wait
-
