@@ -1,3 +1,4 @@
+"""Testing exit handling for bprunner.py"""
 import time
 import os
 

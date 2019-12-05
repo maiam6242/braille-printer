@@ -1,9 +1,9 @@
+"""Selects the file to be printed from possible files on web and usb"""
 import os
 import sys
 from Recognizing_Input.getting_usb import GetUSB
 from Recognizing_Input.getting_web import GetWEB
 import pyttsx3
-
 
 def select_file():
     """Selects a file from the web or usb interface"""
@@ -33,15 +33,12 @@ def select_file():
 
     return path
 
-
-
-    # parser = Text_Parse()
-    # segmented = parser.break_up_text_input(parser.read_text_file(file_path))
-
 def clear_web():
+    """Clears the web dump folder (WebInterface/uploads)"""
     os.system('bash clear-web.sh')
 
 def clear(path):
+    """Clears the selected file from the folder"""
     os.system('rm ' + path)
 
 
