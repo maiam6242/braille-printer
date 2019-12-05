@@ -66,11 +66,12 @@ class Interface:
                 self.engine.runAndWait()
                 self.sound_triggered = False
                 print('Sound switched on')
+                return True
         else:
             self.sound_triggered = True
-	
+            return False
 	#True if ON, False if OFF
-        return bool(self.sound.is_pressed)
+        #return bool(self.sound.is_pressed)
 
 
     def is_cancel(self):
@@ -83,10 +84,11 @@ class Interface:
                     self.engine.runAndWait()
                 self.cancel_triggered = False
                 print('Cancel button pressed')
+                return True
         else:
             self.cancel_triggered = True
-
-        return bool(self.cancel.is_pressed)
+            return False
+        # return bool(self.cancel.is_pressed)
 
 
     def is_play_pause(self):
@@ -107,10 +109,12 @@ class Interface:
                         self.is_play = True
                 self.play_triggered = False
                 print('play/pause button pressed')
+                return True
         else:
             self.play_triggered = True
+            return False
 
-        return bool(self.play.is_pressed)
+       # return bool(self.play.is_pressed)
 
 
     def is_start_print(self):
@@ -123,9 +127,12 @@ class Interface:
                     self.engine.runAndWait()
                 self.print_triggered = False
                 print('print button pressed')
+                return True
         else:
             self.print_triggered = True
-        return bool(self.start_print.is_pressed)
+            return False
+
+        # return bool(self.start_print.is_pressed)
 
 
 if __name__ == "__main__":
