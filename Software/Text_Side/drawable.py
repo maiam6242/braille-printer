@@ -68,7 +68,7 @@ class Drawable:
         portion to be written on the next page
         '''
 
-        #TODO: Write me, dude!! SHould probably put in tolerancing of some kind?
+        #TODO: Write me, dude!! Should probably put in tolerancing of some kind?
 
         print('how much usable space there is: %s' % str(self.page_left - self.y_margin_size))
         print('That means there are ___ lines left on this page (see below :\'( )')
