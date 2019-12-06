@@ -43,13 +43,23 @@ class GetUSB:
 
         for count, line in enumerate(lines):
             engine.say(line)
-	    # print('hey, let's read some shit')
+            engine.runAndWait()
             print(count)
             print(line)
-            
-            self.interface.sleep(3)
-            # if self.interface.is_play()
+            last_time = time.time()
+            while time.time() < last_time + 2:
+                self.interface.check_buttons()
+                if self.interface.start_print.is_pressed:
+                    return lines[count]
+        
+        engine.say("No file chosen, printing first file")
         engine.runAndWait()
+        return lines[0]
+
+            
+            # self.interface.sleep(3)
+            # if self.interface.is_play()
+        
 
 if __name__ == "__main__":
     usb = GetUSB()

@@ -35,9 +35,9 @@ def select_file(interface):
                 engine.say('Please select the middle play pause button when you would like to select the file which you heard previously')
             
             print('usb files:' + str(usb_files))
-            usb_getter.read_out(usb_files) 
+            selected_file = usb_getter.read_out(usb_files)
             #TODO: Add selection interface code here
-            selected_file = usb_files[0]
+            # selected_file = usb_files[0]
             path = str(selected_file)
             break
 
