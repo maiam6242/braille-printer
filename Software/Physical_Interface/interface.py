@@ -82,6 +82,11 @@ class Interface:
                 if(bool(self.sound.is_pressed)):
                     self.engine.say("Process Canceled")
                     self.engine.runAndWait()
+                #if(self.cancel.is_pressed):
+                    #    print('Cancel is Pressed!')
+                    # self.ser.write('G1 x 0 \r\n'.encode())
+                    # self.ser.write('M18'.encode())
+                    # self.ser.write('M702'.encode())
                 self.cancel_triggered = False
                 print('[interface.py] ','Cancel button pressed')
                 return True
@@ -89,30 +94,35 @@ class Interface:
             self.cancel_triggered = True
             return False
         # return bool(self.cancel.is_pressed)
-
-
     def is_play_pause(self):
-        # Checks to see if play/pause button has been pressed
-        # Keeps track of whether the state is to play or to pause 
-        #TODO: Need a method (elsewhere probably) that defaults to pause when print starts
-        if(bool(self.play.is_pressed)):
-            if(self.play_triggered):
-                # If sound is on, speak
-                if(bool(self.sound.is_pressed)):
-                    if(self.is_play):
-                        self.engine.say("Process Continuing")
-                        self.engine.runAndWait()
-                        self.is_play = False
-                    else:
-                        self.engine.say("Process is Paused")
-                        self.engine.runAndWait()
-                        self.is_play = True
-                self.play_triggered = False
-                print('[interface.py] ','play/pause button pressed')
-                return True
-        else:
-            self.play_triggered = True
-            return False
+        if self.play.is_pressed:
+            self.is_play = not self.is_play
+            print ("Play is " + str(self.is_play))
+        return self.is_play
+
+    # def is_play_pause(self):
+        # # Checks to see if play/pause button has been pressed
+        # # Keeps track of whether the state is to play or to pause 
+        # # TODO: Need a method (elsewhere probably) that defaults to pause when print starts
+        # if(bool(self.play.is_pressed)):
+          #   if(self.play_triggered):
+          #       # If sound is on, speak
+          #       if(bool(self.sound.is_pressed)):
+          #           if(self.is_play):
+          #               self.engine.say("Process Continuing")
+          #               self.engine.runAndWait()
+          #               self.is_play = False
+          #           else:
+          #               self.engine.say("Process is Paused")
+          #               self.engine.runAndWait()
+          #               self.is_play = True
+          #               self.wait_for_play()
+          #       self.play_triggered = False
+          #       print('[interface.py] ','play/pause button pressed')
+          #       return True
+        # else:
+          #   self.play_triggered = True
+          #   return False
 
        # return bool(self.play.is_pressed)
 
