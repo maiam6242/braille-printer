@@ -50,9 +50,13 @@ class GetUSB:
             while time.time() < last_time + 2:
                 self.interface.check_buttons()
                 if self.interface.start_print.is_pressed:
+                    engine.say("selecting your choice")
+                    print("selecting your choice")
+                    engine.runAndWait()
                     return lines[count]
         
         engine.say("No file chosen, printing first file")
+        print("No file chosen, printing first file")
         engine.runAndWait()
         return lines[0]
 
