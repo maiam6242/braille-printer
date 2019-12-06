@@ -91,7 +91,19 @@ class Interface:
             self.engine.runAndWait()
             raise KeyboardInterrupt 
         return self.is_cancel_active
-
+    
+    
+    def check_buttons(self):
+        """ Checks the status of the buttons and returns true if it should continue"""
+        self.is_play()
+        self.is_cancel()    
+        return True
+            
+    def sleep(self, amount_of_seconds):
+        time_start = time.time()  
+        while time.time() < time_start + amount_of_seconds:
+            self.is_play()
+            self.is_cancel()
 
     def is_play(self):
         if self.play.is_pressed and self.debounced():

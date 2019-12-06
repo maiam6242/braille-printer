@@ -18,7 +18,7 @@ from Recognizing_Input import select_file
 PORT = '/dev/ttyACM0'
 
 #setting up all of the things
-SER = serial.Serial(PORT, baudrate=115200, timeout=5)
+SER = serial.Serial(PORT, baudrate=115200, timeout=1)
 INTERFACE = Interface(SER)
 
 # FILE_PATH = 'Text_Side/test_story.txt'
