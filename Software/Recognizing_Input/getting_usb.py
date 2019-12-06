@@ -2,11 +2,15 @@
 import subprocess
 import time
 import pyttsx3
+import sys
+sys.path.append(".")
+from Physical_Interface.interface import Interface
 
 class GetUSB:
     """Find files from any inserted media"""
 
-    def __int__(self):
+    def __init__(self):
+        
         pass
 
     def output_reader(self, proc):
@@ -39,7 +43,8 @@ class GetUSB:
 	    # print('hey, let's read some shit')
             print(count)
             print(line)
-            time.sleep(2)
+            time.sleep(3)
+            
         engine.runAndWait()
 
 if __name__ == "__main__":
