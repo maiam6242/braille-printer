@@ -1,13 +1,13 @@
-"""This should figure out the position on the page and determine if the
-content needs to be split over multiple pages"""
+'''This should figure out the position on the page and determine if the
+content needs to be split over multiple pages'''
 import serial
 import numpy as np
 from Text_Side.physical import Physical
 import Text_Side.translator as translator
 
 class Drawable:
-    """This should figure out the position on the page and determine if the
-    content needs to be split over multiple pages"""
+    '''This should figure out the position on the page and determine if the
+    content needs to be split over multiple pages'''
     def __init__(self, serial, interface):
         self.page_left = 0
         self.page_length = 279.4
@@ -17,6 +17,7 @@ class Drawable:
         self.line_spacing = 8.66 #FIXME!!!
         self.character_width = 3.9
         self.physical = Physical(serial, self.character_width, self.line_height, interface)
+        self.interface = interface
         self.chars_per_line = translator.CHARACTERS_PER_LINE
         self.position_on_page = 0 #TODO: HOW TF SHOULD THIS BE HANDLED WHILE STILL BEING ABLE TO CHECK FOR BUTTONS #self.physical.current_position()[1]
 
@@ -70,6 +71,7 @@ class Drawable:
 
         #TODO: Write me, dude!! Should probably put in tolerancing of some kind?
 
+        self.interface.check_buttons()
         print('[drawable.py] ', 'how much usable space there is: %s' % str(self.page_left - self.y_margin_size))
         print('[drawable.py] ', 'That means there are ___ lines left on this page (see below :\'( )')
         print('[drawable.py] ', str(round((self.page_left-self.y_margin_size) \
@@ -88,9 +90,11 @@ class Drawable:
         print('[drawable.py] ', int(lines_on_first))
 
         for row1 in range(0, lines_on_first):
+            self.interface.check_buttons()
             print('[drawable.py] ', row1)
             first.append(segment[row1, :])
         for row2 in range(lines_on_first+1, num_lines):
+            self.interface.check_buttons()
             print('[drawable.py] ', row2)
             second.append(segment[row2, :])
 
@@ -102,6 +106,7 @@ class Drawable:
         (as opposed to the number of lines that have been written)
         Returns: True if the page is full and False if the page is not filled yet
         '''
+        self.interface.check_buttons()
         print('[drawable.py] ', 'is full')
         print('[drawable.py] ', 'is left %s' %str(self.page_length - self.position_on_page))
         print('[drawable.py] ', 'position_on_page: '+str(self.position_on_page))
@@ -129,7 +134,7 @@ class Drawable:
 
         # TODO: Check this
 
-
+        self.interface.check_buttons()
         y_size = self.line_height * number_lines + self.line_spacing * number_lines
         x_size = self.chars_per_line * self.character_width # NEED TO ACTUALLY CALC AND FIND THIS
         size = [round(x_size, 2), round(y_size, 2)]

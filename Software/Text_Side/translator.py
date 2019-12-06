@@ -1,5 +1,5 @@
 #coding=utf-8
-"""Translates text into braille"""
+'''Translates text into braille'''
 
 import numpy as np
 #TODO: Add single opening and closing quotation marks...
@@ -77,7 +77,10 @@ SYMBOLS = {'a' : np.array([[1, 0], [0, 0], [0, 0]]),
            }
 
 class Translator:
-    """Translates text to braille"""
+    '''Translates text to braille'''
+
+    def __init__(self, interface):
+        self.interface = interface
 
     OPEN_QUOTE = False
     size = []
@@ -85,7 +88,7 @@ class Translator:
     def convert_to_braille(self, segment):
         '''
         Converts the entirety of the segment into a dot matrix based
-        on the "SYMBOLS" dictionary in this class
+        on the'SYMBOLS' dictionary in this class
         Args: the whole segment in english
         Returns: the whole segment in braille
         '''
@@ -96,6 +99,8 @@ class Translator:
             segment = self.find_nums(segment)
             segment = str.lower(str(segment))
             for char in segment:
+                self.interface.check_buttons()
+
                 char_trans = self.translate_text(char)
                 braille_text.append(char_trans)
             braille_text, num_lines = self.split_into_lines(braille_text)
@@ -133,13 +138,13 @@ class Translator:
         (non-english)characters interspersed to denote capitalization
         i.e. MAIA -> ||MAIA  or Maia -> | Maia
 
-        # >>> find_caps("HELLO")
+        # >>> find_caps('HELLO')
         # 'ηHELLO'
-        # >>> find_caps("Hello")
+        # >>> find_caps('Hello')
         # 'ζHello'
-        # >>> find_caps("HI THERE I am wondering what You think About this wacky STRING")
+        # >>> find_caps('HI THERE I am wondering what You think About this wacky STRING')
         # 'ηHI ηTHERE ζI am wondering what ζYou think ζAbout this wacky ηSTRING'
-        # >>> find_caps("HEy! This is super COOOL! Cool cool CooL! HOw do you feeEEEEl?")
+        # >>> find_caps('HEy! This is super COOOL! Cool cool CooL! HOw do you feeEEEEl?')
         # 'ηHEy! ζThis is super ηCOOOL! ζCool cool ζCooζL! ηHOw do you feeηEEEEl?'
         '''
         #TODO: Whatever you make this letter(s) associate it with the cap letter and
@@ -156,6 +161,8 @@ class Translator:
         newlist_segment = list(list_segment)
         offset = 0
         for i, _ in enumerate(list_segment):
+            self.interface.check_buttons()
+
             if i == 0:
                 lastupper = False # If there is no character
                             #before it tell it that the last character was not uppercase
@@ -164,15 +171,15 @@ class Translator:
 
             if list_segment[i].isupper():
                 if i < len(list_segment) -1 and list_segment[i+1].isupper() and not lastupper:
-                    newlist_segment.insert(i+offset, "η")
+                    newlist_segment.insert(i+offset, 'η')
                     offset += 1
                 else:
                     if not lastupper:
-                        newlist_segment.insert(i+offset, "ζ")
+                        newlist_segment.insert(i+offset, 'ζ')
                         offset += 1
 
 
-        output_string = ""
+        output_string = ''
         return output_string.join(newlist_segment)
 
     def find_nums(self, segment):
@@ -183,11 +190,11 @@ class Translator:
         (non-english)characters interspersed to denote capitalization
         i.e. MAIA -> ||MAIA  or Maia -> | Maia
 
-        # >>> find_nums("1 2 3")
+        # >>> find_nums('1 2 3')
         # 'Ξ1 Ξ2 Ξ3'
-        # >>> find_nums("123")
+        # >>> find_nums('123')
         # 'Ξ123'
-        # >>> find_nums("The numbers are 1 and 123 and 35,245")
+        # >>> find_nums('The numbers are 1 and 123 and 35,245')
         # 'The numbers are Ξ1 and Ξ123 and Ξ35245'
 
         '''
@@ -199,6 +206,8 @@ class Translator:
         list_segment = list(segment)
         i = 0
         while i < len(list_segment):   # This is needed for numbers
+            self.interface.check_buttons()
+
                                     #with a comma in them to prevent it from being two numbers
             if list_segment[i] == ',':
                 if list_segment[i-1].isnumeric() and list_segment[i+1].isnumeric():
@@ -208,6 +217,8 @@ class Translator:
         newlist_segment = list(list_segment)
         offset = 0
         for i, _ in enumerate(list_segment):
+            self.interface.check_buttons()
+
             if i == 0:
                 lastupper = False # If there is no character
                                 #before it tell it that the last character was not uppercase
@@ -216,14 +227,14 @@ class Translator:
 
             if list_segment[i].isnumeric():
                 if i< len(list_segment) -1 and list_segment[i+1].isnumeric() and not lastupper:
-                    newlist_segment.insert(i+offset, "Ξ")
+                    newlist_segment.insert(i+offset,'Ξ')
                     offset += 1
                 else:
                     if not lastupper:
-                        newlist_segment.insert(i+offset, "Ξ")
+                        newlist_segment.insert(i+offset, 'Ξ')
                         offset += 1
 
-        output_string = ""
+        output_string = ''
 
         return output_string.join(newlist_segment)
 
@@ -350,6 +361,8 @@ class Translator:
         space = np.array([[0, 0], [0, 0], [0, 0]])
 
         for character in braille_segment:
+            self.interface.check_buttons()
+
             if np.size(character, 0) == 4:
                 character_size = 2
             else:
@@ -366,6 +379,8 @@ class Translator:
         line_arrays = []
 
         for line in lines:
+            self.interface.check_buttons()
+
 
             line_length = np.shape(line)[0]
             print(line_length)
@@ -392,7 +407,7 @@ class Translator:
         return output_array, num_lines
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     import doctest
     # doctest.run_docstring_examples(split_into_lines, globals())
     doctest.testmod()

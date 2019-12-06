@@ -1,17 +1,17 @@
-"""Module to find text files that were added by the web interface"""
+'''Module to find text files that were added by the web interface'''
 import subprocess
 import sys
 import time
 import pyttsx3
 
 class GetWEB:
-    """ Gets a list of documents from the folder accessed by the web interface"""
+    ''' Gets a list of documents from the folder accessed by the web interface '''
 
     def __int__(self):
         pass
 
     def output_reader(self, proc):
-        """Reads the stdout"""
+        ''' Reads the stdout '''
         self.result = []
         while 1:
             line = proc.stdout.readline()
@@ -22,7 +22,7 @@ class GetWEB:
                 return self.result
 
     def get(self):
-        """Get the list of files"""
+        '''Get the list of files '''
         self.proc = subprocess.Popen(['bash', 'Recognizing_Input/finding-web.sh'], \
             stdout=subprocess.PIPE)
         self.lines = self.output_reader(self.proc)
@@ -30,7 +30,7 @@ class GetWEB:
         return self.lines
 
     def read_out(self, lines):
-        """Read the lines over speaker"""
+        '''Read the lines over speaker'''
         engine = pyttsx3.init()
         voices = engine.getProperty('voices')
         engine.setProperty('rate', 130)
@@ -44,7 +44,7 @@ class GetWEB:
             time.sleep(2)
         engine.runAndWait()
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     usb = GetWEB()
     files = usb.get()
     print((usb.get()))

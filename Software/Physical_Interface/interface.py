@@ -1,11 +1,11 @@
-"""Interface class for GPIO """
+'''Interface class for GPIO '''
 import serial
 import pyttsx3
 from gpiozero import LED, Button
 import time
 
 class Interface:
-    """Creates interface to the raspi GPIO pins to control the buttons and leds of the UI"""
+    '''Creates interface to the raspi GPIO pins to control the buttons and leds of the UI'''
     
     def __init__(self, serial):
         self.engine = pyttsx3.init()
@@ -21,36 +21,43 @@ class Interface:
         self.sound = Button(19) #checked
         self.ser = serial
         
-        #checks if the buttons/switch change to an "on" state
+        #checks if the buttons/switch change to an 'on' state
         self.sound_triggered = False
         self.play_triggered = False
         self.print_triggered = False
         self.cancel_triggered = False
         
         #boolean to distinguish if press is for play or pause
-        self.is_play = True
-        self.is_cancel = False
-        self.is_sound = False
-        self.is_cancel = False
-        self.is_start = False
+        self.is_play_active = True
+        self.is_cancel_active = False
+        self.is_sound_active = False
+        self.is_start_active = False
 
         # Debouncing boolean
-        self.time = int(time.time())
+        self.last_time = time.time()
+
+    def debounced(self):
+        if .1 + self.last_time < time.time():
+            self.last_time = time.time()
+            debounced = True
+        else:
+            debounced = False
+        return debounced
 
     def signal_error(self):
-        if self.sound.is_pressed:
+        if self.sound.is_pressed and self.debounced():
             self.engine.say("There has been an error")
             self.engine.runAndWait()
         self.error.on()
 
     def resolve_error(self):
-        if self.sound.is_pressed:
+        if self.sound.is_pressed and self.debounced():
             self.engine.say("The error has been resolved")
             self.engine.runAndWait()
         self.error.off()
 
     def signal_ready(self):
-        if(bool(self.sound.is_pressed)):
+        if self.sound.is_pressed and self.debounced():
             self.engine.say("The printer is ready to print")
             self.engine.runAndWait()
         self.ready.on()
@@ -65,41 +72,70 @@ class Interface:
         self.start_print.wait_for_press()
 
     def is_sound(self):
-        if self.sound.is_pressed and not self.is_sound:
+        if self.sound.is_pressed and not self.is_sound_active:
             self.engine.say("Sound is on")
             self.engine.runAndWait()
             print('[interface.py] ','Sound switched on')
-            self.is_sound = True
+            self.is_sound_active = True
         if not self.sound.is_pressed:
-            self.is_sound = False
+            self.is_sound_active = False
         return self.sound.is_pressed
+
 
     def is_cancel(self):
 
         if self.cancel.is_pressed:
-            self.cancel = True
+            self.is_cancel_active = True
             print('Process Cancelling')
             self.engine.say("Process Canceled")
             self.engine.runAndWait()
-
-        return self.cancel
-
+            raise KeyboardInterrupt 
+        return self.is_cancel_active
+    
+    
+    def check_buttons(self):
+        """ Checks the status of the buttons and returns true if it should continue"""
+        self.is_play()
+        self.is_cancel()    
+        return True
+            
+    def sleep(self, amount_of_seconds):
+        time_start = time.time()  
+        while time.time() < time_start + amount_of_seconds:
+            self.is_play()
+            self.is_cancel()
 
     def is_play(self):
-        if self.play.is_pressed:
-            self.is_play = not self.is_play
-            print ("Play is " + str(self.is_play))
-        return self.is_play
+        if self.play.is_pressed and self.debounced():
+            self.is_play_active = not self.is_play_active
+            if self.is_play_active:
+                print ("Playing")
+                self.engine.say("Playing")
+                self.engine.runAndWait()
+            if not self.is_play_active:
+                print ("Paused")
+                self.engine.say("Paused")
+                self.engine.runAndWait()
+                while not self.is_play_active:
+                    self.is_cancel()
+                    if self.play.is_pressed and self.debounced():
+                        self.is_play_active = True
+                print ("Playing")
+                self.engine.say("Playing")
+                self.engine.runAndWait()
+                
+            # print ("Play is " + str(self.is_play_active))
+        return self.is_play_active
     
     def is_start_print(self):
-        if self.start_print.is_pressed:
-            self.is_start = not self.is_start
-        if self.is_start:
+        if self.start_print.is_pressed and self.debounced():
+            self.is_start_active = not self.is_start_active
+        if self.is_start_active:
             print ("Starting Print")
             self.engine.say("Printing")
             self.engine.runAndWait()
 
-        return self.is_start
+        return self.is_start_active
 
 
 
@@ -181,19 +217,19 @@ class Interface:
         # return bool(self.start_print.is_pressed)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     import time
     interface = Interface(1)
     #TODO: Right now, the code is taking too long to respond to the below operators. Need to call
     #methods within the methods to make sure that they are called.
     while 1:
-        if(interface.is_start_print() and interface.print_triggered):
+        if(interface.is_start_print()):
             print('[interface.py] ','Is start print %s' %interface.is_start_print())
-        if(interface.is_sound() and interface.sound_triggered):
+        if(interface.is_sound()):
             print('[interface.py] ','Is sound %s' %interface.is_sound())
-        if(interface.is_play_pause() and interface.play_triggered):
-            print('[interface.py] ','Is play pause %s' %interface.is_play_pause())
-        if(interface.is_cancel() and interface.cancel_triggered):
+        if(interface.is_play()):
+            print('[interface.py] ','Is play pause %s' %interface.is_play())
+        if(interface.is_cancel()):
             print('[interface.py] ','Is cancel %s' %interface.is_cancel())
         #if interface.is_cancel() or interface.is_play_pause() or interface.is_start_print():
 
