@@ -44,7 +44,7 @@ class Interface:
         self.error.on()
 
     def resolve_error(self):
-        if(bool(self.sound.is_pressed)):
+        if self.sound.is_pressed:
             self.engine.say("The error has been resolved")
             self.engine.runAndWait()
         self.error.off()
@@ -92,7 +92,7 @@ class Interface:
         return self.is_play
     
     def is_start_print(self):
-        if self.start.is_pressed:
+        if self.start_print.is_pressed:
             self.is_start = not self.is_start
         if self.is_start:
             print ("Starting Print")
