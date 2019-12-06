@@ -166,10 +166,15 @@ class Physical:
 
     def wait_for_completion(self):
         ''' Waits for a serial return to continue '''
+        begin_time = time.time()
+        timeout = 5 # Seconds until it signals error
         while True:
+            if time.time() > begin_time + timeout and not self.physical_interface.error.is_on():
+                self.physical_interface.signal_error()
             ser_in = self.ser.readline()
             print(ser_in)
             if ser_in:
+                self.physical_interface.resolve_error()
                 return 0
 
     def load_paper(self):

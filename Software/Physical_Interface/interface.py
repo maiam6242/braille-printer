@@ -45,19 +45,19 @@ class Interface:
         return debounced
 
     def signal_error(self):
-        if self.sound.is_pressed and self.debounced():
+        self.error.on()
+        if self.sound.is_pressed:
             self.engine.say('There has been an error')
             self.engine.runAndWait()
-        self.error.on()
 
     def resolve_error(self):
-        if self.sound.is_pressed and self.debounced():
+        self.error.off()
+        if self.sound.is_pressed:
             self.engine.say('The error has been resolved')
             self.engine.runAndWait()
-        self.error.off()
 
     def signal_ready(self):
-        if self.sound.is_pressed and self.debounced():
+        if self.sound.is_pressed:
             self.engine.say('The printer is ready to print')
             self.engine.runAndWait()
         self.ready.on()
