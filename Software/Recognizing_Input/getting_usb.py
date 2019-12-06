@@ -47,11 +47,11 @@ class GetUSB:
             print(count)
             print(line)
             last_time = time.time()
-            while time.time() < last_time + 2:
+            while time.time() < last_time + 3:
                 self.interface.check_buttons()
                 if self.interface.start_print.is_pressed:
-                    engine.say("selecting your choice")
                     print("selecting your choice")
+                    engine.say("selecting your choice")
                     engine.runAndWait()
                     return lines[count]
         
