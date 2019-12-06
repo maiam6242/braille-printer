@@ -24,7 +24,9 @@ class GetUSB:
                 return self.result
 
     def get(self):
-        """Gets a list of paths to text files in the removable media"""
+        """Gets a list of paths to text files in the removable media
+        Returns a list of strings which specify absolute paths to usb files"""
+
         self.proc = subprocess.Popen(['bash', 'Recognizing_Input/finding-usb.sh'], \
             stdout=subprocess.PIPE)
         self.lines = self.output_reader(self.proc)
@@ -32,7 +34,8 @@ class GetUSB:
         return self.lines
 
     def read_out(self, lines):
-        """Reads the names of the files"""
+        """Reads the names of the files
+        Takes a list of strings and reads them one by one"""
         engine = pyttsx3.init()
         voices = engine.getProperty('voices')
         engine.setProperty('rate', 130)

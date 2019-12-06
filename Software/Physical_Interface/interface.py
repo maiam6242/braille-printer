@@ -107,6 +107,7 @@ class Interface:
             self.is_cancel()
 
     def is_play(self):
+        ''' Checks if the print should be played and holds if it should not'''
         if self.play.is_pressed and self.debounced():
             self.is_play_active = not self.is_play_active
             if self.is_play_active:

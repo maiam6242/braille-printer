@@ -60,6 +60,7 @@ class Physical:
         '''
         Writes two entire consecutive rows of braille text (punches the solenoids)
         Args: The rows to write and the inital x and y positions where to begin the writing
+        row1 (np.array): The first row of dots
         '''
         cal_values = [0, 2, 6, 8, 12.3, 14.3, 18.5, 20.5]
         sol_commands = []

@@ -52,6 +52,7 @@ class HorizontalStepper :  public AccelStepper {
             }
             setCurrentPosition(0);
             runToNewPosition(stepsToFirstCharacter);
+            goTomm(50.1, 8000);
             setCurrentPosition(0);
         }
 

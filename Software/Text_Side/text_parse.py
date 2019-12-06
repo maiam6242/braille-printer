@@ -10,7 +10,7 @@ class Text_Parse:
         '''
         Opens and Reads in Text File
         Args: the file path of a text file
-        Returns: the string of a file that has been read in
+        Returns the string of a file that has been read in
         '''
         self.interface.check_buttons()
         open_file = open(path, 'r')
