@@ -49,8 +49,8 @@ class Physical:
                 ser_in = str(ser_in).replace("b'Position:", "")
                 ser_in = ser_in.replace(r"\r\n'", "")
                 x, y = ser_in.split(',')
-                print("[physical.py] ", (Decimal(x)))
-                print("[physical.py] ",(Decimal(y)))
+                print('[physical.py] ', (Decimal(x)))
+                print('[physical.py] ',(Decimal(y)))
                 return round(float(Decimal(x)), 2), \
                    round(float(Decimal(y)), 2)
                         # Removed int conversion ans these have double precision
@@ -159,67 +159,32 @@ class Physical:
                 return 0
 
     def load_paper(self):
-<<<<<<< Updated upstream
-        """Loads paper"""
+        '''Loads paper'''
         if (self.physical_interface.check_buttons()):
-=======
-        ''' Loads paper '''
-        if not self.physical_interface.is_play_pause() and not self.physical_interface.is_play:
-            self.physical_interface.wait_for_play()
-        if (not self.physical_interface.is_cancel() and self.physical_interface.is_play_pause()):
->>>>>>> Stashed changes
             self.ser.write('M701\r\n'.encode())
             self.physical_interface.sleep(1)
             self.wait_for_completion()
     def unload_paper(self):
-<<<<<<< Updated upstream
-        """Unloads paper"""
-        if (self.physical_interface.check_buttons()):
-=======
         '''Unloads paper'''
-        if not self.physical_interface.is_play_pause() and not self.physical_interface.is_play:
-            self.physical_interface.wait_for_play()
-        if (not self.physical_interface.is_cancel() and self.physical_interface.is_play_pause()):
->>>>>>> Stashed changes
+        if (self.physical_interface.check_buttons()):
             self.ser.write('M702\r\n'.encode())
             self.physical_interface.sleep(1)
             self.wait_for_completion()
     def enable(self):
-<<<<<<< Updated upstream
-        """Enables steppers"""
-        if (self.physical_interface.check_buttons()):
-=======
         '''Enables steppers'''
-        if not self.physical_interface.is_play_pause() and not self.physical_interface.is_play:
-            self.physical_interface.wait_for_play()
-        if (not self.physical_interface.is_cancel() and self.physical_interface.is_play_pause()):
->>>>>>> Stashed changes
+        if (self.physical_interface.check_buttons()):
             self.ser.write('M17\r\n'.encode())
             self.physical_interface.sleep(1)
             self.wait_for_completion()
     def disable(self):
-<<<<<<< Updated upstream
-        """Disables steppers"""
-        if (self.physical_interface.check_buttons()):
-=======
         '''Disables steppers'''
-        if not self.physical_interface.is_play_pause() and not self.physical_interface.is_play:
-            self.physical_interface.wait_for_play()
-        if (not self.physical_interface.is_cancel() and self.physical_interface.is_play_pause()):
->>>>>>> Stashed changes
+        if (self.physical_interface.check_buttons()):
             self.ser.write('M18\r\n'.encode())
             self.physical_interface.sleep(1)        
             self.wait_for_completion()
     def home(self):
-<<<<<<< Updated upstream
-        """Homes x axis"""
-        if (self.physical_interface.check_buttons()):
-=======
         '''Homes x axis'''
-        if not self.physical_interface.is_play_pause() and not self.physical_interface.is_play:
-            self.physical_interface.wait_for_play()
-        if (not self.physical_interface.is_cancel() and self.physical_interface.is_play_pause()):
->>>>>>> Stashed changes
+        if (self.physical_interface.check_buttons()):
             self.ser.write('G28\r\n'.encode())
             self.physical_interface.sleep(1)
             self.wait_for_completion()
