@@ -1,7 +1,7 @@
-""" Wrapper for the Document class """
+''' Wrapper for the Document class '''
 class Document:
-    """ This is a collection of page objects, it tracks how much of the document is
-    written and maybe does some analysis or controls. """
+    ''' This is a collection of page objects, it tracks how much of the document is
+    written and maybe does some analysis or controls. '''
     def __init__(self):
         self.page_size = [8.5, 11]
         self.doc_list = []

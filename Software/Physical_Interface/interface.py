@@ -1,11 +1,11 @@
-"""Interface class for GPIO """
+'''Interface class for GPIO '''
 import serial
 import pyttsx3
 from gpiozero import LED, Button
 import time
 
 class Interface:
-    """Creates interface to the raspi GPIO pins to control the buttons and leds of the UI"""
+    '''Creates interface to the raspi GPIO pins to control the buttons and leds of the UI'''
     
     def __init__(self, serial):
         self.engine = pyttsx3.init()
@@ -21,7 +21,7 @@ class Interface:
         self.sound = Button(19) #checked
         self.ser = serial
         
-        #checks if the buttons/switch change to an "on" state
+        #checks if the buttons/switch change to an 'on' state
         self.sound_triggered = False
         self.play_triggered = False
         self.print_triggered = False
@@ -217,7 +217,7 @@ class Interface:
         # return bool(self.start_print.is_pressed)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     import time
     interface = Interface(1)
     #TODO: Right now, the code is taking too long to respond to the below operators. Need to call

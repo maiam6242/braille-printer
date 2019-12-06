@@ -1,15 +1,15 @@
-"""Handles physical attribtes of the machine"""
+'''Handles physical attribtes of the machine'''
 
 import time
 from decimal import Decimal
 import sys
 import serial
 import numpy as np
-sys.path.append(".")
+sys.path.append('.')
 from Physical_Interface.interface import Interface
 
 class Physical:
-    """Handles physical attribtes of the machine"""
+    '''Handles physical attribtes of the machine'''
     # ser = 0
     def __init__(self, ser, character_width, character_height, interface):
         self.char_height = character_height
@@ -76,8 +76,8 @@ class Physical:
             self.physical_interface.sleep(1) 
             self.wait_for_completion()
 
-            line_one = ""
-            line_two = ""
+            line_one = ''
+            line_two = ''
 
             print('[physical.py] ', np.shape(row1))
             print('[physical.py] ', np.shape(row2))
@@ -107,8 +107,8 @@ class Physical:
                             pod_num += 4
 
                         sol_commands.append(line_one+line_two)
-                        line_one = ""
-                        line_two = ""
+                        line_one = ''
+                        line_two = ''
 
         # print(np.shape(sol_punches_one)[0])
         # print(sol_punches_one)
@@ -151,7 +151,7 @@ class Physical:
                         self.wait_for_completion()
 
     def wait_for_completion(self):
-        """ Waits for a serial return to continue"""
+        ''' Waits for a serial return to continue '''
         while True:
             ser_in = self.ser.readline()
             print(ser_in)
@@ -159,32 +159,67 @@ class Physical:
                 return 0
 
     def load_paper(self):
+<<<<<<< Updated upstream
         """Loads paper"""
         if (self.physical_interface.check_buttons()):
+=======
+        ''' Loads paper '''
+        if not self.physical_interface.is_play_pause() and not self.physical_interface.is_play:
+            self.physical_interface.wait_for_play()
+        if (not self.physical_interface.is_cancel() and self.physical_interface.is_play_pause()):
+>>>>>>> Stashed changes
             self.ser.write('M701\r\n'.encode())
             self.physical_interface.sleep(1)
             self.wait_for_completion()
     def unload_paper(self):
+<<<<<<< Updated upstream
         """Unloads paper"""
         if (self.physical_interface.check_buttons()):
+=======
+        '''Unloads paper'''
+        if not self.physical_interface.is_play_pause() and not self.physical_interface.is_play:
+            self.physical_interface.wait_for_play()
+        if (not self.physical_interface.is_cancel() and self.physical_interface.is_play_pause()):
+>>>>>>> Stashed changes
             self.ser.write('M702\r\n'.encode())
             self.physical_interface.sleep(1)
             self.wait_for_completion()
     def enable(self):
+<<<<<<< Updated upstream
         """Enables steppers"""
         if (self.physical_interface.check_buttons()):
+=======
+        '''Enables steppers'''
+        if not self.physical_interface.is_play_pause() and not self.physical_interface.is_play:
+            self.physical_interface.wait_for_play()
+        if (not self.physical_interface.is_cancel() and self.physical_interface.is_play_pause()):
+>>>>>>> Stashed changes
             self.ser.write('M17\r\n'.encode())
             self.physical_interface.sleep(1)
             self.wait_for_completion()
     def disable(self):
+<<<<<<< Updated upstream
         """Disables steppers"""
         if (self.physical_interface.check_buttons()):
+=======
+        '''Disables steppers'''
+        if not self.physical_interface.is_play_pause() and not self.physical_interface.is_play:
+            self.physical_interface.wait_for_play()
+        if (not self.physical_interface.is_cancel() and self.physical_interface.is_play_pause()):
+>>>>>>> Stashed changes
             self.ser.write('M18\r\n'.encode())
             self.physical_interface.sleep(1)        
             self.wait_for_completion()
     def home(self):
+<<<<<<< Updated upstream
         """Homes x axis"""
         if (self.physical_interface.check_buttons()):
+=======
+        '''Homes x axis'''
+        if not self.physical_interface.is_play_pause() and not self.physical_interface.is_play:
+            self.physical_interface.wait_for_play()
+        if (not self.physical_interface.is_cancel() and self.physical_interface.is_play_pause()):
+>>>>>>> Stashed changes
             self.ser.write('G28\r\n'.encode())
             self.physical_interface.sleep(1)
             self.wait_for_completion()

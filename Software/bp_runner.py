@@ -1,4 +1,4 @@
-"""This will become the "main" runner class"""
+'''This will become the main runner class'''
 import serial
 import numpy as np
 from Text_Side.text_parse import Text_Parse

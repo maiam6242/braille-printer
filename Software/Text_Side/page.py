@@ -1,5 +1,5 @@
-"""This needs to say how much of the page is currently taken up, what
-the page number should be and handle spacing on a page"""
+'''This needs to say how much of the page is currently taken up, what
+the page number should be and handle spacing on a page'''
 
 
 # TODO: Find right default value for the two vars below!!
@@ -7,8 +7,8 @@ the page number should be and handle spacing on a page"""
 # margins = 0
 
 class Page:
-    """This needs to say how much of the page is currently taken up, what
-    the page number should be and handle spacing on a page"""
+    '''This needs to say how much of the page is currently taken up, what
+    the page number should be and handle spacing on a page'''
    
 
     def __init__(self, page_number):

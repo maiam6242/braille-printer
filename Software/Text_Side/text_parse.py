@@ -1,6 +1,6 @@
-"""Reads in a file and breaks it into sections"""
+'''Reads in a file and breaks it into sections'''
 class Text_Parse:
-    """Reads in a file and breaks it into sections"""
+    '''Reads in a file and breaks it into sections'''
 
     def read_text_file(self, path):
         '''
@@ -33,7 +33,7 @@ class Text_Parse:
                 section += char
         segments.append(section)
 
-        output = ""
+        output = ''
         for segment in segments:
             segment = output.join(segment)
 
@@ -55,7 +55,7 @@ class Text_Parse:
         return 0
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     import doctest
     doctest.testmod()
     parser = Text_Parse()

@@ -1,13 +1,13 @@
-"""This should figure out the position on the page and determine if the
-content needs to be split over multiple pages"""
+'''This should figure out the position on the page and determine if the
+content needs to be split over multiple pages'''
 import serial
 import numpy as np
 from Text_Side.physical import Physical
 import Text_Side.translator as translator
 
 class Drawable:
-    """This should figure out the position on the page and determine if the
-    content needs to be split over multiple pages"""
+    '''This should figure out the position on the page and determine if the
+    content needs to be split over multiple pages'''
     def __init__(self, serial, interface):
         self.page_left = 0
         self.page_length = 279.4

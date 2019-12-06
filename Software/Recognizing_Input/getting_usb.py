@@ -1,4 +1,4 @@
-"""Module to find text files on a usb"""
+'''Module to find text files on a usb'''
 import subprocess
 import time
 import pyttsx3
@@ -7,14 +7,14 @@ sys.path.append(".")
 from Physical_Interface.interface import Interface
 
 class GetUSB:
-    """Find files from any inserted media"""
+    '''Find files from any inserted media'''
 
     def __init__(self):
         
         pass
 
     def output_reader(self, proc):
-        """Reads outputs from the stdout"""
+        '''Reads outputs from the stdout'''
         self.result = []
         while 1:
             line = proc.stdout.readline()
@@ -24,7 +24,7 @@ class GetUSB:
                 return self.result
 
     def get(self):
-        """Gets a list of paths to text files in the removable media"""
+        '''Gets a list of paths to text files in the removable media'''
         self.proc = subprocess.Popen(['bash', 'Recognizing_Input/finding-usb.sh'], \
             stdout=subprocess.PIPE)
         self.lines = self.output_reader(self.proc)
@@ -32,7 +32,7 @@ class GetUSB:
         return self.lines
 
     def read_out(self, lines):
-        """Reads the names of the files"""
+        '''Reads the names of the files'''
         engine = pyttsx3.init()
         voices = engine.getProperty('voices')
         engine.setProperty('rate', 130)
@@ -47,7 +47,7 @@ class GetUSB:
             
         engine.runAndWait()
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     usb = GetUSB()
     files = usb.get()
     print((usb.get()))
