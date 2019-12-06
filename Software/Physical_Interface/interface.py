@@ -28,29 +28,35 @@ class Interface:
         self.cancel_triggered = False
         
         #boolean to distinguish if press is for play or pause
-        self.is_play = True
-        self.is_cancel = False
-        self.is_sound = False
-        self.is_cancel = False
-        self.is_start = False
+        self.is_play_active = True
+        self.is_cancel_active = False
+        self.is_sound_active = False
+        self.is_start_active = False
 
         # Debouncing boolean
-        self.time = int(time.time())
+        self.last_time = time.time()
+
+    def debounced(self):
+        if self.last_time > .1 + time.time():
+            self.last_time = time.time()
+        return self.last_time > .1 + time.time()
+
+
 
     def signal_error(self):
-        if self.sound.is_pressed:
+        if self.sound.is_pressed and self.debounced():
             self.engine.say("There has been an error")
             self.engine.runAndWait()
         self.error.on()
 
     def resolve_error(self):
-        if self.sound.is_pressed:
+        if self.sound.is_pressed and self.debounced():
             self.engine.say("The error has been resolved")
             self.engine.runAndWait()
         self.error.off()
 
     def signal_ready(self):
-        if(bool(self.sound.is_pressed)):
+        if self.sound.is_pressed and self.debounced():
             self.engine.say("The printer is ready to print")
             self.engine.runAndWait()
         self.ready.on()
@@ -65,41 +71,41 @@ class Interface:
         self.start_print.wait_for_press()
 
     def is_sound(self):
-        if self.sound.is_pressed and not self.is_sound:
+        if self.sound.is_pressed and not self.is_sound_active:
             self.engine.say("Sound is on")
             self.engine.runAndWait()
             print('[interface.py] ','Sound switched on')
-            self.is_sound = True
+            self.is_sound_active = True
         if not self.sound.is_pressed:
-            self.is_sound = False
+            self.is_sound_active = False
         return self.sound.is_pressed
 
     def is_cancel(self):
 
         if self.cancel.is_pressed:
-            self.cancel = True
+            self.cancel_active = True
             print('Process Cancelling')
             self.engine.say("Process Canceled")
             self.engine.runAndWait()
 
-        return self.cancel
+        return self.cancel_active
 
 
     def is_play(self):
-        if self.play.is_pressed:
-            self.is_play = not self.is_play
+        if self.play.is_pressed and self.debounced():
+            self.is_play_active = not self.is_play_active
             print ("Play is " + str(self.is_play))
-        return self.is_play
+        return self.is_play_active
     
     def is_start_print(self):
-        if self.start_print.is_pressed:
-            self.is_start = not self.is_start
-        if self.is_start:
+        if self.start_print.is_pressed and self.debounced():
+            self.is_start_active = not self.is_start_active
+        if self.is_start_active:
             print ("Starting Print")
             self.engine.say("Printing")
             self.engine.runAndWait()
 
-        return self.is_start
+        return self.is_start_active
 
 
 
