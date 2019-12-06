@@ -102,7 +102,7 @@ class Physical:
 
                             if pod_num < np.shape(row1)[0]:
                                 line_one += str(row1[pod_num, pod_row, pod_col])
-                            if row2.any():
+                            if row2 is not None:
                                 line_two += str(row2[pod_num, pod_row, pod_col])
                             else: 
                                 line_two = '00000000000000'
@@ -178,7 +178,7 @@ class Physical:
         begin_time = time.time()
         timeout = 5 # Seconds until it signals error
         while True:
-            if time.time() > begin_time + timeout and not self.physical_interface.error.is_on():
+            if time.time() > begin_time + timeout:
                 self.physical_interface.signal_error()
             ser_in = self.ser.readline()
             print(ser_in)
