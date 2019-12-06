@@ -28,19 +28,19 @@ class Physical:
         Finds the current postion of the steppers in terms of x and y
         Returns: the values associated with the current position in the form x, y
         '''
-        # if(not self.physical_interface.is_play_pause()):
+        # if(not self.physical_interface.is_play()):
              # self.physical_interface.wait_for_play()
         # print(self.ser.write(b'M114\r\n'))
 
         #TODO: check below 7 lines for check buttons stuff
-        if not self.physical_interface.is_cancel() and not self.physical_interface.is_play_pause():
+        if not self.physical_interface.is_cancel() and not self.physical_interface.is_play():
             self.ser.write('M114\r\n'.encode())
             time.sleep(1)
         
-        if not self.physical_interface.is_play_pause() and not self.physical_interface.is_play:
+        if not self.physical_interface.is_play() and not self.physical_interface.is_play:
             self.physical_interface.wait_for_play()
         while not self.physical_interface.is_cancel() \
-        and self.physical_interface.is_play_pause():
+        and self.physical_interface.is_play():
             # print(self.ser.in_waiting)
             ser_in = self.ser.readline()
             print('[physical.py]','Yooo am I here?')
@@ -161,9 +161,9 @@ class Physical:
 
     def check_buttons(self):
         """ Checks the status of the buttons and returns true if it should continue"""
-        if not self.physical_interface.is_play_pause() and not self.physical_interface.is_play:
+        if not self.physical_interface.is_play() and not self.physical_interface.is_play:
             self.physical_interface.wait_for_play()
-        return not (self.physical_interface.is_cancel() and self.physical_interface.is_play_pause())
+        return not (self.physical_interface.is_cancel() and self.physical_interface.is_play())
             
         
 

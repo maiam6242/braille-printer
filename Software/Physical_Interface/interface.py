@@ -2,6 +2,7 @@
 import serial
 import pyttsx3
 from gpiozero import LED, Button
+import time
 
 class Interface:
     """Creates interface to the raspi GPIO pins to control the buttons and leds of the UI"""
@@ -28,9 +29,16 @@ class Interface:
         
         #boolean to distinguish if press is for play or pause
         self.is_play = True
+        self.is_cancel = False
+        self.is_sound = False
+        self.is_cancel = False
+        self.is_start = False
+
+        # Debouncing boolean
+        self.time = int(time.time())
 
     def signal_error(self):
-        if(bool(self.sound.is_pressed)):
+        if self.sound.is_pressed:
             self.engine.say("There has been an error")
             self.engine.runAndWait()
         self.error.on()
@@ -56,49 +64,77 @@ class Interface:
     def wait_for_print(self):
         self.start_print.wait_for_press()
 
-    #Checks to see if buttons are pressed/sound switch is on
-
     def is_sound(self):
-	# Checks to see if sound has been changed from OFF to ON
-        if(bool(self.sound.is_pressed)):
-            if(self.sound_triggered):
-                self.engine.say("Sound is on")
-                self.engine.runAndWait()
-                self.sound_triggered = False
-                print('[interface.py] ','Sound switched on')
-                return True
-        else:
-            self.sound_triggered = True
-            return False
-	#True if ON, False if OFF
-        #return bool(self.sound.is_pressed)
-
+        if self.sound.is_pressed and not self.is_sound:
+            self.engine.say("Sound is on")
+            self.engine.runAndWait()
+            print('[interface.py] ','Sound switched on')
+            self.is_sound = True
+        if not self.sound.is_pressed:
+            self.is_sound = False
+        return self.sound.is_pressed
 
     def is_cancel(self):
-        #Checks to see if cancel button is pressed
-        if(bool(self.cancel.is_pressed)):
-            # If sound is on, speak
-            if(self.cancel_triggered):
-                if(bool(self.sound.is_pressed)):
-                    self.engine.say("Process Canceled")
-                    self.engine.runAndWait()
-                #if(self.cancel.is_pressed):
-                    #    print('Cancel is Pressed!')
-                    # self.ser.write('G1 x 0 \r\n'.encode())
-                    # self.ser.write('M18'.encode())
-                    # self.ser.write('M702'.encode())
-                self.cancel_triggered = False
-                print('[interface.py] ','Cancel button pressed')
-                return True
-        else:
-            self.cancel_triggered = True
-            return False
-        # return bool(self.cancel.is_pressed)
-    def is_play_pause(self):
+
+        if self.cancel.is_pressed:
+            self.cancel = True
+            print('Process Cancelling')
+            self.engine.say("Process Canceled")
+            self.engine.runAndWait()
+
+        return self.cancel
+
+
+    def is_play(self):
         if self.play.is_pressed:
             self.is_play = not self.is_play
             print ("Play is " + str(self.is_play))
         return self.is_play
+    
+    def is_start_print(self):
+        if self.start.is_pressed:
+            self.is_start = not self.is_start
+        if self.is_start:
+            print ("Starting Print")
+            self.engine.say("Printing")
+            self.engine.runAndWait()
+
+        return self.is_start
+
+
+
+    #Checks to see if buttons are pressed/sound switch is on
+
+    # def is_sound(self):
+	# # Checks to see if sound has been changed from OFF to ON
+    #     if self.sound.is_pressed :
+    #         if(self.sound_triggered):
+    #             self.engine.say("Sound is on")
+    #             self.engine.runAndWait()
+    #             self.sound_triggered = False
+    #             print('[interface.py] ','Sound switched on')
+    #             return True
+    #     else:
+    #         self.sound_triggered = True
+    #         return False
+	#True if ON, False if OFF
+        #return bool(self.sound.is_pressed)
+
+    
+    # def is_cancel(self):
+    #     #Checks to see if cancel button is pressed
+    #     if self.cancel.is_pressed:
+    #         if(self.cancel_triggered):
+    #             if(bool(self.sound.is_pressed)):
+    #                 self.engine.say("Process Canceled")
+    #                 self.engine.runAndWait()
+    #             self.cancel_triggered = False
+    #             print('[interface.py] ','Cancel button pressed')
+    #             return True
+    #     else:
+    #         self.cancel_triggered = True
+    #         return False
+    #     # return bool(self.cancel.is_pressed)
 
     # def is_play_pause(self):
         # # Checks to see if play/pause button has been pressed
@@ -127,20 +163,20 @@ class Interface:
        # return bool(self.play.is_pressed)
 
 
-    def is_start_print(self):
-        #Checks to see if start print button is pressed
-        if(bool(self.start_print.is_pressed)):
-            if(self.print_triggered):
-                # If sound is on, speak
-                if(bool(self.sound.is_pressed)):
-                    self.engine.say("Printing")
-                    self.engine.runAndWait()
-                self.print_triggered = False
-                print('[interface.py] ','print button pressed')
-                return True
-        else:
-            self.print_triggered = True
-            return False
+    # def is_start_print(self):
+    #     #Checks to see if start print button is pressed
+    #     if(bool(self.start_print.is_pressed)):
+    #         if(self.print_triggered):
+    #             # If sound is on, speak
+    #             if(bool(self.sound.is_pressed)):
+    #                 self.engine.say("Printing")
+    #                 self.engine.runAndWait()
+    #             self.print_triggered = False
+    #             print('[interface.py] ','print button pressed')
+    #             return True
+    #     else:
+    #         self.print_triggered = True
+    #         return False
 
         # return bool(self.start_print.is_pressed)
 
