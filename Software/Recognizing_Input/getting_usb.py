@@ -42,7 +42,7 @@ class GetUSB:
         engine.setProperty('voice', voices[11].id)
 
         for count, line in enumerate(lines):
-            engine.say(line)
+            engine.say(line.split('/')[-1])
             engine.runAndWait()
             print(count)
             print(line)
