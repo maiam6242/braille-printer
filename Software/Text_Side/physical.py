@@ -19,7 +19,7 @@ class Physical:
         # self.ser.write('M21\r\n'.encode())  # Moved this first so it knows machine mode is active
         # time.sleep(1)
         self.ser.write('M17\r\n'.encode())
-        time.sleep(1)
+        self.sleep(1)
         # self.wait_for_completion()
         self.ser.reset_input_buffer()
 
@@ -28,25 +28,24 @@ class Physical:
         Finds the current postion of the steppers in terms of x and y
         Returns: the values associated with the current position in the form x, y
         '''
-        # if(not self.physical_interface.is_play()):
+        # if(not self.physical_interface.is_play_pause()):
              # self.physical_interface.wait_for_play()
         # print(self.ser.write(b'M114\r\n'))
 
         #TODO: check below 7 lines for check buttons stuff
-        if not self.physical_interface.is_cancel() and not self.physical_interface.is_play():
+        if self.physical_interface.is_cancel() and self.physical_interface.is_play():
             self.ser.write('M114\r\n'.encode())
-            time.sleep(1)
-        
-        if not self.physical_interface.is_play() and not self.physical_interface.is_play:
-            self.physical_interface.wait_for_play()
-        while not self.physical_interface.is_cancel() \
-        and self.physical_interface.is_play():
+            self.sleep(1)
+      
+        while True:
             # print(self.ser.in_waiting)
             ser_in = self.ser.readline()
             print('[physical.py]','Yooo am I here?')
+            self.check_buttons()
             # in the form of Position: x,y
             print('[physical.py]',ser_in)
             if 'Position' in str(ser_in):
+                self.check_buttons()
                 ser_in = str(ser_in).replace("b'Position:", "")
                 ser_in = ser_in.replace(r"\r\n'", "")
                 x, y = ser_in.split(',')
@@ -69,12 +68,12 @@ class Physical:
             print('[physical.py] ', str(y).encode())
             print(('[physical.py] G1 y %s \r\n' % str(y)).encode())
             self.ser.write(('G1 x %s \r\n' % str(x)).encode())  #TODO: Need to wait for one of these to complete before sending the other
-            time.sleep(1)
+            self.sleep(1)
             self.wait_for_completion()
 
         if (self.check_buttons()):
             self.ser.write(('G1 y %s \r\n' % str(y)).encode())
-            time.sleep(1) 
+            self.sleep(1) 
             self.wait_for_completion()
 
             line_one = ""
@@ -128,7 +127,7 @@ class Physical:
 
                 if not is_command_blank:
                     self.ser.write(('F x %s \r\n' % str(command_string)).encode())
-                    time.sleep(1)
+                    self.sleep(1)
             # self.wait_for_completion()
             if (self.check_buttons()):
                 if(i % 8 == 0 and not i == 0):
@@ -136,10 +135,10 @@ class Physical:
                     print('[physical.py]', 'x %s' %x)
                     y = row_in_pod * (self.char_height/3)
                     self.ser.write(('G1 y %s \r\n' % str(y)).encode())
-                    time.sleep(1)
+                    self.sleep(1)
                     self.wait_for_completion()
                     self.ser.write(('G1 x %s \r\n' % str(x)).encode())
-                    time.sleep(1)
+                    self.sleep(1)
                     self.wait_for_completion()
                     row_in_pod += 1
 
@@ -148,7 +147,7 @@ class Physical:
                     if not is_command_blank:
                         print('[physical.py]','x %s' %x)
                         self.ser.write(('G1 x %s \r\n' % str(x)).encode())
-                        time.sleep(1)
+                        self.sleep(1)
                         self.wait_for_completion()
 
     def wait_for_completion(self):
@@ -161,39 +160,43 @@ class Physical:
 
     def check_buttons(self):
         """ Checks the status of the buttons and returns true if it should continue"""
-        if not self.physical_interface.is_play() and not self.physical_interface.is_play:
-            self.physical_interface.wait_for_play()
-        return not (self.physical_interface.is_cancel() and self.physical_interface.is_play())
+        self.physical_interface.is_play()
+        self.physical_interface.is_cancel()    
+        return True
             
-        
+    def sleep(self, amount_of_seconds):
+        time_start = time.time()  
+        while time.time() < time_start + amount_of_seconds:
+            self.physical_interface.is_play()
+            self.physical_interface.is_cancel()
 
     def load_paper(self):
         """Loads paper"""
         if (self.check_buttons()):
             self.ser.write('M701\r\n'.encode())
-            time.sleep(1)
+            self.sleep(1)
             self.wait_for_completion()
     def unload_paper(self):
         """Unloads paper"""
         if (self.check_buttons()):
             self.ser.write('M702\r\n'.encode())
-            time.sleep(1)
+            self.sleep(1)
             self.wait_for_completion()
     def enable(self):
         """Enables steppers"""
         if (self.check_buttons()):
             self.ser.write('M17\r\n'.encode())
-            time.sleep(1)
+            self.sleep(1)
             self.wait_for_completion()
     def disable(self):
         """Disables steppers"""
         if (self.check_buttons()):
             self.ser.write('M18\r\n'.encode())
-            time.sleep(1)        
+            self.sleep(1)        
             self.wait_for_completion()
     def home(self):
         """Homes x axis"""
         if (self.check_buttons()):
             self.ser.write('G28\r\n'.encode())
-            time.sleep(1)
+            self.sleep(1)
             self.wait_for_completion()

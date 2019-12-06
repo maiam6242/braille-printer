@@ -89,7 +89,7 @@ class Interface:
             print('Process Cancelling')
             self.engine.say("Process Canceled")
             self.engine.runAndWait()
-
+            raise KeyboardInterrupt 
         return self.is_cancel_active
 
 
@@ -104,7 +104,14 @@ class Interface:
                 print ("Paused")
                 self.engine.say("Paused")
                 self.engine.runAndWait()
-                self.wait_for_play()
+                while not self.is_play_active:
+                    self.is_cancel()
+                    if self.play.is_pressed and self.debounced():
+                        self.is_play_active = True
+                print ("Playing")
+                self.engine.say("Playing")
+                self.engine.runAndWait()
+                
             # print ("Play is " + str(self.is_play_active))
         return self.is_play_active
     
