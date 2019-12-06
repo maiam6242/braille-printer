@@ -21,7 +21,7 @@ class Interface:
         self.sound = Button(19) #checked
         self.ser = serial
         
-        #checks if the buttons/switch change to an 'on' state
+        #checks if the buttons/switch change to an "on" state
         self.sound_triggered = False
         self.play_triggered = False
         self.print_triggered = False
@@ -46,19 +46,19 @@ class Interface:
 
     def signal_error(self):
         if self.sound.is_pressed and self.debounced():
-            self.engine.say("There has been an error")
+            self.engine.say('There has been an error')
             self.engine.runAndWait()
         self.error.on()
 
     def resolve_error(self):
         if self.sound.is_pressed and self.debounced():
-            self.engine.say("The error has been resolved")
+            self.engine.say('The error has been resolved')
             self.engine.runAndWait()
         self.error.off()
 
     def signal_ready(self):
         if self.sound.is_pressed and self.debounced():
-            self.engine.say("The printer is ready to print")
+            self.engine.say('The printer is ready to print')
             self.engine.runAndWait()
         self.ready.on()
 
@@ -69,11 +69,12 @@ class Interface:
         self.play.wait_for_press()
 
     def wait_for_print(self):
+        self.signal_ready()
         self.start_print.wait_for_press()
 
     def is_sound(self):
         if self.sound.is_pressed and not self.is_sound_active:
-            self.engine.say("Sound is on")
+            self.engine.say('Sound is on')
             self.engine.runAndWait()
             print('[interface.py] ','Sound switched on')
             self.is_sound_active = True
@@ -87,14 +88,14 @@ class Interface:
         if self.cancel.is_pressed:
             self.is_cancel_active = True
             print('Process Cancelling')
-            self.engine.say("Process Canceled")
+            self.engine.say('Process Canceled')
             self.engine.runAndWait()
             raise KeyboardInterrupt 
         return self.is_cancel_active
     
     
     def check_buttons(self):
-        """ Checks the status of the buttons and returns true if it should continue"""
+        '''Checks the status of the buttons and returns true if it should continue'''
         self.is_play()
         self.is_cancel()    
         return True
@@ -109,19 +110,19 @@ class Interface:
         if self.play.is_pressed and self.debounced():
             self.is_play_active = not self.is_play_active
             if self.is_play_active:
-                print ("Playing")
-                self.engine.say("Playing")
+                print ('Playing')
+                self.engine.say('Playing')
                 self.engine.runAndWait()
             if not self.is_play_active:
-                print ("Paused")
-                self.engine.say("Paused")
+                print ('Paused')
+                self.engine.say('Paused')
                 self.engine.runAndWait()
                 while not self.is_play_active:
                     self.is_cancel()
                     if self.play.is_pressed and self.debounced():
                         self.is_play_active = True
-                print ("Playing")
-                self.engine.say("Playing")
+                print ('Playing')
+                self.engine.say('Playing')
                 self.engine.runAndWait()
                 
             # print ("Play is " + str(self.is_play_active))
@@ -131,9 +132,10 @@ class Interface:
         if self.start_print.is_pressed and self.debounced():
             self.is_start_active = not self.is_start_active
         if self.is_start_active:
-            print ("Starting Print")
-            self.engine.say("Printing")
+            print ('Starting Print')
+            self.engine.say('Printing')
             self.engine.runAndWait()
+            self.resolve_ready()
 
         return self.is_start_active
 

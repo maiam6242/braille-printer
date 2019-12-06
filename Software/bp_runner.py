@@ -1,4 +1,4 @@
-'''This will become the main runner class'''
+"""This will become the "main" runner class"""
 import serial
 import numpy as np
 from Text_Side.text_parse import Text_Parse
@@ -22,7 +22,7 @@ SER = serial.Serial(PORT, baudrate=115200, timeout=1)
 INTERFACE = Interface(SER)
 
 # FILE_PATH = 'Text_Side/test_story.txt'
-FILE_PATH = select_file.select_file()
+FILE_PATH = select_file.select_file(INTERFACE)
 PARSER = Text_Parse(INTERFACE)
 SEGMENTED = PARSER.break_up_text_input(PARSER.read_text_file(FILE_PATH))
 
@@ -109,12 +109,13 @@ if not INTERFACE.is_cancel():
         for page in DOC.doc_list:
             DRAWABLE.physical.enable()
             DRAWABLE.physical.load_paper()
-            # DRAWABLE.physical.home() #TODO: Comment me back in (please!)
+            DRAWABLE.physical.home() #TODO: Comment me back in (please!)
             curr_x, curr_y = DRAWABLE.physical.current_position()
             content_matrix = page.content
             print('[bp_runner.py] ',np.shape(content_matrix))
             print('[bp_runner.py] ',len(content_matrix))
             print('[bp_runner.py] ',page.page_num)
+            
 
             for row in range(0,len(content_matrix),2):
                 print('[bp_runner.py]', 'the top row is: ' + str(row))
@@ -126,6 +127,7 @@ if not INTERFACE.is_cancel():
                 else:
                     DRAWABLE.physical.write_row(content_matrix[row], \
                         None, curr_x, curr_y)
+            DRAWABLE.physical.unload_paper()
             #FIXME: should this be different to feed the method call?
     else:
         INTERFACE.wait_for_play()

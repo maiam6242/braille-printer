@@ -14,7 +14,7 @@ def select_file(interface):
     engine.setProperty('rate', 130)
     engine.setProperty('voice', voices[11].id)
     
-    usb_getter = GetUSB()
+    usb_getter = GetUSB(interface)
     web_getter = GetWEB()
 
     web_files = []
@@ -33,7 +33,7 @@ def select_file(interface):
         if not usb_files == []:
             if len(usb_files) > 0:
                 engine.say('Please select the middle play pause button when you would like to select the file which you heard previously')
-
+            
             print('usb files:' + str(usb_files))
             usb_getter.read_out(usb_files) 
             #TODO: Add selection interface code here

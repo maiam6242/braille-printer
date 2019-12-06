@@ -1,15 +1,15 @@
-'''Handles physical attribtes of the machine'''
+"""Handles physical attribtes of the machine"""
 
 import time
 from decimal import Decimal
 import sys
 import serial
 import numpy as np
-sys.path.append('.')
+sys.path.append(".")
 from Physical_Interface.interface import Interface
 
 class Physical:
-    '''Handles physical attribtes of the machine'''
+    """Handles physical attribtes of the machine"""
     # ser = 0
     def __init__(self, ser, character_width, character_height, interface):
         self.char_height = character_height
@@ -33,7 +33,7 @@ class Physical:
         # print(self.ser.write(b'M114\r\n'))
 
         #TODO: check below 7 lines for check buttons stuff
-        if self.physical_interface.is_cancel() and self.physical_interface.is_play():
+        if not self.physical_interface.is_cancel() and self.physical_interface.is_play():
             self.ser.write('M114\r\n'.encode())
             self.physical_interface.sleep(1)
       
@@ -49,8 +49,8 @@ class Physical:
                 ser_in = str(ser_in).replace("b'Position:", "")
                 ser_in = ser_in.replace(r"\r\n'", "")
                 x, y = ser_in.split(',')
-                print('[physical.py] ', (Decimal(x)))
-                print('[physical.py] ',(Decimal(y)))
+                print("[physical.py] ", (Decimal(x)))
+                print("[physical.py] ",(Decimal(y)))
                 return round(float(Decimal(x)), 2), \
                    round(float(Decimal(y)), 2)
                         # Removed int conversion ans these have double precision
@@ -61,6 +61,7 @@ class Physical:
         Writes two entire consecutive rows of braille text (punches the solenoids)
         Args: The rows to write and the inital x and y positions where to begin the writing
         '''
+        cal_values = [0, 2, 6, 8, 12.3, 14.3, 18.5, 20.5]
         sol_commands = []
         
         if (self.physical_interface.check_buttons()):
@@ -86,7 +87,7 @@ class Physical:
         # row1(pod (column) num, row of pod, col w/in pod)
         if (self.physical_interface.check_buttons()):
             num_chars = np.shape(row1)[0]
-            print('[physical.py] ',"the size of the first line is:")
+            print('[physical.py] ','the size of the first line is:')
             print('[physical.py] ', np.shape(row1))
             for pod_row in range(3):
                 for sol_chars in range(4):
@@ -107,8 +108,8 @@ class Physical:
                             pod_num += 4
 
                         sol_commands.append(line_one+line_two)
-                        line_one = ''
-                        line_two = ''
+                        line_one = ""
+                        line_two = ""
 
         # print(np.shape(sol_punches_one)[0])
         # print(sol_punches_one)
@@ -126,29 +127,41 @@ class Physical:
                 print('[physical.py] ',i)
 
                 if not is_command_blank:
-                    self.ser.write(('F x %s \r\n' % str(command_string)).encode())
-                    self.physical_interface.sleep(1)
+                    self.ser.write(('F %s \r\n' % str(command_string)).encode())
+                    self.physical_interface.sleep(4)
             # self.wait_for_completion()
-            if (self.physical_interface.check_buttons()):
+            # if (self.physical_interface.check_buttons()):
                 if(i % 8 == 0 and not i == 0):
+                    self.physical_interface.check_buttons()
                     x = 0
+                    print('not lower loop ' +str(i))
                     print('[physical.py]', 'x %s' %x)
                     y = row_in_pod * (self.char_height/3)
                     self.ser.write(('G1 y %s \r\n' % str(y)).encode())
-                    self.physical_interface.sleep(1)
+                    self.physical_interface.sleep(4)
                     self.wait_for_completion()
                     self.ser.write(('G1 x %s \r\n' % str(x)).encode())
-                    self.physical_interface.sleep(1)
+                    self.physical_interface.sleep(4)
                     self.wait_for_completion()
                     row_in_pod += 1
-
+                # elif i%2 ==0 use list
                 else:
-                    x += self.char_width/2
+                    self.physical_interface.check_buttons()
+                    print('lower loop ' +str(i))
+                    x = cal_values[i % 8]
                     if not is_command_blank:
                         print('[physical.py]','x %s' %x)
                         self.ser.write(('G1 x %s \r\n' % str(x)).encode())
-                        self.physical_interface.sleep(1)
+                        self.physical_interface.sleep(4)
                         self.wait_for_completion()
+    def write_in_order(self):
+        for i in range(1,15): 
+        
+            string = '0'*(i-1) + '1' + '0'* (15-i)
+            
+            self.ser.write(('F %s \r\n' % str(string)).encode())
+            self.physical_interface.sleep(5)
+            self.wait_for_completion()
 
     def wait_for_completion(self):
         ''' Waits for a serial return to continue '''

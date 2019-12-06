@@ -2,7 +2,7 @@
 class Text_Parse:
     '''Reads in a file and breaks it into sections'''
 
-    def __init(self, interface):
+    def __init__(self, interface):
         self.interface = interface
 
 
