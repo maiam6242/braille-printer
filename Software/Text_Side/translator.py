@@ -100,7 +100,6 @@ class Translator:
             segment = str.lower(str(segment))
             for char in segment:
                 self.interface.check_buttons()
-
                 char_trans = self.translate_text(char)
                 braille_text.append(char_trans)
             braille_text, num_lines = self.split_into_lines(braille_text)
@@ -263,6 +262,7 @@ class Translator:
         #     [1, 0],
         #     [1, 0]])
         '''
+        
         global OPEN_QUOTE
         # print(char)
         if char == '"':

@@ -117,17 +117,19 @@ if not INTERFACE.is_cancel():
             print('[bp_runner.py] ',page.page_num)
             
 
-            for row in range(0,len(content_matrix),2):
+            for row in range(0,len(content_matrix),1):
                 print('[bp_runner.py]', 'the top row is: ' + str(row))
-                if len(content_matrix) != row+1:
+                if len(content_matrix) != row+2:
                     DRAWABLE.physical.write_row(content_matrix[row], \
-                        content_matrix[row+1], curr_x, curr_y)
-                    curr_y += 2 * DRAWABLE.line_spacing + 2 * DRAWABLE.line_height
+                        content_matrix[row+2], curr_x, curr_y)
+                    curr_y += DRAWABLE.line_spacing + DRAWABLE.line_height
+                    # curr_y += 1 * DRAWABLE.line_spacing + 1 * DRAWABLE.line_height
                     print('[bp_runner.py] ', curr_y)
                 else:
                     DRAWABLE.physical.write_row(content_matrix[row], \
                         None, curr_x, curr_y)
-            DRAWABLE.physical.unload_paper()
+                    DRAWABLE.physical.unload_paper()
+            print('row down!')
             #FIXME: should this be different to feed the method call?
     else:
         INTERFACE.wait_for_play()

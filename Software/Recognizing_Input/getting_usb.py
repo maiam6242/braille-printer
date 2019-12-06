@@ -46,6 +46,7 @@ class GetUSB:
 	    # print('hey, let's read some shit')
             print(count)
             print(line)
+            
             self.interface.sleep(3)
             # if self.interface.is_play()
         engine.runAndWait()

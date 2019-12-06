@@ -88,21 +88,21 @@ class Physical:
         # row1(pod (column) num, row of pod, col w/in pod)
         if (self.physical_interface.check_buttons()):
             num_chars = np.shape(row1)[0]
-            print('[physical.py] ','the size of the first line is:')
-            print('[physical.py] ', np.shape(row1))
+            #print('[physical.py] ','the braille of the first line is: ')
+            #print('[physical.py] ', row1)
             for pod_row in range(3):
                 for sol_chars in range(4):
                     for pod_col in range(2):
                         pod_num = sol_chars
                         while pod_num >= 0 and pod_num < num_chars:
-                            print('[physical.py] ','Pod Num %s' %pod_num)
-                            print('[physical.py] ','Pod Row %s' %pod_row)
-                            print('[physical.py] ','Pod Col %s' %pod_col)
-                            print(row1[pod_num, pod_row, pod_col])
+                            #print('[physical.py] ','Pod Num %s' %pod_num)
+                            #print('[physical.py] ','Pod Row %s' %pod_row)
+                            #print('[physical.py] ','Pod Col %s' %pod_col)
+                            #print(row1[pod_num, pod_row, pod_col])
 
                             if pod_num < np.shape(row1)[0]:
                                 line_one += str(row1[pod_num, pod_row, pod_col])
-                            if pod_num < np.shape(row2)[0]:
+                            if row2.any():
                                 line_two += str(row2[pod_num, pod_row, pod_col])
                             else: 
                                 line_two = '00000000000000'
@@ -121,15 +121,16 @@ class Physical:
         row_in_pod = 1 #starts at index 1 because will never reach 3
 
         for i, command_string in enumerate (sol_commands):
-            if (self.physical_interface.check_buttons()):
+                self.physical_interface.check_buttons()
                 is_command_blank = command_string == '00000000000000'
                 print('[physical.py] ',command_string)
                 print('[physical.py] ',is_command_blank)
                 print('[physical.py] ',i)
 
-                if not is_command_blank:
-                    self.ser.write(('F %s \r\n' % str(command_string)).encode())
-                    self.physical_interface.sleep(4)
+                #if not is_command_blank:
+                    #self.ser.write(('F %s \r\n' % str(command_string)).encode())
+                   # print('F %s \r\n' % str(command_string))
+                   # self.physical_interface.sleep(4)
             # self.wait_for_completion()
             # if (self.physical_interface.check_buttons()):
                 if(i % 8 == 0 and not i == 0):
@@ -137,31 +138,39 @@ class Physical:
                     x = 0
                     print('not lower loop ' +str(i))
                     print('[physical.py]', 'x %s' %x)
-                    y = row_in_pod * (self.char_height/3)
+                    y += row_in_pod * (self.char_height/3)
                     self.ser.write(('G1 y %s \r\n' % str(y)).encode())
-                    self.physical_interface.sleep(4)
+                    self.physical_interface.sleep(1)
                     self.wait_for_completion()
                     self.ser.write(('G1 x %s \r\n' % str(x)).encode())
-                    self.physical_interface.sleep(4)
+                    self.physical_interface.sleep(1)
                     self.wait_for_completion()
                     row_in_pod += 1
                 # elif i%2 ==0 use list
                 else:
                     self.physical_interface.check_buttons()
                     print('lower loop ' +str(i))
-                    x = cal_values[i % 8]
+                    x = cal_values[(i)%8]
+                    print('x: ' + str(x))
+                    print('i%8: ' + str((i)%8))
+                    print('cal_values[(i)%8]: ' + str(cal_values[(i)%8]))
+                    # x += self.char_height/2
                     if not is_command_blank:
                         print('[physical.py]','x %s' %x)
                         self.ser.write(('G1 x %s \r\n' % str(x)).encode())
-                        self.physical_interface.sleep(4)
+                        self.physical_interface.sleep(1)
                         self.wait_for_completion()
+                if not is_command_blank:
+                    self.ser.write(('F %s \r\n' % str(command_string)).encode())
+                    print('F %s \r\n' % str(command_string))
+                    self.physical_interface.sleep(1)
     def write_in_order(self):
         for i in range(1,15): 
         
             string = '0'*(i-1) + '1' + '0'* (15-i)
             
             self.ser.write(('F %s \r\n' % str(string)).encode())
-            self.physical_interface.sleep(5)
+            self.physical_interface.sleep(1)
             self.wait_for_completion()
 
     def wait_for_completion(self):
