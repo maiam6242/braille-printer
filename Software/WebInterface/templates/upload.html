@@ -1,5 +1,7 @@
 
 <!doctype html>
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="test.css" />
 <html lang="en">
 
 <head>
@@ -7,39 +9,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Portabraille Portal</title>
-    <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 
 <section class="title">
         <div class="hero-body">
-            <div class="container">
-                <h1 class="title">
-                    Portabraille Portal
+            <div id="upload" class="container">
+                <div class="header blue1"></div>
+                <img class="g-Img" alt="" src="PageGraphics\Logo.png"/>
+                <h1 class="title" style="margin-top:-60px;" align="center">
+                    Portabraille Printer Portal
                 </h1>
-            </div>
         </div>
 </section>
 
-<title>Python Flask File Upload Example</title>
-<h2>Portabraille Printer Portal</h2>
-<p>
-	{% with messages = get_flashed_messages() %}
-	  {% if messages %}
-		<ul class=flashes>
-		{% for message in messages %}
-		  <li>{{ message }}</li>
-		{% endfor %}
-		</ul>
-	  {% endif %}
-	{% endwith %}
-</p>
-<form method="post" action="/" enctype="multipart/form-data">
-    <dl>
-		<p>
-			<input type="file" name="file" autocomplete="off" required>
-		</p>
-    </dl>
-    <p>
-		<input type="submit" value="Submit">
-	</p>
-</form>
+<div class="circle350 blue3" style="top:395px;left:-50px"></div>
+<div class="circle300 blue2" style="top:470px;left:990px"></div>
+<div class="circle675 blue2" style="top:270px;left:150px"></div>
+<div class="circle300 blue1" style="top:580px;left:740px"></div>
+<div class="circle400 blue3" style="top:270px;left:670px"></div>
+<div class="circle250 blue1" style="top:570px;left:-10px"></div>
+
+<div id="upload" class="uploadbox" align="center">
+  <br>
+  <p class="semibold" style="top:200px">Select a file to upload:</p>
+  <form method="post" action="/" enctype="multipart/form-data">
+      <br>
+      <dl>
+  		<p>
+  			<input id="file" type="file" class="inputfile" name="file" autocomplete="off" required/>
+        <label for="file" class="semibold">Browse Files</label>
+      </p>
+      </dl>
+      <p>
+  		  <input type="submit" class="button semibold blue1" value="Submit">
+  	  </p>
+      <br>
+  </form>
+  <p>After you've uploaded a file, hit the</p>
+  <p>PRINT button on the Portabraille Printer</p>
+  <p>whenever you're ready!</p>
+</div>
