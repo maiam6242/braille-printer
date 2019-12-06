@@ -79,6 +79,9 @@ SYMBOLS = {'a' : np.array([[1, 0], [0, 0], [0, 0]]),
 class Translator:
     '''Translates text to braille'''
 
+    def __init__(self, interface):
+        self.interface = interface
+
     OPEN_QUOTE = False
     size = []
 
@@ -96,6 +99,8 @@ class Translator:
             segment = self.find_nums(segment)
             segment = str.lower(str(segment))
             for char in segment:
+                self.interface.check_buttons()
+
                 char_trans = self.translate_text(char)
                 braille_text.append(char_trans)
             braille_text, num_lines = self.split_into_lines(braille_text)
@@ -156,6 +161,8 @@ class Translator:
         newlist_segment = list(list_segment)
         offset = 0
         for i, _ in enumerate(list_segment):
+            self.interface.check_buttons()
+
             if i == 0:
                 lastupper = False # If there is no character
                             #before it tell it that the last character was not uppercase
@@ -199,6 +206,8 @@ class Translator:
         list_segment = list(segment)
         i = 0
         while i < len(list_segment):   # This is needed for numbers
+            self.interface.check_buttons()
+
                                     #with a comma in them to prevent it from being two numbers
             if list_segment[i] == ',':
                 if list_segment[i-1].isnumeric() and list_segment[i+1].isnumeric():
@@ -208,6 +217,8 @@ class Translator:
         newlist_segment = list(list_segment)
         offset = 0
         for i, _ in enumerate(list_segment):
+            self.interface.check_buttons()
+
             if i == 0:
                 lastupper = False # If there is no character
                                 #before it tell it that the last character was not uppercase
@@ -350,6 +361,8 @@ class Translator:
         space = np.array([[0, 0], [0, 0], [0, 0]])
 
         for character in braille_segment:
+            self.interface.check_buttons()
+
             if np.size(character, 0) == 4:
                 character_size = 2
             else:
@@ -366,6 +379,8 @@ class Translator:
         line_arrays = []
 
         for line in lines:
+            self.interface.check_buttons()
+
 
             line_length = np.shape(line)[0]
             print(line_length)

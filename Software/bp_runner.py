@@ -23,19 +23,19 @@ INTERFACE = Interface(SER)
 
 # FILE_PATH = 'Text_Side/test_story.txt'
 FILE_PATH = select_file.select_file()
-PARSER = Text_Parse()
+PARSER = Text_Parse(INTERFACE)
 SEGMENTED = PARSER.break_up_text_input(PARSER.read_text_file(FILE_PATH))
 
 select_file.clear(FILE_PATH)
 
-TRANSLATOR = Translator()
+TRANSLATOR = Translator(INTERFACE)
 
 FORMATTED = []
 TOTAL_NUM_LINES = 0
 
 DRAWABLE = Drawable(SER, INTERFACE)
 
-DOC = Document()
+DOC = Document(INTERFACE)
 
 # This loop analyzes the texts as well as places it on various pages
 # (and splits text lines accordingly). It places all from one page in a

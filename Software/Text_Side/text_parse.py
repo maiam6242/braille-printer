@@ -2,12 +2,17 @@
 class Text_Parse:
     '''Reads in a file and breaks it into sections'''
 
+    def __init(self, interface):
+        self.interface = interface
+
+
     def read_text_file(self, path):
         '''
         Opens and Reads in Text File
         Args: the file path of a text file
         Returns: the string of a file that has been read in
         '''
+        self.interface.check_buttons()
         open_file = open(path, 'r')
         text = open_file.read()
         print(text)
@@ -26,6 +31,8 @@ class Text_Parse:
         segments = []
         section = []
         for char in text:
+            self.interface.check_buttons()
+
             if char == '\n':
                 segments.append(section)
                 section = ''
@@ -35,6 +42,8 @@ class Text_Parse:
 
         output = ''
         for segment in segments:
+            self.interface.check_buttons()
+
             segment = output.join(segment)
 
         return segments
