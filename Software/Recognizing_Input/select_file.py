@@ -1,11 +1,13 @@
 '''Selects the file to be printed from possible files on web and usb'''
 import os
 import sys
+sys.path.append(".")
 from Recognizing_Input.getting_usb import GetUSB
 from Recognizing_Input.getting_web import GetWEB
+from Physical_Interface.interface import Interface
 import pyttsx3
 
-def select_file():
+def select_file(interface):
     '''Selects a file from the web or usb interface'''
     engine = pyttsx3.init()
     voices = engine.getProperty('voices')
