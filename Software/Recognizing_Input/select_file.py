@@ -32,7 +32,7 @@ def select_file(interface):
 
         if not usb_files == []:
             if len(usb_files) > 0:
-                engine.say('Please select the middle play pause button when you would like to select the file which you heard previously')
+                engine.say('Please press the middle play pause button to select a file')
             
             print('usb files:' + str(usb_files))
             selected_file = usb_getter.read_out(usb_files)
