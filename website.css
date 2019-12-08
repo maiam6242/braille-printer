@@ -51,6 +51,30 @@ a {
   height:auto;
   position:static;
 }
+.dropdown-content {
+  position: relative;
+  display: inline-block;
+  display: none;
+  position: absolute;
+  min-width: 120px;
+  z-index: 1;
+}
+.dropdown-content a {
+  color: #000000;
+  padding: 2px 10px;
+  text-decoration: none;
+  display: block;
+  font-family:'Source Sans Pro',sans-serif;
+  font-size:22px;
+  font-weight:600;
+  text-align:left;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.dropdown-content a:hover {
+  background-color: #e3f0fc;
+}
 .tabs{
   font-weight:600;
   line-height:32px;
