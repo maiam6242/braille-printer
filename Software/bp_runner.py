@@ -119,7 +119,8 @@ if not INTERFACE.is_cancel():
 
             for row in range(0,len(content_matrix),1):
                 print('[bp_runner.py]', 'the top row is: ' + str(row))
-                if len(content_matrix) != row+2:
+                #if len(content_matrix) != row+2:
+                if not row+2 > len(content_matrix)-1:
                     DRAWABLE.physical.write_row(content_matrix[row], \
                         content_matrix[row+2], curr_x, curr_y)
                     curr_y += DRAWABLE.line_spacing + DRAWABLE.line_height
