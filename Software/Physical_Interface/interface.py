@@ -73,12 +73,12 @@ class Interface:
         self.start_print.wait_for_press()
 
     def is_sound(self):
-        if self.sound.is_pressed and not self.is_sound_active:
+        if not self.sound.is_pressed and not self.is_sound_active:
             self.engine.say('Sound is on')
             self.engine.runAndWait()
             print('[interface.py] ','Sound switched on')
             self.is_sound_active = True
-        if not self.sound.is_pressed:
+        if self.sound.is_pressed:
             self.is_sound_active = False
         return not self.sound.is_pressed
 
