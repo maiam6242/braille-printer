@@ -7,7 +7,7 @@ import pyttsx3
 class GetWEB:
     ''' Gets a list of documents from the folder accessed by the web interface '''
 
-    def __int__(self, interface):
+    def __init__(self, interface):
         self.interface = interface
 
     def output_reader(self, proc):
