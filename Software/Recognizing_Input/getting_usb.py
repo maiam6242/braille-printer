@@ -42,8 +42,9 @@ class GetUSB:
         engine.setProperty('voice', voices[11].id)
 
         for count, line in enumerate(lines):
-            engine.say(line.split('/')[-1])
-            engine.runAndWait()
+            if interface.is_sound():
+                engine.say(line.split('/')[-1])
+                engine.runAndWait()
             print(count)
             print(line)
             last_time = time.time()
@@ -51,19 +52,16 @@ class GetUSB:
                 self.interface.check_buttons()
                 if self.interface.start_print.is_pressed:
                     print("selecting your choice")
-                    engine.say("selecting your choice")
-                    engine.runAndWait()
+                    if interface.is_sound():
+                        engine.say("selecting your choice")
+                        engine.runAndWait()
                     return lines[count]
         
-        engine.say("No file chosen, printing first file")
         print("No file chosen, printing first file")
-        engine.runAndWait()
+        if interface.is_sound():
+            engine.say("No file chosen, printing first file")
+            engine.runAndWait()
         return lines[0]
-
-            
-            # self.interface.sleep(3)
-            # if self.interface.is_play()
-        
 
 if __name__ == "__main__":
     usb = GetUSB()
