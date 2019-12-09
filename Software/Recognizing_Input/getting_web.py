@@ -37,13 +37,13 @@ class GetWEB:
         engine.setProperty('voice', voices[11].id)
 
         for count, line in enumerate(lines):
-            if interface.is_sound():
+            if self.interface.is_sound():
                 engine.say(line)
 	    # print('hey, let's read some shit')
             print(count)
             print(line)
             time.sleep(2)
-        if interface.is_sound():
+        if self.interface.is_sound():
             engine.runAndWait()
 
 if __name__ == '__main__':
