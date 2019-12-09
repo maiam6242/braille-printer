@@ -4,7 +4,7 @@
 .aiPointText p {
   white-space: nowrap;
 }
-#homepage, #team, #resources, #process, #instructions {
+#homepage, #team, #resources, #process, #instructions, #blog-hello {
   position:relative;
   overflow:hidden;
 }
@@ -50,6 +50,7 @@ a {
   font-style:normal;
   height:auto;
   position:static;
+  text-decoration: none;
 }
 .dropdown-content {
   position: relative;
@@ -175,6 +176,17 @@ a {
 #instructions .pstyle5 {
   text-align:right;
 }
+#blog-hello .date {
+  text-align:center;
+}
+#blog-hello .title {
+  line-height:74px;
+  font-size:75px;
+  text-align:center;
+}
+#blog-hello .content {
+  text-align:justify;
+}
 .header{
   width:100%;
   height:180px;
@@ -283,7 +295,20 @@ a {
   line-height: 65px;
   float:left;
 }
+.blogbtn{
+  height:70px;
+  width:400px;
+  background-color: #91c2f2;
+  position:inline;
+  font-weight:600;
+  text-align: center;
+  line-height: 65px;
+  float:left;
+}
 .btn:hover{
+  background-color: #c8e1fa;
+}
+.blogbtn:hover{
   background-color: #c8e1fa;
 }
 .blue1{
