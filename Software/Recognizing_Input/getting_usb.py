@@ -2,11 +2,15 @@
 import subprocess
 import time
 import pyttsx3
+import sys
+sys.path.append(".")
+from Physical_Interface.interface import Interface
 
 class GetUSB:
     """Find files from any inserted media"""
 
-    def __int__(self):
+    def __init__(self, interface):
+        self.interface = interface
         pass
 
     def output_reader(self, proc):
@@ -20,7 +24,9 @@ class GetUSB:
                 return self.result
 
     def get(self):
-        """Gets a list of paths to text files in the removable media"""
+        """Gets a list of paths to text files in the removable media
+        Returns a list of strings which specify absolute paths to usb files"""
+
         self.proc = subprocess.Popen(['bash', 'Recognizing_Input/finding-usb.sh'], \
             stdout=subprocess.PIPE)
         self.lines = self.output_reader(self.proc)
@@ -28,19 +34,36 @@ class GetUSB:
         return self.lines
 
     def read_out(self, lines):
-        """Reads the names of the files"""
+        """Reads the names of the files
+        Takes a list of strings and reads them one by one"""
         engine = pyttsx3.init()
         voices = engine.getProperty('voices')
         engine.setProperty('rate', 130)
         engine.setProperty('voice', voices[11].id)
 
         for count, line in enumerate(lines):
-            engine.say(line)
-	    # print('hey, let's read some shit')
+            engine.say(line.split('/')[-1])
+            engine.runAndWait()
             print(count)
             print(line)
-            time.sleep(2)
+            last_time = time.time()
+            while time.time() < last_time + 3:
+                self.interface.check_buttons()
+                if self.interface.start_print.is_pressed:
+                    print("selecting your choice")
+                    engine.say("selecting your choice")
+                    engine.runAndWait()
+                    return lines[count]
+        
+        engine.say("No file chosen, printing first file")
+        print("No file chosen, printing first file")
         engine.runAndWait()
+        return lines[0]
+
+            
+            # self.interface.sleep(3)
+            # if self.interface.is_play()
+        
 
 if __name__ == "__main__":
     usb = GetUSB()

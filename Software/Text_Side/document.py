@@ -1,11 +1,12 @@
-""" Wrapper for the Document class """
+''' Wrapper for the Document class '''
 class Document:
-    """ This is a collection of page objects, it tracks how much of the document is
-    written and maybe does some analysis or controls. """
-    def __init__(self):
+    ''' This is a collection of page objects, it tracks how much of the document is
+    written and maybe does some analysis or controls. '''
+    def __init__(self, interface):
         self.page_size = [8.5, 11]
         self.doc_list = []
         self.num_pages = len(self.doc_list)
+        self.interface = interface
 
     def get_page_size_in_mm(self):
         '''
@@ -14,6 +15,7 @@ class Document:
         page dimension IN MILLIMETERS [x_dim, y_dim] ie [215.9, 279.4]
         '''
         for count, dimension in enumerate(self.page_size):
+            self.interface.check_buttons()
             self.page_size[count] = self.to_mm(dimension)
         return self.page_size
 

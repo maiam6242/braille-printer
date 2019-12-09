@@ -13,7 +13,8 @@ void setup(){
 void loop(){
 
     // int selectedPins[] = {23,25,27,29,31,33,35,37,39,41,43,45,47,49};
-    int selectedPins[] = {37,41,39,47,49,45,43,31,23,35,33,27,25,29};
+    // int selectedPins[] = {37,41,39,47,49,45,43,31,23,35,33,27,25,29};
+    int selectedPins[] = {33,35,31,29,27,25,23,49,45,47,43,41,39,37};
     // int selectedPins[] = {2,3,4,5,6,7,35,37,39,41,43,45,47,49};
     Solenoid solenoid;
     solenoid.setPins(selectedPins);

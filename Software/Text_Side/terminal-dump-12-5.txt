@@ -1,0 +1,993 @@
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 13
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 17
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 21
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 25
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 1
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 5
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 9
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 13
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 17
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 21
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 25
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 2
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 6
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 10
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 14
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 18
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 22
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 26
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 2
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 6
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 10
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 14
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 18
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 22
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 26
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 3
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 0
+1
+[physical.py]  Pod Num 7
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 11
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 15
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 19
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 23
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 27
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 3
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 7
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 11
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 15
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 19
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 23
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 27
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 1
+0
+[physical.py]  (24,)
+[physical.py]  ['01000000000000', '00000000000000', '01000000000000', '10000000000000', '00000000000000', '10000000000000', '00000000000000', '10000000000000', '01000000000000', '00000000000000', '10000000000000', '11000000000000', '10000000000000', '00000000000000', '10000000000000', '10000000000000', '01000000000000', '10000000000000', '10000000000000', '00000000000000', '00000000000000', '00000000000000', '10000000000000', '00000000000000']
+[physical.py]  01000000000000
+[physical.py]  01000000000000
+[physical.py]  False
+[physical.py]  0
+Paused
+Playing
+lower loop 0
+[physical.py] x 0
+b'0\r\n'
+[physical.py]  00000000000000
+[physical.py]  True
+[physical.py]  1
+lower loop 1
+[physical.py]  01000000000000
+[physical.py]  False
+[physical.py]  2
+lower loop 2
+[physical.py] x 6
+b'0\r\n'
+[physical.py]  10000000000000
+[physical.py]  False
+[physical.py]  3
+Paused
+Playing
+lower loop 3
+[physical.py] x 8
+b'0\r\n'
+[physical.py]  00000000000000
+[physical.py]  True
+[physical.py]  4
+lower loop 4
+[physical.py]  10000000000000
+[physical.py]  False
+[physical.py]  5
+lower loop 5
+[physical.py] x 14.3
+b'0\r\n'
+[physical.py]  00000000000000
+[physical.py]  True
+[physical.py]  6
+lower loop 6
+[physical.py]  10000000000000
+[physical.py]  False
+[physical.py]  7
+lower loop 7
+[physical.py] x 20.5
+b'0\r\n'
+[physical.py]  01000000000000
+[physical.py]  False
+[physical.py]  8
+not lower loop 8
+[physical.py] x 0
+Paused
+Playing
+b'0\r\n'
+b'0\r\n'
+[physical.py]  00000000000000
+[physical.py]  True
+[physical.py]  9
+lower loop 9
+[physical.py]  10000000000000
+[physical.py]  False
+[physical.py]  10
+lower loop 10
+[physical.py] x 6
+b'0\r\n'
+[physical.py]  11000000000000
+[physical.py]  False
+[physical.py]  11
+lower loop 11
+[physical.py] x 8
+b'0\r\n'
+[physical.py]  10000000000000
+[physical.py]  False
+[physical.py]  12
+lower loop 12
+[physical.py] x 12.3
+b'0\r\n'
+[physical.py]  00000000000000
+[physical.py]  True
+[physical.py]  13
+lower loop 13
+[physical.py]  10000000000000
+[physical.py]  False
+[physical.py]  14
+lower loop 14
+[physical.py] x 18.5
+b'0\r\n'
+[physical.py]  10000000000000
+[physical.py]  False
+[physical.py]  15
+lower loop 15
+[physical.py] x 20.5
+b'0\r\n'
+[physical.py]  01000000000000
+[physical.py]  False
+[physical.py]  16
+not lower loop 16
+[physical.py] x 0
+b'0\r\n'
+b'0\r\n'
+[physical.py]  10000000000000
+[physical.py]  False
+[physical.py]  17
+lower loop 17
+[physical.py] x 2
+b'0\r\n'
+[physical.py]  10000000000000
+[physical.py]  False
+[physical.py]  18
+lower loop 18
+[physical.py] x 6
+b'0\r\n'
+[physical.py]  00000000000000
+[physical.py]  True
+[physical.py]  19
+lower loop 19
+[physical.py]  00000000000000
+[physical.py]  True
+[physical.py]  20
+lower loop 20
+[physical.py]  00000000000000
+[physical.py]  True
+[physical.py]  21
+lower loop 21
+[physical.py]  10000000000000
+[physical.py]  False
+[physical.py]  22
+lower loop 22
+[physical.py] x 18.5
+b'0\r\n'
+[physical.py]  00000000000000
+[physical.py]  True
+[physical.py]  23
+lower loop 23
+[bp_runner.py]  29.92
+[bp_runner.py] the top row is: 2
+[physical.py]  write row position: 29.92
+[physical.py]  b'29.92'
+b'[physical.py] G1 y 29.92 \r\n'
+b'0\r\n'
+b'0\r\n'
+[physical.py]  (28, 3, 2)
+[physical.py]  (28, 3, 2)
+[physical.py]  the size of the first line is:
+[physical.py]  (28, 3, 2)
+[physical.py]  Pod Num 0
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 4
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 0
+1
+[physical.py]  Pod Num 8
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 12
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 16
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 0
+1
+[physical.py]  Pod Num 20
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 0
+1
+[physical.py]  Pod Num 24
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 0
+1
+[physical.py]  Pod Num 0
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 4
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 1
+1
+[physical.py]  Pod Num 8
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 12
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 16
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 20
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 24
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 1
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 5
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 9
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 13
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 17
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 0
+1
+[physical.py]  Pod Num 21
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 25
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 1
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 5
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 9
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 1
+1
+[physical.py]  Pod Num 13
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 1
+1
+[physical.py]  Pod Num 17
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 1
+1
+[physical.py]  Pod Num 21
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 25
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 2
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 6
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 10
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 0
+1
+[physical.py]  Pod Num 14
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 0
+1
+[physical.py]  Pod Num 18
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 22
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 0
+1
+[physical.py]  Pod Num 26
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 2
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 1
+1
+[physical.py]  Pod Num 6
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 1
+1
+[physical.py]  Pod Num 10
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 14
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 18
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 22
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 1
+1
+[physical.py]  Pod Num 26
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 1
+1
+[physical.py]  Pod Num 3
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 0
+1
+[physical.py]  Pod Num 7
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 0
+1
+[physical.py]  Pod Num 11
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 0
+1
+[physical.py]  Pod Num 15
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 0
+1
+[physical.py]  Pod Num 19
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 0
+1
+[physical.py]  Pod Num 23
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 0
+1
+[physical.py]  Pod Num 27
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 0
+1
+[physical.py]  Pod Num 3
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 7
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 1
+1
+[physical.py]  Pod Num 11
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 15
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 19
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 1
+1
+[physical.py]  Pod Num 23
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 27
+[physical.py]  Pod Row 0
+[physical.py]  Pod Col 1
+0
+[physical.py]  (8,)
+[physical.py]  ['01001111110001', '01000000111100', '00001000101100', '00111000010001', '00110100001101', '11000111100001', '11111110110000', '01001001000110']
+[physical.py]  01001111110001
+[physical.py]  Pod Num 0
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 0
+1
+[physical.py]  Pod Num 4
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 8
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 12
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 16
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 0
+1
+[physical.py]  Pod Num 20
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 24
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 0
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 4
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 1
+1
+[physical.py]  Pod Num 8
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 12
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 16
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 20
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 1
+1
+[physical.py]  Pod Num 24
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 1
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 5
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 9
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 0
+1
+[physical.py]  Pod Num 13
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 0
+1
+[physical.py]  Pod Num 17
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 21
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 25
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 1
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 5
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 9
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 1
+1
+[physical.py]  Pod Num 13
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 1
+1
+[physical.py]  Pod Num 17
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 1
+1
+[physical.py]  Pod Num 21
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 25
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 2
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 0
+1
+[physical.py]  Pod Num 6
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 0
+1
+[physical.py]  Pod Num 10
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 0
+1
+[physical.py]  Pod Num 14
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 18
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 22
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 26
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 0
+1
+[physical.py]  Pod Num 2
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 1
+1
+[physical.py]  Pod Num 6
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 10
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 1
+1
+[physical.py]  Pod Num 14
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 1
+1
+[physical.py]  Pod Num 18
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 22
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 1
+1
+[physical.py]  Pod Num 26
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 1
+1
+[physical.py]  Pod Num 3
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 0
+1
+[physical.py]  Pod Num 7
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 11
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 15
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 0
+1
+[physical.py]  Pod Num 19
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 23
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 27
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 3
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 1
+1
+[physical.py]  Pod Num 7
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 1
+1
+[physical.py]  Pod Num 11
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 1
+1
+[physical.py]  Pod Num 15
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 1
+1
+[physical.py]  Pod Num 19
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 1
+1
+[physical.py]  Pod Num 23
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 1
+1
+[physical.py]  Pod Num 27
+[physical.py]  Pod Row 1
+[physical.py]  Pod Col 1
+0
+[physical.py]  (16,)
+[physical.py]  ['01001111110001', '01000000111100', '00001000101100', '00111000010001', '00110100001101', '11000111100001', '11111110110000', '01001001000110', '10001000001110', '01000100110100', '00110000010101', '00111000100110', '11100011100000', '10110110101001', '10010001010110', '11111100000100']
+[physical.py]  01001111110001
+[physical.py]  Pod Num 0
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 0
+1
+[physical.py]  Pod Num 4
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 0
+1
+[physical.py]  Pod Num 8
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 12
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 16
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 0
+1
+[physical.py]  Pod Num 20
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 0
+1
+[physical.py]  Pod Num 24
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 0
+1
+[physical.py]  Pod Num 0
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 1
+1
+[physical.py]  Pod Num 4
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 1
+1
+[physical.py]  Pod Num 8
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 12
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 16
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 20
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 24
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 1
+1
+[physical.py]  Pod Num 1
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 5
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 9
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 0
+1
+[physical.py]  Pod Num 13
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 17
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 21
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 25
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 1
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 1
+1
+[physical.py]  Pod Num 5
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 9
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 13
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 1
+1
+[physical.py]  Pod Num 17
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 21
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 25
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 2
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 6
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 10
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 14
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 0
+1
+[physical.py]  Pod Num 18
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 22
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 0
+1
+[physical.py]  Pod Num 26
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 2
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 1
+1
+[physical.py]  Pod Num 6
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 10
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 14
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 18
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 22
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 1
+1
+[physical.py]  Pod Num 26
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 1
+1
+[physical.py]  Pod Num 3
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 7
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 0
+1
+[physical.py]  Pod Num 11
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 15
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 0
+1
+[physical.py]  Pod Num 19
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 23
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 0
+1
+[physical.py]  Pod Num 27
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 0
+0
+[physical.py]  Pod Num 3
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 7
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 11
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 15
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 19
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 23
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 1
+0
+[physical.py]  Pod Num 27
+[physical.py]  Pod Row 2
+[physical.py]  Pod Col 1
+0
+[physical.py]  (24,)
+[physical.py]  ['01001111110001', '01000000111100', '00001000101100', '00111000010001', '00110100001101', '11000111100001', '11111110110000', '01001001000110', '10001000001110', '01000100110100', '00110000010101', '00111000100110', '11100011100000', '10110110101001', '10010001010110', '11111100000100', '11001111010110', '11000010010010', '00100000011010', '10010000000010', '00010101000000', '10000110100000', '01010100010110', '00000000000000']
+[physical.py]  01001111110001
+[physical.py]  01001111110001
+[physical.py]  False
+[physical.py]  0
+Paused
+  
