@@ -15,7 +15,7 @@ def select_file(interface):
     engine.setProperty('voice', voices[11].id)
     
     usb_getter = GetUSB(interface)
-    web_getter = GetWEB()
+    web_getter = GetWEB(interface)
 
     web_files = []
     usb_files = []
@@ -32,7 +32,9 @@ def select_file(interface):
 
         if not usb_files == []:
             if len(usb_files) > 0:
-                engine.say('Please press the start button once to select a file and again to print')
+                if interface.is_sound():
+                    engine.say('Please press the start button once to select a file and again to print')
+                    engine.runAndWait()
             
             print('usb files:' + str(usb_files))
             selected_file = usb_getter.read_out(usb_files)

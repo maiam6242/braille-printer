@@ -113,7 +113,7 @@ class PaperStepper : public AccelStepper{
                 runToNewPosition(position +1);
             }
             setCurrentPosition(0);
-            goTomm(-62, 8000);
+            goTomm(-27, 8000);
             setCurrentPosition(0);
         }
 

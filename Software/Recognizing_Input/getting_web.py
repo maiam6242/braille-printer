@@ -7,8 +7,8 @@ import pyttsx3
 class GetWEB:
     ''' Gets a list of documents from the folder accessed by the web interface '''
 
-    def __int__(self):
-        pass
+    def __init__(self, interface):
+        self.interface = interface
 
     def output_reader(self, proc):
         ''' Reads the stdout '''
@@ -37,12 +37,14 @@ class GetWEB:
         engine.setProperty('voice', voices[11].id)
 
         for count, line in enumerate(lines):
-            engine.say(line)
+            if self.interface.is_sound():
+                engine.say(line)
 	    # print('hey, let's read some shit')
             print(count)
             print(line)
             time.sleep(2)
-        engine.runAndWait()
+        if self.interface.is_sound():
+            engine.runAndWait()
 
 if __name__ == '__main__':
     usb = GetWEB()
