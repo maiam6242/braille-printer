@@ -103,7 +103,6 @@ a {
   text-align:right;
 }
 #homepage .pstyle5 {
-  font-weight:600;
   line-height:40px;
   text-align:center;
 }
@@ -180,6 +179,7 @@ a {
   text-align:center;
 }
 #blog-hello .title {
+  font-weight:600;
   line-height:74px;
   font-size:75px;
   text-align:center;
