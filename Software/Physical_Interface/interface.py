@@ -64,6 +64,7 @@ class Interface:
 
     def resolve_ready(self):
         self.ready.off()
+        
 
     def wait_for_play(self):
         self.play.wait_for_press()

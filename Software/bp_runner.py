@@ -12,9 +12,6 @@ from Recognizing_Input import select_file
 
 # FILE = select_file.select_file()
 
-
-
-
 PORT = '/dev/ttyACM0'
 
 #setting up all of the things
@@ -106,7 +103,7 @@ if not INTERFACE.is_cancel():
         print('[bp_runner.py] ',DOC.doc_list)
         print('[bp_runner.py] ',len(DOC.doc_list))
         
-        for page in DOC.doc_list:
+        for i, page in enumerate(DOC.doc_list):
             DRAWABLE.physical.enable()
             DRAWABLE.physical.load_paper()
             DRAWABLE.physical.home() #TODO: Comment me back in (please!)
@@ -130,7 +127,10 @@ if not INTERFACE.is_cancel():
                     DRAWABLE.physical.write_row(content_matrix[row], \
                         None, curr_x, curr_y)
                     DRAWABLE.physical.unload_paper()
+                    if(INTERFACE.is_sound):
+                        INTERFACE.engine.say('Page' + str(i+1) + 'Printed!')
             print('row down!')
+            
             #FIXME: should this be different to feed the method call?
     else:
         INTERFACE.wait_for_play()
