@@ -4,7 +4,7 @@
 .aiPointText p {
   white-space: nowrap;
 }
-#homepage, #team, #resources, #process, #instructions, #blog-hello {
+#homepage, #team, #resources, #process, #instructions, #blog-hello, #sprint1 {
   position:relative;
   overflow:hidden;
 }
@@ -186,6 +186,23 @@ a {
 }
 #blog-hello .content {
   text-align:justify;
+}
+#sprint1 .pstyle0 {
+  font-weight:600;
+  text-align:right;
+}
+#sprint1 .pstyle1 {
+  text-align:right;
+}
+#sprint1 .pstyle2 {
+  font-weight:600;
+}
+#sprint1 .pstyle3 {
+  text-align:center;
+}
+#sprint1 .pstyle4 {
+  font-weight:600;
+  text-align:center;
 }
 .header{
   width:100%;
