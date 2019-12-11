@@ -16,7 +16,7 @@
 - [Acknowledgments](#Acknowledgments "Acknowledgments") 
 
 ## Introduction
-The Portabraille Printer is a device that takes in an English text input, translates that text into uncontracted braille, then prints said braille text on braille paper. It is a low cost product that aims to allow people who are visually impaired to create braille quickly, with applications ranging from producing quick meeting notes to creating accessible promotional materials on the fly. The printer is light, with a handle for easy transportation, and has an easy-to-use interface with both braille and English text, creating a user friendly experience for those who are visually impaired or blind. Text documents can be fed to the printer via either the Portabraille Portal on the Portabraille Network or by plugging in a USB. 
+The Portabraille Printer is a device that takes in an English text input, translates that text into uncontracted braille, then prints said braille text on braille paper. It is a low cost product that aims to allow people who are visually impaired to create braille quickly, with applications ranging from producing quick meeting notes to creating accessible promotional materials on the fly. The printer is light, with handles for easy transportation, and has an easy-to-use interface with both braille and English text, creating a user friendly experience for those who are visually impaired or blind. Text documents can be fed to the printer via either the Portabraille Portal on the Portabraille Network or by plugging in a USB. 
 
 ## This Repository
 
