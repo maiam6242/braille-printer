@@ -1,0 +1,44 @@
+Firmware User Guide
+This guide is intended to describe how the braille firmware works and how it can be used to perform advanced actions.
+
+
+Overview
+
+The system is built to closely resemble the Gcode standard and shares many common commands with 3D printers. Instructions are sent over serial to the Arduino in the form of a string followed by “\n”. Each command specifies a single action or set of actions for the printer to execute. All commands are currently set to be blocking, which means that the program will not listen for another command until the first command finishes. The program returns information about its interpretation of the command and the resulting action over serial, but this can be disabled with the command M21, which makes it simply return 0 when the last command is completed.
+
+
+Commands
+
+Movement:
+
+Stepper movement currently operates on a “go-to character” function which assumes that the braille characters are a constant width. They are not a constant width, so that needs to be changed either in the firmware or in python, but it is not really a pressing issue. Movement is split into x and y dimensions, where x is along the width of the paper and y is along its length. There are two commands for movement, G0, and G1, with the only difference being that G1 is half of the speed of G0. They work as follows:
+
+
+        G0 (axis) (value)  Move the (axis) to the character (value)
+                Ex. G0 x 12 moves the x axis to the 12th character
+                Ex. G0 y 4 moves the y axis to the fourth character
+
+
+        G1 (axis) (value)  Same as G0 but at half speed
+
+
+Solenoids:
+
+The solenoids are controlled with the F command, which takes a sequence of 1s and 0s to denote which solenoid is fired. There is no established order for which solenoid goes where yet so you can decide however you want. The command looks like this:
+
+
+        F (values[14])  Fire the solenoids with a value of 1
+                Ex. F 11111111111111 fires all solenoids
+                Ex. F 10000000000000 fires only the first solenoid
+
+Other commands:
+
+There are also a variety of other commands, most of which are made up of the above, to perform other important functions. Steppers should be enabled at the beginning of the program and disabled at the end, and paper loading and x-axis homing should occur for each sheet. For command from Python M21 should be run before all other commands so that the output is consistent. They are as follows:
+
+
+        G28                     Home (x) axis
+        M17                     Enable all steppers
+        M18                     Disable all steppers
+        M701                    Load paper
+        M702                    Unload paper
+        M21                     Toggle machine-read mode
