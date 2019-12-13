@@ -86,99 +86,6 @@ a {
   height:32px;
   font-size:27px;
 }
-#homepage .pstyle0 {
-  font-weight:600;
-  line-height:32px;
-  height:32px;
-  font-size:27px;
-}
-#homepage .pstyle1 {
-  font-weight:600;
-  text-align:center;
-}
-#homepage .pstyle2 {
-  font-weight:600;
-}
-#homepage .pstyle3 {
-  font-weight:600;
-  text-align:right;
-}
-#homepage .pstyle4 {
-  text-align:right;
-}
-#homepage .pstyle5 {
-  line-height:40px;
-  text-align:center;
-}
-#homepage .cstyle0 {
-  font-weight:bold;
-}
-#team .pstyle0 {
-  font-weight:600;
-  line-height:43px;
-  font-size:33px;
-}
-#team .pstyle1 {
-  line-height:43px;
-  font-size:33px;
-}
-#team .pstyle2 {
-  text-align:justify;
-}
-#team .pstyle3 {
-  font-weight:600;
-  line-height:40px;
-  font-size:33px;
-  text-align:center;
-}
-#team .pstyle4 {
-  line-height:40px;
-  font-size:33px;
-  text-align:center;
-}
-#team .cstyle0 {
-  font-weight:bold;
-}
-#resources .pstyle0 {
-  font-weight:600;
-  line-height:43px;
-  font-size:33px;
-  text-align:center;
-}
-#resources .pstyle1 {
-  line-height:43px;
-  font-size:33px;
-  text-align:center;
-}
-#resources .pstyle2 {
-  font-weight:600;
-  line-height:58px;
-  font-size:48px;
-}
-#process .pstyle0 {
-  font-weight:600;
-}
-#instructions .pstyle0 {
-  font-weight:600;
-  text-align:center;
-}
-#instructions .pstyle1 {
-  font-weight:600;
-}
-#instructions .pstyle2 {
-  font-weight:600;
-  text-align:justify;
-}
-#instructions .pstyle3 {
-  text-align:justify;
-}
-#instructions .pstyle4 {
-  font-weight:600;
-  text-align:right;
-}
-#instructions .pstyle5 {
-  text-align:right;
-}
 #blog .pstyle0 {
   font-weight:semibold;
   line-height:43px;
@@ -214,35 +121,18 @@ a {
 #blog-hello .content {
   text-align:justify;
 }
-#sprint1 .pstyle0 {
-  font-weight:600;
-  text-align:right;
+#blog-text .pstyle0 {
+  text-align:center;
 }
-#sprint1 .pstyle1 {
+#blog-text .pstyle1 {
+  line-height:74px;
+  font-size:75px;
+  text-align:center;
+}
+#blog-text .pstyle2 {
   text-align:justify;
 }
-#sprint1 .pstyle2 {
-  font-weight:600;
-}
-#sprint1 .pstyle3 {
-  text-align:right;
-}
-#sprint1 .pstyle4 {
-  font-weight:600;
-  line-height:42px;
-  text-align:right;
-}
-#sprint1 .pstyle5 {
-  line-height:42px;
-  text-align:right;
-}
-#sprint1 .pstyle6 {
-  line-height:42px;
-  text-align:justify;
-}
-#sprint1 .cstyle0 {
-  font-weight:600;
-}
+
 .header{
   width:100%;
   height:180px;
