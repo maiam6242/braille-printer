@@ -196,17 +196,29 @@ a {
   text-align:right;
 }
 #sprint1 .pstyle1 {
-  text-align:right;
+  text-align:justify;
 }
 #sprint1 .pstyle2 {
   font-weight:600;
 }
 #sprint1 .pstyle3 {
-  text-align:center;
+  text-align:right;
 }
 #sprint1 .pstyle4 {
   font-weight:600;
-  text-align:center;
+  line-height:42px;
+  text-align:right;
+}
+#sprint1 .pstyle5 {
+  line-height:42px;
+  text-align:right;
+}
+#sprint1 .pstyle6 {
+  line-height:42px;
+  text-align:justify;
+}
+#sprint1 .cstyle0 {
+  font-weight:600;
 }
 .header{
   width:100%;
