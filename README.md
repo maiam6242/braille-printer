@@ -7,10 +7,8 @@
 ## Table of Contents
 - [Introduction](#Introduction "Introduction")
 - [This Repository](#This-Repository "This Repository") 
-- [Features](#Features "Features") 
 - [Requirements](#Requirements "Requirements")
 - [Installation](#Installation "Installation")  
-- [Deployment](#Deployment "Deployment")
 - [Feedback](#Feedback "Feedback") 
 - [Team](#Team "Team")  
 - [Acknowledgments](#Acknowledgments "Acknowledgments") 
@@ -26,13 +24,13 @@ On the software side, the [Text Side Folder](https://github.com/maiam6242/braill
 
 In the firmware folder, the firmware that controls the way paper is loaded and how solenoids act is in the [Arduino Firmware Folder](https://github.com/maiam6242/braille-printer/tree/master/Firmware/Arduino%20Firmware "Arduino Firmware Folder"). All of our firmware is written in C++. The [PCB Folder](https://github.com/maiam6242/braille-printer/tree/master/Firmware/PCB "PCB Folder") contains all of the artifacts from our PCB design.
 
-## Features 
-#TODO: Write this!
 
 ## Requirements
 
 - Python 3 (or newer)
-- Raspberry Pi ?? (running raspbian blah blah blah) //TODO: We need to see what the network thing we are using requires and update accordingly
+- Raspberry Pi 3B, 3B+ or 4
+- Rasbian Jesse (or newer)
+
 
 ## Installation
 The software that runs on the Portabraille Printer has a variety of dependencies. The [startup bash script](https://github.com/maiam6242/braille-printer/blob/master/startup.bash "Startup Bash Script") automatically installs all of the dependencies from all components of our firmware and software. Instructions and code samples for installing these dependencies individually are below. 
@@ -73,8 +71,6 @@ The following bash command installs Flask, a microweb framework.
 pip3 install Flask
 ```
 
-## Deployment
-#TODO: Write this!!
 
 ## Feedback
 We would love to hear feedback on this project! Feel free to [email us](mailto:mmaterman@olin.edu "mmaterman@olin.edu") or [submit an issue](https://github.com/maiam6242/braille-printer/issues/new/choose "New Issue Request"). If you are interested in contributing to this project or chatting about it in general, please don't hesitate to [email us](mailto:mmaterman@olin.edu "mmaterman@olin.edu") here!
