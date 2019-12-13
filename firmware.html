@@ -1,0 +1,114 @@
+<!doctype html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700&display=swap" rel="stylesheet">
+		<link href="website.css" type="text/css" rel="stylesheet">
+    <title>Portabraille Printer!</title>
+</head>
+
+<div id="resources-box" class="ai2html" style="width:100%">
+	<div id="resources" class="artboard" style="max-width:100%;max-height:3021px" data-aspect-ratio="0.598" data-min-width="0">
+
+		<div class="header blue1"></div>
+		<div style="padding: 0 0 2761px 0;"></div>
+		<div class="footer blue1"> </div>
+
+		<a href="https://maiam6242.github.io/braille-printer/">
+				<img class="logo" alt="Portabraille Printer Logo" src="Website Graphics\Logo.png"/>
+		</a>
+
+    <div class="dotdotdot" style="top:13%;left:50%;margin-left:-60px">
+      <div class="dot"></div>
+      <div style="padding-left:25px;float:left;position:inline-block">&nbsp</div>
+      <div class="dot"></div>
+      <div style="padding-left:25px;float:left;position:inline-block">&nbsp</div>
+      <div class="dot"></div>
+    </div>
+
+    <div class="circle450 blue3" style="left:55%;top:36%"></div>
+    <div class="circle250 blue1" style="left:72%;top:29%"></div>
+    <div class="circle675 blue2" style="left:10%;top:29%"></div>
+    <div class="aiAbs" style="align:center;height:550px;width:880px;left:50%;margin-left:-440px;top:31%">
+      <div class="frame" style="height:100%;width:100%;"></div>
+      <img class="portrait" alt="Top view of bank of mounted solenoids" style="width:94%;height:91%;top:30px;left:50%;margin-left:-46.5%" src="Website Graphics\firmware1.jpg"/></img>
+    </div>
+
+    <div class="Layer_1 aiAbs aiPointText" style="top:142px;margin-top:-17.5px;right:860px;width:81px;">
+			<a style="text-decoration:none" class="tabs" href="https://maiam6242.github.io/braille-printer/instructions.html">instructions</a>
+		</div>
+		<div class="dropdown Layer_1 aiAbs aiPointText" style="top:142px;margin-top:-17.5px;right:660px;width:73px;">
+      <a style="text-decoration:none; padding-bottom:10px;" class="tabs" href="https://maiam6242.github.io/braille-printer/system.html">system</a>
+      <div class="dropdown-content blue2" style="left:-10px; top:40px">
+        <a href="https://maiam6242.github.io/braille-printer/mechanical.html">mechanical</a>
+        <a href="https://maiam6242.github.io/braille-printer/electrical.html">electrical</a>
+        <a href="https://maiam6242.github.io/braille-printer/firmware.html">firmware</a>
+        <a href="https://maiam6242.github.io/braille-printer/software.html">software</a>
+        <a href="https://maiam6242.github.io/braille-printer/design.html">design</a>
+      </div>
+		</div>
+    <div class="dropdown Layer_1 aiAbs aiPointText" style="top:142px;margin-top:-17.5px;right:420px;width:160px;">
+      <a style="text-decoration:none; padding-bottom:10px;" class="tabs" href="https://maiam6242.github.io/braille-printer/process.html">process</a>
+      <div class="dropdown-content blue2" style="left:-10px; top:40px">
+        <a href="https://maiam6242.github.io/braille-printer/sprint1.html">sprint 1</a>
+        <a href="https://maiam6242.github.io/braille-printer/sprint2.html">sprint 2</a>
+        <a href="https://maiam6242.github.io/braille-printer/sprint3.html">sprint 3</a>
+        <a href="https://maiam6242.github.io/braille-printer/sprint4.html">sprint 4</a>
+        <a href="https://maiam6242.github.io/braille-printer/budget.html">budget</a>
+      </div>
+		</div>
+		<div class="Layer_1 aiAbs aiPointText" style="top:142px;margin-top:-17.5px;right:250px;width:160px;">
+      <a style="text-decoration:none" class="tabs" href="https://maiam6242.github.io/braille-printer/blog.html">blog</a>
+		</div>
+		<div class="Layer_1 aiAbs aiPointText" style="top:142px;margin-top:-17.5px;right:175px;width:110px;">
+			<a style="text-decoration:none" class="tabs" href="https://maiam6242.github.io/braille-printer/resources.html">resources</a>
+  	</div>
+		<div class="Layer_1 aiAbs aiPointText" style="top:142px;margin-top:-17.5px;right:-20px;width:133px;">
+      <a style="text-decoration:none" class="tabs" href="https://maiam6242.github.io/braille-printer/team.html">team</a>
+		</div>
+
+    <div id="ai0-1" class="Layer_1 aiAbs" style="top:8.8722%;left:49.9236%;margin-left:-32.6429%;width:65.2858%;">
+			<p class="pstyle2" style="text-align:center">Firmware</p>
+		</div>
+		<div id="ai0-2" class="Layer_1 aiAbs" style="top:17.1155%;left:13.7989%;width:72.4109%;">
+			<p class="pstyle1">Our Arduino runs firmware which manages the complex actions required to make all 16 moving parts of our system function correctly. The firmware connects over serial to the Raspberry Pi and these two systems exchange information to print a document. In simple terms, the firmware controls all of the low-level actions of the system and the Raspberry Pi manages all of the high-level ones. This means that the firmware receives commands to move the x-axis to position 10 or to fire solenoids 1 and 3 and sends the signals which actually execute those actions.</p>
+		</div>
+		<div id="ai0-3" class="Layer_1 aiAbs" style="top:52.9023%;left:13.793%;width:72.4109%;">
+			<p class="pstyle1">The firmware is structured in four separate classes, one for each stepper, one for the solenoids, and one for the serial interface. The two stepper classes inherit from the AccelStepper library and define methods specific to their function. Each one has a home function to either load paper or home the x-axis and each has a function to move an exact number of millimeters from their home. The solenoid class handles firing the selected solenoids out of 14, and simply turns on each selected solenoid for .2 seconds then turns them off again. The final class handles reading and writing over serial and interpreting serial commands. This interpreter class takes the commands which are sent and runs the functions associated with them then returns a finished signal when they are done. It stores a list of allowed commands and variables such as motor speeds that are associated with them. This allows the motors and solenoids to be controlled differently by different commands and have more flexibility in their motion.</p>
+			<p>&nbsp;</p>
+			<p class="pstyle1">The firmware is fully standalone and can be used over a serial monitor to control the printer manually. The commands for this control can be found in the firmware user guide which details the command structure and function. The firmware user guide can be found on the Github in the Firmware folder.</p>
+			<p>&nbsp;</p>
+			<p class="pstyle1" style="font-weight: 600">Requirements:</p>
+			<p>&nbsp;</p>
+			<p class="pstyle1">Arduino Mega or equivalent</p>
+			<p>&nbsp;</p>
+			<p class="pstyle1" style="font-weight: 600">Dependencies:</p>
+			<p>&nbsp;</p>
+			<p class="pstyle1">AccelStepper library for Arduino</p>
+			<p class="pstyle1">Arduino standard libraries</p>
+		</div>
+
+    <div style="width:1000px;left:50%;margin-left:-500px">
+  		<div class="Layer_1 aiAbs aiPointText" style="top:2981px;margin-top:-17.5px;left:9.4243%;width:81px;">
+  			<a style="text-decoration:none" class="tabs" href="https://maiam6242.github.io/braille-printer/instructions.html">instructions</a>
+  		</div>
+      <div class="Layer_1 aiAbs aiPointText" style="top:2981px;margin-top:-17.5px;left:27%;width:81px;">
+        <a style="text-decoration:none" class="tabs" href="https://maiam6242.github.io/braille-printer/system.html">system</a>
+  		</div>
+  		<div class="Layer_1 aiAbs aiPointText" style="top:2981px;margin-top:-17.5px;left:42%;width:73px;">
+        <a style="text-decoration:none" class="tabs" href="https://maiam6242.github.io/braille-printer/process.html">process</a>
+  		</div>
+  		<div class="Layer_1 aiAbs aiPointText" style="top:2981px;margin-top:-17.5px;left:57%;width:160px;">
+          <a style="text-decoration:none" class="tabs" href="https://maiam6242.github.io/braille-printer/blog.html">blog</a>
+  		</div>
+  		<div class="Layer_1 aiAbs aiPointText" style="top:2981px;margin-top:-17.5px;left:69%;width:133px;">
+        <a style="text-decoration:none" class="tabs" href="https://maiam6242.github.io/braille-printer/resources.html">resources</a>
+  		</div>
+  		<div class="Layer_1 aiAbs aiPointText" style="top:2981px;margin-top:-17.5px;left:85%;width:110px;">
+        <a style="text-decoration:none" class="tabs" href="https://maiam6242.github.io/braille-printer/team.html">team</a>
+  		</div>
+    </div>
+	</div>
+</div>
