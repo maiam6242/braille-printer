@@ -28,18 +28,18 @@
       <div class="dot"></div>
     </div>
 
-    <div class="circle450 blue3" style="left:55%;top:28.5%"></div>
-    <div class="circle250 blue1" style="left:72%;top:21.5%"></div>
-    <div class="circle675 blue2" style="left:10%;top:20.5%"></div>
-    <div class="aiAbs" style="align:center;height:550px;width:880px;left:50%;margin-left:-440px;top:21.5%">
+    <div class="circle450 blue3" style="left:55%;top:25%"></div>
+    <div class="circle250 blue1" style="left:72%;top:20%"></div>
+    <div class="circle675 blue2" style="left:10%;top:19%"></div>
+    <div class="aiAbs" style="align:center;height:550px;width:880px;left:50%;margin-left:-440px;top:20%">
       <img class="portrait" alt="Software UML Diagram" style="width:94%;height:auto;top:30px;left:50%;margin-left:-46.5%;outline:0.5vw solid black; outline-offset: 1vw;" src="Website Graphics\softwareDiagram.png"/></img>
     </div>
 
-    <div class="circle450 blue3" style="right:55%;top:38.7%"></div>
-    <div class="circle250 blue1" style="right:72%;top:47.7%"></div>
-    <div class="circle675 blue2" style="right:10%;top:38.7%"></div>
-    <div class="aiAbs" style="align:center;height:550px;width:880px;left:50%;margin-left:-440px;top:40.7%">
-      <img class="portrait" alt="Computer rendering of the Portabraille Printer" style="width:94%;height:auto;top:30px;left:50%;margin-left:-46.5%;outline:0.5vw solid black; outline-offset: 1vw;" src="Website Graphics\portal.png"/></img>
+    <div class="circle450 blue3" style="right:55%;top:37.7%"></div>
+    <div class="circle250 blue1" style="right:72%;top:46.7%"></div>
+    <div class="circle675 blue2" style="right:10%;top:37.7%"></div>
+    <div class="aiAbs" style="align:center;height:550px;width:880px;left:50%;margin-left:-440px;top:39.7%">
+      <img class="portrait" alt="Screenshot of the Portabraille Printer portal landing page" style="width:94%;height:auto;top:30px;left:50%;margin-left:-46.5%;outline:0.5vw solid black; outline-offset: 1vw;" src="Website Graphics\portal.png"/></img>
     </div>
 
     <div class="Layer_1 aiAbs aiPointText" style="top:142px;margin-top:-17.5px;right:860px;width:81px;">
@@ -78,25 +78,27 @@
     <div id="ai0-1" class="Layer_1 aiAbs" style="top:4.9755%;left:49.9236%;margin-left:-32.6429%;width:65.2858%;">
 			<p class="pstyle2" style="text-align:center">Software</p>
 		</div>
-		<div id="ai0-2" class="Layer_1 aiAbs" style="top:9.5982%;left:13.7989%;width:72.4109%;">
+		<div id="ai0-2" class="Layer_1 aiAbs" style="top:9.05982%;left:13.7989%;width:72.4109%;">
 			<p class="pstyle1">The Portabraille has a few main software components: a portion that processes and writes text, a portion that recognizes USB and Wi-Fi input, a portion that hosts and handles our Wi-Fi network and a portion that handles the physical input from the user interface. There are also various scripts which allow users to easily set up new drives with the right dependencies and a script which allows the printer to run continuously once it is switched on. To run all of this software, we chose to use a Raspberry Pi 3B+. </p>
 			<p>&nbsp;</p>
 			<p class="pstyle1">All of this code allows for an accessible user-friendly experience. Essentially, a user plugs in a USB or submits a file from our local Portabraille network, and uses the physical interface to navigate through their printing journey, with the option to include spoken instructions and notifications throughout the process. </p>
 		</div>
-		<div id="ai0-3" class="Layer_1 aiAbs" style="top:33.8257%;left:13.7989%;width:72.4109%;">
+		<div id="ai0-3" class="Layer_1 aiAbs" style="top:33.7257%;left:13.7989%;width:72.4109%;">
 			<p class="pstyle1">As shown in the diagram above, even before the user enters the picture, there are two things that are set up. One, the printer main runner class, <code>bp_runner.py</code>, is started, which begins by listening for either a USB or Wi-Fi input. The other thing that is started is the <code>main.py</code> file which creates our Portabraille Portal, a local network which we run on the Pi using RaspAP. </p>
 		</div>
-		<div id="ai0-4" class="Layer_1 aiAbs" style="top:52.2238%;left:13.7989%;width:72.4109%;">
+		<div id="ai0-4" class="Layer_1 aiAbs" style="top:51.2238%;left:13.7989%;width:72.4109%;">
 			<p class="pstyle1"><code>bp_runner.py</code> first calls <code>select_file.py</code> which is constantly checking for a file from the user. Once one is found, either <code>getting_usb.py</code> or <code>getting_web.py</code> is run depending on the type of file inputted. Those also wrap bash scripts that allow the file to actually be read.</p>
 			<p>&nbsp;</p>
 			<p class="pstyle1">Once the files are read, they are passed to the text side software. As seen in the diagram above, first the software parses the text in <code>text_parse.py</code> and splits it into sections, then passes it to  <code>translator.py</code> where it is translated into braille. After that, it is taken in by the <code>drawable.py</code> class, where analysis is done of the size of the segment and whether or not it must be split over multiple pages. The sections are added to page objects which are instances of the <code>page.py</code> class. All of those page objects are contained as a document which is an instance of <code>document.py</code>. This step allows for easier printing later in the process. The class which actually interacts with the firmware and handles the physical implementation is <code>physical.py</code>. Once that is run, we end up with a complete braille document!</p>
 			<p>&nbsp;</p>
 			<p class="pstyle1">The last portion of our project which we controlled with software was the physical interface. This was done in a single class called <code>interface.py</code> which handles any user input or button presses on the interface. It also controls the LEDs on the physical interface. All of these software pieces work together to craft a great user experience. </p>
 			<p>&nbsp;</p>
-			<p class="pstyle2">Dependencies</p>
+			<p style="text-align:center" class="pstyle2">Dependencies</p>
+      <p class="pstyle1">&nbsp</p>
 			<p class="pstyle1">The software uses a significant number of existing libraries and frameworks to function successfully. Many are built into Python, and some are downloaded from external sources. </p>
 			<p>&nbsp;</p>
-			<p class="pstyle2">They include:</p>
+			<p class="pstyle0">They include:</p>
+      <p>&nbsp;</p>
 			<p>- Pyttsx3, which is a text to speech library for Python</p>
 			<p>- Numpy, which is a computing package for Python</p>
 			<p>- GPIO Zero, which is a library for interfacing GPIO devices with Raspberry Pi</p>
@@ -111,8 +113,12 @@
 			<p>- urlib.request, which is a library which allows a program to work with urls in Python</p>
 			<p>- werkzeug.utils, which is  a Web Server Gateway Interface web app library in Python</p>
 			<p>&nbsp;</p>
-			<p class="pstyle1">For more details about our project and to see all of our source code, check out our complete GitHub repo here!</p>
+			<p class="pstyle1">For more details about our project and to see all of our source code, check out our complete GitHub repo by clicking on the button below!</p>
 		</div>
+
+    <div style="position:absolute;top:94%;left:50%;margin-left:-175px">
+      <a style="text-decoration:none; width:350px" class="btn" href="https://github.com/maiam6242/braille-printer">take me to GitHub!</a>
+    </div>
 
     <div style="width:1000px;left:50%;margin-left:-500px">
   		<div class="Layer_1 aiAbs aiPointText" style="top:5346px;margin-top:-17.5px;left:9.4243%;width:81px;">
